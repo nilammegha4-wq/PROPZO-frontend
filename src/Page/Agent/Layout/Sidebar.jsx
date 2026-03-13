@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }) {
   const [agent, setAgent] = useState(null);
   const navigate = useNavigate();
 
@@ -37,10 +37,24 @@ export default function Sidebar() {
   };
 
   return (
-    <div style={styles.sidebar}>
+    <div style={{
+      ...styles.sidebar,
+      transform: (window.innerWidth <= 960 && !isOpen) ? "translateX(-100%)" : "translateX(0)"
+    }} className="agent-sidebar">
       <div style={styles.brandSection}>
-        <div style={styles.logoSquare}>P</div>
-        <h1 style={styles.brandTitle}>Propzo<span>Agent</span></h1>
+        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+          <div style={styles.logoSquare}>P</div>
+          <h1 style={styles.brandTitle}>Propzo<span>Agent</span></h1>
+        </div>
+        
+        {/* Close button for mobile */}
+        <button 
+          onClick={onClose}
+          style={styles.closeBtn}
+          className="sidebar-close-btn"
+        >
+          ✕
+        </button>
       </div>
 
       <nav style={styles.navStack}>
@@ -216,5 +230,34 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     transition: "all 0.2s ease",
+  },
+  closeBtn: {
+    display: "none",
+    background: "none",
+    border: "none",
+    color: "#fff",
+    fontSize: "24px",
+    cursor: "pointer",
+    padding: "4px",
   }
 };
+
+const respStyles = `
+  @media (max-width: 960px) {
+    .agent-sidebar {
+      width: 280px !important;
+      box-shadow: 8px 0 32px rgba(0,0,0,0.3) !important;
+    }
+    .sidebar-close-btn {
+      display: block !important;
+    }
+  }
+`;
+
+// Add a style tag for the media queries
+if (typeof document !== 'undefined') {
+  const styleTag = document.getElementById('agent-sidebar-styles') || document.createElement('style');
+  styleTag.id = 'agent-sidebar-styles';
+  styleTag.innerHTML = respStyles;
+  document.head.appendChild(styleTag);
+}

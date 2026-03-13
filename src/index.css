@@ -1,6 +1,18 @@
-/* =========================
-   GLOBAL RESET & FULLSCREEN
-========================= */
+:root {
+  /* EARTHY / SAGE PALETTE */
+  --brand-cream: #f9f6f1; /* Lightened E4CBB6 for bg */
+  --brand-beige: #e4cbb6; /* Accent / Card bg */
+  --brand-tan: #b2846b;   /* Primary Accent */
+  --brand-sage-light: #819b8b; /* Secondary / Success */
+  --brand-sage-dark: #627b68;  /* Highlight / Navbar */
+  --brand-brown: #4c3324;      /* Text / Heading */
+  
+  --text-main: #3a2e28;
+  --text-muted: #6b5e58;
+  --border-light: rgba(98, 123, 104, 0.15);
+  --white: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,8 +25,8 @@ html, body {
 }
 
 body {
-  background-color: #f0f2f5;
-  color: #333;
+  background-color: var(--brand-cream);
+  color: var(--text-main);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -40,10 +52,11 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
-  background: rgb(109, 170, 193);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  padding: 24px 60px;
+  background: var(--brand-sage-dark);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-logo {
@@ -113,82 +126,84 @@ main {
 }
 
 .glass-search input {
-  padding: 12px 20px;
-  border-radius: 10px;
-  border: none;
+  padding: 14px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(228, 203, 182, 0.3);
   outline: none;
-  width: 300px;
+  width: 350px;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.2);
-  color: #77e4f7;
+  color: var(--white);
   font-size: 1rem;
 }
 
 .glass-search input::placeholder {
-  color: #f0f0f0;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .glass-search button {
-  padding: 12px 25px;
-  border-radius: 10px;
+  padding: 14px 32px;
+  border-radius: 50px;
   border: none;
-  background-color: #5cb9c3;
-  color: #ffffff;
+  background-color: var(--brand-tan);
+  color: var(--white);
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .glass-search button:hover {
-  background-color: #85f7fd;
+  background-color: var(--brand-brown);
+  transform: translateY(-2px);
 }
 
 /* =========================
    PROPERTIES SECTION
 ========================= */
 .premium-properties {
-  padding: 80px 60px;
-  background: #f0f2f5;
+  padding: 100px 60px;
+  background: var(--brand-cream);
   text-align: center;
 }
 
 .premium-properties h2 {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: #333;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: var(--brand-brown);
 }
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
   overflow: hidden;
-  transition: 0.3s;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 10px 30px rgba(76, 51, 36, 0.05);
 }
 
 .glass-card img {
   width: 100%;
-  height: 180px;
+  height: 220px;
   object-fit: cover;
 }
 
 .glass-card h3 {
-  margin: 20px 0;
-  font-size: 1.2rem;
-  color: #333;
+  margin: 25px 0;
+  font-size: 1.4rem;
+  color: var(--brand-brown);
   text-transform: capitalize;
 }
 
 .glass-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(76, 51, 36, 0.12);
 }
 
 /* =========================
@@ -238,9 +253,9 @@ main {
   line-height: 1.7;
 }
 
-.about-one { background: linear-gradient(135deg, #51a98c, #59c8a5); }
-.about-two { background: linear-gradient(135deg, #81cad5, #6ca9a8); }
-.about-three { background: linear-gradient(135deg, #51a98c, #59c8a5); }
+.about-one { background: linear-gradient(135deg, var(--brand-sage-dark), var(--brand-sage-light)); }
+.about-two { background: linear-gradient(135deg, var(--brand-tan), var(--brand-beige)); }
+.about-three { background: linear-gradient(135deg, var(--brand-sage-dark), var(--brand-sage-light)); }
 
 /* =========================
    FEATURES SECTION
@@ -282,34 +297,34 @@ main {
 .feature-card h3 { font-size: 20px; margin-bottom: 14px; }
 .feature-card p { font-size: 14.5px; line-height: 1.7; }
 
-.feature-one { background: linear-gradient(135deg, #51a98c, #59c8a5); }
-.feature-two { background: linear-gradient(135deg, #81cad5, #6ca9a8); }
-.feature-three { background: linear-gradient(135deg, #51a98c, #59c8a5); }
+.feature-one { background: linear-gradient(135deg, var(--brand-sage-dark), var(--brand-sage-light)); }
+.feature-two { background: linear-gradient(135deg, var(--brand-tan), var(--brand-beige)); }
+.feature-three { background: linear-gradient(135deg, var(--brand-sage-dark), var(--brand-sage-light)); }
 
 /* =========================
    FOOTER
 ========================= */
 .footer {
-  background: #629ea5;
-  color: #151414;
-  padding: 60px 20px 30px;
+  background: var(--brand-sage-dark);
+  color: var(--white);
+  padding: 80px 20px 40px;
   text-align: center;
   margin-top: auto;
 }
 
 .footer-container { max-width: 900px; margin: auto; }
 
-.footer h3 { font-size: 26px; margin-bottom: 12px; }
+.footer h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 15px; }
 
-.footer p { font-size: 14.5px; line-height: 1.7; color: #161717; margin-bottom: 25px; }
+.footer p { font-size: 1rem; line-height: 1.8; color: rgba(255, 255, 255, 0.9); margin-bottom: 30px; }
 
 
-.footer-links a:hover { color: #59c8a5; }
+.footer-links a:hover { color: var(--brand-beige); }
 
 .footer-bottom {
-  border-top: 1px solid #374151;
-  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 25px;
   font-size: 13px;
-  color: #0b0b0b;
+  color: rgba(255, 255, 255, 0.6);
 }
 

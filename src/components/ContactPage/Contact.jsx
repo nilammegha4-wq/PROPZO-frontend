@@ -1,19 +1,70 @@
+// import { useState } from "react";
+// import { Link } from "react-router-dom";
+// import axios from "axios";
+
 // const Contact = () => {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     message: ""
+//   });
+
+//   const [newsletterEmail, setNewsletterEmail] = useState("");
+
+//   const [loading, setLoading] = useState(false);
+//   const [success, setSuccess] = useState("");
+
+//   const handleChange = (e) => {
+//     setFormData({
+//       ...formData,
+//       [e.target.name]: e.target.value
+//     });
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     try {
+//       setLoading(true);
+//       // Removed phone from payload map since the design only demands Email, Name, and Message.
+//       const res = await axios.post(
+//         "http://localhost:5000/api/contact",
+//         formData
+//       );
+//       setSuccess("Message sent successfully ✅");
+//       setFormData({ name: "", email: "", message: "" });
+//       setLoading(false);
+//     } catch (error) {
+//       console.error(error);
+//       setLoading(false);
+//       alert("Something went wrong");
+//     }
+//   };
+
+//   const handleNewsletterSubmit = (e) => {
+//     e.preventDefault();
+//     alert(`Subscribed to newsletter with: ${newsletterEmail}`);
+//     setNewsletterEmail("");
+//   }
+
 //   return (
 //     <>
 //       <style>{`
-//         /* =====================
-//            RESET
-//         ===================== */
 //         * {
 //           margin: 0;
 //           padding: 0;
 //           box-sizing: border-box;
-//           font-family: "Segoe UI", sans-serif;
+//           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 //         }
 
-//         body {
-//           overflow-x: hidden;
+//         /* --- Color Variables based on ketchen design --- */
+//         :root {
+//           --dark-teal: #2c4241;
+//           --mid-teal: #364f4d;
+//           --light-teal-bg: #f2f7f6;
+//           --btn-green: #7ca88a;
+//           --btn-hover: #679275;
+//           --text-gray: #6b7280;
+//           --text-dark: #1f2937;
 //         }
 
 //         .container {
@@ -23,242 +74,528 @@
 //         }
 
 //         /* =====================
-//            HERO
+//            HERO SECTION
 //         ===================== */
 //         .contact-hero {
-//           height: 60vh;
-//           background: linear-gradient(
-//               rgba(0, 0, 0, 0.6),
-//               rgba(0, 0, 0, 0.6)
-//             ),
-//             url("https://images.unsplash.com/photo-1522708323590-d24dbb6b0267")
-//               center/cover no-repeat;
+//           background: linear-gradient(135deg, var(--mid-teal) 0%, var(--dark-teal) 100%);
+//           position: relative;
+//           color: white;
+//           padding: 100px 5% 0 5%;
 //           display: flex;
-//           align-items: center;
-//           justify-content: center;
-//           color: #fff;
-//           text-align: center;
+//           justify-content: space-between;
+//           align-items: flex-end; /* Align to bottom so image can drop down */
 //         }
 
-//         .contact-hero h1 {
-//           font-size: 3.2rem;
+//         .hero-content {
+//           flex: 1;
+//           max-width: 500px;
+//           padding-bottom: 150px;
 //         }
 
-//         .contact-hero p {
-//           margin-top: 10px;
-//           font-size: 1.1rem;
-//           opacity: 0.9;
+//         .hero-title {
+//           font-size: 3.5rem;
+//           font-weight: 700;
+//           margin-bottom: 15px;
+//         }
+
+//         .hero-desc {
+//           font-size: 1rem;
+//           color: #a0b2aa;
+//           line-height: 1.6;
+//         }
+
+//         .hero-image-wrapper {
+//           flex: 1;
+//           max-width: 450px;
+//           position: relative;
+//           z-index: 10;
+//           margin-bottom: -100px; /* Pull it down over the next section */
+//         }
+
+//         .hero-image {
+//           width: 100%;
+//           height: 600px;
+//           object-fit: cover;
+//           border-top-left-radius: 250px;
+//           border-top-right-radius: 250px;
+//           border: 10px solid white;
+//           background: white;
+//           box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+//         }
+
+//         @media (max-width: 900px) {
+//           .contact-hero {
+//             flex-direction: column;
+//             align-items: center;
+//             text-align: center;
+//             padding-top: 80px;
+//           }
+//           .hero-content {
+//             padding-bottom: 60px;
+//           }
+//           .hero-image-wrapper {
+//             margin-bottom: -50px;
+//           }
+//           .hero-image {
+//             height: 400px;
+//           }
 //         }
 
 //         /* =====================
-//            CONTACT INFO
+//            CONTACT INFORMATION
 //         ===================== */
-//         .contact-info {
-//           padding: 80px 0;
+//         .contact-info-section {
+//           padding: 150px 5% 80px 5%; /* Pad top generously because image overlaps */
+//           background-color: white;
+//         }
+
+//         .info-header {
+//           margin-bottom: 40px;
+//           max-width: 450px;
+//         }
+
+//         .info-header h2 {
+//           color: var(--text-dark);
+//           font-size: 1.8rem;
+//           margin-bottom: 15px;
+//         }
+
+//         .info-header p {
+//           color: var(--text-gray);
+//           line-height: 1.6;
+//           font-size: 0.95rem;
 //         }
 
 //         .info-grid {
 //           display: grid;
-//           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//           grid-template-columns: repeat(3, 1fr);
 //           gap: 30px;
+//           max-width: 800px;
 //         }
 
-//         .info-box {
-//           background: #f9f9f9;
-//           padding: 35px;
-//           border-radius: 12px;
-//           text-align: center;
-//           box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+//         .info-card {
+//           text-align: left;
 //         }
 
-//         .info-box h3 {
-//           margin-bottom: 10px;
+//         .info-icon {
+//           width: 50px;
+//           height: 50px;
+//           background: var(--btn-green);
+//           color: white;
+//           border-radius: 50%;
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           font-size: 20px;
+//           margin-bottom: 20px;
 //         }
 
-//         .info-box p {
-//           color: #555;
-//           line-height: 1.6;
+//         .info-card h4 {
+//           color: var(--text-dark);
+//           font-size: 1.1rem;
+//           margin-bottom: 8px;
+//         }
+
+//         .info-card p {
+//           color: var(--text-gray);
+//           font-size: 0.9rem;
+//         }
+
+//         @media (max-width: 768px) {
+//           .info-grid {
+//             grid-template-columns: 1fr;
+//           }
+//           .info-card {
+//             display: flex;
+//             flex-direction: column;
+//             align-items: center;
+//             text-align: center;
+//           }
+//           .info-header {
+//             text-align: center;
+//             margin: 0 auto 40px;
+//           }
 //         }
 
 //         /* =====================
-//            FORM SECTION
+//            MAIN INTERACTION (FORM + MAP)
 //         ===================== */
-//         .contact-form-section {
-//           padding: 90px 0;
-//           background: #f4f4f4;
+//         .interaction-section {
+//           padding: 60px 5%;
+//           display: flex;
+//           gap: 60px;
+//           max-width: 1200px;
+//           margin: 0 auto;
 //         }
 
-//         .form-wrapper {
-//           background: #fff;
-//           padding: 50px;
-//           border-radius: 14px;
-//           box-shadow: 0 18px 40px rgba(0,0,0,0.1);
-//           max-width: 700px;
-//           margin: auto;
+//         /* Dark Form Card */
+//         .dark-form-card {
+//           flex: 1;
+//           background-color: var(--mid-teal);
+//           padding: 50px 40px;
+//           border-radius: 12px;
+//           color: white;
 //         }
 
-//         .form-wrapper h2 {
-//           text-align: center;
+//         .dark-form-card h2 {
+//           font-size: 1.8rem;
+//           margin-bottom: 15px;
+//         }
+
+//         .dark-form-card > p {
+//           color: #a0b2aa;
+//           font-size: 0.95rem;
 //           margin-bottom: 30px;
-//           font-size: 2.3rem;
+//           line-height: 1.6;
 //         }
 
 //         .form-group {
 //           margin-bottom: 20px;
 //         }
 
-//         .form-group input,
-//         .form-group textarea {
+//         .form-input {
 //           width: 100%;
-//           padding: 14px;
-//           border-radius: 8px;
-//           border: 1px solid #ccc;
-//           font-size: 1rem;
-//         }
-
-//         .form-group textarea {
-//           resize: none;
-//           height: 140px;
-//         }
-
-//         .form-group input:focus,
-//         .form-group textarea:focus {
+//           background: transparent;
+//           border: 1px solid #5d7572;
+//           border-radius: 25px;
+//           padding: 15px 20px;
+//           color: white;
+//           font-size: 0.95rem;
 //           outline: none;
-//           border-color: #f5c16c;
+//           transition: border-color 0.3s;
 //         }
 
-//         .submit-btn {
+//         .form-textarea {
 //           width: 100%;
-//           padding: 14px;
+//           background: transparent;
+//           border: 1px solid #5d7572;
+//           border-radius: 20px;
+//           padding: 15px 20px;
+//           color: white;
+//           font-size: 0.95rem;
+//           outline: none;
+//           resize: none;
+//           height: 120px;
+//           transition: border-color 0.3s;
+//         }
+
+//         .form-input:focus, .form-textarea:focus {
+//           border-color: var(--btn-green);
+//         }
+
+//         .form-input::placeholder, .form-textarea::placeholder {
+//           color: #8caba3;
+//         }
+
+//         .btn-green {
+//           background-color: var(--btn-green);
+//           color: white;
 //           border: none;
-//           background: #111;
-//           color: #fff;
+//           padding: 14px 30px;
+//           border-radius: 25px;
+//           font-weight: 500;
 //           font-size: 1rem;
-//           font-weight: bold;
-//           border-radius: 30px;
 //           cursor: pointer;
-//           transition: 0.3s ease;
+//           transition: background 0.3s;
+//           margin-top: 10px;
 //         }
 
-//         .submit-btn:hover {
-//           background: #f5c16c;
-//           color: #111;
+//         .btn-green:hover {
+//           background-color: var(--btn-hover);
 //         }
 
-//         /* =====================
-//            CTA
-//         ===================== */
-//         .contact-cta {
-//           padding: 80px 20px;
-//           background: linear-gradient(135deg, #111, #333);
-//           color: #fff;
-//           text-align: center;
-//         }
-
-//         .contact-cta h2 {
-//           font-size: 2.4rem;
+//         .success-text {
+//           color: var(--btn-green);
+//           font-weight: 600;
 //           margin-bottom: 15px;
 //         }
 
-//         .contact-cta p {
-//           opacity: 0.85;
-//           max-width: 600px;
-//           margin: auto;
+//         /* Map and Socials */
+//         .map-section {
+//           flex: 1;
+//           display: flex;
+//           flex-direction: column;
+//         }
+
+//         .map-section h2 {
+//           color: var(--text-dark);
+//           font-size: 1.5rem;
+//           margin-bottom: 10px;
+//         }
+
+//         .map-section > p {
+//           color: var(--text-gray);
+//           font-size: 0.95rem;
+//           margin-bottom: 25px;
+//           line-height: 1.6;
+//         }
+
+//         .map-container {
+//           width: 100%;
+//           height: 300px;
+//           border-radius: 12px;
+//           overflow: hidden;
+//           margin-bottom: 35px;
+//           box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+//         }
+
+//         .map-container iframe {
+//           width: 100%;
+//           height: 100%;
+//           border: none;
+//         }
+
+//         .social-icons {
+//           display: flex;
+//           gap: 15px;
+//         }
+
+//         .social-icon {
+//           width: 45px;
+//           height: 45px;
+//           background: var(--mid-teal);
+//           border-radius: 50%;
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           color: white;
+//           font-size: 18px;
+//           cursor: pointer;
+//           transition: background 0.3s;
+//         }
+
+//         .social-icon:hover {
+//           background: var(--btn-green);
+//         }
+
+//         @media (max-width: 900px) {
+//           .interaction-section {
+//             flex-direction: column;
+//           }
 //         }
 
 //         /* =====================
-//            RESPONSIVE
+//            FOOTER BANNER SECTION
 //         ===================== */
-//         @media (max-width: 768px) {
-//           .contact-hero h1 {
-//             font-size: 2.4rem;
-//           }
+//         .footer-banner-section {
+//           background: linear-gradient(135deg, var(--dark-teal) 0%, var(--mid-teal) 100%);
+//           padding: 80px 5%;
+//           color: white;
+//           text-align: center;
+//           position: relative;
+//         }
 
-//           .form-wrapper {
-//             padding: 35px;
+//         .footer-banner-container {
+//           max-width: 800px;
+//           margin: 0 auto;
+//         }
+
+//         .footer-banner-text h2 {
+//           font-family: 'Playfair Display', serif;
+//           font-size: 2.8rem;
+//           margin-bottom: 20px;
+//         }
+
+//         .footer-banner-text p {
+//           color: #a0b2aa;
+//           font-size: 1.1rem;
+//           line-height: 1.6;
+//           margin-bottom: 30px;
+//         }
+
+//         .footer-cta-btn {
+//           display: inline-block;
+//           background-color: var(--btn-green);
+//           color: white;
+//           padding: 16px 40px;
+//           border-radius: 30px;
+//           font-weight: 600;
+//           font-size: 1.1rem;
+//           text-decoration: none;
+//           transition: transform 0.3s, background 0.3s;
+//           box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+//         }
+
+//         .footer-cta-btn:hover {
+//           background-color: var(--btn-hover);
+//           transform: translateY(-3px);
+//         }
+
+//         @media (max-width: 768px) {
+//           .footer-banner-container {
+//             flex-direction: column;
+//             text-align: center;
 //           }
 //         }
 //       `}</style>
 
-//       {/* ===================== HERO ===================== */}
+//       {/* Hero Section */}
 //       <section className="contact-hero">
-//         <div>
-//           <h1>Contact Propzo</h1>
-//           <p>Your trusted partner in smarter real-estate decisions</p>
+//         <div className="hero-content">
+//           <h1 className="hero-title">Contact Us</h1>
+//           <p className="hero-desc">
+//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+//             luctus nec ullamcorper mattis, pulvinar dapibus leo.
+//           </p>
+//         </div>
+//         <div className="hero-image-wrapper">
+//           <img
+//             src="/1.jpg"
+//             alt="Modern Kitchen Layout"
+//             className="hero-image"
+//           />
 //         </div>
 //       </section>
 
-//       {/* ===================== CONTACT INFO ===================== */}
-//       <section className="contact-info">
-//         <div className="container info-grid">
-//           <div className="info-box">
-//             <h3>📍 Our Office</h3>
-//             <p>Mumbai, India<br />Serving clients nationwide</p>
+//       {/* Contact Information */}
+//       <section className="contact-info-section">
+//         <div className="container">
+//           <div className="info-header">
+//             <h2>Contact Information</h2>
+//             <p>
+//               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//               Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+//             </p>
 //           </div>
 
-//           <div className="info-box">
-//             <h3>📞 Call Us</h3>
-//             <p>+91 98765 43210<br />Mon – Sat, 9AM – 6PM</p>
-//           </div>
-
-//           <div className="info-box">
-//             <h3>✉ Email</h3>
-//             <p>prpzoestate@gmail.com<br />We reply within 24 hours</p>
+//           <div className="info-grid">
+//             <div className="info-card">
+//               <div className="info-icon">📞</div>
+//               <h4>(+654) 6544 55</h4>
+//               <p>Lorem ipsum dolor sit</p>
+//             </div>
+//             <div className="info-card">
+//               <div className="info-icon">✉</div>
+//               <h4>mail@ktchn.com</h4>
+//               <p>Lorem ipsum dolor sit</p>
+//             </div>
+//             <div className="info-card">
+//               <div className="info-icon">📍</div>
+//               <h4>Mumbai, India</h4>
+//               <p>Lorem ipsum dolor sit</p>
+//             </div>
 //           </div>
 //         </div>
 //       </section>
 
-//       {/* ===================== FORM ===================== */}
-//       <section className="contact-form-section">
-//         <div className="form-wrapper">
-//           <h2>Get In Touch</h2>
+//       {/* Main Interaction (Form + Map) */}
+//       <section className="interaction-section">
 
-//           <form>
+//         {/* Left Side: Dark Form */}
+//         <div className="dark-form-card">
+//           <h2>Get In Touch !</h2>
+//           <p>
+//             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+//             Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus.
+//           </p>
+
+//           {success && <p className="success-text">{success}</p>}
+
+//           <form onSubmit={handleSubmit}>
 //             <div className="form-group">
-//               <input type="text" placeholder="Full Name" required />
+//               <input
+//                 type="email"
+//                 name="email"
+//                 className="form-input"
+//                 placeholder="Email"
+//                 value={formData.email}
+//                 onChange={handleChange}
+//                 required
+//               />
 //             </div>
-
 //             <div className="form-group">
-//               <input type="email" placeholder="Email Address" required />
+//               <input
+//                 type="text"
+//                 name="name"
+//                 className="form-input"
+//                 placeholder="Name"
+//                 value={formData.name}
+//                 onChange={handleChange}
+//                 required
+//               />
 //             </div>
-
 //             <div className="form-group">
-//               <input type="text" placeholder="Phone Number" />
+//               <textarea
+//                 name="message"
+//                 className="form-textarea"
+//                 placeholder="Message"
+//                 value={formData.message}
+//                 onChange={handleChange}
+//                 required
+//               ></textarea>
 //             </div>
-
-//             <div className="form-group">
-//               <textarea placeholder="Your Message"></textarea>
-//             </div>
-
-//             <button className="submit-btn">Send Message</button>
+//             <button className="btn-green" type="submit" disabled={loading}>
+//               {loading ? "Sending..." : "Submit Button"}
+//             </button>
 //           </form>
 //         </div>
+
+//         {/* Right Side: Map & Socials */}
+//         <div className="map-section">
+//           <h2>Our Location</h2>
+//           <p>
+//             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+//             luctus nec ullamcorper mattis, pulvinar dapibus leo.
+//           </p>
+
+//           <div className="map-container">
+//             <iframe
+//               src="https://maps.google.com/maps?q=Mumbai,+India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+//               allowFullScreen=""
+//               loading="lazy"
+//               referrerPolicy="no-referrer-when-downgrade"
+//               title="Google Maps Location"
+//             ></iframe>
+//           </div>
+
+//           <h2>Social Media</h2>
+//           <div className="social-icons">
+//             {/* Dummy Icons simulating FontAwesome or similar */}
+//             <div className="social-icon">f</div>
+//             <div className="social-icon">t</div>
+//             <div className="social-icon">▶</div>
+//             <div className="social-icon">W</div>
+//           </div>
+//         </div>
+
 //       </section>
 
-//       {/* ===================== CTA ===================== */}
-//       <section className="contact-cta">
-//         <h2>Let’s Build Your Property Future</h2>
-//         <p>
-//           Whether buying, selling, or investing — Propzo is here to guide you
-//           every step of the way.
-//         </p>
+//       {/* Footer Banner Section */}
+//       <section className="footer-banner-section">
+//         <div className="footer-banner-container">
+//           <div className="footer-banner-text">
+//             <h2>Ready to Find Your Dream Home?</h2>
+//             <p>
+//               Connect with our elite team of real estate professionals for a private 
+//               consultation tailored to your luxury property needs.
+//             </p>
+//             <Link to="/properties" className="footer-cta-btn">
+//               Explore Properties
+//             </Link>
+//           </div>
+//         </div>
 //       </section>
+
 //     </>
 //   );
 // };
 
 // export default Contact;
+
+
+
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Contact = () => {
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     message: ""
   });
+
+  const [newsletterEmail, setNewsletterEmail] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
@@ -272,27 +609,16 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-
       setLoading(true);
-
+      // Removed phone from payload map since the design only demands Email, Name, and Message.
       const res = await axios.post(
         "http://localhost:5000/api/contact",
         formData
       );
-
       setSuccess("Message sent successfully ✅");
-
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: ""
-      });
-
+      setFormData({ name: "", email: "", message: "" });
       setLoading(false);
-
     } catch (error) {
       console.error(error);
       setLoading(false);
@@ -300,218 +626,540 @@ const Contact = () => {
     }
   };
 
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    alert(`Subscribed to newsletter with: ${newsletterEmail}`);
+    setNewsletterEmail("");
+  }
+
   return (
     <>
       <style>{`
-        *{
-          margin:0;
-          padding:0;
-          box-sizing:border-box;
-          font-family:Segoe UI;
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .container{
-          width:90%;
-          max-width:1200px;
-          margin:auto;
+        /* --- Color Variables based on new palette --- */
+        :root {
+          --dark-teal: #4C3324;
+          --mid-teal: #627B68;
+          --light-teal-bg: #f5f0ec;
+          --btn-green: #819B8B;
+          --btn-hover: #627B68;
+          --text-gray: #6b7280;
+          --text-dark: #1f2937;
         }
 
-        .contact-hero{
-          height:60vh;
-          background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-          url("https://images.unsplash.com/photo-1522708323590-d24dbb6b0267")
-          center/cover no-repeat;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          color:#fff;
-          text-align:center;
+        .container {
+          width: 90%;
+          max-width: 1200px;
+          margin: auto;
         }
 
-        .contact-hero h1{
-          font-size:3rem;
+        /* =====================
+           HERO SECTION
+        ===================== */
+        .contact-hero {
+          background: linear-gradient(135deg, #627B68 0%, #4C3324 100%);
+          position: relative;
+          color: white;
+          padding: 100px 5% 0 5%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end; /* Align to bottom so image can drop down */
         }
 
-        .contact-info{
-          padding:70px 0;
+        .hero-content {
+          flex: 1;
+          max-width: 500px;
+          padding-bottom: 150px;
         }
 
-        .info-grid{
-          display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-          gap:30px;
+        .hero-title {
+          font-size: 3.5rem;
+          font-weight: 700;
+          margin-bottom: 15px;
         }
 
-        .info-box{
-          background:#f9f9f9;
-          padding:35px;
-          border-radius:12px;
-          text-align:center;
-          box-shadow:0 12px 30px rgba(0,0,0,0.08);
+        .hero-desc {
+          font-size: 1rem;
+          color: #E4CBB6;
+          line-height: 1.6;
         }
 
-        .contact-form-section{
-          padding:80px 0;
-          background:#f4f4f4;
+        .hero-image-wrapper {
+          flex: 1;
+          max-width: 450px;
+          position: relative;
+          z-index: 10;
+          margin-bottom: -100px; /* Pull it down over the next section */
         }
 
-        .form-wrapper{
-          background:#fff;
-          padding:50px;
-          border-radius:12px;
-          box-shadow:0 18px 40px rgba(0,0,0,0.1);
-          max-width:650px;
-          margin:auto;
+        .hero-image {
+          width: 100%;
+          height: 600px;
+          object-fit: cover;
+          border-top-left-radius: 250px;
+          border-top-right-radius: 250px;
+          border: 10px solid white;
+          background: white;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        .form-wrapper h2{
-          text-align:center;
-          margin-bottom:25px;
+        @media (max-width: 900px) {
+          .contact-hero {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+          }
+          .hero-content {
+            padding-bottom: 60px;
+          }
+          .hero-image-wrapper {
+            margin-bottom: -50px;
+          }
+          .hero-image {
+            height: 400px;
+          }
         }
 
-        .form-group{
-          margin-bottom:18px;
+        /* =====================
+           CONTACT INFORMATION
+        ===================== */
+        .contact-info-section {
+          padding: 150px 5% 80px 5%; /* Pad top generously because image overlaps */
+          background-color: white;
         }
 
-        .form-group input,
-        .form-group textarea{
-          width:100%;
-          padding:14px;
-          border-radius:8px;
-          border:1px solid #ccc;
-          font-size:1rem;
+        .info-header {
+          margin-bottom: 40px;
+          max-width: 450px;
         }
 
-        .submit-btn{
-          width:100%;
-          padding:14px;
-          border:none;
-          background:#111;
-          color:#fff;
-          border-radius:30px;
-          cursor:pointer;
-          font-weight:bold;
+        .info-header h2 {
+          color: var(--text-dark);
+          font-size: 1.8rem;
+          margin-bottom: 15px;
         }
 
-        .submit-btn:hover{
-          background:#f5c16c;
-          color:#111;
+        .info-header p {
+          color: var(--text-gray);
+          line-height: 1.6;
+          font-size: 0.95rem;
         }
 
-        .success{
-          text-align:center;
-          color:green;
-          margin-bottom:15px;
-          font-weight:bold;
+        .info-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+          max-width: 800px;
         }
 
-        .contact-cta{
-          padding:80px 20px;
-          background:linear-gradient(135deg,#111,#333);
-          color:#fff;
-          text-align:center;
+        .info-card {
+          text-align: left;
         }
 
+        .info-icon {
+          width: 50px;
+          height: 50px;
+          background: var(--btn-green);
+          color: white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+          margin-bottom: 20px;
+        }
+
+        .info-card h4 {
+          color: var(--text-dark);
+          font-size: 1.1rem;
+          margin-bottom: 8px;
+        }
+
+        .info-card p {
+          color: var(--text-gray);
+          font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+          .info-grid {
+            grid-template-columns: 1fr;
+          }
+          .info-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+          }
+          .info-header {
+            text-align: center;
+            margin: 0 auto 40px;
+          }
+        }
+
+        /* =====================
+           MAIN INTERACTION (FORM + MAP)
+        ===================== */
+        .interaction-section {
+          padding: 60px 5%;
+          display: flex;
+          gap: 60px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        /* Dark Form Card */
+        .dark-form-card {
+          flex: 1;
+          background-color: var(--mid-teal);
+          padding: 50px 40px;
+          border-radius: 12px;
+          color: white;
+        }
+
+        .dark-form-card h2 {
+          font-size: 1.8rem;
+          margin-bottom: 15px;
+        }
+
+        .dark-form-card > p {
+          color: #E4CBB6;
+          font-size: 0.95rem;
+          margin-bottom: 30px;
+          line-height: 1.6;
+        }
+
+        .form-group {
+          margin-bottom: 20px;
+        }
+
+        .form-input {
+          width: 100%;
+          background: transparent;
+          border: 1px solid #819B8B;
+          border-radius: 25px;
+          padding: 15px 20px;
+          color: white;
+          font-size: 0.95rem;
+          outline: none;
+          transition: border-color 0.3s;
+        }
+
+        .form-textarea {
+          width: 100%;
+          background: transparent;
+          border: 1px solid #819B8B;
+          border-radius: 20px;
+          padding: 15px 20px;
+          color: white;
+          font-size: 0.95rem;
+          outline: none;
+          resize: none;
+          height: 120px;
+          transition: border-color 0.3s;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+          border-color: #E4CBB6;
+        }
+        
+        .form-input::placeholder, .form-textarea::placeholder {
+          color: #E4CBB6;
+        }
+
+        .btn-green {
+          background-color: var(--btn-green);
+          color: white;
+          border: none;
+          padding: 14px 30px;
+          border-radius: 25px;
+          font-weight: 500;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background 0.3s;
+          margin-top: 10px;
+        }
+
+        .btn-green:hover {
+          background-color: var(--btn-hover);
+        }
+
+        .success-text {
+          color: #E4CBB6;
+          font-weight: 600;
+          margin-bottom: 15px;
+        }
+
+        /* Map and Socials */
+        .map-section {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .map-section h2 {
+          color: var(--text-dark);
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+        }
+
+        .map-section > p {
+          color: var(--text-gray);
+          font-size: 0.95rem;
+          margin-bottom: 25px;
+          line-height: 1.6;
+        }
+
+        .map-container {
+          width: 100%;
+          height: 300px;
+          border-radius: 12px;
+          overflow: hidden;
+          margin-bottom: 35px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .map-container iframe {
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+
+        .social-icons {
+          display: flex;
+          gap: 15px;
+        }
+
+        .social-icon {
+          width: 45px;
+          height: 45px;
+          background: var(--mid-teal);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 18px;
+          cursor: pointer;
+          transition: background 0.3s;
+        }
+        
+        .social-icon:hover {
+          background: var(--btn-green);
+        }
+
+        @media (max-width: 900px) {
+          .interaction-section {
+            flex-direction: column;
+          }
+        }
+
+        /* =====================
+           FOOTER BANNER SECTION
+        ===================== */
+        .footer-banner-section {
+          background: linear-gradient(135deg, #4C3324 0%, #627B68 100%);
+          padding: 80px 5%;
+          color: white;
+          text-align: center;
+          position: relative;
+        }
+
+        .footer-banner-container {
+          max-width: 800px;
+          margin: 0 auto;
+        }
+
+        .footer-banner-text h2 {
+          font-family: 'Playfair Display', serif;
+          font-size: 2.8rem;
+          margin-bottom: 20px;
+        }
+
+        .footer-banner-text p {
+          color: #E4CBB6;
+          font-size: 1.1rem;
+          line-height: 1.6;
+          margin-bottom: 30px;
+        }
+        
+        .footer-cta-btn {
+          display: inline-block;
+          background-color: var(--btn-green);
+          color: white;
+          padding: 16px 40px;
+          border-radius: 30px;
+          font-weight: 600;
+          font-size: 1.1rem;
+          text-decoration: none;
+          transition: transform 0.3s, background 0.3s;
+          box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .footer-cta-btn:hover {
+          background-color: var(--btn-hover);
+          transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+          .footer-banner-container {
+            flex-direction: column;
+            text-align: center;
+          }
+        }
       `}</style>
 
-      {/* HERO */}
+      {/* Hero Section */}
       <section className="contact-hero">
-        <div>
-          <h1>Contact Propzo</h1>
-          <p>Your trusted partner in smarter real-estate decisions</p>
+        <div className="hero-content">
+          <h1 className="hero-title">Contact Us</h1>
+          <p className="hero-desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+            luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          </p>
+        </div>
+        <div className="hero-image-wrapper">
+          <img
+            src="/1.jpg"
+            alt="Modern Kitchen Layout"
+            className="hero-image"
+          />
         </div>
       </section>
 
-      {/* CONTACT INFO */}
-      <section className="contact-info">
-        <div className="container info-grid">
-
-          <div className="info-box">
-            <h3>📍 Our Office</h3>
-            <p>Mumbai, India<br />Serving clients nationwide</p>
+      {/* Contact Information */}
+      <section className="contact-info-section">
+        <div className="container">
+          <div className="info-header">
+            <h2>Contact Information</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            </p>
           </div>
 
-          <div className="info-box">
-            <h3>📞 Call Us</h3>
-            <p>+91 98765 43210<br />Mon – Sat, 9AM – 6PM</p>
+          <div className="info-grid">
+            <div className="info-card">
+              <div className="info-icon">📞</div>
+              <h4>(+654) 6544 55</h4>
+              <p>Lorem ipsum dolor sit</p>
+            </div>
+            <div className="info-card">
+              <div className="info-icon">✉</div>
+              <h4>mail@ktchn.com</h4>
+              <p>Lorem ipsum dolor sit</p>
+            </div>
+            <div className="info-card">
+              <div className="info-icon">📍</div>
+              <h4>Mumbai, India</h4>
+              <p>Lorem ipsum dolor sit</p>
+            </div>
           </div>
-
-          <div className="info-box">
-            <h3>✉ Email</h3>
-            <p>prpzoestate@gmail.com<br />We reply within 24 hours</p>
-          </div>
-
         </div>
       </section>
 
-      {/* CONTACT FORM */}
-      <section className="contact-form-section">
-        <div className="form-wrapper">
+      {/* Main Interaction (Form + Map) */}
+      <section className="interaction-section">
 
-          <h2>Get In Touch</h2>
+        {/* Left Side: Dark Form */}
+        <div className="dark-form-card">
+          <h2>Get In Touch !</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus.
+          </p>
 
-          {success && <p className="success">{success}</p>}
+          {success && <p className="success-text">{success}</p>}
 
           <form onSubmit={handleSubmit}>
-
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
             <div className="form-group">
               <input
                 type="email"
                 name="email"
-                placeholder="Email Address"
+                className="form-input"
+                placeholder="Email"
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
             </div>
-
             <div className="form-group">
               <input
                 type="text"
-                name="phone"
-                placeholder="Phone Number"
-                value={formData.phone}
+                name="name"
+                className="form-input"
+                placeholder="Name"
+                value={formData.name}
                 onChange={handleChange}
+                required
               />
             </div>
-
             <div className="form-group">
               <textarea
                 name="message"
-                placeholder="Your Message"
+                className="form-textarea"
+                placeholder="Message"
                 value={formData.message}
                 onChange={handleChange}
                 required
               ></textarea>
             </div>
-
-            <button className="submit-btn">
-              {loading ? "Sending..." : "Send Message"}
+            <button className="btn-green" type="submit" disabled={loading}>
+              {loading ? "Sending..." : "Submit Button"}
             </button>
-
           </form>
-
         </div>
+
+        {/* Right Side: Map & Socials */}
+        <div className="map-section">
+          <h2>Our Location</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+            luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          </p>
+
+          <div className="map-container">
+            <iframe
+              src="https://maps.google.com/maps?q=Mumbai,+India&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Google Maps Location"
+            ></iframe>
+          </div>
+
+          <h2>Social Media</h2>
+          <div className="social-icons">
+            {/* Dummy Icons simulating FontAwesome or similar */}
+            <div className="social-icon">f</div>
+            <div className="social-icon">t</div>
+            <div className="social-icon">▶</div>
+            <div className="social-icon">W</div>
+          </div>
+        </div>
+
       </section>
 
-      {/* CTA */}
-      <section className="contact-cta">
-        <h2>Let’s Build Your Property Future</h2>
-        <p>
-          Whether buying, selling, or investing — Propzo is here to guide you
-          every step of the way.
-        </p>
+      {/* Footer Banner Section */}
+      <section className="footer-banner-section">
+        <div className="footer-banner-container">
+          <div className="footer-banner-text">
+            <h2>Ready to Find Your Dream Home?</h2>
+            <p>
+              Connect with our elite team of real estate professionals for a private
+              consultation tailored to your luxury property needs.
+            </p>
+            <Link to="/properties" className="footer-cta-btn">
+              Explore Properties
+            </Link>
+          </div>
+        </div>
       </section>
 
     </>

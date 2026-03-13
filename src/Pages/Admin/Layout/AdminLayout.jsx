@@ -3,6 +3,7 @@ import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 
 export default function AdminLayout() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const [notifications, setNotifications] = useState([]);
@@ -73,6 +74,11 @@ export default function AdminLayout() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Auto-close sidebar on route change
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [location.pathname]);
+
   const handleLogout = () => {
     localStorage.removeItem("adminAuthToken");
     localStorage.removeItem("token");
@@ -91,12 +97,51 @@ export default function AdminLayout() {
 
   return (
     <div style={styles.layoutWrapper}>
+      <style>{`
+        @media (max-width: 991px) {
+          .admin-sidebar {
+            transform: translateX(-100%);
+            z-index: 2000;
+            transition: transform 0.3s ease;
+          }
+          .admin-sidebar.open {
+            transform: translateX(0);
+          }
+          .admin-main {
+            margin-left: 0 !important;
+          }
+          .admin-header-wrapper {
+            left: 0 !important;
+            padding: 0 15px !important;
+          }
+          .admin-top-header {
+            padding: 0 15px !important;
+          }
+          .admin-outlet {
+            padding: 116px 15px 40px !important;
+          }
+          .admin-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1999;
+          }
+          .header-right-meta { display: none !important; }
+        }
+      `}</style>
+
+      {sidebarOpen && <div className="admin-overlay" onClick={() => setSidebarOpen(false)} />}
+
       {/* Sidebar */}
-      <aside style={styles.sidebar}>
+      <aside style={styles.sidebar} className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div style={styles.brandContainer}>
           <div style={styles.logoCircle}>A</div>
           <h2 style={styles.brandName}>Admin Panel</h2>
         </div>
+
 
         <nav style={styles.navStack} className="nav-scroll-area">
           <Link to="/admin" style={styles.link}>Dashboard</Link>
@@ -147,11 +192,24 @@ export default function AdminLayout() {
       </aside>
 
       {/* Main Area */}
-      <main style={styles.mainContent}>
+      <main style={styles.mainContent} className="admin-main">
         {/* Fixed Header Wrapper to prevent content bleed-thru */}
-        <div style={styles.headerWrapper}>
-          <header style={styles.topHeader}>
+        <div style={styles.headerWrapper} className="admin-header-wrapper">
+          <header style={styles.topHeader} className="admin-top-header">
             <div style={styles.headerLeft}>
+              <button
+                onClick={() => setSidebarOpen(true)}
+                style={{
+                  ...styles.iconButton,
+                  marginRight: "15px",
+                  display: window.innerWidth <= 991 ? "flex" : "none"
+                }}
+                className="sidebar-toggle-btn"
+              >
+                <svg style={{ width: "24px", height: "24px", color: "white" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
               <div style={styles.greetingWrapper}>
                 <h3 style={styles.greetingText}>Welcome back, Administrator 👋</h3>
                 <p style={styles.greetingSubtext}>Here's what's happening today.</p>
@@ -159,7 +217,7 @@ export default function AdminLayout() {
             </div>
 
             <div style={styles.headerRight}>
-              <div style={styles.dateBadge}>
+              <div style={styles.dateBadge} className="header-right-meta">
                 <svg style={styles.headerIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                 </svg>
@@ -215,7 +273,7 @@ export default function AdminLayout() {
           </header>
         </div>
 
-        <div style={styles.outletContainer}>
+        <div style={styles.outletContainer} className="admin-outlet">
           <Outlet />
         </div>
       </main>
@@ -228,19 +286,19 @@ const styles = {
     display: "flex",
     minHeight: "100vh",
     fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
-    backgroundColor: "#f8fafc", // Lightest slate
+    backgroundColor: "#f5f0ec", // Light beige background
   },
   sidebar: {
     width: "260px",
-    background: "#0f172a", // Deep obsidian
-    color: "#fff",
+    background: "#627B68", // Dark Sage
+    color: "#E4CBB6",
     padding: "32px 20px",
     display: "flex",
     flexDirection: "column",
     position: "fixed",
     height: "100vh",
     boxSizing: "border-box", // Ensure padding doesn't push it beyond 100vh
-    boxShadow: "4px 0 10px rgba(0,0,0,0.05)",
+    borderRight: "1px solid #5a705e",
   },
   brandContainer: {
     display: "flex",
@@ -253,8 +311,9 @@ const styles = {
   logoCircle: {
     width: "32px",
     height: "32px",
-    background: "#3b82f6",
+    background: "#4C3324", // Deep Brown Logo
     borderRadius: "8px",
+    color: "#E4CBB6",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -263,6 +322,7 @@ const styles = {
   brandName: {
     fontSize: "1.25rem",
     fontWeight: "700",
+    color: "#E4CBB6",
     margin: 0,
     letterSpacing: "-0.5px",
   },
@@ -276,7 +336,7 @@ const styles = {
     marginBottom: "20px",
   },
   link: {
-    color: "#94a3b8", // Muted slate
+    color: "rgba(228, 203, 182, 0.7)", // Muted Cream text
     textDecoration: "none",
     padding: "12px 16px",
     borderRadius: "8px",
@@ -289,7 +349,7 @@ const styles = {
   sidebarFooter: {
     marginTop: "auto",
     padding: "20px 8px 20px", // Added bottom padding
-    borderTop: "1px solid #1e293b",
+    borderTop: "1px solid rgba(228, 203, 182, 0.15)",
     flexShrink: 0,
   },
   mainContent: {
@@ -314,16 +374,16 @@ const styles = {
   topHeader: {
     height: "76px",
     width: "100%",
-    backgroundColor: "rgba(15, 23, 42, 0.85)", // Deep obsidian with transparency
+    backgroundColor: "rgba(98, 123, 104, 0.95)", // Dark Sage with slight transparency
     backdropFilter: "blur(20px)",
     WebkitBackdropFilter: "blur(20px)",
-    border: "1px solid rgba(255, 255, 255, 0.1)",
+    border: "1px solid rgba(228, 203, 182, 0.15)", // Cream border
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0 28px",
     borderRadius: "20px",
-    boxShadow: "0 10px 40px -10px rgba(15, 23, 42, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
+    boxShadow: "0 10px 40px -10px rgba(76, 51, 36, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.1)", // Brown shadow
   },
   headerLeft: {
     display: "flex",
@@ -339,13 +399,13 @@ const styles = {
     margin: 0,
     fontSize: "18px",
     fontWeight: "700",
-    color: "#fff",
+    color: "#E4CBB6", // Cream
     letterSpacing: "-0.5px",
   },
   greetingSubtext: {
     margin: 0,
     fontSize: "13px",
-    color: "#94a3b8",
+    color: "rgba(228, 203, 182, 0.7)", // Muted Cream text
   },
   headerRight: {
     display: "flex",
@@ -357,17 +417,17 @@ const styles = {
     alignItems: "center",
     gap: "8px",
     padding: "8px 16px",
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-    border: "1px solid rgba(255, 255, 255, 0.05)",
+    backgroundColor: "rgba(76, 51, 36, 0.4)", // Deep Brown with transparency
+    border: "1px solid rgba(228, 203, 182, 0.1)",
     borderRadius: "20px",
     fontSize: "13px",
     fontWeight: "600",
-    color: "#e2e8f0",
+    color: "#E4CBB6", // Cream
     boxShadow: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.2)",
   },
   iconButton: {
-    background: "rgba(255, 255, 255, 0.05)",
-    border: "1px solid rgba(255, 255, 255, 0.1)",
+    background: "rgba(76, 51, 36, 0.4)", // Deep Brown with transparency
+    border: "1px solid rgba(228, 203, 182, 0.1)",
     cursor: "pointer",
     width: "44px",
     height: "44px",
@@ -382,12 +442,12 @@ const styles = {
   headerIcon: {
     width: "16px",
     height: "16px",
-    color: "#94a3b8",
+    color: "#E4CBB6", // Cream
   },
   headerIconAlt: {
     width: "20px",
     height: "20px",
-    color: "#f8fafc",
+    color: "#E4CBB6", // Cream
   },
   notificationDot: {
     position: "absolute",
@@ -395,9 +455,9 @@ const styles = {
     right: "-4px",
     width: "18px",
     height: "18px",
-    backgroundColor: "#ef4444",
+    backgroundColor: "#B2846B", // Tan/Red accent
     borderRadius: "50%",
-    border: "2px solid rgba(15, 23, 42, 0.85)",
+    border: "2px solid rgba(98, 123, 104, 0.95)", // Match header background
     fontSize: "10px",
     color: "#fff",
     display: "flex",

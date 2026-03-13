@@ -53,23 +53,14 @@ const PropertyList = () => {
     }).format(amount);
   };
 
-  // --- Stats ---
-  const activeListings = Array.isArray(properties) ? properties.filter(p => p.status === 'Active' || !p.status || !p.isSold).length : 0;
-  const portfolioValue = Array.isArray(properties) ? properties.reduce((sum, p) => sum + (Number(p.price) || 0), 0) : 0;
-
-  const stats = [
-    { label: 'ACTIVE LISTINGS', value: activeListings.toString(), detail: 'Properties on Market', color: '#6366f1', icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m4 0h1m-5 4h1m4 0h1m-5 4h1m4 0h1m-5 4h1m4 0h1" },
-    { label: 'CLIENT BOOKINGS', value: (Array.isArray(bookings) ? bookings.length : 0).toString(), detail: 'Total Inquiries', color: '#10b981', icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
-    { label: 'PORTFOLIO SIZE', value: (Array.isArray(properties) ? properties.length : 0).toString(), detail: 'Managed Assets', color: '#8b5cf6', icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" },
-    { label: 'PORTFOLIO VALUE', value: formatPriceINR(portfolioValue), detail: 'Total Asset Worth', color: '#f59e0b', icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
-  ];
 
   if (loading) {
     return <div style={{ padding: '40px', textAlign: 'center' }}>Loading properties...</div>;
   }
 
   return (
-    <div style={styles.pageContainer}>
+    <>
+      <div style={styles.pageContainer} className="apl-container">
       <style>{`
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.4s ease-out forwards; }
@@ -84,35 +75,32 @@ const PropertyList = () => {
         .price-text { font-weight: 800; color: #0f172a; font-size: 16px; }
       `}</style>
 
+      <style>{`
+        @media (max-width: 991px) {
+          .apl-container { padding: 30px 20px !important; margin: 20px auto !important; }
+        }
+        @media (max-width: 768px) {
+          .apl-title { font-size: 24px !important; }
+          .apl-header { margin-top: 20px !important; margin-bottom: 20px !important; }
+        }
+        @media (max-width: 480px) {
+          .apl-stats-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+
       {/* Header */}
-      <div style={styles.header}>
+      <div style={styles.header} className="apl-header">
         <div>
-          <h1 style={styles.title}>My Properties</h1>
+          <h1 style={styles.title} className="apl-title">My Properties</h1>
           <p style={{ color: '#64748b', margin: '4px 0 0 0' }}>Manage and track your real estate inventory</p>
         </div>
       </div>
 
-      {/* Stats Cards */}
-      <div style={styles.statsGrid} className="fade-in">
-        {stats.map((stat, i) => (
-          <div key={i} className="data-card" style={{ ...styles.statCard, animationDelay: `${i * 0.1}s` }}>
-            <div style={styles.statHeader}>
-              <div style={{ ...styles.iconContainer, backgroundColor: `${stat.color}10`, color: stat.color }}>
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={stat.icon} />
-                </svg>
-              </div>
-              <span style={styles.statLabel}>{stat.label}</span>
-            </div>
-            <div style={styles.statValue}>{stat.value}</div>
-            <div style={styles.statDetail}>{stat.detail}</div>
-          </div>
-        ))}
-      </div>
 
       {/* Property Table Section */}
-      <div className="data-card fade-in" style={{ padding: '0', overflowX: 'auto', animationDelay: '0.4s' }}>
-        <table style={styles.table}>
+      <div className="data-card fade-in apl-table-card" style={{ padding: '0', overflowX: 'auto', animationDelay: '0.4s', width: '100%' }}>
+        <div style={{ width: '100%', overflowX: 'auto' }}>
+          <table style={styles.table}>
           <thead>
             <tr>
               <th style={{ ...styles.th, width: '80px' }}>Preview</th>
@@ -167,9 +155,11 @@ const PropertyList = () => {
             )}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
-  );
+  </>
+);
 };
 
 const styles = {

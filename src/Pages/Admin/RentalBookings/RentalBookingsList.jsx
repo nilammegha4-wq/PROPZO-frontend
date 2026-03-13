@@ -44,13 +44,23 @@ export default function RentalBookingsList() {
     if (loading) return <div style={{ padding: "40px", textAlign: "center", color: "#64748b" }}>Loading rental bookings...</div>;
 
     return (
-        <div style={styles.container}>
-            <ToastContainer position="top-right" autoClose={3000} />
+        <>
+            <style>{`
+                @media (max-width: 991px) {
+                    .rb-container { padding: 30px 20px !important; }
+                }
+                @media (max-width: 768px) {
+                    .rb-header { margin-bottom: 20px !important; }
+                    .rb-title { font-size: 22px !important; }
+                }
+            `}</style>
+            <div style={styles.container} className="rb-container">
+                <ToastContainer position="top-right" autoClose={3000} />
 
-            <div style={styles.header}>
-                <h1 style={styles.title}>Rental Appointment Requests</h1>
-                <p style={styles.subtitle}>Manage all appointments booked for rent and per-rent properties.</p>
-            </div>
+                <div style={styles.header} className="rb-header">
+                    <h1 style={styles.title} className="rb-title">Rental Appointment Requests</h1>
+                    <p style={styles.subtitle}>Manage all appointments booked for rent and per-rent properties.</p>
+                </div>
 
             <div style={styles.tableCard}>
                 {bookings && bookings.length > 0 ? (
@@ -113,6 +123,7 @@ export default function RentalBookingsList() {
                 )}
             </div>
         </div>
+        </>
     );
 }
 

@@ -54,7 +54,8 @@ const ClientList = () => {
   );
 
   return (
-    <div style={styles.container}>
+    <>
+      <div style={styles.container} className="cl-container">
       <style>{`
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.4s ease-out forwards; }
@@ -105,16 +106,25 @@ const ClientList = () => {
         .tr-row:hover { background: #fbfbfc; }
       `}</style>
 
+      <style>{`
+        @media (max-width: 991px) {
+          .cl-container { padding: 30px 20px !important; margin: 20px auto !important; }
+        }
+        @media (max-width: 768px) {
+          .cl-title { font-size: 24px !important; }
+        }
+      `}</style>
+
       {/* Header Section */}
-      <div style={styles.header} className="fade-in">
+      <div style={styles.header} className="fade-in cl-header">
         <div>
-          <h2 style={styles.title}>Booking Directory</h2>
+          <h2 style={styles.title} className="cl-title">Booking Directory</h2>
           <p style={styles.subtitle}>Manage and track your property inquiries</p>
         </div>
       </div>
 
       {/* Main Content Table */}
-      <div className="booking-card fade-in" style={{ padding: '0', overflowX: 'auto', animationDelay: '0.2s' }}>
+      <div className="booking-card fade-in cl-table-card" style={{ padding: '0', overflowX: 'auto', animationDelay: '0.2s', width: '100%' }}>
         {loading ? (
           <div style={{ padding: '60px', textAlign: 'center', color: '#64748b' }}>Loading your inquiries...</div>
         ) : filteredClients.length === 0 ? (
@@ -122,7 +132,8 @@ const ClientList = () => {
             {searchQuery ? `No matches found for "${searchQuery}"` : "No inquiries found for your listings."}
           </div>
         ) : (
-          <table style={styles.table}>
+          <div style={{ width: "100%", overflowX: "auto" }}>
+            <table style={styles.table}>
             <thead>
               <tr style={{ background: '#f8fafc' }}>
                 <th style={styles.th}>Client Details</th>
@@ -187,10 +198,12 @@ const ClientList = () => {
               ))}
             </tbody>
           </table>
+          </div>
         )}
       </div>
     </div>
-  );
+  </>
+);
 };
 
 const styles = {

@@ -4,6 +4,11 @@ import axios from "axios";
 import { FaLocationDot, FaCalendarDays, FaTag, FaArrowLeft, FaPenToSquare, FaTrash } from "react-icons/fa6";
 import { useAuth } from "../../context/AuthContext";
 
+// ─── EARTHY COLOR PALETTE ────────────────────────────────────────────────────
+// #E4CBB6 — blush | #B2846B — terracotta | #819B8B — sage
+// #627B68 — forest green | #4C3324 — dark brown
+// ─────────────────────────────────────────────────────────────────────────────
+
 const MySellProperties = () => {
     const { auth } = useAuth();
     const navigate = useNavigate();
@@ -12,11 +17,7 @@ const MySellProperties = () => {
     const [error, setError] = useState(null);
 
     const fetchProperties = async () => {
-        if (!auth) {
-            navigate("/login");
-            return;
-        }
-
+        if (!auth) { navigate("/login"); return; }
         try {
             setLoading(true);
             const res = await axios.get(`/api/users/${auth.id}/sales`, {
@@ -25,109 +26,126 @@ const MySellProperties = () => {
             setProperties(res.data);
             setLoading(false);
         } catch (err) {
-            console.error("Fetch Sales Error Details:", err);
             setError(`Failed to load your sell properties: ${err.response?.data?.message || err.message}`);
             setLoading(false);
         }
     };
 
-    useEffect(() => {
-        fetchProperties();
-    }, [auth]);
+    useEffect(() => { fetchProperties(); }, [auth]);
 
     const formatDate = (dateString) => {
         return new Date(dateString).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
+            year: "numeric", month: "short", day: "numeric",
         });
     };
 
     if (loading) {
         return (
-            <div style={styles.loaderContainer}>
-                <div style={styles.spinner}></div>
-                <p>Fetching your listings...</p>
+            <div style={s.loaderContainer}>
+                <div style={s.spinner}></div>
+                <p style={{ color: "#819B8B", fontFamily: "'DM Sans', sans-serif" }}>Fetching your listings...</p>
             </div>
         );
     }
 
     return (
-        <div style={styles.pageWrapper}>
-            <div style={styles.container}>
+        <div style={s.pageWrapper}>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700&display=swap');
+                * { box-sizing: border-box; }
+                @keyframes spin { to { transform: rotate(360deg); } }
+                .msp-card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 16px 32px rgba(76,51,36,0.12) !important;
+                }
+                .msp-view-btn:hover {
+                    background-color: #627B68 !important;
+                    color: #fff !important;
+                    border-color: #627B68 !important;
+                }
+                @media (max-width: 768px) {
+                    .msp-grid { grid-template-columns: 1fr !important; }
+                    .msp-title { font-size: 24px !important; }
+                }
+                @media (max-width: 480px) {
+                    .msp-card { border-radius: 12px !important; }
+                    .msp-img { height: 160px !important; }
+                }
+            `}</style>
+
+            <div style={s.container}>
                 {/* Header */}
-                <div style={styles.header}>
-                    <button onClick={() => navigate(-1)} style={styles.backBtn}>
+                <div style={s.header}>
+                    <button onClick={() => navigate(-1)} style={s.backBtn}>
                         <FaArrowLeft /> Back
                     </button>
-                    <div style={styles.headerTitle}>
-                        <h1 style={styles.title}>My Sell Properties</h1>
-                        <p style={styles.subTitle}>Manage the properties you have listed for sale.</p>
-                    </div>
+                    <p style={s.breadcrumb}>My Account / Sell Properties</p>
+                    <h1 style={s.title} className="msp-title">My Sell Properties</h1>
+                    <p style={s.subTitle}>Manage the properties you have listed for sale.</p>
                 </div>
 
-                {error && <div style={styles.errorBanner}>{error}</div>}
+                {error && <div style={s.errorBanner}>{error}</div>}
 
                 {properties.length === 0 ? (
-                    <div style={styles.emptyState}>
-                        <FaTag style={styles.emptyIcon} />
-                        <h3>No properties listed</h3>
-                        <p>You haven't listed any properties for sale yet.</p>
-                        <Link to="/sellproperty" style={styles.browseBtn}>List a Property</Link>
+                    <div style={s.emptyState}>
+                        <FaTag style={s.emptyIcon} />
+                        <h3 style={{ color: "#4C3324", fontFamily: "'Sora', sans-serif", marginBottom: 8 }}>No properties listed</h3>
+                        <p style={{ color: "#819B8B", fontFamily: "'DM Sans', sans-serif" }}>You haven't listed any properties for sale yet.</p>
+                        <Link to="/sellproperty" style={s.browseBtn}>List a Property</Link>
                     </div>
                 ) : (
-                    <div style={styles.grid}>
+                    <div style={s.grid} className="msp-grid">
                         {properties.map((property) => {
-                            const imageUrl = property.images && property.images.length > 0
-                                ? property.images[0]
-                                : property.image;
+                            const imageUrl = property.images?.length > 0 ? property.images[0] : property.image;
 
                             return (
-                                <div key={property._id} style={styles.card}>
-                                    <div style={styles.imageSection}>
+                                <div key={property._id} style={s.card} className="msp-card">
+                                    {/* Image */}
+                                    <div style={s.imageSection} className="msp-img">
                                         {imageUrl ? (
                                             <img
                                                 src={`http://localhost:5000${imageUrl}`}
                                                 alt={property.title}
-                                                style={styles.propertyImg}
+                                                style={s.propertyImg}
                                             />
                                         ) : (
-                                            <div style={styles.imgPlaceholder}>
-                                                <FaTag /> No Image
+                                            <div style={s.imgPlaceholder}>
+                                                <FaTag style={{ fontSize: 24, marginBottom: 8 }} />
+                                                No Image
                                             </div>
                                         )}
-                                        <div style={styles.badge}>
-                                            Listed
-                                        </div>
+                                        <div style={s.badge}>Listed</div>
                                     </div>
 
-                                    <div style={styles.cardBody}>
-                                        <div style={styles.typeTag}>{property.propertyType || property.category || "Property"}</div>
-                                        <h3 style={styles.propertyTitle}>{property.title || "Untitled Property"}</h3>
+                                    {/* Card Body */}
+                                    <div style={s.cardBody}>
+                                        <div style={s.typeTag}>{property.propertyType || property.category || "Property"}</div>
+                                        <h3 style={s.propertyTitle}>{property.title || "Untitled Property"}</h3>
 
-                                        <div style={styles.infoRow}>
-                                            <FaLocationDot style={styles.infoIcon} />
+                                        <div style={s.infoRow}>
+                                            <FaLocationDot style={s.infoIcon} />
                                             <span>{property.city || property.address || "Location not available"}</span>
                                         </div>
-
-                                        <div style={styles.infoRow}>
-                                            <FaCalendarDays style={styles.infoIcon} />
+                                        <div style={s.infoRow}>
+                                            <FaCalendarDays style={s.infoIcon} />
                                             <span>Listed on {formatDate(property.createdAt)}</span>
                                         </div>
 
-                                        <div style={styles.priceSection}>
-                                            <div style={styles.priceLabel}>Selling Price</div>
-                                            <div style={styles.priceValue}>
+                                        <div style={s.priceSection}>
+                                            <div style={s.priceLabel}>Selling Price</div>
+                                            <div style={s.priceValue}>
                                                 {property.price ? `₹${property.price.toLocaleString()}` : "Contact for Price"}
                                             </div>
                                         </div>
 
-                                        <div style={styles.actionRow}>
-                                            <Link to={`/property/${property._id}`} style={styles.viewBtn}>View Details</Link>
-                                            <button style={styles.editBtn} title="Edit Property" disabled>
+                                        <div style={s.actionRow}>
+                                            <Link to={`/property/${property._id}`} style={s.viewBtn} className="msp-view-btn">
+                                                View Details
+                                            </Link>
+                                            <button style={s.editBtn} title="Edit Property" disabled>
                                                 <FaPenToSquare />
                                             </button>
-                                            <button style={styles.deleteBtn} title="Delete Property" disabled>
+                                            <button style={s.deleteBtn} title="Delete Property" disabled>
                                                 <FaTrash />
                                             </button>
                                         </div>
@@ -142,53 +160,65 @@ const MySellProperties = () => {
     );
 };
 
-const styles = {
+const s = {
     pageWrapper: {
-        backgroundColor: "#f8fafc",
+        background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
         minHeight: "100vh",
         padding: "100px 20px 60px",
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'DM Sans', sans-serif",
     },
     container: {
         maxWidth: "1200px",
         margin: "0 auto",
     },
     header: {
-        marginBottom: "40px",
+        marginBottom: 40,
     },
     backBtn: {
         display: "flex",
         alignItems: "center",
-        gap: "8px",
+        gap: 8,
         background: "none",
         border: "none",
-        color: "#6366f1",
-        fontWeight: "600",
-        fontSize: "15px",
+        color: "#B2846B",
+        fontWeight: 600,
+        fontSize: 15,
         cursor: "pointer",
-        marginBottom: "20px",
-        padding: "0",
+        marginBottom: 16,
+        padding: 0,
+        fontFamily: "'DM Sans', sans-serif",
+        transition: "color 0.18s",
     },
-    headerTitle: {},
+    breadcrumb: {
+        fontSize: 12,
+        color: "#B2846B",
+        letterSpacing: "0.08em",
+        textTransform: "uppercase",
+        fontWeight: 600,
+        margin: "0 0 6px 0",
+    },
     title: {
-        fontSize: "32px",
-        fontWeight: "800",
-        color: "#0f172a",
+        fontSize: 32,
+        fontWeight: 700,
+        color: "#4C3324",
+        fontFamily: "'Sora', sans-serif",
         margin: "0 0 8px 0",
+        letterSpacing: "-0.5px",
     },
     subTitle: {
-        fontSize: "16px",
-        color: "#64748b",
-        margin: "0",
+        fontSize: 15,
+        color: "#819B8B",
+        margin: 0,
     },
     errorBanner: {
-        backgroundColor: "#fef2f2",
-        color: "#ef4444",
-        padding: "16px",
-        borderRadius: "12px",
-        marginBottom: "24px",
+        backgroundColor: "#f5ddd7",
+        color: "#8b3a25",
+        padding: 16,
+        borderRadius: 12,
+        marginBottom: 24,
         textAlign: "center",
-        border: "1px solid #fee2e2",
+        border: "1px solid #e8c4b8",
+        fontFamily: "'DM Sans', sans-serif",
     },
     loaderContainer: {
         height: "100vh",
@@ -196,105 +226,112 @@ const styles = {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        gap: "16px",
+        gap: 16,
+        background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
     },
     spinner: {
-        width: "40px",
-        height: "40px",
-        border: "4px solid #f3f3f3",
-        borderTop: "4px solid #ec4899",
+        width: 40,
+        height: 40,
+        border: "4px solid #e8ddd5",
+        borderTop: "4px solid #B2846B",
         borderRadius: "50%",
         animation: "spin 1s linear infinite",
     },
     emptyState: {
         textAlign: "center",
-        padding: "100px 20px",
+        padding: "80px 20px",
         backgroundColor: "#ffffff",
-        borderRadius: "24px",
-        border: "2px dashed #e2e8f0",
+        borderRadius: 20,
+        border: "2px dashed #ddd0c6",
     },
     emptyIcon: {
-        fontSize: "64px",
-        color: "#ec4899",
-        marginBottom: "20px",
-        opacity: 0.2,
+        fontSize: 60,
+        color: "#E4CBB6",
+        marginBottom: 20,
     },
     browseBtn: {
         display: "inline-block",
-        marginTop: "24px",
-        padding: "12px 24px",
-        backgroundColor: "#ec4899",
-        color: "white",
+        marginTop: 24,
+        padding: "12px 28px",
+        backgroundColor: "#627B68",
+        color: "#fff",
         textDecoration: "none",
-        borderRadius: "10px",
-        fontWeight: "600",
+        borderRadius: 10,
+        fontWeight: 600,
+        fontFamily: "'DM Sans', sans-serif",
+        boxShadow: "0 3px 10px rgba(98,123,104,0.3)",
+        transition: "all 0.18s",
     },
     grid: {
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))",
-        gap: "30px",
+        gap: 28,
     },
     card: {
         backgroundColor: "#ffffff",
-        borderRadius: "20px",
+        borderRadius: 18,
         overflow: "hidden",
-        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)",
+        boxShadow: "0 4px 16px rgba(76,51,36,0.07)",
         transition: "transform 0.2s ease, box-shadow 0.2s ease",
-        border: "1px solid #f1f5f9",
-    },
-    imgPlaceholder: {
-        width: "100%",
-        height: "200px",
-        backgroundColor: "#f1f5f9",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "10px",
-        color: "#94a3b8",
-        fontSize: "14px",
-        fontWeight: "600",
+        border: "1px solid #e8ddd5",
     },
     imageSection: {
         position: "relative",
-        height: "200px",
+        height: 200,
     },
     propertyImg: {
         width: "100%",
         height: "100%",
         objectFit: "cover",
     },
+    imgPlaceholder: {
+        width: "100%",
+        height: "100%",
+        backgroundColor: "#f0ebe5",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "#B2846B",
+        fontSize: 14,
+        fontWeight: 600,
+        fontFamily: "'DM Sans', sans-serif",
+    },
     badge: {
         position: "absolute",
-        top: "15px",
-        right: "15px",
-        padding: "6px 12px",
-        borderRadius: "30px",
-        fontSize: "12px",
-        fontWeight: "700",
-        backgroundColor: "#ec4899",
+        top: 14,
+        right: 14,
+        padding: "5px 14px",
+        borderRadius: 30,
+        fontSize: 12,
+        fontWeight: 700,
+        backgroundColor: "#627B68",
         color: "#ffffff",
-        border: "1px solid #fbcfe8",
+        border: "1px solid #4d6454",
+        fontFamily: "'DM Sans', sans-serif",
+        letterSpacing: "0.04em",
     },
     cardBody: {
-        padding: "24px",
+        padding: "22px 24px",
     },
     typeTag: {
         display: "inline-block",
-        padding: "4px 10px",
-        backgroundColor: "#fce7f3",
-        color: "#be185d",
-        fontSize: "11px",
-        fontWeight: "700",
-        borderRadius: "6px",
+        padding: "3px 10px",
+        backgroundColor: "#E4CBB6",
+        color: "#4C3324",
+        fontSize: 11,
+        fontWeight: 700,
+        borderRadius: 6,
         textTransform: "uppercase",
-        marginBottom: "12px",
-        letterSpacing: "0.5px",
+        marginBottom: 10,
+        letterSpacing: "0.05em",
+        fontFamily: "'DM Sans', sans-serif",
     },
     propertyTitle: {
-        fontSize: "18px",
-        fontWeight: "700",
-        color: "#0f172a",
+        fontSize: 17,
+        fontWeight: 700,
+        color: "#4C3324",
+        fontFamily: "'Sora', sans-serif",
         margin: "0 0 12px 0",
         whiteSpace: "nowrap",
         overflow: "hidden",
@@ -303,77 +340,87 @@ const styles = {
     infoRow: {
         display: "flex",
         alignItems: "center",
-        gap: "10px",
-        fontSize: "14px",
-        color: "#64748b",
-        marginBottom: "8px",
+        gap: 10,
+        fontSize: 14,
+        color: "#819B8B",
+        marginBottom: 7,
+        fontFamily: "'DM Sans', sans-serif",
     },
     infoIcon: {
-        color: "#ec4899",
+        color: "#B2846B",
+        flexShrink: 0,
     },
     priceSection: {
-        marginTop: "20px",
-        padding: "16px",
-        backgroundColor: "#f8fafc",
-        borderRadius: "12px",
+        marginTop: 18,
+        padding: "14px 16px",
+        backgroundColor: "#fdf9f7",
+        borderRadius: 10,
+        border: "1px solid #e8ddd5",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        border: "1px solid #e2e8f0"
     },
     priceLabel: {
-        fontSize: "13px",
-        color: "#64748b",
-        fontWeight: "500",
+        fontSize: 13,
+        color: "#819B8B",
+        fontWeight: 500,
+        fontFamily: "'DM Sans', sans-serif",
     },
     priceValue: {
-        fontSize: "18px",
-        fontWeight: "800",
-        color: "#ec4899",
+        fontSize: 18,
+        fontWeight: 700,
+        color: "#4C3324",
+        fontFamily: "'Sora', sans-serif",
     },
     actionRow: {
-        marginTop: "20px",
+        marginTop: 18,
         display: "flex",
-        gap: "10px",
+        gap: 10,
+        alignItems: "center",
     },
     viewBtn: {
         flex: 1,
         textAlign: "center",
-        padding: "10px",
+        padding: 10,
         backgroundColor: "#ffffff",
-        color: "#ec4899",
-        border: "1px solid #ec4899",
-        borderRadius: "8px",
-        fontSize: "14px",
-        fontWeight: "600",
+        color: "#627B68",
+        border: "1.5px solid #627B68",
+        borderRadius: 9,
+        fontSize: 14,
+        fontWeight: 600,
         textDecoration: "none",
+        fontFamily: "'DM Sans', sans-serif",
         transition: "all 0.2s",
     },
     editBtn: {
-        width: "40px",
-        height: "40px",
+        width: 40,
+        height: 40,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f1f5f9",
-        color: "#475569",
+        backgroundColor: "#f0ebe5",
+        color: "#7a5c4a",
         border: "none",
-        borderRadius: "8px",
+        borderRadius: 9,
         cursor: "not-allowed",
-        fontSize: "16px",
+        fontSize: 16,
+        flexShrink: 0,
+        opacity: 0.6,
     },
     deleteBtn: {
-        width: "40px",
-        height: "40px",
+        width: 40,
+        height: 40,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f1f5f9",
-        color: "#ef4444",
+        backgroundColor: "#f5ddd7",
+        color: "#8b3a25",
         border: "none",
-        borderRadius: "8px",
+        borderRadius: 9,
         cursor: "not-allowed",
-        fontSize: "16px",
+        fontSize: 16,
+        flexShrink: 0,
+        opacity: 0.6,
     },
 };
 

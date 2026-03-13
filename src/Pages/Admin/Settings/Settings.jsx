@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function Settings() {
-  /* ================= STATES ================= */
   const [profile, setProfile] = useState({ name: "", email: "", phone: "" });
   const [password, setPassword] = useState({ old: "", new: "", confirm: "" });
   const [site, setSite] = useState({ siteName: "", supportEmail: "", currency: "INR" });
@@ -11,21 +10,19 @@ export default function Settings() {
     const rawToken = localStorage.getItem("adminAuthToken") || localStorage.getItem("token");
     try {
       const parsed = JSON.parse(rawToken);
-      if (parsed && typeof parsed === 'object') return parsed.token || rawToken;
+      if (parsed && typeof parsed === "object") return parsed.token || rawToken;
       return parsed || rawToken;
     } catch (e) {
       return rawToken;
     }
   };
 
-  /* ================= LOAD SAVED DATA ================= */
   useEffect(() => {
     const fetchSettingsData = async () => {
       try {
         const token = getAuthToken();
         const headers = { Authorization: `Bearer ${token}` };
 
-        // Fetch Admin Profile
         const profileRes = await axios.get("http://localhost:5000/api/admin/profile", { headers });
         if (profileRes.data.success) {
           setProfile({
@@ -35,7 +32,6 @@ export default function Settings() {
           });
         }
 
-        // Fetch Site Config
         const siteRes = await axios.get("http://localhost:5000/api/admin/settings/site", { headers });
         if (siteRes.data.success) {
           const fetchedSite = siteRes.data.settings;
@@ -49,11 +45,9 @@ export default function Settings() {
         console.error("Error fetching admin settings data", err);
       }
     };
-
     fetchSettingsData();
   }, []);
 
-  /* ================= HANDLERS ================= */
   const handleProfileChange = (e) => setProfile({ ...profile, [e.target.name]: e.target.value });
   const handlePasswordChange = (e) => setPassword({ ...password, [e.target.name]: e.target.value });
   const handleSiteChange = (e) => setSite({ ...site, [e.target.name]: e.target.value });
@@ -62,11 +56,9 @@ export default function Settings() {
     try {
       const token = getAuthToken();
       const res = await axios.put("http://localhost:5000/api/admin/profile", profile, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
       });
-      if (res.data.success) {
-        alert("✅ Profile Updated Successfully via Backend!");
-      }
+      if (res.data.success) alert("✅ Profile Updated Successfully!");
     } catch (err) {
       alert("❌ Failed to update profile.");
     }
@@ -75,21 +67,19 @@ export default function Settings() {
   const savePassword = async () => {
     if (!password.old || !password.new || !password.confirm) return alert("Please fill all fields");
     if (password.new !== password.confirm) return alert("❌ Passwords do not match!");
-
     try {
       const token = getAuthToken();
-      const res = await axios.put("http://localhost:5000/api/admin/password",
+      const res = await axios.put(
+        "http://localhost:5000/api/admin/password",
         { oldPassword: password.old, newPassword: password.new },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-
       if (res.data.success) {
-        alert("🔒 Password Changed Successfully via Backend!");
+        alert("🔒 Password Changed Successfully!");
         setPassword({ old: "", new: "", confirm: "" });
       }
     } catch (err) {
-      console.error(err);
-      alert(err.response?.data?.message || "❌ Failed to change password. Make sure current password is correct.");
+      alert(err.response?.data?.message || "❌ Failed to change password.");
     }
   };
 
@@ -97,114 +87,271 @@ export default function Settings() {
     try {
       const token = getAuthToken();
       const res = await axios.put("http://localhost:5000/api/admin/settings/site", site, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
       });
-      if (res.data.success) {
-        alert("🌐 Website Global Configuration Synced to Database!");
-      }
+      if (res.data.success) alert("🌐 Website Configuration Saved!");
     } catch (err) {
       alert("❌ Failed to save website settings.");
     }
   };
 
   return (
-    <div style={styles.container}>
-      <header style={styles.header}>
-        <h1 style={styles.title}>Account Settings</h1>
-        <p style={styles.subtitle}>Manage your profile, security, and global website configurations.</p>
-      </header>
+    <>
+      <style>{globalStyles}</style>
+      <div style={s.page}>
+        <div style={s.accentBar} />
 
-      <div style={styles.grid}>
-        {/* ================= PROFILE ================= */}
-        <div style={styles.card}>
-          <div style={styles.cardHeader}>
-            <h3 style={styles.cardTitle}>Admin Profile</h3>
-            <p style={styles.cardSub}>Update your personal details.</p>
+        <div style={s.wrapper}>
+          {/* Page Header */}
+          <div style={s.pageHeader}>
+            <p style={s.breadcrumb}>Admin / Settings</p>
+            <h1 style={s.pageTitle}>Account Settings</h1>
+            <p style={s.subtitle}>Manage your profile, security, and global website configurations.</p>
           </div>
-          <div style={styles.formGroup}>
-            <label style={styles.label}>Full Name</label>
-            <input name="name" style={styles.input} value={profile.name} onChange={handleProfileChange} />
-          </div>
-          <div style={styles.formGroup}>
-            <label style={styles.label}>Email Address</label>
-            <input name="email" style={styles.input} value={profile.email} onChange={handleProfileChange} />
-          </div>
-          <div style={styles.formGroup}>
-            <label style={styles.label}>Phone Number</label>
-            <input name="phone" style={styles.input} value={profile.phone} onChange={handleProfileChange} />
-          </div>
-          <button style={styles.primaryBtn} onClick={saveProfile}>Save Profile</button>
-        </div>
 
-        {/* ================= PASSWORD ================= */}
-        <div style={styles.card}>
-          <div style={styles.cardHeader}>
-            <h3 style={styles.cardTitle}>Security</h3>
-            <p style={styles.cardSub}>Change your account password.</p>
-          </div>
-          <div style={styles.formGroup}>
-            <label style={styles.label}>Current Password</label>
-            <input type="password" name="old" style={styles.input} value={password.old} onChange={handlePasswordChange} />
-          </div>
-          <div style={styles.formGroup}>
-            <label style={styles.label}>New Password</label>
-            <input type="password" name="new" style={styles.input} value={password.new} onChange={handlePasswordChange} />
-          </div>
-          <div style={styles.formGroup}>
-            <label style={styles.label}>Confirm New Password</label>
-            <input type="password" name="confirm" style={styles.input} value={password.confirm} onChange={handlePasswordChange} />
-          </div>
-          <button style={styles.secondaryBtn} onClick={savePassword}>Update Password</button>
-        </div>
+          <div style={s.grid}>
+            {/* Profile */}
+            <Card title="Admin Profile" sub="Update your personal details." icon="👤">
+              <Field label="Full Name">
+                <input style={s.input} name="name" value={profile.name} onChange={handleProfileChange} />
+              </Field>
+              <Field label="Email Address">
+                <input style={s.input} name="email" value={profile.email} onChange={handleProfileChange} />
+              </Field>
+              <Field label="Phone Number">
+                <input style={s.input} name="phone" value={profile.phone} onChange={handleProfileChange} />
+              </Field>
+              <button style={s.primaryBtn} onClick={saveProfile}>Save Profile</button>
+            </Card>
 
-        {/* ================= SITE SETTINGS ================= */}
-        <div style={{ ...styles.card, gridColumn: "span 2" }}>
-          <div style={styles.cardHeader}>
-            <h3 style={styles.cardTitle}>Global Configuration</h3>
-            <p style={styles.cardSub}>Control your website's branding and defaults.</p>
-          </div>
-          <div style={styles.row}>
-            <div style={{ flex: 1 }}>
-              <label style={styles.label}>Site Name</label>
-              <input name="siteName" style={styles.input} value={site.siteName} onChange={handleSiteChange} />
-            </div>
-            <div style={{ flex: 1 }}>
-              <label style={styles.label}>Support Email</label>
-              <input name="supportEmail" style={styles.input} value={site.supportEmail} onChange={handleSiteChange} />
-            </div>
-            <div style={{ flex: 0.5 }}>
-              <label style={styles.label}>Currency</label>
-              <select name="currency" style={styles.select} value={site.currency} onChange={handleSiteChange}>
-                <option value="INR">INR (₹)</option>
-                <option value="USD">USD ($)</option>
-                <option value="EUR">EUR (€)</option>
-              </select>
+            {/* Password */}
+            <Card title="Security" sub="Change your account password." icon="🔐">
+              <Field label="Current Password">
+                <input style={s.input} type="password" name="old" value={password.old} onChange={handlePasswordChange} />
+              </Field>
+              <Field label="New Password">
+                <input style={s.input} type="password" name="new" value={password.new} onChange={handlePasswordChange} />
+              </Field>
+              <Field label="Confirm New Password">
+                <input style={s.input} type="password" name="confirm" value={password.confirm} onChange={handlePasswordChange} />
+              </Field>
+              <button style={s.secondaryBtn} onClick={savePassword}>Update Password</button>
+            </Card>
+
+            {/* Site Settings — full width */}
+            <div style={{ ...s.cardWrap, gridColumn: "span 2" }}>
+              <div style={s.cardHeaderRow}>
+                <div style={s.cardIconCircle}>🌐</div>
+                <div>
+                  <h3 style={s.cardTitle}>Global Configuration</h3>
+                  <p style={s.cardSub}>Control your website's branding and defaults.</p>
+                </div>
+              </div>
+              <div style={s.cardBody}>
+                <div style={s.row}>
+                  <Field label="Site Name" style={{ flex: 1 }}>
+                    <input style={s.input} name="siteName" value={site.siteName} onChange={handleSiteChange} />
+                  </Field>
+                  <Field label="Support Email" style={{ flex: 1 }}>
+                    <input style={s.input} name="supportEmail" value={site.supportEmail} onChange={handleSiteChange} />
+                  </Field>
+                  <Field label="Currency" style={{ flex: "0 0 160px" }}>
+                    <select style={s.input} name="currency" value={site.currency} onChange={handleSiteChange}>
+                      <option value="INR">INR (₹)</option>
+                      <option value="USD">USD ($)</option>
+                      <option value="EUR">EUR (€)</option>
+                    </select>
+                  </Field>
+                </div>
+                <button style={s.primaryBtn} onClick={saveSite}>Save Website Configuration</button>
+              </div>
             </div>
           </div>
-          <button style={styles.primaryBtn} onClick={saveSite}>Save Website Configuration</button>
         </div>
       </div>
+    </>
+  );
+}
+
+function Card({ title, sub, icon, children }) {
+  return (
+    <div style={s.cardWrap}>
+      <div style={s.cardHeaderRow}>
+        <div style={s.cardIconCircle}>{icon}</div>
+        <div>
+          <h3 style={s.cardTitle}>{title}</h3>
+          <p style={s.cardSub}>{sub}</p>
+        </div>
+      </div>
+      <div style={s.cardBody}>{children}</div>
     </div>
   );
 }
 
-/* ================= STYLES ================= */
+function Field({ label, children, style }) {
+  return (
+    <div style={{ marginBottom: 18, ...style }}>
+      <label style={s.label}>{label}</label>
+      {children}
+    </div>
+  );
+}
 
-const styles = {
-  container: { padding: "40px 60px", backgroundColor: "#f8fafc", minHeight: "100vh", fontFamily: "'Inter', sans-serif" },
-  header: { marginBottom: "40px" },
-  title: { fontSize: "32px", fontWeight: "800", color: "#1e293b", margin: 0 },
-  subtitle: { fontSize: "16px", color: "#64748b", marginTop: "8px" },
-  grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "30px", maxWidth: "1100px" },
-  card: { backgroundColor: "#ffffff", padding: "30px", borderRadius: "16px", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.05)", border: "1px solid #e2e8f0" },
-  cardHeader: { marginBottom: "24px" },
-  cardTitle: { fontSize: "18px", fontWeight: "700", color: "#1e293b", margin: 0 },
-  cardSub: { fontSize: "13px", color: "#94a3b8", marginTop: "4px" },
-  formGroup: { marginBottom: "20px" },
-  row: { display: "flex", gap: "20px", marginBottom: "20px" },
-  label: { display: "block", fontSize: "13px", fontWeight: "600", color: "#475569", marginBottom: "8px" },
-  input: { width: "100%", padding: "12px 16px", borderRadius: "8px", border: "1px solid #e2e8f0", fontSize: "14px", boxSizing: "border-box", outline: "none", color: "#334155" },
-  select: { width: "100%", padding: "12px 16px", borderRadius: "8px", border: "1px solid #e2e8f0", fontSize: "14px", backgroundColor: "#fff", cursor: "pointer" },
-  primaryBtn: { backgroundColor: "#4f46e5", color: "white", padding: "12px 24px", borderRadius: "8px", border: "none", fontWeight: "600", cursor: "pointer", transition: "all 0.2s" },
-  secondaryBtn: { backgroundColor: "#1e293b", color: "white", padding: "12px 24px", borderRadius: "8px", border: "none", fontWeight: "600", cursor: "pointer" },
+const globalStyles = `
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700&display=swap');
+
+  * { box-sizing: border-box; }
+
+  input::placeholder, textarea::placeholder {
+    color: #a89385;
+    font-size: 13.5px;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: none !important;
+    border-color: #B2846B !important;
+    box-shadow: 0 0 0 3px rgba(178,132,107,0.15) !important;
+  }
+`;
+
+const s = {
+  page: {
+    display: "flex",
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
+    fontFamily: "'DM Sans', sans-serif",
+  },
+  accentBar: {
+    width: 5,
+    background: "linear-gradient(180deg, #4C3324 0%, #B2846B 100%)",
+    flexShrink: 0,
+  },
+  wrapper: {
+    flex: 1,
+    padding: "48px 52px",
+    maxWidth: 1200,
+  },
+  pageHeader: {
+    marginBottom: 40,
+  },
+  breadcrumb: {
+    fontSize: 12,
+    color: "#B2846B",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    fontWeight: 600,
+    margin: "0 0 6px",
+  },
+  pageTitle: {
+    fontSize: 34,
+    fontWeight: 700,
+    color: "#4C3324",
+    fontFamily: "'Sora', sans-serif",
+    margin: "0 0 8px",
+    letterSpacing: "-0.5px",
+  },
+  subtitle: {
+    fontSize: 15,
+    color: "#7a5c4a",
+    margin: 0,
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: 24,
+    maxWidth: 1100,
+  },
+  cardWrap: {
+    background: "#fff",
+    borderRadius: 16,
+    border: "1px solid #e8ddd5",
+    boxShadow: "0 4px 16px rgba(76,51,36,0.06)",
+    overflow: "hidden",
+  },
+  cardHeaderRow: {
+    display: "flex",
+    alignItems: "center",
+    gap: 14,
+    padding: "20px 24px",
+    borderBottom: "1px solid #e8ddd5",
+    background: "linear-gradient(90deg, #f0ebe5, #faf6f3)",
+  },
+  cardIconCircle: {
+    width: 44,
+    height: 44,
+    borderRadius: "50%",
+    background: "#e8ddd5",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 20,
+    flexShrink: 0,
+  },
+  cardTitle: {
+    fontSize: 16,
+    fontWeight: 700,
+    color: "#4C3324",
+    margin: 0,
+    fontFamily: "'Sora', sans-serif",
+  },
+  cardSub: {
+    fontSize: 13,
+    color: "#7a5c4a",
+    margin: "3px 0 0",
+  },
+  cardBody: {
+    padding: "24px",
+  },
+  row: {
+    display: "flex",
+    gap: 20,
+    flexWrap: "wrap",
+    marginBottom: 0,
+  },
+  label: {
+    display: "block",
+    fontSize: 13,
+    fontWeight: 600,
+    color: "#5a3e30",
+    marginBottom: 7,
+    letterSpacing: "0.02em",
+  },
+  input: {
+    width: "100%",
+    padding: "11px 14px",
+    borderRadius: 9,
+    border: "1.5px solid #ddd0c6",
+    fontSize: 14,
+    color: "#3b2416",
+    background: "#fdf9f7",
+    fontFamily: "'DM Sans', sans-serif",
+    transition: "border-color 0.18s, box-shadow 0.18s",
+  },
+  primaryBtn: {
+    background: "#627B68",
+    color: "#fff",
+    padding: "11px 24px",
+    borderRadius: 10,
+    border: "none",
+    fontWeight: 600,
+    fontSize: 14,
+    cursor: "pointer",
+    fontFamily: "'DM Sans', sans-serif",
+    boxShadow: "0 4px 14px rgba(98,123,104,0.3)",
+    transition: "all 0.2s",
+    marginTop: 4,
+  },
+  secondaryBtn: {
+    background: "#4C3324",
+    color: "#fff",
+    padding: "11px 24px",
+    borderRadius: 10,
+    border: "none",
+    fontWeight: 600,
+    fontSize: 14,
+    cursor: "pointer",
+    fontFamily: "'DM Sans', sans-serif",
+    boxShadow: "0 4px 14px rgba(76,51,36,0.25)",
+    transition: "all 0.2s",
+    marginTop: 4,
+  },
 };

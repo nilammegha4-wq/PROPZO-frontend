@@ -11,149 +11,386 @@ export default function UserProfile() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // 1. Find the initial user
   const initialUser = usersData.find((u) => u.id === Number(id));
-
-  // 2. States for editing
   const [isEditing, setIsEditing] = useState(false);
   const [user, setUser] = useState(initialUser);
 
-  if (!user) return <div style={styles.errorText}><h2>User Not Found</h2></div>;
+  if (!user) return (
+    <div style={{ textAlign: "center", paddingTop: 50, color: "#8b3a25", fontFamily: "'DM Sans', sans-serif" }}>
+      <h2>User Not Found</h2>
+    </div>
+  );
 
-  // 3. Handlers
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
 
   const handleSave = () => {
-    // In a real app, you'd send an API request here: axios.put(`/users/${id}`, user)
     console.log("Updated User Data:", user);
     setIsEditing(false);
     alert("Profile updated successfully!");
   };
 
   return (
-    <div style={styles.pageWrapper}>
-      <div style={styles.container}>
-        <button onClick={() => navigate(-1)} style={styles.backBtn}>
-          ← Back to Users
-        </button>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700&display=swap');
+        * { box-sizing: border-box; }
+        .up-input:focus, .up-inline-input:focus {
+          outline: none !important;
+          border-color: #B2846B !important;
+          box-shadow: 0 0 0 3px rgba(178,132,107,0.15) !important;
+        }
+        .up-input::placeholder { color: #a89385; }
+      `}</style>
 
-        <div style={styles.profileGrid}>
-          {/* Left Column: Summary Card */}
-          <div style={styles.sidebar}>
-            <div style={styles.card}>
-              <div style={styles.avatarLarge}>{user.name.charAt(0)}</div>
+      <div style={s.page}>
+        <div style={s.accentBar} />
 
-              {isEditing ? (
-                <input
-                  name="name"
-                  value={user.name}
-                  onChange={handleInputChange}
-                  style={styles.inlineInput}
-                />
-              ) : (
-                <h2 style={styles.profileName}>{user.name}</h2>
-              )}
-
-              <span style={{
-                ...styles.statusBadge,
-                backgroundColor: user.status === "Active" ? "#d1fae5" : "#fee2e2",
-                color: user.status === "Active" ? "#065f46" : "#991b1b"
-              }}>
-                {user.status}
-              </span>
-              <div style={styles.idText}>User ID: #{user.id}</div>
+        <div style={s.wrapper}>
+          {/* Breadcrumb + Back */}
+          <div style={s.pageHeader}>
+            <div>
+              <p style={s.breadcrumb}>Admin / Users / Profile</p>
+              <h1 style={s.pageTitle}>User Profile</h1>
             </div>
+            <button onClick={() => navigate(-1)} style={s.backBtn}>
+              ← Back to Users
+            </button>
           </div>
 
-          {/* Right Column: Detailed Info */}
-          <div style={styles.mainContent}>
-            <div style={styles.card}>
-              <h3 style={styles.sectionTitle}>Contact Information</h3>
+          {/* Profile Grid */}
+          <div style={s.profileGrid}>
 
-              <div style={styles.infoRow}>
-                <div style={styles.infoBox}>
-                  <label style={styles.label}>Email Address</label>
-                  {isEditing ? (
-                    <input name="email" value={user.email} onChange={handleInputChange} style={styles.inputField} />
-                  ) : (
-                    <div style={styles.value}>{user.email}</div>
-                  )}
-                </div>
-                <div style={styles.infoBox}>
-                  <label style={styles.label}>Phone Number</label>
-                  {isEditing ? (
-                    <input name="phone" value={user.phone} onChange={handleInputChange} style={styles.inputField} />
-                  ) : (
-                    <div style={styles.value}>{user.phone}</div>
-                  )}
-                </div>
-              </div>
+            {/* Left: Summary Card */}
+            <div style={s.sidebar}>
+              <div style={s.card}>
+                <div style={s.avatarLarge}>{user.name.charAt(0)}</div>
 
-              <div style={styles.infoRow}>
-                <div style={styles.infoBox}>
-                  <label style={styles.label}>Residential Address</label>
-                  {isEditing ? (
-                    <input name="address" value={user.address} onChange={handleInputChange} style={styles.inputField} />
-                  ) : (
-                    <div style={styles.value}>{user.address}</div>
-                  )}
-                </div>
-              </div>
-
-              <div style={styles.actionRow}>
                 {isEditing ? (
-                  <>
-                    <button style={styles.saveBtn} onClick={handleSave}>Save Changes</button>
-                    <button style={styles.cancelBtn} onClick={() => setIsEditing(false)}>Cancel</button>
-                  </>
+                  <input
+                    name="name"
+                    value={user.name}
+                    onChange={handleInputChange}
+                    style={s.inlineInput}
+                    className="up-inline-input"
+                  />
                 ) : (
-                  <>
-                    <button style={styles.editBtn} onClick={() => setIsEditing(true)}>Edit Profile</button>
-                    <button style={styles.messageBtn}>Send Message</button>
-                  </>
+                  <h2 style={s.profileName}>{user.name}</h2>
                 )}
+
+                <span style={s.statusBadge(user.status)}>{user.status}</span>
+                <div style={s.idText}>User ID: #{user.id}</div>
               </div>
             </div>
+
+            {/* Right: Contact Info */}
+            <div style={s.mainContent}>
+              <div style={{ ...s.card, textAlign: "left" }}>
+                <div style={s.sectionHeader}>
+                  <h3 style={s.sectionTitle}>Contact Information</h3>
+                </div>
+
+                <div style={s.sectionBody}>
+                  <div style={s.infoRow}>
+                    <div style={s.infoBox}>
+                      <label style={s.label}>Email Address</label>
+                      {isEditing ? (
+                        <input name="email" value={user.email} onChange={handleInputChange} style={s.inputField} className="up-input" />
+                      ) : (
+                        <div style={s.value}>{user.email}</div>
+                      )}
+                    </div>
+                    <div style={s.infoBox}>
+                      <label style={s.label}>Phone Number</label>
+                      {isEditing ? (
+                        <input name="phone" value={user.phone} onChange={handleInputChange} style={s.inputField} className="up-input" />
+                      ) : (
+                        <div style={s.value}>{user.phone}</div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div style={s.infoRow}>
+                    <div style={s.infoBox}>
+                      <label style={s.label}>Residential Address</label>
+                      {isEditing ? (
+                        <input name="address" value={user.address} onChange={handleInputChange} style={s.inputField} className="up-input" />
+                      ) : (
+                        <div style={s.value}>{user.address}</div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div style={s.actionRow}>
+                    {isEditing ? (
+                      <>
+                        <button style={s.saveBtn} onClick={handleSave}>Save Changes</button>
+                        <button style={s.cancelBtn} onClick={() => setIsEditing(false)}>Cancel</button>
+                      </>
+                    ) : (
+                      <>
+                        <button style={s.editBtn} onClick={() => setIsEditing(true)}>Edit Profile</button>
+                        <button style={s.messageBtn}>Send Message</button>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
-/* ================= STYLES ================= */
+// ─── EARTHY COLOR PALETTE ────────────────────────────────────────────────────
+// #E4CBB6 — blush | #B2846B — terracotta | #819B8B — sage
+// #627B68 — forest green | #4C3324 — dark brown
+// ─────────────────────────────────────────────────────────────────────────────
 
-const styles = {
-  pageWrapper: { backgroundColor: "#f3f4f6", minHeight: "100vh", padding: "40px 20px", fontFamily: "'Inter', sans-serif" },
-  container: { maxWidth: "900px", margin: "0 auto" },
-  backBtn: { background: "none", border: "none", color: "#6366f1", fontWeight: "600", cursor: "pointer", marginBottom: "20px", fontSize: "16px" },
-  profileGrid: { display: "grid", gridTemplateColumns: "1fr 2fr", gap: "24px" },
-  sidebar: { display: "flex", flexDirection: "column" },
-  card: { backgroundColor: "#ffffff", borderRadius: "16px", padding: "32px", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)", border: "1px solid #e5e7eb", textAlign: "center" },
-  avatarLarge: { width: "100px", height: "100px", backgroundColor: "#6366f1", color: "white", fontSize: "40px", fontWeight: "700", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" },
-  profileName: { fontSize: "22px", fontWeight: "800", color: "#111827", margin: "0 0 10px 0" },
-  statusBadge: { padding: "4px 12px", borderRadius: "99px", fontSize: "12px", fontWeight: "700", textTransform: "uppercase" },
-  idText: { marginTop: "15px", color: "#9ca3af", fontSize: "13px" },
-  mainContent: { textAlign: "left" },
-  sectionTitle: { fontSize: "18px", fontWeight: "700", color: "#374151", margin: "0 0 24px 0", textAlign: "left", borderBottom: "1px solid #f3f4f6", paddingBottom: "10px" },
-  infoRow: { display: "flex", gap: "20px", marginBottom: "20px", textAlign: "left" },
-  infoBox: { flex: 1 },
-  label: { display: "block", fontSize: "12px", fontWeight: "600", color: "#9ca3af", textTransform: "uppercase", marginBottom: "4px" },
-  value: { fontSize: "15px", color: "#111827", fontWeight: "500" },
-  actionRow: { display: "flex", gap: "12px", marginTop: "30px" },
-
-  // Buttons
-  editBtn: { padding: "10px 20px", backgroundColor: "#111827", color: "white", border: "none", borderRadius: "8px", fontWeight: "600", cursor: "pointer" },
-  saveBtn: { padding: "10px 20px", backgroundColor: "#4f46e5", color: "white", border: "none", borderRadius: "8px", fontWeight: "600", cursor: "pointer" },
-  cancelBtn: { padding: "10px 20px", backgroundColor: "#e5e7eb", color: "#374151", border: "none", borderRadius: "8px", fontWeight: "600", cursor: "pointer" },
-  messageBtn: { padding: "10px 20px", backgroundColor: "white", color: "#374151", border: "1px solid #d1d5db", borderRadius: "8px", fontWeight: "600", cursor: "pointer" },
-
-  // Inputs
-  inputField: { width: "100%", padding: "8px 12px", borderRadius: "6px", border: "1px solid #d1d5db", fontSize: "14px", outline: "none", boxSizing: "border-box" },
-  inlineInput: { fontSize: "18px", fontWeight: "800", textAlign: "center", border: "1px solid #d1d5db", borderRadius: "6px", width: "100%", marginBottom: "10px" },
-
-  errorText: { textAlign: "center", paddingTop: "50px", color: "#ef4444" }
+const s = {
+  page: {
+    display: "flex",
+    minHeight: "100vh",
+    background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
+    fontFamily: "'DM Sans', sans-serif",
+  },
+  accentBar: {
+    width: 5,
+    background: "linear-gradient(180deg, #4C3324 0%, #B2846B 100%)",
+    flexShrink: 0,
+  },
+  wrapper: {
+    flex: 1,
+    maxWidth: 1000,
+    margin: "0 auto",
+    padding: "48px 40px",
+    width: "100%",
+  },
+  pageHeader: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
+    marginBottom: 36,
+    flexWrap: "wrap",
+    gap: 12,
+  },
+  breadcrumb: {
+    fontSize: 12,
+    color: "#B2846B",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    fontWeight: 600,
+    margin: "0 0 6px 0",
+  },
+  pageTitle: {
+    fontSize: 32,
+    fontWeight: 700,
+    color: "#4C3324",
+    fontFamily: "'Sora', sans-serif",
+    margin: 0,
+    letterSpacing: "-0.5px",
+  },
+  backBtn: {
+    padding: "9px 18px",
+    borderRadius: 9,
+    border: "1.5px solid #d9c8bb",
+    background: "#fff",
+    color: "#7a5c4a",
+    fontSize: 14,
+    fontWeight: 600,
+    cursor: "pointer",
+    fontFamily: "'DM Sans', sans-serif",
+    transition: "all 0.18s",
+  },
+  profileGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 2fr",
+    gap: 24,
+    alignItems: "start",
+  },
+  sidebar: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  card: {
+    backgroundColor: "#ffffff",
+    borderRadius: 16,
+    border: "1px solid #e8ddd5",
+    boxShadow: "0 4px 16px rgba(76,51,36,0.06)",
+    textAlign: "center",
+    overflow: "hidden",
+  },
+  avatarLarge: {
+    width: 90,
+    height: 90,
+    backgroundColor: "#B2846B",
+    color: "#fff",
+    fontSize: 36,
+    fontWeight: 700,
+    borderRadius: "50%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: "32px auto 20px",
+    fontFamily: "'Sora', sans-serif",
+    boxShadow: "0 4px 14px rgba(178,132,107,0.35)",
+  },
+  profileName: {
+    fontSize: 20,
+    fontWeight: 700,
+    color: "#4C3324",
+    fontFamily: "'Sora', sans-serif",
+    margin: "0 0 12px 0",
+    padding: "0 20px",
+  },
+  statusBadge: (status) => ({
+    padding: "4px 14px",
+    borderRadius: 50,
+    fontSize: "0.78rem",
+    fontWeight: 700,
+    display: "inline-block",
+    fontFamily: "'DM Sans', sans-serif",
+    backgroundColor: status === "Active" ? "#d4e6da" : "#f5ddd7",
+    color: status === "Active" ? "#627B68" : "#8b3a25",
+  }),
+  idText: {
+    marginTop: 14,
+    marginBottom: 28,
+    color: "#B2846B",
+    fontSize: 13,
+    fontFamily: "'DM Sans', sans-serif",
+    letterSpacing: "0.04em",
+  },
+  mainContent: {
+    textAlign: "left",
+  },
+  sectionHeader: {
+    display: "flex",
+    alignItems: "center",
+    padding: "16px 24px",
+    borderBottom: "1px solid #e8ddd5",
+    background: "linear-gradient(90deg, #f0ebe5, #faf6f3)",
+  },
+  sectionTitle: {
+    fontSize: 15,
+    fontWeight: 600,
+    color: "#627B68",
+    margin: 0,
+    fontFamily: "'Sora', sans-serif",
+    letterSpacing: "0.01em",
+  },
+  sectionBody: {
+    padding: "24px",
+  },
+  infoRow: {
+    display: "flex",
+    gap: 20,
+    marginBottom: 20,
+  },
+  infoBox: {
+    flex: 1,
+  },
+  label: {
+    display: "block",
+    fontSize: 12,
+    fontWeight: 600,
+    color: "#819B8B",
+    textTransform: "uppercase",
+    letterSpacing: "0.07em",
+    marginBottom: 5,
+    fontFamily: "'DM Sans', sans-serif",
+  },
+  value: {
+    fontSize: 15,
+    color: "#4C3324",
+    fontWeight: 500,
+    fontFamily: "'DM Sans', sans-serif",
+  },
+  inputField: {
+    width: "100%",
+    padding: "10px 13px",
+    borderRadius: 9,
+    border: "1.5px solid #ddd0c6",
+    fontSize: 14,
+    color: "#3b2416",
+    background: "#fdf9f7",
+    fontFamily: "'DM Sans', sans-serif",
+    transition: "border-color 0.18s, box-shadow 0.18s",
+  },
+  inlineInput: {
+    fontSize: 17,
+    fontWeight: 700,
+    textAlign: "center",
+    border: "1.5px solid #ddd0c6",
+    borderRadius: 9,
+    width: "calc(100% - 40px)",
+    margin: "0 20px 12px",
+    padding: "8px 12px",
+    color: "#4C3324",
+    background: "#fdf9f7",
+    fontFamily: "'Sora', sans-serif",
+    transition: "border-color 0.18s, box-shadow 0.18s",
+  },
+  actionRow: {
+    display: "flex",
+    gap: 12,
+    marginTop: 28,
+  },
+  editBtn: {
+    padding: "11px 24px",
+    backgroundColor: "#627B68",
+    color: "#fff",
+    border: "none",
+    borderRadius: 9,
+    fontWeight: 600,
+    cursor: "pointer",
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: 14,
+    letterSpacing: "0.02em",
+    boxShadow: "0 3px 10px rgba(98,123,104,0.3)",
+    transition: "all 0.18s",
+  },
+  saveBtn: {
+    padding: "11px 24px",
+    backgroundColor: "#627B68",
+    color: "#fff",
+    border: "none",
+    borderRadius: 9,
+    fontWeight: 600,
+    cursor: "pointer",
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: 14,
+    letterSpacing: "0.02em",
+    boxShadow: "0 3px 10px rgba(98,123,104,0.3)",
+    transition: "all 0.18s",
+  },
+  cancelBtn: {
+    padding: "11px 24px",
+    backgroundColor: "#fff",
+    color: "#7a5c4a",
+    border: "1.5px solid #d9c8bb",
+    borderRadius: 9,
+    fontWeight: 600,
+    cursor: "pointer",
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: 14,
+    transition: "all 0.18s",
+  },
+  messageBtn: {
+    padding: "11px 24px",
+    backgroundColor: "#fff",
+    color: "#7a5c4a",
+    border: "1.5px solid #d9c8bb",
+    borderRadius: 9,
+    fontWeight: 600,
+    cursor: "pointer",
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: 14,
+    transition: "all 0.18s",
+  },
 };

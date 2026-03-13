@@ -4,6 +4,11 @@ import axios from "axios";
 import { FaLocationDot, FaCalendarDays, FaHouse, FaArrowLeft, FaFileInvoice, FaEnvelope } from "react-icons/fa6";
 import { useAuth } from "../../context/AuthContext";
 
+// ─── EARTHY COLOR PALETTE ────────────────────────────────────────────────────
+// #E4CBB6 — blush | #B2846B — terracotta | #819B8B — sage
+// #627B68 — forest green | #4C3324 — dark brown
+// ─────────────────────────────────────────────────────────────────────────────
+
 const MyBookings = () => {
     const { auth } = useAuth();
     const navigate = useNavigate();
@@ -12,11 +17,7 @@ const MyBookings = () => {
     const [error, setError] = useState(null);
 
     const fetchBookings = async () => {
-        if (!auth) {
-            navigate("/login");
-            return;
-        }
-
+        if (!auth) { navigate("/login"); return; }
         try {
             setLoading(true);
             const res = await axios.get(`/api/users/${auth.id}/bookings`, {
@@ -25,76 +26,89 @@ const MyBookings = () => {
             setBookings(res.data);
             setLoading(false);
         } catch (err) {
-            console.error("Fetch Bookings Error Details:", {
-                status: err.response?.status,
-                data: err.response?.data,
-                message: err.message
-            });
             setError(`Failed to load your activities: ${err.response?.data?.message || err.message}`);
             setLoading(false);
         }
     };
 
-    useEffect(() => {
-        fetchBookings();
-    }, [auth]);
+    useEffect(() => { fetchBookings(); }, [auth]);
 
     const getStatusStyle = (status) => {
         switch (status?.toLowerCase()) {
             case "confirmed":
             case "completed":
-                return { bg: "#ecfdf5", color: "#10b981", border: "#d1fae5" };
+                return { bg: "#d4e6da", color: "#627B68", border: "#b8d4c0" };
             case "pending":
-                return { bg: "#fffbeb", color: "#f59e0b", border: "#fef3c7" };
+                return { bg: "#ede8d8", color: "#7a6435", border: "#d9d0b0" };
             case "failed":
-                return { bg: "#fef2f2", color: "#ef4444", border: "#fee2e2" };
+                return { bg: "#f5ddd7", color: "#8b3a25", border: "#e8c4b8" };
             default:
-                return { bg: "#f1f5f9", color: "#64748b", border: "#e2e8f0" };
+                return { bg: "#f0ebe5", color: "#7a5c4a", border: "#ddd0c6" };
         }
     };
 
     const formatDate = (dateString) => {
         return new Date(dateString).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
+            year: "numeric", month: "short", day: "numeric",
         });
     };
 
     if (loading) {
         return (
-            <div style={styles.loaderContainer}>
-                <div style={styles.spinner}></div>
-                <p>Fetching your activities...</p>
+            <div style={s.loaderContainer}>
+                <div style={s.spinner}></div>
+                <p style={{ color: "#819B8B", fontFamily: "'DM Sans', sans-serif" }}>Fetching your activities...</p>
             </div>
         );
     }
 
     return (
-        <div style={styles.pageWrapper}>
-            <div style={styles.container}>
+        <div style={s.pageWrapper}>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700&display=swap');
+                * { box-sizing: border-box; }
+                @keyframes spin { to { transform: rotate(360deg); } }
+                .mb-card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 16px 32px rgba(76,51,36,0.12) !important;
+                }
+                .mb-view-btn:hover {
+                    background-color: #627B68 !important;
+                    color: #fff !important;
+                    border-color: #627B68 !important;
+                }
+                @media (max-width: 768px) {
+                    .mb-grid { grid-template-columns: 1fr !important; }
+                    .mb-header-title { font-size: 24px !important; }
+                }
+                @media (max-width: 480px) {
+                    .mb-card { border-radius: 12px !important; }
+                    .mb-img-section { height: 160px !important; }
+                }
+            `}</style>
+
+            <div style={s.container}>
                 {/* Header */}
-                <div style={styles.header}>
-                    <button onClick={() => navigate(-1)} style={styles.backBtn}>
+                <div style={s.header}>
+                    <button onClick={() => navigate(-1)} style={s.backBtn}>
                         <FaArrowLeft /> Back
                     </button>
-                    <div style={styles.headerTitle}>
-                        <h1 style={styles.title}>My Property Activity</h1>
-                        <p style={styles.subTitle}>Manage all your real estate bookings and purchases in one place.</p>
-                    </div>
+                    <p style={s.breadcrumb}>My Account / Activity</p>
+                    <h1 style={s.title} className="mb-header-title">My Property Activity</h1>
+                    <p style={s.subTitle}>Manage all your real estate bookings and purchases in one place.</p>
                 </div>
 
-                {error && <div style={styles.errorBanner}>{error}</div>}
+                {error && <div style={s.errorBanner}>{error}</div>}
 
                 {bookings.length === 0 ? (
-                    <div style={styles.emptyState}>
-                        <FaHouse style={styles.emptyIcon} />
-                        <h3>No activities yet</h3>
-                        <p>You haven't made any bookings or purchases yet.</p>
-                        <Link to="/properties" style={styles.browseBtn}>Browse Properties</Link>
+                    <div style={s.emptyState}>
+                        <FaHouse style={s.emptyIcon} />
+                        <h3 style={{ color: "#4C3324", fontFamily: "'Sora', sans-serif", marginBottom: 8 }}>No activities yet</h3>
+                        <p style={{ color: "#819B8B", fontFamily: "'DM Sans', sans-serif" }}>You haven't made any bookings or purchases yet.</p>
+                        <Link to="/properties" style={s.browseBtn}>Browse Properties</Link>
                     </div>
                 ) : (
-                    <div style={styles.grid}>
+                    <div style={s.grid} className="mb-grid">
                         {bookings.map((booking) => {
                             const statusStyle = getStatusStyle(booking.status);
                             const property = booking.property || {};
@@ -104,47 +118,55 @@ const MyBookings = () => {
                             if (typeLabel === "Buy") typeLabel = "BUY";
 
                             return (
-                                <div key={booking._id} style={styles.card}>
-                                    <div style={styles.imageSection}>
+                                <div key={booking._id} style={s.card} className="mb-card">
+                                    {/* Image */}
+                                    <div style={s.imageSection} className="mb-img-section">
                                         <img
                                             src={property.image || (property.images && property.images[0]) || "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1073"}
                                             alt={property.title}
-                                            style={styles.propertyImg}
+                                            style={s.propertyImg}
                                         />
-                                        <div style={{ ...styles.badge, backgroundColor: statusStyle.bg, color: statusStyle.color, border: `1px solid ${statusStyle.border}` }}>
+                                        <div style={{
+                                            ...s.badge,
+                                            backgroundColor: statusStyle.bg,
+                                            color: statusStyle.color,
+                                            border: `1px solid ${statusStyle.border}`,
+                                        }}>
                                             {booking.status || "Appointment"}
                                         </div>
                                     </div>
 
-                                    <div style={styles.cardBody}>
-                                        <div style={styles.typeTag}>{typeLabel}</div>
-                                        <h3 style={styles.propertyTitle}>{property.title || "Untitled Property"}</h3>
+                                    {/* Card Body */}
+                                    <div style={s.cardBody}>
+                                        <div style={s.typeTag}>{typeLabel}</div>
+                                        <h3 style={s.propertyTitle}>{property.title || "Untitled Property"}</h3>
 
-                                        <div style={styles.infoRow}>
-                                            <FaLocationDot style={styles.infoIcon} />
+                                        <div style={s.infoRow}>
+                                            <FaLocationDot style={s.infoIcon} />
                                             <span>{property.location || "Location not available"}</span>
                                         </div>
-
-                                        <div style={styles.infoRow}>
-                                            <FaCalendarDays style={styles.infoIcon} />
+                                        <div style={s.infoRow}>
+                                            <FaCalendarDays style={s.infoIcon} />
                                             <span>Booked on {formatDate(booking.bookingDate || booking.createdAt)}</span>
                                         </div>
 
-                                        <div style={styles.priceSection}>
-                                            <div style={styles.priceLabel}>Amount Paid</div>
-                                            <div style={styles.priceValue}>
+                                        <div style={s.priceSection}>
+                                            <div style={s.priceLabel}>Amount Paid</div>
+                                            <div style={s.priceValue}>
                                                 {booking.amount ? `₹${booking.amount.toLocaleString()}` : "Form Submitted"}
                                             </div>
                                         </div>
 
-                                        <div style={styles.actionRow}>
-                                            <Link to={`/property/${property._id}`} style={styles.viewBtn}>View Details</Link>
+                                        <div style={s.actionRow}>
+                                            <Link to={`/property/${property._id}`} style={s.viewBtn} className="mb-view-btn">
+                                                View Details
+                                            </Link>
                                             {booking.amount && (
-                                                <button style={styles.receiptBtn} title="Download Receipt">
+                                                <button style={s.iconBtn} title="Download Receipt">
                                                     <FaFileInvoice />
                                                 </button>
                                             )}
-                                            <button style={styles.contactBtn} title="Contact Agent">
+                                            <button style={s.iconBtn} title="Contact Agent">
                                                 <FaEnvelope />
                                             </button>
                                         </div>
@@ -159,12 +181,13 @@ const MyBookings = () => {
     );
 };
 
-const styles = {
+const s = {
     pageWrapper: {
-        backgroundColor: "#f8fafc",
+        backgroundColor: "#f5ede6",
+        backgroundImage: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
         minHeight: "100vh",
         padding: "100px 20px 60px",
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'DM Sans', sans-serif",
     },
     container: {
         maxWidth: "1200px",
@@ -176,36 +199,48 @@ const styles = {
     backBtn: {
         display: "flex",
         alignItems: "center",
-        gap: "8px",
+        gap: 8,
         background: "none",
         border: "none",
-        color: "#6366f1",
-        fontWeight: "600",
-        fontSize: "15px",
+        color: "#B2846B",
+        fontWeight: 600,
+        fontSize: 15,
         cursor: "pointer",
-        marginBottom: "20px",
-        padding: "0",
+        marginBottom: 16,
+        padding: 0,
+        fontFamily: "'DM Sans', sans-serif",
+        transition: "color 0.18s",
     },
-    headerTitle: {},
+    breadcrumb: {
+        fontSize: 12,
+        color: "#B2846B",
+        letterSpacing: "0.08em",
+        textTransform: "uppercase",
+        fontWeight: 600,
+        margin: "0 0 6px 0",
+    },
     title: {
-        fontSize: "32px",
-        fontWeight: "800",
-        color: "#0f172a",
+        fontSize: 32,
+        fontWeight: 700,
+        color: "#4C3324",
+        fontFamily: "'Sora', sans-serif",
         margin: "0 0 8px 0",
+        letterSpacing: "-0.5px",
     },
     subTitle: {
-        fontSize: "16px",
-        color: "#64748b",
-        margin: "0",
+        fontSize: 15,
+        color: "#819B8B",
+        margin: 0,
     },
     errorBanner: {
-        backgroundColor: "#fef2f2",
-        color: "#ef4444",
+        backgroundColor: "#f5ddd7",
+        color: "#8b3a25",
         padding: "16px",
-        borderRadius: "12px",
-        marginBottom: "24px",
+        borderRadius: 12,
+        marginBottom: 24,
         textAlign: "center",
-        border: "1px solid #fee2e2",
+        border: "1px solid #e8c4b8",
+        fontFamily: "'DM Sans', sans-serif",
     },
     loaderContainer: {
         height: "100vh",
@@ -213,54 +248,58 @@ const styles = {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        gap: "16px",
+        gap: 16,
+        background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
     },
     spinner: {
-        width: "40px",
-        height: "40px",
-        border: "4px solid #f3f3f3",
-        borderTop: "4px solid #6366f1",
+        width: 40,
+        height: 40,
+        border: "4px solid #e8ddd5",
+        borderTop: "4px solid #B2846B",
         borderRadius: "50%",
         animation: "spin 1s linear infinite",
     },
     emptyState: {
         textAlign: "center",
-        padding: "100px 20px",
+        padding: "80px 20px",
         backgroundColor: "#ffffff",
-        borderRadius: "24px",
-        border: "2px dashed #e2e8f0",
+        borderRadius: 20,
+        border: "2px dashed #ddd0c6",
     },
     emptyIcon: {
-        fontSize: "64px",
-        color: "#e2e8f0",
-        marginBottom: "20px",
+        fontSize: 60,
+        color: "#E4CBB6",
+        marginBottom: 20,
     },
     browseBtn: {
         display: "inline-block",
-        marginTop: "24px",
-        padding: "12px 24px",
-        backgroundColor: "#6366f1",
-        color: "white",
+        marginTop: 24,
+        padding: "12px 28px",
+        backgroundColor: "#627B68",
+        color: "#fff",
         textDecoration: "none",
-        borderRadius: "10px",
-        fontWeight: "600",
+        borderRadius: 10,
+        fontWeight: 600,
+        fontFamily: "'DM Sans', sans-serif",
+        boxShadow: "0 3px 10px rgba(98,123,104,0.3)",
+        transition: "all 0.18s",
     },
     grid: {
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))",
-        gap: "30px",
+        gap: 28,
     },
     card: {
         backgroundColor: "#ffffff",
-        borderRadius: "20px",
+        borderRadius: 18,
         overflow: "hidden",
-        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)",
+        boxShadow: "0 4px 16px rgba(76,51,36,0.07)",
         transition: "transform 0.2s ease, box-shadow 0.2s ease",
-        border: "1px solid #f1f5f9",
+        border: "1px solid #e8ddd5",
     },
     imageSection: {
         position: "relative",
-        height: "200px",
+        height: 200,
     },
     propertyImg: {
         width: "100%",
@@ -269,32 +308,36 @@ const styles = {
     },
     badge: {
         position: "absolute",
-        top: "15px",
-        right: "15px",
-        padding: "6px 12px",
-        borderRadius: "30px",
-        fontSize: "12px",
-        fontWeight: "700",
+        top: 14,
+        right: 14,
+        padding: "5px 12px",
+        borderRadius: 30,
+        fontSize: 12,
+        fontWeight: 700,
+        fontFamily: "'DM Sans', sans-serif",
+        letterSpacing: "0.03em",
     },
     cardBody: {
-        padding: "24px",
+        padding: "22px 24px",
     },
     typeTag: {
         display: "inline-block",
-        padding: "4px 10px",
-        backgroundColor: "#f1f5f9",
-        color: "#64748b",
-        fontSize: "11px",
-        fontWeight: "700",
-        borderRadius: "6px",
+        padding: "3px 10px",
+        backgroundColor: "#E4CBB6",
+        color: "#4C3324",
+        fontSize: 11,
+        fontWeight: 700,
+        borderRadius: 6,
         textTransform: "uppercase",
-        marginBottom: "12px",
-        letterSpacing: "0.5px",
+        marginBottom: 10,
+        letterSpacing: "0.05em",
+        fontFamily: "'DM Sans', sans-serif",
     },
     propertyTitle: {
-        fontSize: "18px",
-        fontWeight: "700",
-        color: "#0f172a",
+        fontSize: 17,
+        fontWeight: 700,
+        color: "#4C3324",
+        fontFamily: "'Sora', sans-serif",
         margin: "0 0 12px 0",
         whiteSpace: "nowrap",
         overflow: "hidden",
@@ -303,76 +346,72 @@ const styles = {
     infoRow: {
         display: "flex",
         alignItems: "center",
-        gap: "10px",
-        fontSize: "14px",
-        color: "#64748b",
-        marginBottom: "8px",
+        gap: 10,
+        fontSize: 14,
+        color: "#819B8B",
+        marginBottom: 7,
+        fontFamily: "'DM Sans', sans-serif",
     },
     infoIcon: {
-        color: "#6366f1",
+        color: "#B2846B",
+        flexShrink: 0,
     },
     priceSection: {
-        marginTop: "20px",
-        padding: "16px",
-        backgroundColor: "#f8fafc",
-        borderRadius: "12px",
+        marginTop: 18,
+        padding: "14px 16px",
+        backgroundColor: "#fdf9f7",
+        borderRadius: 10,
+        border: "1px solid #e8ddd5",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
     },
     priceLabel: {
-        fontSize: "13px",
-        color: "#64748b",
-        fontWeight: "500",
+        fontSize: 13,
+        color: "#819B8B",
+        fontWeight: 500,
+        fontFamily: "'DM Sans', sans-serif",
     },
     priceValue: {
-        fontSize: "18px",
-        fontWeight: "800",
-        color: "#0f172a",
+        fontSize: 18,
+        fontWeight: 700,
+        color: "#4C3324",
+        fontFamily: "'Sora', sans-serif",
     },
     actionRow: {
-        marginTop: "20px",
+        marginTop: 18,
         display: "flex",
-        gap: "10px",
+        gap: 10,
+        alignItems: "center",
     },
     viewBtn: {
         flex: 1,
         textAlign: "center",
         padding: "10px",
         backgroundColor: "#ffffff",
-        color: "#6366f1",
-        border: "1px solid #6366f1",
-        borderRadius: "8px",
-        fontSize: "14px",
-        fontWeight: "600",
+        color: "#627B68",
+        border: "1.5px solid #627B68",
+        borderRadius: 9,
+        fontSize: 14,
+        fontWeight: 600,
         textDecoration: "none",
+        fontFamily: "'DM Sans', sans-serif",
         transition: "all 0.2s",
     },
-    receiptBtn: {
-        width: "40px",
-        height: "40px",
+    iconBtn: {
+        width: 40,
+        height: 40,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f1f5f9",
-        color: "#475569",
+        backgroundColor: "#f0ebe5",
+        color: "#7a5c4a",
         border: "none",
-        borderRadius: "8px",
+        borderRadius: 9,
         cursor: "pointer",
-        fontSize: "16px",
-    },
-    contactBtn: {
-        width: "40px",
-        height: "40px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#f1f5f9",
-        color: "#475569",
-        border: "none",
-        borderRadius: "8px",
-        cursor: "pointer",
-        fontSize: "16px",
+        fontSize: 16,
+        flexShrink: 0,
+        transition: "background 0.18s",
     },
 };
 

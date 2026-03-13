@@ -124,18 +124,31 @@ const AgentDashboard = () => {
         .booking-info, .listing-info { flex: 1; }
         .client-detail, .spec-detail { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #64748b; margin-top: 4px; }
         .price-tag { font-weight: 800; color: #0f172a; font-size: 15px; margin-top: 8px; }
+
+        @media (max-width: 960px) {
+          .trace-grid-container { grid-template-columns: 1fr !important; }
+        }
+        @media (max-width: 768px) {
+          .trace-stats-grid { grid-template-columns: 1fr !important; }
+          .trace-header { margin-top: 20px !important; margin-bottom: 20px !important; }
+          .booking-card { flex-direction: column !important; }
+          .booking-img, .listing-img { width: 100% !important; height: 200px !important; }
+        }
+        @media (max-width: 480px) {
+          .trace-title { font-size: 24px !important; }
+        }
       `}</style>
 
       {/* Header */}
-      <div style={styles.header} className="fade-in">
+      <div style={styles.header} className="fade-in trace-header">
         <div>
-          <h1 style={styles.title}>Welcome back, {agent?.fullName?.split(" ")[0] || "Agent"}</h1>
+          <h1 style={styles.title} className="trace-title">Welcome back, {agent?.fullName?.split(" ")[0] || "Agent"}</h1>
           <p style={styles.subtitle}>Here is your real-estate performance overview.</p>
         </div>
       </div>
 
       {/* Stats Grid */}
-      <div style={styles.statsGrid} className="fade-in">
+      <div style={styles.statsGrid} className="fade-in trace-stats-grid">
         {stats.map((stat, i) => (
           <div key={i} className="data-card" style={{ ...styles.statCard, animationDelay: `${i * 0.1}s` }}>
             <div style={styles.statHeader}>
@@ -152,7 +165,7 @@ const AgentDashboard = () => {
         ))}
       </div>
 
-      <div style={styles.gridContainer} className="fade-in">
+      <div style={styles.gridContainer} className="fade-in trace-grid-container">
         {/* Recent Properties Section */}
         <div className="data-card" style={{ padding: 0, overflow: 'hidden' }}>
           <div style={styles.tableHeader}>

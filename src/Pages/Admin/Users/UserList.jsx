@@ -1,149 +1,3 @@
-// import { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-// import axios from "axios";
-
-// export default function UserList() {
-//   const [users, setUsers] = useState([]);
-//   const [search, setSearch] = useState("");
-//   const navigate = useNavigate();
-
-//   // ================= FETCH USERS FROM BACKEND =================
-//   useEffect(() => {
-//     fetchUsers();
-//   }, []);
-
-//   const fetchUsers = async () => {
-//     try {
-//       const res = await axios.get("http://localhost:5000/api/users");
-//       setUsers(res.data);
-//     } catch (error) {
-//       console.error("Error fetching users:", error);
-//     }
-//   };
-
-//   // ================= TOGGLE STATUS =================
-//   const toggleStatus = async (id, currentStatus) => {
-//     try {
-//       const updatedStatus =
-//         currentStatus === "Active" ? "Inactive" : "Active";
-
-//       await axios.put(`http://localhost:5000/api/users/${id}`, {
-//         status: updatedStatus,
-//       });
-
-//       fetchUsers(); // refresh list
-//     } catch (err) {
-//       console.error("Status update failed", err);
-//     }
-//   };
-
-//   // ================= DELETE USER =================
-//   const deleteUser = async (id) => {
-//     if (window.confirm("Are you sure you want to remove this user?")) {
-//       try {
-//         await axios.delete(`http://localhost:5000/api/users/${id}`);
-//         fetchUsers();
-//       } catch (err) {
-//         console.error("Delete failed", err);
-//       }
-//     }
-//   };
-
-//   const filteredUsers = users.filter(
-//     (u) =>
-//       u.fullName?.toLowerCase().includes(search.toLowerCase()) ||
-//       u.email?.toLowerCase().includes(search.toLowerCase())
-//   );
-
-//   return (
-//     <div style={styles.container}>
-//       <div style={styles.header}>
-//         <div>
-//           <h1 style={styles.title}>User Management</h1>
-//           <p style={styles.subtitle}>
-//             Manage permissions and account status.
-//           </p>
-//         </div>
-//       </div>
-
-//       <div style={styles.tableCard}>
-//         {/* Search */}
-//         <div style={styles.searchBarWrapper}>
-//           <input
-//             type="text"
-//             placeholder="Search by name or email..."
-//             value={search}
-//             onChange={(e) => setSearch(e.target.value)}
-//             style={styles.searchInput}
-//           />
-//         </div>
-
-//         <table style={styles.table}>
-//           <thead>
-//             <tr>
-//               <th style={styles.th}>USER</th>
-//               <th style={styles.th}>EMAIL</th>
-//               <th style={styles.th}>PHONE</th>
-//               <th style={styles.th}>STATUS</th>
-//               <th style={styles.th}>ACTIONS</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {filteredUsers.map((u) => (
-//               <tr key={u._id}>
-//                 <td style={styles.td}>{u.fullName}</td>
-//                 <td style={styles.td}>{u.email}</td>
-//                 <td style={styles.td}>{u.phone}</td>
-//                 <td style={styles.td}>{u.status}</td>
-//                 <td style={styles.td}>
-//                   <button
-//                     onClick={() => toggleStatus(u._id, u.status)}
-//                     style={styles.actionBtn}
-//                   >
-//                     {u.status === "Active" ? "Deactivate" : "Activate"}
-//                   </button>
-
-//                   <button
-//                     onClick={() => deleteUser(u._id)}
-//                     style={{ ...styles.actionBtn, color: "red" }}
-//                   >
-//                     Delete
-//                   </button>
-//                 </td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-
-//         {filteredUsers.length === 0 && (
-//           <div style={styles.noResults}>No users found</div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
-
-// /* STYLES same rakhya che */
-// const styles = {
-//   container: { padding: "40px" },
-//   header: { marginBottom: "20px" },
-//   title: { fontSize: "26px", fontWeight: "700" },
-//   subtitle: { color: "#6B7280" },
-//   tableCard: { background: "#fff", padding: "20px", borderRadius: "10px" },
-//   searchBarWrapper: { marginBottom: "15px" },
-//   searchInput: { padding: "8px", width: "300px" },
-//   table: { width: "100%", borderCollapse: "collapse" },
-//   th: { padding: "10px", borderBottom: "1px solid #ddd" },
-//   td: { padding: "10px", borderBottom: "1px solid #eee" },
-//   actionBtn: {
-//     marginRight: "10px",
-//     background: "none",
-//     border: "none",
-//     cursor: "pointer",
-//     fontWeight: "600",
-//   },
-//   noResults: { padding: "20px", textAlign: "center" },
-// };
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -151,7 +5,6 @@ export default function UserList() {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
 
-  // ================= FETCH USERS =================
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -165,23 +18,16 @@ export default function UserList() {
     }
   };
 
-  // ================= TOGGLE STATUS =================
   const toggleStatus = async (id, currentStatus) => {
     try {
-      const updatedStatus =
-        currentStatus === "Active" ? "Inactive" : "Active";
-
-      await axios.put(`http://localhost:5000/api/users/${id}`, {
-        status: updatedStatus,
-      });
-
+      const updatedStatus = currentStatus === "Active" ? "Inactive" : "Active";
+      await axios.put(`http://localhost:5000/api/users/${id}`, { status: updatedStatus });
       fetchUsers();
     } catch (err) {
       console.error("Status update failed", err);
     }
   };
 
-  // ================= DELETE USER =================
   const deleteUser = async (id) => {
     if (window.confirm("Are you sure you want to remove this user?")) {
       try {
@@ -196,203 +42,270 @@ export default function UserList() {
   const filteredUsers = users.filter(
     (u) =>
       u.role !== "admin" &&
-      ((u.fullName || u.name || "")
-        .toLowerCase()
-        .includes(search.toLowerCase()) ||
-        (u.email || "")
-          .toLowerCase()
-          .includes(search.toLowerCase()))
+      ((u.fullName || u.name || "").toLowerCase().includes(search.toLowerCase()) ||
+        (u.email || "").toLowerCase().includes(search.toLowerCase()))
   );
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>User Management</h1>
-      <p style={styles.subtitle}>
-        Manage user accounts and permissions
-      </p>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700&display=swap');
+        * { box-sizing: border-box; }
+        .ul-search:focus {
+          outline: none !important;
+          border-color: #B2846B !important;
+          box-shadow: 0 0 0 3px rgba(178,132,107,0.15) !important;
+        }
+        .ul-search::placeholder { color: #a89385; font-size: 13.5px; }
+        .toggle-btn:hover { color: #4C3324 !important; }
+        .delete-btn:hover { color: #6b1a0a !important; }
+        @media (max-width: 991px) { .ul-container { padding: 30px 20px !important; } }
+        @media (max-width: 768px) { .ul-search { width: 100% !important; } }
+      `}</style>
 
-      <div style={styles.card}>
-        {/* Search */}
-        <input
-          type="text"
-          placeholder="Search by name or email..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          style={styles.searchInput}
-        />
+      <div style={s.page}>
+        <div style={s.accentBar} />
 
-        <table style={styles.table}>
-          <thead>
-            <tr style={styles.headerRow}>
-              <th style={styles.th}>USER NAME</th>
-              <th style={styles.th}>EMAIL</th>
-              <th style={styles.th}>STATUS</th>
-              <th style={styles.th}>ACTIONS</th>
-            </tr>
-          </thead>
+        <div style={s.wrapper} className="ul-container">
+          {/* Page Header */}
+          <div style={s.pageHeader}>
+            <div>
+              <p style={s.breadcrumb}>Admin / Users</p>
+              <h1 style={s.pageTitle}>User Management</h1>
+              <p style={s.subtitle}>Manage user accounts and permissions</p>
+            </div>
+          </div>
 
-          <tbody>
-            {filteredUsers.map((u) => (
-              <tr key={u._id} style={styles.row}>
-                <td style={styles.td}>
-                  <div style={styles.userBox}>
-                    <div style={styles.avatar}>
-                      {(u.fullName || u.name || "U")
-                        .charAt(0)
-                        .toUpperCase()}
-                    </div>
-                    <span style={styles.userName}>
-                      {u.fullName || u.name}
-                    </span>
-                  </div>
-                </td>
+          {/* Card */}
+          <div style={s.card}>
+            {/* Search */}
+            <input
+              type="text"
+              placeholder="Search by name or email..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              style={s.searchInput}
+              className="ul-search"
+            />
 
-                <td style={styles.td}>{u.email}</td>
+            <div style={{ width: "100%", overflowX: "auto" }}>
+              <table style={s.table}>
+                <thead style={s.thead}>
+                  <tr>
+                    <th style={s.th}>User Name</th>
+                    <th style={s.th}>Email</th>
+                    <th style={s.th}>Status</th>
+                    <th style={s.th}>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredUsers.map((u) => (
+                    <tr key={u._id} style={s.tr}>
+                      <td style={s.td}>
+                        <div style={s.userBox}>
+                          <div style={s.avatar}>
+                            {(u.fullName || u.name || "U").charAt(0).toUpperCase()}
+                          </div>
+                          <span style={s.userName}>{u.fullName || u.name}</span>
+                        </div>
+                      </td>
+                      <td style={{ ...s.td, color: "#819B8B", fontSize: "0.88rem" }}>{u.email}</td>
+                      <td style={s.td}>
+                        <span style={s.statusBadge(u.status)}>{u.status}</span>
+                      </td>
+                      <td style={s.td}>
+                        <button
+                          onClick={() => toggleStatus(u._id, u.status)}
+                          style={s.toggleBtn}
+                          className="toggle-btn"
+                        >
+                          {u.status === "Active" ? "Deactivate" : "Activate"}
+                        </button>
+                        <button
+                          onClick={() => deleteUser(u._id)}
+                          style={s.deleteBtn}
+                          className="delete-btn"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
-                <td style={styles.td}>
-                  <span
-                    style={{
-                      ...styles.status,
-                      backgroundColor:
-                        u.status === "Active"
-                          ? "#DCFCE7"
-                          : "#FEE2E2",
-                      color:
-                        u.status === "Active"
-                          ? "#166534"
-                          : "#991B1B",
-                    }}
-                  >
-                    {u.status}
-                  </span>
-                </td>
-
-                <td style={styles.td}>
-                  <button
-                    onClick={() => toggleStatus(u._id, u.status)}
-                    style={styles.toggleBtn}
-                  >
-                    {u.status === "Active"
-                      ? "Deactivate"
-                      : "Activate"}
-                  </button>
-
-                  <button
-                    onClick={() => deleteUser(u._id)}
-                    style={styles.deleteBtn}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {filteredUsers.length === 0 && (
-          <div style={styles.noUsers}>No users found</div>
-        )}
+            {filteredUsers.length === 0 && (
+              <div style={s.noUsers}>No users found</div>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
-/* ================= STYLES ================= */
+// ─── EARTHY COLOR PALETTE (matching AddProperty) ────────────────────────────
+// #E4CBB6 — blush | #B2846B — terracotta | #819B8B — sage
+// #627B68 — forest green | #4C3324 — dark brown
+// ─────────────────────────────────────────────────────────────────────────────
 
-const styles = {
-  container: {
-    padding: "40px",
-    backgroundColor: "#F9FAFB",
+const s = {
+  page: {
+    display: "flex",
     minHeight: "100vh",
-    fontFamily: "Segoe UI, sans-serif",
+    background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
+    fontFamily: "'DM Sans', sans-serif",
   },
-  title: {
-    fontSize: "28px",
-    fontWeight: "700",
-    marginBottom: "5px",
+  accentBar: {
+    width: 5,
+    background: "linear-gradient(180deg, #4C3324 0%, #B2846B 100%)",
+    flexShrink: 0,
+  },
+  wrapper: {
+    flex: 1,
+    maxWidth: 1100,
+    margin: "0 auto",
+    padding: "48px 40px",
+    width: "100%",
+  },
+  pageHeader: {
+    marginBottom: 32,
+  },
+  breadcrumb: {
+    fontSize: 12,
+    color: "#B2846B",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    fontWeight: 600,
+    margin: "0 0 6px 0",
+  },
+  pageTitle: {
+    fontSize: 32,
+    fontWeight: 700,
+    color: "#4C3324",
+    fontFamily: "'Sora', sans-serif",
+    margin: "0 0 6px 0",
+    letterSpacing: "-0.5px",
   },
   subtitle: {
-    color: "#6B7280",
-    marginBottom: "25px",
+    color: "#819B8B",
+    fontSize: "0.9rem",
+    margin: 0,
   },
   card: {
     background: "#ffffff",
-    padding: "25px",
-    borderRadius: "12px",
-    boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
+    borderRadius: 16,
+    border: "1px solid #e8ddd5",
+    boxShadow: "0 4px 16px rgba(76,51,36,0.06)",
+    padding: "24px",
+    overflow: "hidden",
   },
   searchInput: {
     padding: "10px 14px",
     width: "320px",
-    borderRadius: "8px",
-    border: "1px solid #E5E7EB",
-    marginBottom: "20px",
-    outline: "none",
+    borderRadius: 9,
+    border: "1.5px solid #ddd0c6",
+    marginBottom: 20,
+    fontSize: 14,
+    color: "#3b2416",
+    background: "#fdf9f7",
+    fontFamily: "'DM Sans', sans-serif",
+    transition: "border-color 0.18s, box-shadow 0.18s",
+    display: "block",
   },
   table: {
     width: "100%",
     borderCollapse: "collapse",
   },
-  headerRow: {
-    backgroundColor: "#F3F4F6",
+  thead: {
+    background: "linear-gradient(90deg, #f0ebe5, #faf6f3)",
+    borderBottom: "1.5px solid #e8ddd5",
   },
   th: {
-    padding: "14px",
+    padding: "15px 22px",
     textAlign: "left",
-    fontSize: "13px",
-    fontWeight: "600",
-    color: "#6B7280",
+    fontSize: 12,
+    fontWeight: 600,
+    color: "#627B68",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
+    fontFamily: "'Sora', sans-serif",
   },
-  row: {
-    borderBottom: "1px solid #F1F5F9",
+  tr: {
+    borderBottom: "1px solid #f5ede6",
   },
   td: {
-    padding: "16px 14px",
-    fontSize: "14px",
+    padding: "16px 22px",
+    fontSize: "0.9rem",
+    verticalAlign: "middle",
   },
   userBox: {
     display: "flex",
     alignItems: "center",
-    gap: "12px",
+    gap: 12,
   },
   avatar: {
-    width: "36px",
-    height: "36px",
+    width: 36,
+    height: 36,
     borderRadius: "50%",
-    backgroundColor: "#3B82F6",
+    backgroundColor: "#B2846B",
     color: "#fff",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontWeight: "600",
+    fontWeight: 700,
+    fontSize: "0.95rem",
+    fontFamily: "'Sora', sans-serif",
+    flexShrink: 0,
   },
   userName: {
-    fontWeight: "600",
+    fontWeight: 600,
+    color: "#4C3324",
+    fontFamily: "'Sora', sans-serif",
+    fontSize: "0.92rem",
   },
-  status: {
-    padding: "6px 12px",
-    borderRadius: "20px",
-    fontSize: "12px",
-    fontWeight: "600",
-  },
+  statusBadge: (status) => ({
+    padding: "4px 14px",
+    borderRadius: 50,
+    fontSize: "0.82rem",
+    fontWeight: 700,
+    display: "inline-block",
+    fontFamily: "'DM Sans', sans-serif",
+    backgroundColor: status === "Active" ? "#d4e6da" : "#f5ddd7",
+    color: status === "Active" ? "#627B68" : "#8b3a25",
+  }),
   toggleBtn: {
     background: "none",
     border: "none",
     cursor: "pointer",
-    fontWeight: "600",
-    marginRight: "12px",
-    color: "#2563EB",
+    fontWeight: 600,
+    marginRight: 16,
+    color: "#B2846B",
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: "0.85rem",
+    letterSpacing: "0.02em",
+    transition: "color 0.18s",
+    padding: 0,
   },
   deleteBtn: {
     background: "none",
     border: "none",
     cursor: "pointer",
-    fontWeight: "600",
-    color: "#DC2626",
+    fontWeight: 600,
+    color: "#8b3a25",
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: "0.85rem",
+    letterSpacing: "0.02em",
+    transition: "color 0.18s",
+    padding: 0,
   },
   noUsers: {
-    padding: "25px",
+    padding: "30px",
     textAlign: "center",
-    color: "#9CA3AF",
+    color: "#b2a090",
+    fontStyle: "italic",
+    fontSize: "0.95rem",
+    fontFamily: "'DM Sans', sans-serif",
   },
 };

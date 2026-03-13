@@ -1013,12 +1013,12 @@ const Profile = () => {
             </div>
 
             <div className="stat-item">
-              <div style={styles.statIcon}>⭐</div>
+              <div style={styles.statIcon}>💼</div>
               <div>
                 <div style={styles.statValue}>
-                  {agentInfo.rating ?? "0.0"}
+                  {agentInfo.experience || "0 Years"}
                 </div>
-                <div style={styles.statLabel}>Client Rating</div>
+                <div style={styles.statLabel}>Experience</div>
               </div>
             </div>
           </div>
@@ -1048,12 +1048,6 @@ const Profile = () => {
                   </span>
                 </div>
 
-                <div style={styles.contactItem}>
-                  <span style={styles.contactIcon}>💼</span>
-                  <span style={styles.contactValue}>
-                    {agentInfo.experience || "0 Years"} Experience
-                  </span>
-                </div>
               </div>
             </div>
 
