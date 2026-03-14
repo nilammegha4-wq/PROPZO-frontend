@@ -557,12 +557,21 @@ export default function PropertyInspection() {
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@300;500;700&display=swap');
 
         :root {
+<<<<<<< HEAD
           --primary: #4C3324;
           --secondary: #819B8B;
           --accent: #B2846B;
           --text-dark: #4C3324;
           --text-light: #627B68;
           --bg-light: #f5f0ec;
+=======
+          --primary: #4c3324;
+          --secondary: #627b68;
+          --accent: #819b8b;
+          --text-dark: #3a2e28;
+          --text-light: #6b5e58;
+          --bg-light: #f9f6f1;
+>>>>>>> e85f1ae (nilam2)
           --white: #ffffff;
         }
 
@@ -591,12 +600,21 @@ export default function PropertyInspection() {
         }
 
         .hero-content { max-width: 800px; padding: 20px; }
+<<<<<<< HEAD
         .hero-content h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; text-shadow: 0 4px 6px rgba(0,0,0,0.3); color: #E4CBB6; }
         .hero-content p { font-size: 1.25rem; margin-bottom: 2.5rem; color: #E4CBB6; font-weight: 300; opacity: 0.9; }
         
         .hero-btn {
           padding: 1rem 3rem;
           background: #B2846B;
+=======
+        .hero-content h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; text-shadow: 0 4px 6px rgba(0,0,0,0.3); color: #ffffff; }
+        .hero-content p { font-size: 1.25rem; margin-bottom: 2.5rem; color: #f9f6f1; font-weight: 300; opacity: 0.9; }
+        
+        .hero-btn {
+          padding: 1rem 3rem;
+          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%);
+>>>>>>> e85f1ae (nilam2)
           color: #fff;
           font-weight: 700;
           font-size: 1.1rem;
@@ -604,11 +622,19 @@ export default function PropertyInspection() {
           border-radius: 50px;
           cursor: pointer;
           transition: all 0.3s ease;
+<<<<<<< HEAD
           box-shadow: 0 10px 20px rgba(178, 132, 107, 0.35);
           text-transform: uppercase;
           letter-spacing: 1px;
         }
         .hero-btn:hover { background: #4C3324; transform: translateY(-3px); box-shadow: 0 15px 30px rgba(76, 51, 36, 0.3); }
+=======
+          box-shadow: 0 10px 20px rgba(98, 123, 104, 0.2);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+        .hero-btn:hover { opacity: 0.9; transform: translateY(-3px); box-shadow: 0 15px 30px rgba(98, 123, 104, 0.3); }
+>>>>>>> e85f1ae (nilam2)
 
         /* STATS BAR */
         .stats-bar {
@@ -627,7 +653,11 @@ export default function PropertyInspection() {
           margin-right: auto;
         }
         .stat-item { text-align: center; }
+<<<<<<< HEAD
         .stat-number { font-size: 2.5rem; font-weight: 700; color: #819B8B; display: block; }
+=======
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: #627b68; display: block; }
+>>>>>>> e85f1ae (nilam2)
         .stat-label { font-size: 0.9rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 
         /* WHY CHOOSE US */
@@ -638,9 +668,15 @@ export default function PropertyInspection() {
         .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
         .why-card { 
           background: var(--white); padding: 40px 30px; border-radius: 20px; 
+<<<<<<< HEAD
           box-shadow: 0 10px 30px rgba(76, 51, 36, 0.06); transition: 0.4s; border: 1px solid #e8d5c8;
         }
         .why-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(76, 51, 36, 0.1); border-color: #819B8B; }
+=======
+          box-shadow: 0 10px 30px rgba(76, 51, 36, 0.05); transition: 0.4s; border: 1px solid rgba(228, 203, 182, 0.3);
+        }
+        .why-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(76, 51, 36, 0.08); border-color: #627b68; }
+>>>>>>> e85f1ae (nilam2)
         .why-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
         .why-card h3 { margin-bottom: 15px; font-size: 1.4rem; color: var(--primary); }
         .why-card p { color: var(--text-light); line-height: 1.6; }
@@ -655,8 +691,13 @@ export default function PropertyInspection() {
         
         .form-container { position: relative; z-index: 2; max-width: 800px; margin: auto; }
         .form-header { text-align: center; color: var(--white); margin-bottom: 40px; }
+<<<<<<< HEAD
         .form-header h2 { font-size: 2.5rem; margin-bottom: 10px; color: #E4CBB6; }
         .form-header p { opacity: 0.8; color: #E4CBB6; }
+=======
+        .form-header h2 { font-size: 2.5rem; margin-bottom: 10px; color: #ffffff; }
+        .form-header p { opacity: 0.8; color: #f9f6f1; }
+>>>>>>> e85f1ae (nilam2)
 
         .inspection-form { 
           background: rgba(255, 255, 255, 0.1); 
@@ -670,11 +711,16 @@ export default function PropertyInspection() {
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
         
         .inspection-form input, .inspection-form select, .inspection-form textarea {
+<<<<<<< HEAD
           width: 100%; padding: 15px; border-radius: 10px; border: 1px solid rgba(228, 203, 182, 0.35);
+=======
+          width: 100%; padding: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3);
+>>>>>>> e85f1ae (nilam2)
           background: rgba(255,255,255,0.92); color: var(--text-dark); font-size: 1rem; outline: none; transition: 0.3s;
           box-sizing: border-box;
         }
         .inspection-form input:focus, .inspection-form select:focus, .inspection-form textarea:focus {
+<<<<<<< HEAD
           border-color: #819B8B; background: var(--white); box-shadow: 0 0 0 4px rgba(129, 155, 139, 0.25);
         }
         
@@ -683,6 +729,16 @@ export default function PropertyInspection() {
           border: none; border-radius: 10px; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
         }
         .submit-btn:hover { background: #627B68; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(98, 123, 104, 0.4); }
+=======
+          border-color: #627b68; background: var(--white); box-shadow: 0 0 0 4px rgba(98, 123, 104, 0.25);
+        }
+        
+        .submit-btn {
+          width: 100%; padding: 18px; background: #627b68; color: white; font-size: 1.1rem; font-weight: 700;
+          border: none; border-radius: 10px; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .submit-btn:hover { background: #4c3324; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(76, 51, 36, 0.3); }
+>>>>>>> e85f1ae (nilam2)
 
         /* GALLERY */
         .gallery-section { padding: 100px 20px; text-align: center; }
@@ -707,7 +763,11 @@ export default function PropertyInspection() {
         .testimonials-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: auto; }
         .testimonial-card { 
           background: var(--bg-light); padding: 40px 30px; width: 350px; border-radius: 20px; position: relative; text-align: left; 
+<<<<<<< HEAD
           border: 1px solid #e8d5c8;
+=======
+          border: 1px solid rgba(228, 203, 182, 0.3);
+>>>>>>> e85f1ae (nilam2)
         }
         .quote-icon { font-size: 4rem; color: #e8d5c8; position: absolute; top: 10px; right: 20px; z-index: 0; }
         .testimonial-text { font-style: italic; color: var(--text-dark); position: relative; z-index: 1; margin-bottom: 20px; line-height: 1.6; }
@@ -715,7 +775,11 @@ export default function PropertyInspection() {
         .user-avatar { width: 50px; height: 50px; background: #e8d5c8; border-radius: 50%; object-fit: cover; }
         .user-name h4 { margin: 0; color: var(--primary); font-size: 1.1rem; }
         .user-name span { font-size: 0.85rem; color: var(--text-light); }
+<<<<<<< HEAD
         .stars { color: #B2846B; margin-bottom: 10px; }
+=======
+        .stars { color: #819b8b; margin-bottom: 10px; }
+>>>>>>> e85f1ae (nilam2)
 
         /* CTA SECTION */
         .cta-section-new {
@@ -738,7 +802,11 @@ export default function PropertyInspection() {
 
         .cta-blob {
           position: absolute;
+<<<<<<< HEAD
           background: rgba(228, 203, 182, 0.07);
+=======
+          background: rgba(255, 255, 255, 0.05);
+>>>>>>> e85f1ae (nilam2)
           border-radius: 50%;
         }
         .blob-1 { width: 300px; height: 300px; top: -100px; left: -100px; }
@@ -749,14 +817,22 @@ export default function PropertyInspection() {
         .cta-title {
           font-size: 3rem; 
           margin-bottom: 20px; 
+<<<<<<< HEAD
           color: #E4CBB6; 
+=======
+          color: #ffffff; 
+>>>>>>> e85f1ae (nilam2)
           font-weight: 700;
           text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         
         .cta-desc {
           font-size: 1.25rem;
+<<<<<<< HEAD
           color: #E4CBB6;
+=======
+          color: #f9f6f1;
+>>>>>>> e85f1ae (nilam2)
           max-width: 650px;
           margin: 0 auto 40px auto;
           line-height: 1.6;
@@ -765,7 +841,11 @@ export default function PropertyInspection() {
 
         .cta-btn-premium {
           padding: 18px 50px;
+<<<<<<< HEAD
           background: #B2846B;
+=======
+          background: #819b8b;
+>>>>>>> e85f1ae (nilam2)
           color: #fff;
           font-weight: 700;
           border-radius: 50px;

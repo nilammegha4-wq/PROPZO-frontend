@@ -363,8 +363,12 @@ export default function PremiumRealEstateServices() {
 
         body {
           margin: 0;
+<<<<<<< HEAD
           /* Deep brown as dark base — stays close to original dark feel */
           background: #2A1A10;
+=======
+          background: #f9f6f1;
+>>>>>>> e85f1ae (nilam2)
         }
 
         .container {
@@ -381,20 +385,32 @@ export default function PremiumRealEstateServices() {
           align-items: center;
           justify-content: flex-start;
           padding-left: 10%;
+<<<<<<< HEAD
           color: #F5EDE6;
+=======
+          color: #4c3324;
+>>>>>>> e85f1ae (nilam2)
         }
 
         .hero h1 {
           font-family: 'Cormorant Garamond', serif;
           font-size: 4rem;
           font-weight: 300;
+<<<<<<< HEAD
           /* Blush warm white for heading */
           color: #F5EDE6;
+=======
+          color: #4c3324;
+>>>>>>> e85f1ae (nilam2)
           margin-bottom: 16px;
         }
 
         .hero span {
+<<<<<<< HEAD
           color: #E4CBB6;
+=======
+          color: #6b5e58;
+>>>>>>> e85f1ae (nilam2)
           font-size: 1.1rem;
           font-weight: 400;
         }
@@ -403,8 +419,12 @@ export default function PremiumRealEstateServices() {
           content: "";
           position: absolute;
           inset: 0;
+<<<<<<< HEAD
           /* Earthy overlay: deep brown tinted */
           background: linear-gradient(160deg, rgba(76,51,36,0.7) 0%, rgba(98,123,104,0.5) 100%);
+=======
+          background: linear-gradient(160deg, rgba(249, 246, 241, 0.7) 0%, rgba(129, 155, 139, 0.4) 100%);
+>>>>>>> e85f1ae (nilam2)
           z-index: 1;
         }
 
@@ -433,22 +453,35 @@ export default function PremiumRealEstateServices() {
 
         /* ================= CARD ================= */
         .service-card {
+<<<<<<< HEAD
           /* Warm dark card: slightly lighter than bg */
           background: #3A2218;
+=======
+          background: #ffffff;
+>>>>>>> e85f1ae (nilam2)
           border-radius: 4px;
           overflow: hidden;
           transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
           display: flex;
           flex-direction: column;
+<<<<<<< HEAD
           /* Terracotta border hint */
           border: 1px solid rgba(178, 132, 107, 0.2);
+=======
+          border: 1px solid rgba(228, 203, 182, 0.3);
+>>>>>>> e85f1ae (nilam2)
           position: relative;
         }
 
         .service-card:hover {
           transform: translateY(-8px);
+<<<<<<< HEAD
           box-shadow: 0 30px 60px rgba(76,51,36,0.5);
           border-color: rgba(178, 132, 107, 0.5);
+=======
+          box-shadow: 0 30px 60px rgba(76, 51, 36, 0.1);
+          border-color: rgba(129, 155, 139, 0.4);
+>>>>>>> e85f1ae (nilam2)
         }
 
         .card-image {
@@ -461,7 +494,11 @@ export default function PremiumRealEstateServices() {
           content: "";
           position: absolute;
           inset: 0;
+<<<<<<< HEAD
           background: linear-gradient(to bottom, transparent, rgba(42,26,16,0.35));
+=======
+          background: linear-gradient(to bottom, transparent, rgba(76, 51, 36, 0.05));
+>>>>>>> e85f1ae (nilam2)
           opacity: 0;
           transition: opacity 0.3s ease;
         }
@@ -475,7 +512,10 @@ export default function PremiumRealEstateServices() {
           height: 100%;
           object-fit: cover;
           transition: transform 0.6s ease;
+<<<<<<< HEAD
           filter: sepia(0.12);
+=======
+>>>>>>> e85f1ae (nilam2)
         }
 
         .service-card:hover .card-image img {
@@ -494,14 +534,22 @@ export default function PremiumRealEstateServices() {
           font-size: 1.8rem;
           font-weight: 400;
           margin-bottom: 15px;
+<<<<<<< HEAD
           /* Terracotta accent for titles */
           color: #B2846B;
+=======
+          color: #4c3324;
+>>>>>>> e85f1ae (nilam2)
           letter-spacing: 0.02em;
         }
 
         .service-description {
+<<<<<<< HEAD
           /* Muted sage-toned text */
           color: #819B8B;
+=======
+          color: #6b5e58;
+>>>>>>> e85f1ae (nilam2)
           margin-bottom: 30px;
           line-height: 1.7;
           flex-grow: 1;
@@ -510,6 +558,7 @@ export default function PremiumRealEstateServices() {
 
         .service-btn {
           padding: 16px 36px;
+<<<<<<< HEAD
           border-radius: 2px;
           border: none;
           font-weight: 600;
@@ -517,12 +566,21 @@ export default function PremiumRealEstateServices() {
           /* Terracotta → sage gradient button */
           background: linear-gradient(135deg, #B2846B 0%, #627B68 100%);
           color: #FDFAF8;
+=======
+          border-radius: 4px;
+          border: none;
+          font-weight: 600;
+          cursor: pointer;
+          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%);
+          color: #ffffff;
+>>>>>>> e85f1ae (nilam2)
           text-decoration: none;
           text-align: center;
           display: inline-block;
           transition: all 0.3s ease;
           letter-spacing: 0.1em;
           text-transform: uppercase;
+<<<<<<< HEAD
           font-size: 0.9rem;
           box-shadow: 0 6px 18px rgba(98,123,104,0.3);
         }
@@ -531,6 +589,16 @@ export default function PremiumRealEstateServices() {
           opacity: 0.88;
           transform: translateY(-2px);
           box-shadow: 0 12px 24px rgba(98,123,104,0.4);
+=======
+          font-size: 0.85rem;
+          box-shadow: 0 6px 18px rgba(98, 123, 104, 0.2);
+        }
+
+        .service-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 24px rgba(98, 123, 104, 0.3);
+          opacity: 0.9;
+>>>>>>> e85f1ae (nilam2)
         }
       `}</style>
 

@@ -598,6 +598,7 @@ export default function RelocationMoving() {
     <div className="relocation-page">
       <style>{`
         :root {
+<<<<<<< HEAD
           --primary: #4C3324;
           --primary-light: #819B8B;
           --accent: #B2846B;
@@ -608,6 +609,18 @@ export default function RelocationMoving() {
           --radius: 12px;
           --shadow-sm: 0 4px 6px -1px rgba(76, 51, 36, 0.05);
           --shadow-lg: 0 20px 25px -5px rgba(76, 51, 36, 0.1), 0 8px 10px -6px rgba(76, 51, 36, 0.05);
+=======
+          --primary: #4c3324;
+          --primary-light: #627b68;
+          --accent: #819b8b;
+          --dark: #3a2e28;
+          --light: #f9f6f1;
+          --gray: #6b5e58;
+          --white: #ffffff;
+          --radius: 12px;
+          --shadow-sm: 0 4px 6px -1px rgba(76, 51, 36, 0.05);
+          --shadow-lg: 0 20px 25px -5px rgba(76, 51, 36, 0.08), 0 8px 10px -6px rgba(76, 51, 36, 0.05);
+>>>>>>> e85f1ae (nilam2)
           --glass: rgba(255, 255, 255, 0.96);
         }
 
@@ -617,7 +630,11 @@ export default function RelocationMoving() {
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
         h1, h2, h3, h4 { line-height: 1.2; font-weight: 800; color: var(--dark); }
+<<<<<<< HEAD
         .text-accent { color: #E4CBB6; }
+=======
+        .text-accent { color: #ffffff; }
+>>>>>>> e85f1ae (nilam2)
         .text-center { text-align: center; }
         
         .btn {
@@ -625,12 +642,21 @@ export default function RelocationMoving() {
           padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none;
           transition: 0.3s; cursor: pointer; border: none; font-size: 1rem;
         }
+<<<<<<< HEAD
         .btn-accent { background: #B2846B; color: #fff; }
         .btn-accent:hover { background: #4C3324; transform: translateY(-2px); }
         .btn-primary { background: #627B68; color: white; }
         .btn-primary:hover { background: #4C3324; }
         .btn-outline-white { background: transparent; border: 2px solid white; color: white; }
         .btn-outline-white:hover { background: white; color: #4C3324; }
+=======
+        .btn-accent { background: linear-gradient(135deg, #627b68 0%, #4c3324 100%); color: #fff; }
+        .btn-accent:hover { opacity: 0.9; transform: translateY(-2px); }
+        .btn-primary { background: #627b68; color: white; }
+        .btn-primary:hover { background: #4c3324; }
+        .btn-outline-white { background: transparent; border: 2px solid white; color: white; }
+        .btn-outline-white:hover { background: white; color: #4c3324; }
+>>>>>>> e85f1ae (nilam2)
 
         /* HERO */
         .hero {
@@ -647,17 +673,29 @@ export default function RelocationMoving() {
         }
 
         .hero-content { max-width: 800px; margin: 0 auto; }
+<<<<<<< HEAD
         .hero-content h1 { font-size: 3.8rem; color: #E4CBB6; margin-bottom: 24px; }
         .hero-content p { font-size: 1.3rem; color: #E4CBB6; margin-bottom: 40px; opacity: 0.88; }
         
         .trust-badges { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
         .badge { background: rgba(228, 203, 182, 0.12); backdrop-filter: blur(5px); color: #E4CBB6; padding: 10px 20px; border-radius: 50px; font-size: 1rem; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(228, 203, 182, 0.25); }
+=======
+        .hero-content h1 { font-size: 3.8rem; color: #ffffff; margin-bottom: 24px; }
+        .hero-content p { font-size: 1.3rem; color: #f9f6f1; margin-bottom: 40px; opacity: 0.88; }
+        
+        .trust-badges { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .badge { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); color: #f9f6f1; padding: 10px 20px; border-radius: 50px; font-size: 1rem; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(255, 255, 255, 0.2); }
+>>>>>>> e85f1ae (nilam2)
 
         /* STATS STRIP */
         .stats-section { background: white; padding: 40px 0; border-bottom: 1px solid #e8d5c8; }
         .stats-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
         .stat-item { text-align: center; }
+<<<<<<< HEAD
         .stat-num { display: block; font-size: 2.5rem; font-weight: 800; color: #627B68; line-height: 1; }
+=======
+        .stat-num { display: block; font-size: 2.5rem; font-weight: 800; color: #627b68; line-height: 1; }
+>>>>>>> e85f1ae (nilam2)
         .stat-label { font-size: 0.9rem; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         /* ESTIMATE SECTION */
@@ -680,7 +718,11 @@ export default function RelocationMoving() {
           position: relative; z-index: 2;
         }
         
+<<<<<<< HEAD
         .booking-card h3 { margin-bottom: 20px; color: #4C3324; font-size: 1.8rem; text-align: center; }
+=======
+        .booking-card h3 { margin-bottom: 20px; color: #4c3324; font-size: 1.8rem; text-align: center; }
+>>>>>>> e85f1ae (nilam2)
         .booking-subtitle { text-align: center; color: var(--gray); margin-bottom: 30px; margin-top: -10px; }
         
         .form-group { margin-bottom: 16px; position: relative; }
@@ -695,7 +737,11 @@ export default function RelocationMoving() {
           font-size: 1rem; transition: 0.3s; color: #4C3324;
           background: white;
         }
+<<<<<<< HEAD
         .form-input:focus { border-color: #819B8B; outline: none; box-shadow: 0 0 0 3px rgba(129, 155, 139, 0.15); }
+=======
+        .form-input:focus { border-color: #627b68; outline: none; box-shadow: 0 0 0 3px rgba(98, 123, 104, 0.15); }
+>>>>>>> e85f1ae (nilam2)
 
         .row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 
@@ -717,9 +763,15 @@ export default function RelocationMoving() {
         .timeline-content h4 { color: #4C3324; }
         .timeline-content p { color: #627B68; }
         .timeline-num { 
+<<<<<<< HEAD
           width: 50px; height: 50px; background: #627B68; color: white;
           border-radius: 50%; display: flex; align-items: center; justify-content: center;
           font-weight: 700; font-size: 1.2rem; border: 4px solid white; box-shadow: 0 0 0 2px #e8d5c8;
+=======
+          width: 50px; height: 50px; background: #627b68; color: white;
+          border-radius: 50%; display: flex; align-items: center; justify-content: center;
+          font-weight: 700; font-size: 1.2rem; border: 4px solid white; box-shadow: 0 0 0 2px rgba(228, 203, 182, 0.3);
+>>>>>>> e85f1ae (nilam2)
           position: absolute; left: 50%; transform: translateX(-50%);
         }
 
@@ -731,9 +783,15 @@ export default function RelocationMoving() {
           background: white; padding: 40px; border-radius: 16px;
           transition: 0.3s; border: 1px solid #e8d5c8; position: relative; overflow: hidden;
         }
+<<<<<<< HEAD
         .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: #819B8B; }
         .service-card::before {
           content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #819B8B;
+=======
+        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: #627b68; }
+        .service-card::before {
+          content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #627b68;
+>>>>>>> e85f1ae (nilam2)
           transform: scaleX(0); transform-origin: left; transition: 0.3s;
         }
         .service-card:hover::before { transform: scaleX(1); }
@@ -745,7 +803,11 @@ export default function RelocationMoving() {
           border-radius: 12px; display: flex; align-items: center; justify-content: center;
           margin-bottom: 24px;
         }
+<<<<<<< HEAD
         .service-card:hover .icon-circle { background: #627B68; color: white; }
+=======
+        .service-card:hover .icon-circle { background: #627b68; color: white; }
+>>>>>>> e85f1ae (nilam2)
 
         /* TESTIMONIALS */
         .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
@@ -777,8 +839,13 @@ export default function RelocationMoving() {
           color: var(--dark); padding: 80px 0; text-align: center;
           border-top: 1px solid #e8d5c8;
         }
+<<<<<<< HEAD
         .cta-banner h2 { color: #4C3324; }
         .cta-banner p { color: #627B68; }
+=======
+        .cta-banner h2 { color: #4c3324; }
+        .cta-banner p { color: #6b5e58; }
+>>>>>>> e85f1ae (nilam2)
 
         @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 

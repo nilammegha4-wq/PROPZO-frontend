@@ -744,8 +744,13 @@ export default function Properties() {
         <div className="hero-banner">
           <img src="/1.jpg" alt="Beautiful Home" className="hero-bg-img" />
           <div className="hero-content">
+<<<<<<< HEAD
             <h1>Find Rental Homes</h1>
             <p>Premium & affordable rentals curated for you</p>
+=======
+            <h1>Explore Properties</h1>
+            <p>Premium homes curated by Propzo</p>
+>>>>>>> e85f1ae (nilam2)
           </div>
         </div>
 

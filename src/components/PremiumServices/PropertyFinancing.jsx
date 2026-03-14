@@ -170,6 +170,7 @@
 //   return (
 //     <>
 //       <style>{`
+<<<<<<< HEAD
 //         /* GLOBAL & UTILS */
 //         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Sans:wght@300;400;500;700&display=swap');
 
@@ -823,6 +824,8 @@
 
 
 
+=======
+>>>>>>> e85f1ae (nilam2)
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -992,8 +995,13 @@ export default function PropertyFinancing() {
         
         body { 
           margin: 0; 
+<<<<<<< HEAD
           background-color: #f5f0ec;
           color: #4C3324; 
+=======
+          background-color: #f9f6f1;
+          color: #31211b; 
+>>>>>>> e85f1ae (nilam2)
         }
         
         .container { width: 90%; max-width: 1250px; margin: auto; }
@@ -1016,12 +1024,20 @@ export default function PropertyFinancing() {
           font-family: 'Cormorant Garamond', serif;
           font-size: 3.5rem; 
           margin-bottom: 20px; 
+<<<<<<< HEAD
           color: #4C3324; 
+=======
+          color: #4c3324; 
+>>>>>>> e85f1ae (nilam2)
           font-weight: 300;
           letter-spacing: -1px;
         }
         .section-subtitle { 
+<<<<<<< HEAD
           color: #627B68; 
+=======
+          color: #6b5e58; 
+>>>>>>> e85f1ae (nilam2)
           margin-bottom: 60px; 
           max-width: 600px; 
           margin-left: auto; 
@@ -1045,17 +1061,30 @@ export default function PropertyFinancing() {
           letter-spacing: 0.15em;
         }
         .cta-btn:hover { 
+<<<<<<< HEAD
           background: #4C3324;
           transform: translateY(-3px); 
           box-shadow: 0 10px 20px rgba(76, 51, 36, 0.2); 
+=======
+          opacity: 0.9;
+          transform: translateY(-3px); 
+          box-shadow: 0 15px 30px rgba(98, 123, 104, 0.3); 
+>>>>>>> e85f1ae (nilam2)
         }
 
         .outline-btn {
           background: transparent;
+<<<<<<< HEAD
           border: 1px solid rgba(129, 155, 139, 0.5);
           color: #627B68;
           padding: 12px 30px;
           border-radius: 2px;
+=======
+          border: 1px solid rgba(129, 155, 139, 0.4);
+          color: #627b68;
+          padding: 12px 30px;
+          border-radius: 4px;
+>>>>>>> e85f1ae (nilam2)
           font-weight: 600;
           cursor: pointer;
           transition: 0.3s;
@@ -1064,9 +1093,15 @@ export default function PropertyFinancing() {
           font-size: 0.85rem;
         }
         .outline-btn:hover {
+<<<<<<< HEAD
           border-color: #627B68;
           background: rgba(129, 155, 139, 0.08);
           color: #4C3324;
+=======
+          border-color: #4c3324;
+          background: rgba(129, 155, 139, 0.05);
+          color: #4c3324;
+>>>>>>> e85f1ae (nilam2)
         }
 
         /* HERO SECTION */
@@ -1092,7 +1127,11 @@ export default function PropertyFinancing() {
         .hero-overlay {
           position: absolute;
           inset: 0;
+<<<<<<< HEAD
           background: linear-gradient(to bottom, rgba(76, 51, 36, 0.3), #4C3324);
+=======
+          background: linear-gradient(to bottom, rgba(249, 246, 241, 0.3), #f9f6f1);
+>>>>>>> e85f1ae (nilam2)
         }
 
         .hero-content {
@@ -1105,16 +1144,28 @@ export default function PropertyFinancing() {
 
         .hero-badge {
           display: inline-block;
+<<<<<<< HEAD
           background: rgba(228, 203, 182, 0.12);
           backdrop-filter: blur(10px);
           border: 1px solid rgba(228, 203, 182, 0.25);
           padding: 8px 24px;
           border-radius: 2px;
+=======
+          background: rgba(129, 155, 139, 0.1);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(129, 155, 139, 0.2);
+          padding: 8px 24px;
+          border-radius: 4px;
+>>>>>>> e85f1ae (nilam2)
           font-size: 0.8rem;
           margin-bottom: 25px;
           letter-spacing: 0.2em;
           text-transform: uppercase;
+<<<<<<< HEAD
           color: #E4CBB6;
+=======
+          color: #627b68;
+>>>>>>> e85f1ae (nilam2)
         }
 
         .finance-hero h1 { 
@@ -1123,13 +1174,21 @@ export default function PropertyFinancing() {
           margin-bottom: 25px; 
           line-height: 1.1; 
           font-weight: 300;
+<<<<<<< HEAD
           color: #E4CBB6;
+=======
+          color: #4c3324;
+>>>>>>> e85f1ae (nilam2)
           letter-spacing: -0.02em;
         }
         
         .finance-hero p { 
           font-size: 1.25rem; 
+<<<<<<< HEAD
           color: #E4CBB6;
+=======
+          color: #6b5e58; 
+>>>>>>> e85f1ae (nilam2)
           margin-bottom: 40px; 
           font-weight: 400; 
           max-width: 650px;
@@ -1143,11 +1202,19 @@ export default function PropertyFinancing() {
           display: grid;
           grid-template-columns: 1.25fr 0.75fr;
           gap: 60px;
+<<<<<<< HEAD
           background: #fff;
           padding: 60px;
           border-radius: 4px;
           box-shadow: 0 40px 80px rgba(76, 51, 36, 0.12);
           border: 1px solid rgba(129, 155, 139, 0.2);
+=======
+          background: #ffffff;
+          padding: 60px;
+          border-radius: 8px;
+          box-shadow: 0 40px 80px rgba(76, 51, 36, 0.08);
+          border: 1px solid rgba(228, 203, 182, 0.3);
+>>>>>>> e85f1ae (nilam2)
           margin-top: -100px;
           position: relative;
           z-index: 10;
@@ -1160,7 +1227,11 @@ export default function PropertyFinancing() {
           font-weight: 500; 
           margin-bottom: 18px; 
           font-size: 1rem;
+<<<<<<< HEAD
           color: #4C3324;
+=======
+          color: #4c3324;
+>>>>>>> e85f1ae (nilam2)
           text-transform: uppercase;
           letter-spacing: 0.1em;
         }
@@ -1168,8 +1239,13 @@ export default function PropertyFinancing() {
         input[type=range] {
           width: 100%;
           height: 4px;
+<<<<<<< HEAD
           background: rgba(129, 155, 139, 0.2);
           border-radius: 2px;
+=======
+          background: rgba(129, 155, 139, 0.15);
+          border-radius: 4px;
+>>>>>>> e85f1ae (nilam2)
           outline: none;
           -webkit-appearance: none;
         }
@@ -1177,15 +1253,24 @@ export default function PropertyFinancing() {
           -webkit-appearance: none;
           width: 22px;
           height: 22px;
+<<<<<<< HEAD
           background: #819B8B;
           border: 2px solid #fff;
+=======
+          background: #627b68;
+          border: 2px solid #ffffff;
+>>>>>>> e85f1ae (nilam2)
           border-radius: 50%;
           cursor: pointer;
           transition: all 0.3s ease;
         }
         input[type=range]::-webkit-slider-thumb:hover { 
           transform: scale(1.2); 
+<<<<<<< HEAD
           background: #627B68;
+=======
+          background: #4c3324;
+>>>>>>> e85f1ae (nilam2)
         }
 
         /* DONUT CHART */
@@ -1217,7 +1302,11 @@ export default function PropertyFinancing() {
           position: absolute;
           width: 160px;
           height: 160px;
+<<<<<<< HEAD
           background: #fff;
+=======
+          background: #ffffff;
+>>>>>>> e85f1ae (nilam2)
           border-radius: 50%;
         }
 
@@ -1235,9 +1324,15 @@ export default function PropertyFinancing() {
           gap: 15px;
           font-size: 0.9rem; 
           margin-top: 15px; 
+<<<<<<< HEAD
           border-top: 1px solid rgba(129, 155, 139, 0.15); 
           padding-top: 25px; 
           color: #627B68;
+=======
+          border-top: 1px solid rgba(228, 203, 182, 0.2); 
+          padding-top: 25px; 
+          color: #6b5e58;
+>>>>>>> e85f1ae (nilam2)
         }
         .legend-item { display: flex; align-items: center; gap: 12px; }
         .dot { width: 12px; height: 12px; border-radius: 50%; }
@@ -1245,6 +1340,7 @@ export default function PropertyFinancing() {
         /* SERVICES GRID */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .service-card {
+<<<<<<< HEAD
           background: #fff;
           padding: 50px 40px;
           border-radius: 4px;
@@ -1256,42 +1352,81 @@ export default function PropertyFinancing() {
           transform: translateY(-8px); 
           border-color: rgba(129, 155, 139, 0.5); 
           box-shadow: 0 30px 60px rgba(76, 51, 36, 0.1);
+=======
+          background: #ffffff;
+          padding: 50px 40px;
+          border-radius: 8px;
+          transition: all 0.4s ease;
+          position: relative;
+          border: 1px solid rgba(228, 203, 182, 0.3);
+        }
+        .service-card:hover { 
+          transform: translateY(-8px); 
+          border-color: rgba(129, 155, 139, 0.4); 
+          box-shadow: 0 30px 60px rgba(76, 51, 36, 0.08);
+>>>>>>> e85f1ae (nilam2)
         }
         
         .service-icon { 
           width: 64px; height: 64px; 
+<<<<<<< HEAD
           background: rgba(129, 155, 139, 0.1); 
           color: #627B68; 
           border-radius: 50%; 
           display: flex; align-items: center; justify-content: center; 
           font-size: 1.8rem; margin-bottom: 30px; 
           border: 1px solid rgba(129, 155, 139, 0.25);
+=======
+          background: rgba(129, 155, 139, 0.08); 
+          color: #819b8b; 
+          border-radius: 50%; 
+          display: flex; align-items: center; justify-content: center; 
+          font-size: 1.8rem; margin-bottom: 30px; 
+          border: 1px solid rgba(129, 155, 139, 0.2);
+>>>>>>> e85f1ae (nilam2)
         }
 
         .service-rate-badge {
           position: absolute; top: 40px; right: 40px;
+<<<<<<< HEAD
           background: rgba(178, 132, 107, 0.12); color: #B2846B;
           padding: 6px 16px; border-radius: 2px;
           font-weight: 700; font-size: 0.8rem;
           border: 1px solid rgba(178, 132, 107, 0.3);
+=======
+          background: rgba(129, 155, 139, 0.1); color: #627b68;
+          padding: 6px 16px; border-radius: 4px;
+          font-weight: 700; font-size: 0.8rem;
+          border: 1px solid rgba(129, 155, 139, 0.2);
+>>>>>>> e85f1ae (nilam2)
           letter-spacing: 0.05em;
         }
 
         /* WHY CHOOSE US */
         .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
         .why-card {
+<<<<<<< HEAD
           background: #fff; padding: 50px 30px; border-radius: 4px; text-align: center;
           border: 1px solid rgba(129, 155, 139, 0.2); transition: 0.4s ease;
         }
         .why-card:hover { 
           transform: translateY(-5px); 
           border-color: rgba(129, 155, 139, 0.45);
+=======
+          background: #ffffff; padding: 50px 30px; border-radius: 8px; text-align: center;
+          border: 1px solid rgba(228, 203, 182, 0.3); transition: 0.4s ease;
+        }
+        .why-card:hover { 
+          transform: translateY(-5px); 
+          border-color: rgba(129, 155, 139, 0.4);
+>>>>>>> e85f1ae (nilam2)
         }
         .why-icon { font-size: 2.8rem; margin-bottom: 25px; display: block; opacity: 0.9; }
 
         /* DOCUMENT TABS */
         .doc-tabs { display: flex; justify-content: center; gap: 20px; margin-bottom: 50px; }
         .tab-btn {
+<<<<<<< HEAD
           padding: 14px 40px; background: transparent; border: 1px solid rgba(129, 155, 139, 0.3);
           border-radius: 2px; cursor: pointer; font-weight: 600; color: #627B68; transition: 0.3s;
           font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em;
@@ -1307,15 +1442,40 @@ export default function PropertyFinancing() {
           background: #fff; padding: 50px; border-radius: 4px;
           max-width: 850px; margin: auto;
           border: 1px solid rgba(129, 155, 139, 0.2);
+=======
+          padding: 14px 40px; background: transparent; border: 1px solid rgba(228, 203, 182, 0.5);
+          border-radius: 4px; cursor: pointer; font-weight: 600; color: #6b5e58; transition: 0.3s;
+          font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em;
+        }
+        .tab-btn.active { 
+          background: #627b68; 
+          color: #ffffff; 
+          border-color: #627b68; 
+          box-shadow: 10px 10px 0px rgba(98, 123, 104, 0.1); 
+        }
+        
+        .doc-list {
+          background: #ffffff; padding: 50px; border-radius: 8px;
+          max-width: 850px; margin: auto;
+          border: 1px solid rgba(228, 203, 182, 0.3);
+>>>>>>> e85f1ae (nilam2)
           position: relative;
         }
         .doc-item {
           display: flex; align-items: center; gap: 20px; padding: 22px 0;
+<<<<<<< HEAD
           border-bottom: 1px solid rgba(129, 155, 139, 0.12); color: #627B68; font-weight: 400; font-size: 1.1rem;
         }
         .doc-item:last-child { border-bottom: none; }
         .check-circle { 
           width: 24px; height: 24px; background: rgba(129, 155, 139, 0.12); color: #627B68; 
+=======
+          border-bottom: 1px solid rgba(228, 203, 182, 0.2); color: #3a2e28; font-weight: 400; font-size: 1.1rem;
+        }
+        .doc-item:last-child { border-bottom: none; }
+        .check-circle { 
+          width: 24px; height: 24px; background: rgba(129, 155, 139, 0.1); color: #627b68; 
+>>>>>>> e85f1ae (nilam2)
           border-radius: 50%; display: flex; align-items: center; justify-content: center; 
           font-size: 0.8rem; flex-shrink: 0;
         }
@@ -1323,6 +1483,7 @@ export default function PropertyFinancing() {
         /* TESTIMONIALS */
         .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         .testi-card {
+<<<<<<< HEAD
           background: #fff; padding: 50px; border-radius: 4px; position: relative;
           border: 1px solid rgba(129, 155, 139, 0.15); 
         }
@@ -1331,10 +1492,21 @@ export default function PropertyFinancing() {
         .user-img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(129, 155, 139, 0.3); }
         .quote-icon { font-size: 6rem; color: rgba(178, 132, 107, 0.07); position: absolute; top: 10px; right: 40px; z-index: 0; pointer-events: none; }
         .testi-text { position: relative; z-index: 1; font-size: 1.1rem; line-height: 1.8; color: #627B68; font-style: italic; }
+=======
+          background: #ffffff; padding: 50px; border-radius: 8px; position: relative;
+          border: 1px solid rgba(228, 203, 182, 0.3); 
+        }
+        .testi-card:hover { border-color: rgba(129, 155, 139, 0.4); }
+        .user-info { display: flex; align-items: center; gap: 20px; margin-top: 30px; }
+        .user-img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(228, 203, 182, 0.3); }
+        .quote-icon { font-size: 6rem; color: rgba(129, 155, 139, 0.05); position: absolute; top: 10px; right: 40px; z-index: 0; pointer-events: none; }
+        .testi-text { position: relative; z-index: 1; font-size: 1.1rem; line-height: 1.8; color: #6b5e58; font-style: italic; }
+>>>>>>> e85f1ae (nilam2)
 
         /* FLOATING CTA */
         .floating-btn {
           position: fixed; bottom: 40px; right: 40px;
+<<<<<<< HEAD
           background: #B2846B; color: #fff; padding: 18px 32px;
           border-radius: 2px; font-weight: 700; font-size: 0.9rem;
           box-shadow: 0 15px 35px rgba(178, 132, 107, 0.3);
@@ -1363,6 +1535,36 @@ export default function PropertyFinancing() {
           border-color: #819B8B; 
           background: rgba(129, 155, 139, 0.08); 
           box-shadow: 0 0 0 1px #819B8B; 
+=======
+          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%); color: #ffffff; padding: 18px 32px;
+          border-radius: 4px; font-weight: 700; font-size: 0.9rem;
+          box-shadow: 0 15px 35px rgba(98, 123, 104, 0.2);
+          z-index: 900; cursor: pointer; display: flex; align-items: center; gap: 15px;
+          transition: all 0.4s ease; border: none; text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .floating-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(98, 123, 104, 0.4); }
+
+        /* MODAL */
+        .modal-overlay {
+          position: fixed; inset: 0; background: rgba(76, 51, 36, 0.92);
+          backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 1000;
+        }
+        .modal-content {
+          background: #ffffff; padding: 60px 50px; border-radius: 8px; width: 95%; max-width: 550px;
+          position: relative; animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          border: 1px solid rgba(228, 203, 182, 0.3);
+          box-shadow: 0 40px 100px rgba(76, 51, 36, 0.15);
+        }
+        .form-input { 
+          width: 100%; padding: 18px; background: #fdfaf8; border: 1px solid rgba(228, 203, 182, 0.4); 
+          border-radius: 4px; margin-bottom: 20px; outline: none; transition: 0.3s; 
+          font-size: 1rem; color: #3a2e28;
+        }
+        .form-input:focus { 
+          border-color: #627b68; 
+          background: #ffffff; 
+          box-shadow: 0 0 0 1px #627b68; 
+>>>>>>> e85f1ae (nilam2)
         }
         
         @media(max-width: 900px) {

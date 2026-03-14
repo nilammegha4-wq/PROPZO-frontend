@@ -486,7 +486,11 @@ import { getImageUrl } from "../../config";
 import {
   FaArrowLeft, FaBed, FaBath, FaRulerCombined, FaTree, FaHistory,
   FaCheckCircle, FaUserCircle, FaWhatsapp, FaPhoneAlt, FaStar, FaImage,
+<<<<<<< HEAD
   FaRegCompass, FaCalendarAlt, FaLayerGroup, FaCouch, FaParking, FaCalendarCheck
+=======
+  FaRegCompass, FaCalendarAlt, FaLayerGroup, FaCouch, FaParking, FaCalendarCheck, FaEnvelope, FaTimes
+>>>>>>> e85f1ae (nilam2)
 } from "react-icons/fa";
 
 export default function RentDetails() {
@@ -497,6 +501,10 @@ export default function RentDetails() {
   const [similarProperties, setSimilarProperties] = useState([]);
   const [currentImage, setCurrentImage] = useState(0);
   const [loading, setLoading] = useState(true);
+<<<<<<< HEAD
+=======
+  const [showGallery, setShowGallery] = useState(false);
+>>>>>>> e85f1ae (nilam2)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -689,21 +697,46 @@ export default function RentDetails() {
         }
       `}</style>
 
+<<<<<<< HEAD
+=======
+      {/* HEADER NAV */}
+      <div style={styles.navRow}>
+        <button style={styles.backBtn} onClick={() => navigate("/rentpage")}>
+          <FaArrowLeft /> Back to Rentals
+        </button>
+      </div>
+
+>>>>>>> e85f1ae (nilam2)
       <div style={styles.contentGrid} className="dash-grid">
 
         {/* MAIN COLUMN */}
         <div style={styles.mainCol}>
 
           {/* BENTO GALLERY */}
+<<<<<<< HEAD
           <div className="bento-gallery">
+=======
+          <div className="bento-gallery" onClick={() => setShowGallery(true)} style={{ cursor: "pointer" }}>
+>>>>>>> e85f1ae (nilam2)
             <img src={getImageUrl(images[currentImage] || images[0])} alt="Main" className="main-img" />
             <div className="side-imgs">
               <div className="side-img-wrap">
                 <img src={getImageUrl(images[(currentImage + 1) % images.length] || images[0])} alt="Side 1" className="side-img" />
               </div>
+<<<<<<< HEAD
               <div className="side-img-wrap">
                 <img src={getImageUrl(images[(currentImage + 2) % images.length] || images[0])} alt="Side 2" className="side-img" />
                 {images.length > 3 && <div className="img-overlay">Show more Photos</div>}
+=======
+              <div className="side-img-wrap" style={{ position: 'relative' }}>
+                <img src={getImageUrl(images[(currentImage + 2) % images.length] || images[0])} alt="Side 2" className="side-img" />
+                {images.length > 3 && (
+                  <div className="img-overlay">
+                    <FaImage style={{ marginRight: '8px' }} />
+                    Show all {images.length} Photos
+                  </div>
+                )}
+>>>>>>> e85f1ae (nilam2)
               </div>
             </div>
           </div>
@@ -780,17 +813,33 @@ export default function RentDetails() {
             </button>
           </div>
 
+<<<<<<< HEAD
           {/* OWNER DETAILS */}
+=======
+>>>>>>> e85f1ae (nilam2)
           <div style={styles.whiteCardSidebar}>
             <h4 style={styles.widgetH4}>Owner Details</h4>
             <div style={styles.agentRow}>
               <div style={styles.avatarCircle}>
+<<<<<<< HEAD
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Owner" style={{ width: "100%" }} />
               </div>
               <div style={styles.agentMeta}>
                 <strong style={styles.agentName}>Admin</strong>
                 <div style={styles.contactItem}><FaPhoneAlt size={12} /> +91 98765 43210</div>
                 <div style={styles.contactItem}><FaWhatsapp size={12} /> prpzoestate@gmail.com</div>
+=======
+                <img 
+                  src={property.owner?.profileImage ? getImageUrl(property.owner.profileImage) : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"} 
+                  alt="Owner" 
+                  style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} 
+                />
+              </div>
+              <div style={styles.agentMeta}>
+                <strong style={styles.agentName}>{property.owner?.name || "Patel Mahi"}</strong>
+                <div style={styles.contactItem}><FaPhoneAlt size={12} /> {property.owner?.phone || "+91 98765 43210"}</div>
+                <div style={styles.contactItem}><FaEnvelope size={12} /> {property.owner?.email || "prpzoestate@gmail.com"}</div>
+>>>>>>> e85f1ae (nilam2)
               </div>
             </div>
           </div>
@@ -801,12 +850,17 @@ export default function RentDetails() {
             <div style={styles.agentRow}>
               <div style={styles.avatarCircle}>
                 <img
+<<<<<<< HEAD
                   src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200"
+=======
+                  src={property.agent?.image ? getImageUrl(property.agent.image) : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}
+>>>>>>> e85f1ae (nilam2)
                   alt="Agent"
                   style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }}
                 />
               </div>
               <div style={styles.agentMeta}>
+<<<<<<< HEAD
                 <strong style={styles.agentName}>Rohit Sharma</strong>
                 <span style={styles.agentRole}>Senior Agent</span>
                 <div style={styles.ratingBox}><FaStar color="#B2846B" size={12} /> 4.9</div>
@@ -863,18 +917,107 @@ export default function RentDetails() {
             <button style={styles.ctaSecondary} onClick={() => navigate("/agent")}>
               Talk to Agent
             </button>
+=======
+                <strong style={styles.agentName}>{property.agent?.name || "PropZo Advisor"}</strong>
+                <span style={styles.agentRole}>{property.agent?.role || "Property Specialist"}</span>
+                <div style={styles.ratingBox}><FaStar color="#B2846B" size={12} /> {property.agent?.rating || "4.8"}</div>
+                <div style={styles.contactItem}><FaPhoneAlt size={12} /> {property.agent?.phone || "+91 98765 43210"}</div>
+                <div style={styles.contactItem}><FaEnvelope size={12} /> {property.agent?.email || "prpzoestate@gmail.com"}</div>
+              </div>
+            </div>
+            <button 
+              style={styles.viewProfileBtn} 
+              onClick={() => property.agent?._id ? navigate(`/agent-details/${property.agent._id}`) : navigate("/agent")}
+            >
+              View Agent Profile
+            </button>
+>>>>>>> e85f1ae (nilam2)
           </div>
         </div>
       </div>
+
+      {/* SIMILAR PROPERTIES */}
+      <div style={styles.similarSection}>
+        <div style={styles.sectionHeaderLine}>
+          <h2 style={styles.sectionH2}>Similar Properties</h2>
+          <button style={styles.viewAllText} onClick={() => navigate("/rentpage")}>View all →</button>
+        </div>
+        <div style={styles.similarGrid}>
+          {similarProperties.map((p) => (
+            <div
+              key={p._id}
+              style={styles.smallCard}
+              onClick={() => navigate(`/rent/${p._id}`)}
+              className="similar-card-hover"
+            >
+              <div style={styles.smallImgWrap}>
+                <img
+                  src={getImageUrl(p.image || (p.images && p.images[0])) || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=400"}
+                  alt={p.title}
+                  style={styles.smallImg}
+                />
+              </div>
+              <div style={styles.smallContent}>
+                <h4 style={styles.smallTitle}>{p.title}</h4>
+                <div style={styles.smallPrice}>{p.displayPrice || `₹${p.price?.toLocaleString()}`}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* DARK CTA SECTION */}
+      <div style={styles.darkCtaSection}>
+        <div style={styles.ctaContent}>
+          <h2 style={styles.ctaTitle}>Ready to find your dream space?</h2>
+          <p style={styles.ctaSub}>Our expert agents are here to help you every step of the way.</p>
+          <div style={styles.ctaBtns}>
+            <button style={styles.ctaPrimary} onClick={() => navigate("/contact")}>
+              Contact Specialist
+            </button>
+            <button style={styles.ctaSecondary} onClick={() => navigate("/agent")}>
+              Talk to Agent
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* PHOTO GALLERY MODAL */}
+      {showGallery && (
+        <div style={styles.modalOverlay} onClick={() => setShowGallery(false)}>
+          <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <div style={styles.modalHeader}>
+              <h2 style={{ margin: 0, fontSize: "20px", color: "#4C3324" }}>Property Gallery</h2>
+              <button style={styles.closeBtn} onClick={() => setShowGallery(false)}><FaTimes /></button>
+            </div>
+            <div style={styles.galleryGridFull}>
+              {images.map((img, i) => (
+                <div key={i} style={styles.galleryItemFull}>
+                  <img src={getImageUrl(img)} alt={`Property ${i}`} style={styles.galleryImgFull} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 const styles = {
+<<<<<<< HEAD
   dashboardContainer: { backgroundColor: "#F5EDE6", minHeight: "100vh", padding: "40px 60px" },
 
   loader: { height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px", background: "#F5EDE6" },
   spinner: { width: "40px", height: "40px", border: "4px solid #E4CBB6", borderTop: "4px solid #B2846B", borderRadius: "50%", animation: "spin 1s linear infinite" },
+=======
+  dashboardContainer: { backgroundColor: "#F5EDE6", minHeight: "100vh", padding: "120px 60px 40px" },
+
+  loader: { height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px", background: "#F5EDE6" },
+  
+  navRow: { maxWidth: "1280px", margin: "0 auto", padding: "0 20px 24px 0" },
+  backBtn: { background: "none", border: "none", display: "flex", alignItems: "center", gap: "8px", fontSize: "15px", fontWeight: "600", color: "#819B8B", cursor: "pointer", transition: "color 0.2s" },
+>>>>>>> e85f1ae (nilam2)
 
   contentGrid: { display: "grid", gridTemplateColumns: "1fr 320px", gap: "32px" },
   mainCol: {},
@@ -901,10 +1044,24 @@ const styles = {
     fontSize: "16px",
     fontWeight: "700",
     cursor: "pointer",
+<<<<<<< HEAD
     boxShadow: "0 10px 24px rgba(98,123,104,0.3)",
     fontFamily: "'Plus Jakarta Sans', sans-serif",
   },
 
+=======
+    boxShadow: "0 10px 20px rgba(178,132,107,0.15)",
+    transition: "transform 0.2s",
+  },
+
+  modalOverlay: { position: "fixed", inset: 0, backgroundColor: "rgba(76,51,36,0.9)", zIndex: 2000, display: "flex", alignItems: "center", justifyContent: "center", padding: "40px", backdropFilter: "blur(8px)" },
+  modalContent: { backgroundColor: "#F5EDE6", width: "100%", maxWidth: "1200px", maxHeight: "90vh", borderRadius: "32px", padding: "32px", overflow: "hidden", display: "flex", flexDirection: "column", position: 'relative' },
+  modalHeader: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" },
+  closeBtn: { background: "#FDFAF8", border: "1.5px solid #E4CBB6", width: "40px", height: "40px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "#B2846B", cursor: "pointer", fontSize: "18px" },
+  galleryGridFull: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px", overflowY: "auto", paddingRight: "10px" },
+  galleryItemFull: { borderRadius: "20px", overflow: "hidden", height: "240px", border: '1px solid #E4CBB6' },
+  galleryImgFull: { width: "100%", height: "100%", objectFit: "cover" },
+>>>>>>> e85f1ae (nilam2)
   widgetH4: { fontSize: "18px", fontWeight: "800", color: "#4C3324", marginBottom: "20px" },
   agentRow: { display: "flex", gap: "16px", alignItems: "flex-start" },
   avatarCircle: { width: "56px", height: "56px", borderRadius: "50%", backgroundColor: "#F5EDE6", overflow: "hidden", border: "2px solid #E4CBB6", flexShrink: 0 },

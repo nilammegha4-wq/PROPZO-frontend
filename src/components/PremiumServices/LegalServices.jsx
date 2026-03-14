@@ -317,7 +317,11 @@
 //           background: #f8fafc; box-sizing: border-box; margin-bottom: 20px;
 //         }
 //         .form-input:focus, .form-select:focus, .form-textarea:focus {
+<<<<<<< HEAD
 //           border-color: var(--primary); background: white; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+=======
+//           border-color: var(--primary); background: white; box-shadow: 0 0 0 3px rgba(98, 123, 104, 0.2);
+>>>>>>> e85f1ae (nilam2)
 //         }
 //         .submit-btn {
 //           width: 100%; padding: 18px; background: var(--secondary); color: white;
@@ -331,7 +335,11 @@
 //         .faq-item {
 //           background: white; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: 0.3s;
 //         }
+<<<<<<< HEAD
 //         .faq-item:hover { border-color: var(--primary); }
+=======
+//         .faq-item:hover { border-color: #819b8b; }
+>>>>>>> e85f1ae (nilam2)
 //         .faq-head {
 //           padding: 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
 //           font-weight: 600; color: var(--secondary); font-family: 'Inter', sans-serif; font-size: 1.1rem;
@@ -622,6 +630,7 @@ export default function LegalServices() {
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
         :root {
+<<<<<<< HEAD
           --primary: #627B68;
           --primary-dark: #4C3324;
           --secondary: #4C3324;
@@ -635,6 +644,21 @@ export default function LegalServices() {
 
           --radius: 12px;
           --shadow-lg: 0 20px 25px -5px rgba(76, 51, 36, 0.1), 0 8px 10px -6px rgba(76, 51, 36, 0.1);
+=======
+          --primary: #627b68;
+          --primary-dark: #4c3324;
+          --secondary: #4c3324;
+          --accent: #819b8b;
+
+          --bg-page: #f9f6f1;
+          --bg-white: #ffffff;
+
+          --text-main: #3a2e28;
+          --text-muted: #6b5e58;
+
+          --radius: 12px;
+          --shadow-lg: 0 20px 25px -5px rgba(76, 51, 36, 0.08), 0 8px 10px -6px rgba(76, 51, 36, 0.05);
+>>>>>>> e85f1ae (nilam2)
         }
 
         body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-page); color: var(--text-main); line-height: 1.6; }
@@ -661,6 +685,7 @@ export default function LegalServices() {
           letter-spacing: 0.5px;
         }
         .btn-primary { 
+<<<<<<< HEAD
           background: #B2846B; 
           color: white; 
           box-shadow: 0 4px 14px 0 rgba(178, 132, 107, 0.39);
@@ -669,6 +694,16 @@ export default function LegalServices() {
           background: #4C3324; 
           transform: translateY(-2px); 
           box-shadow: 0 6px 20px rgba(178, 132, 107, 0.3);
+=======
+          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%); 
+          color: white; 
+          box-shadow: 0 4px 14px 0 rgba(98, 123, 104, 0.2);
+        }
+        .btn-primary:hover { 
+          opacity: 0.9;
+          transform: translateY(-2px); 
+          box-shadow: 0 6px 20px rgba(98, 123, 104, 0.3);
+>>>>>>> e85f1ae (nilam2)
         }
         
         /* HERO SECTION */
@@ -701,7 +736,11 @@ export default function LegalServices() {
           display: inline-block;
           background: rgba(255, 255, 255, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.2);
+<<<<<<< HEAD
           color: #E4CBB6;
+=======
+          color: #f9f6f1;
+>>>>>>> e85f1ae (nilam2)
           padding: 8px 24px;
           border-radius: 50px;
           font-size: 0.9rem;
@@ -717,7 +756,11 @@ export default function LegalServices() {
           text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .hero p {
+<<<<<<< HEAD
           font-size: 1.3rem; color: #E4CBB6; margin-bottom: 40px; max-width: 650px; margin-left: auto; margin-right: auto;
+=======
+          font-size: 1.3rem; color: #f9f6f1; margin-bottom: 40px; max-width: 650px; margin-left: auto; margin-right: auto;
+>>>>>>> e85f1ae (nilam2)
           font-family: 'Inter', sans-serif; font-weight: 300;
         }
 
@@ -728,7 +771,11 @@ export default function LegalServices() {
         .section-header { text-align: center; margin-bottom: 60px; max-width: 700px; margin: 0 auto 60px; }
         .section-title { font-size: 2.5rem; font-weight: 700; color: var(--secondary); margin-bottom: 15px; position: relative; display: inline-block; }
         .section-title::after {
+<<<<<<< HEAD
           content: ''; display: block; width: 60px; height: 3px; background: #B2846B; margin: 10px auto 0;
+=======
+          content: ''; display: block; width: 60px; height: 3px; background: #819b8b; margin: 10px auto 0;
+>>>>>>> e85f1ae (nilam2)
         }
         .section-desc { color: var(--text-muted); font-size: 1.1rem; }
 
@@ -738,11 +785,19 @@ export default function LegalServices() {
         .service-card {
           background: white; padding: 40px 30px; border-radius: var(--radius);
           box-shadow: 0 4px 6px -1px rgba(76, 51, 36, 0.05); transition: 0.3s;
+<<<<<<< HEAD
           border: 1px solid #e8d5c8; position: relative; overflow: hidden;
         }
         .service-card::before {
           content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
           background: #627B68; transform: scaleX(0); transition: 0.3s; transform-origin: left;
+=======
+          border: 1px solid rgba(228, 203, 182, 0.3); position: relative; overflow: hidden;
+        }
+        .service-card::before {
+          content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+          background: #627b68; transform: scaleX(0); transition: 0.3s; transform-origin: left;
+>>>>>>> e85f1ae (nilam2)
         }
         .service-card:hover {
           transform: translateY(-10px); box-shadow: var(--shadow-lg);
@@ -750,7 +805,7 @@ export default function LegalServices() {
         .service-card:hover::before { transform: scaleX(1); }
         
         .icon-circle {
-          font-size: 3rem; margin-bottom: 20px; display: block;
+          font-size: 3rem; margin-bottom: 20px; display: block; color: #819b8b;
         }
         .service-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; color: var(--secondary); }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; font-family: 'Inter', sans-serif; }
@@ -762,10 +817,17 @@ export default function LegalServices() {
         .process-card {
           flex: 1; min-width: 250px; text-align: center; position: relative;
           padding: 40px 30px; background: white; border-radius: var(--radius); 
+<<<<<<< HEAD
           border: 1px solid #e8d5c8;
         }
         .step-badge {
           background: #4C3324; color: #E4CBB6; width: 50px; height: 50px;
+=======
+          border: 1px solid rgba(228, 203, 182, 0.3);
+        }
+        .step-badge {
+          background: #4c3324; color: #f9f6f1; width: 50px; height: 50px;
+>>>>>>> e85f1ae (nilam2)
           border-radius: 50%; display: flex; align-items: center; justify-content: center;
           font-weight: 700; margin: 0 auto 20px; font-size: 1.2rem; font-family: 'Playfair Display', serif;
         }
@@ -774,11 +836,19 @@ export default function LegalServices() {
 
         /* FORM SECTION */
         .form-section { 
+<<<<<<< HEAD
           background: #4C3324; color: white; position: relative; overflow: hidden; 
         }
         .form-pattern {
           position: absolute; top: 0; left: 0; width: 100%; height: 100%;
           background-image: radial-gradient(rgba(228, 203, 182, 0.07) 1px, transparent 1px);
+=======
+          background: #4c3324; color: white; position: relative; overflow: hidden; 
+        }
+        .form-pattern {
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          background-image: radial-gradient(rgba(249, 246, 241, 0.07) 1px, transparent 1px);
+>>>>>>> e85f1ae (nilam2)
           background-size: 30px 30px;
         }
         
@@ -786,6 +856,7 @@ export default function LegalServices() {
           display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 2;
         }
         
+<<<<<<< HEAD
         .form-info h2 { font-size: 3rem; font-weight: 700; margin-bottom: 20px; line-height: 1.1; color: #E4CBB6; }
         .form-info p { color: #E4CBB6; font-size: 1.15rem; margin-bottom: 40px; font-family: 'Inter', sans-serif; opacity: 0.85; }
         
@@ -796,6 +867,18 @@ export default function LegalServices() {
         .legal-form {
           background: white; padding: 50px; border-radius: 20px; color: var(--text-main);
           box-shadow: 0 25px 50px -12px rgba(76, 51, 36, 0.4);
+=======
+        .form-info h2 { font-size: 3rem; font-weight: 700; margin-bottom: 20px; line-height: 1.1; color: #ffffff; }
+        .form-info p { color: #f9f6f1; font-size: 1.15rem; margin-bottom: 40px; font-family: 'Inter', sans-serif; opacity: 0.85; }
+        
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-weight: 500; font-size: 1.1rem; font-family: 'Inter', sans-serif; color: #f9f6f1; }
+        .check { color: #4c3324; background: #819b8b; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; font-weight: bold; }
+
+        .legal-form {
+          background: white; padding: 50px; border-radius: 20px; color: var(--text-main);
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+>>>>>>> e85f1ae (nilam2)
         }
         .form-label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Inter', sans-serif; }
         .form-input, .form-select, .form-textarea {

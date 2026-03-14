@@ -1869,7 +1869,7 @@ export default function Footer() {
               <div>
                 <ContactItem icon="📍" label="Location" value="Mumbai, India" />
                 <ContactItem icon="📞" label="Phone" value="+91 98765 43210" />
-                <ContactItem icon="✉" label="Email" value="prpzoestate@gmail.com" />
+                <ContactItem icon="✉" label="Email" value="propzoestate@gmail.com" />
                 <ContactItem icon="🕐" label="Hours" value="Mon – Sat, 9–7 PM" />
               </div>
             </div>

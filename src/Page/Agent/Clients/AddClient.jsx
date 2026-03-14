@@ -97,13 +97,13 @@ const AddEditClient = () => {
 };
 
 const styles = {
-  page: { minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#f8fafc' },
-  card: { background: 'white', padding: '40px', borderRadius: '24px', width: '400px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)' },
-  title: { marginBottom: '24px', fontSize: '22px', fontWeight: '800' },
+  page: { minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#faf7f5' },
+  card: { background: 'white', padding: '40px', borderRadius: '24px', width: '400px', border: '1px solid rgba(228, 203, 182, 0.2)', boxShadow: '0 10px 25px rgba(76, 51, 36, 0.05)' },
+  title: { marginBottom: '24px', fontSize: '22px', fontWeight: '800', color: '#4c3324' },
   form: { display: 'flex', flexDirection: 'column', gap: '15px' },
-  input: { padding: '12px', borderRadius: '10px', border: '1px solid #e2e8f0', fontSize: '14px', outline: 'none' },
-  submitBtn: { flex: 1, background: '#2563eb', color: 'white', border: 'none', padding: '12px', borderRadius: '10px', fontWeight: '700', cursor: 'pointer' },
-  cancelBtn: { flex: 1, background: '#f1f5f9', color: '#64748b', border: 'none', padding: '12px', borderRadius: '10px', fontWeight: '700', cursor: 'pointer' }
+  input: { padding: '12px', borderRadius: '10px', border: '1px solid rgba(228, 203, 182, 0.4)', background: '#faf7f5', color: '#3a2e28', fontSize: '14px', outline: 'none' },
+  submitBtn: { flex: 1, background: '#627b68', color: 'white', border: 'none', padding: '12px', borderRadius: '10px', fontWeight: '700', cursor: 'pointer', transition: 'all 0.2s' },
+  cancelBtn: { flex: 1, background: '#fff', color: '#b2846b', border: '1px solid rgba(178, 132, 107, 0.4)', padding: '12px', borderRadius: '10px', fontWeight: '700', cursor: 'pointer', transition: 'all 0.2s' }
 };
 
 export default AddEditClient;

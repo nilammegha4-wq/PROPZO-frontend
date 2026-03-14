@@ -37,13 +37,23 @@ const MyBookings = () => {
         switch (status?.toLowerCase()) {
             case "confirmed":
             case "completed":
+<<<<<<< HEAD
                 return { bg: "#d4e6da", color: "#627B68", border: "#b8d4c0" };
             case "pending":
                 return { bg: "#ede8d8", color: "#7a6435", border: "#d9d0b0" };
+=======
+                return { bg: "rgba(129, 155, 139, 0.15)", color: "#627b68", border: "rgba(129, 155, 139, 0.2)" };
+            case "pending":
+                return { bg: "rgba(178, 132, 107, 0.15)", color: "#b2846b", border: "rgba(178, 132, 107, 0.2)" };
+>>>>>>> e85f1ae (nilam2)
             case "failed":
                 return { bg: "#f5ddd7", color: "#8b3a25", border: "#e8c4b8" };
             default:
+<<<<<<< HEAD
                 return { bg: "#f0ebe5", color: "#7a5c4a", border: "#ddd0c6" };
+=======
+                return { bg: "#faf7f5", color: "#6b5e58", border: "rgba(228, 203, 182, 0.2)" };
+>>>>>>> e85f1ae (nilam2)
         }
     };
 
@@ -63,6 +73,7 @@ const MyBookings = () => {
     }
 
     return (
+<<<<<<< HEAD
         <div style={s.pageWrapper}>
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700&display=swap');
@@ -88,6 +99,20 @@ const MyBookings = () => {
             `}</style>
 
             <div style={s.container}>
+=======
+    <div style={styles.pageWrapper}>
+      <style>{`
+        @media (max-width: 768px) {
+          .mb-grid { grid-template-columns: 1fr !important; }
+          .mb-header h1 { font-size: 24px !important; }
+        }
+        @media (max-width: 480px) {
+          .mb-card { border-radius: 12px !important; }
+          .mb-img-section { height: 160px !important; }
+        }
+      `}</style>
+      <div style={styles.container}>
+>>>>>>> e85f1ae (nilam2)
                 {/* Header */}
                 <div style={s.header}>
                     <button onClick={() => navigate(-1)} style={s.backBtn}>
@@ -108,7 +133,11 @@ const MyBookings = () => {
                         <Link to="/properties" style={s.browseBtn}>Browse Properties</Link>
                     </div>
                 ) : (
+<<<<<<< HEAD
                     <div style={s.grid} className="mb-grid">
+=======
+                    <div style={styles.grid} className="mb-grid">
+>>>>>>> e85f1ae (nilam2)
                         {bookings.map((booking) => {
                             const statusStyle = getStatusStyle(booking.status);
                             const property = booking.property || {};
@@ -118,9 +147,14 @@ const MyBookings = () => {
                             if (typeLabel === "Buy") typeLabel = "BUY";
 
                             return (
+<<<<<<< HEAD
                                 <div key={booking._id} style={s.card} className="mb-card">
                                     {/* Image */}
                                     <div style={s.imageSection} className="mb-img-section">
+=======
+                                <div key={booking._id} style={styles.card} className="mb-card">
+                                    <div style={styles.imageSection} className="mb-img-section">
+>>>>>>> e85f1ae (nilam2)
                                         <img
                                             src={property.image || (property.images && property.images[0]) || "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1073"}
                                             alt={property.title}
@@ -183,8 +217,12 @@ const MyBookings = () => {
 
 const s = {
     pageWrapper: {
+<<<<<<< HEAD
         backgroundColor: "#f5ede6",
         backgroundImage: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
+=======
+        backgroundColor: "#f9f6f1",
+>>>>>>> e85f1ae (nilam2)
         minHeight: "100vh",
         padding: "100px 20px 60px",
         fontFamily: "'DM Sans', sans-serif",
@@ -202,6 +240,7 @@ const s = {
         gap: 8,
         background: "none",
         border: "none",
+<<<<<<< HEAD
         color: "#B2846B",
         fontWeight: 600,
         fontSize: 15,
@@ -218,8 +257,18 @@ const s = {
         textTransform: "uppercase",
         fontWeight: 600,
         margin: "0 0 6px 0",
+=======
+        color: "#819b8b",
+        fontWeight: "600",
+        fontSize: "15px",
+        cursor: "pointer",
+        marginBottom: "20px",
+        padding: "0",
+        transition: "all 0.2s",
+>>>>>>> e85f1ae (nilam2)
     },
     title: {
+<<<<<<< HEAD
         fontSize: 32,
         fontWeight: 700,
         color: "#4C3324",
@@ -231,6 +280,18 @@ const s = {
         fontSize: 15,
         color: "#819B8B",
         margin: 0,
+=======
+        fontSize: "32px",
+        fontWeight: "800",
+        color: "#4c3324",
+        margin: "0 0 8px 0",
+        letterSpacing: "-1px",
+    },
+    subTitle: {
+        fontSize: "16px",
+        color: "#6b5e58",
+        margin: "0",
+>>>>>>> e85f1ae (nilam2)
     },
     errorBanner: {
         backgroundColor: "#f5ddd7",
@@ -252,10 +313,17 @@ const s = {
         background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
     },
     spinner: {
+<<<<<<< HEAD
         width: 40,
         height: 40,
         border: "4px solid #e8ddd5",
         borderTop: "4px solid #B2846B",
+=======
+        width: "40px",
+        height: "40px",
+        border: "4px solid #faf7f5",
+        borderTop: "4px solid #627b68",
+>>>>>>> e85f1ae (nilam2)
         borderRadius: "50%",
         animation: "spin 1s linear infinite",
     },
@@ -263,6 +331,7 @@ const s = {
         textAlign: "center",
         padding: "80px 20px",
         backgroundColor: "#ffffff",
+<<<<<<< HEAD
         borderRadius: 20,
         border: "2px dashed #ddd0c6",
     },
@@ -283,6 +352,26 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
         boxShadow: "0 3px 10px rgba(98,123,104,0.3)",
         transition: "all 0.18s",
+=======
+        borderRadius: "24px",
+        border: "2px dashed rgba(228, 203, 182, 0.4)",
+    },
+    emptyIcon: {
+        fontSize: "64px",
+        color: "rgba(228, 203, 182, 0.5)",
+        marginBottom: "20px",
+    },
+    browseBtn: {
+        display: "inline-block",
+        marginTop: "24px",
+        padding: "12px 24px",
+        backgroundColor: "#627b68",
+        color: "white",
+        textDecoration: "none",
+        borderRadius: "10px",
+        fontWeight: "600",
+        transition: "all 0.2s",
+>>>>>>> e85f1ae (nilam2)
     },
     grid: {
         display: "grid",
@@ -293,9 +382,15 @@ const s = {
         backgroundColor: "#ffffff",
         borderRadius: 18,
         overflow: "hidden",
+<<<<<<< HEAD
         boxShadow: "0 4px 16px rgba(76,51,36,0.07)",
         transition: "transform 0.2s ease, box-shadow 0.2s ease",
         border: "1px solid #e8ddd5",
+=======
+        boxShadow: "0 10px 15px -3px rgba(76, 51, 36, 0.05)",
+        transition: "transform 0.2s ease, box-shadow 0.2s ease",
+        border: "1px solid rgba(228, 203, 182, 0.1)",
+>>>>>>> e85f1ae (nilam2)
     },
     imageSection: {
         position: "relative",
@@ -322,22 +417,37 @@ const s = {
     },
     typeTag: {
         display: "inline-block",
+<<<<<<< HEAD
         padding: "3px 10px",
         backgroundColor: "#E4CBB6",
         color: "#4C3324",
         fontSize: 11,
         fontWeight: 700,
         borderRadius: 6,
+=======
+        padding: "4px 10px",
+        backgroundColor: "rgba(129, 155, 139, 0.1)",
+        color: "#627b68",
+        fontSize: "11px",
+        fontWeight: "700",
+        borderRadius: "6px",
+>>>>>>> e85f1ae (nilam2)
         textTransform: "uppercase",
         marginBottom: 10,
         letterSpacing: "0.05em",
         fontFamily: "'DM Sans', sans-serif",
     },
     propertyTitle: {
+<<<<<<< HEAD
         fontSize: 17,
         fontWeight: 700,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
+=======
+        fontSize: "18px",
+        fontWeight: "700",
+        color: "#4c3324",
+>>>>>>> e85f1ae (nilam2)
         margin: "0 0 12px 0",
         whiteSpace: "nowrap",
         overflow: "hidden",
@@ -353,6 +463,7 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
     },
     infoIcon: {
+<<<<<<< HEAD
         color: "#B2846B",
         flexShrink: 0,
     },
@@ -362,9 +473,19 @@ const s = {
         backgroundColor: "#fdf9f7",
         borderRadius: 10,
         border: "1px solid #e8ddd5",
+=======
+        color: "#819b8b",
+    },
+    priceSection: {
+        marginTop: "20px",
+        padding: "16px",
+        backgroundColor: "#faf7f5",
+        borderRadius: "12px",
+>>>>>>> e85f1ae (nilam2)
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        border: "1px solid rgba(228, 203, 182, 0.1)",
     },
     priceLabel: {
         fontSize: 13,
@@ -373,10 +494,16 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
     },
     priceValue: {
+<<<<<<< HEAD
         fontSize: 18,
         fontWeight: 700,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
+=======
+        fontSize: "18px",
+        fontWeight: "800",
+        color: "#4c3324",
+>>>>>>> e85f1ae (nilam2)
     },
     actionRow: {
         marginTop: 18,
@@ -389,11 +516,19 @@ const s = {
         textAlign: "center",
         padding: "10px",
         backgroundColor: "#ffffff",
+<<<<<<< HEAD
         color: "#627B68",
         border: "1.5px solid #627B68",
         borderRadius: 9,
         fontSize: 14,
         fontWeight: 600,
+=======
+        color: "#819b8b",
+        border: "1px solid #819b8b",
+        borderRadius: "8px",
+        fontSize: "14px",
+        fontWeight: "600",
+>>>>>>> e85f1ae (nilam2)
         textDecoration: "none",
         fontFamily: "'DM Sans', sans-serif",
         transition: "all 0.2s",
@@ -404,14 +539,38 @@ const s = {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+<<<<<<< HEAD
         backgroundColor: "#f0ebe5",
         color: "#7a5c4a",
+=======
+        backgroundColor: "rgba(129, 155, 139, 0.1)",
+        color: "#627b68",
+>>>>>>> e85f1ae (nilam2)
         border: "none",
         borderRadius: 9,
         cursor: "pointer",
+<<<<<<< HEAD
         fontSize: 16,
         flexShrink: 0,
         transition: "background 0.18s",
+=======
+        fontSize: "16px",
+        transition: "all 0.2s",
+    },
+    contactBtn: {
+        width: "40px",
+        height: "40px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "rgba(129, 155, 139, 0.1)",
+        color: "#627b68",
+        border: "none",
+        borderRadius: "8px",
+        cursor: "pointer",
+        fontSize: "16px",
+        transition: "all 0.2s",
+>>>>>>> e85f1ae (nilam2)
     },
 };
 

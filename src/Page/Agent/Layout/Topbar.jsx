@@ -80,7 +80,11 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+<<<<<<< HEAD
     background: "#f5f0ec", // Light beige
+=======
+    background: "#f9f6f1", // Cream
+>>>>>>> e85f1ae (nilam2)
     padding: "0 32px",
     height: "80px",
     borderBottom: "1px solid rgba(178, 132, 107, 0.2)",
@@ -137,7 +141,11 @@ const styles = {
     height: "6px",
     background: "#B2846B",
     borderRadius: "50%",
+<<<<<<< HEAD
     border: "2px solid #f5f0ec"
+=======
+    border: "2px solid #f9f6f1"
+>>>>>>> e85f1ae (nilam2)
   },
   divider: { width: "1px", height: "32px", background: "rgba(178, 132, 107, 0.2)" },
   profileSection: { display: "flex", alignItems: "center", gap: "12px" },

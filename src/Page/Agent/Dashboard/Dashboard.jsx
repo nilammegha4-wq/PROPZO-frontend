@@ -55,9 +55,9 @@ const AgentDashboard = () => {
   const portfolioValue = Array.isArray(properties) ? properties.reduce((sum, p) => sum + (Number(p.price) || 0), 0) : 0;
 
   const stats = [
-    { label: 'ACTIVE PROPERTIES', value: activeListings.toString(), detail: 'Available for client inquiries', color: '#6366f1', icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m4 0h1m-5 4h1m4 0h1m-5 4h1m4 0h1" },
-    { label: 'CLIENT BOOKINGS', value: (Array.isArray(leads) ? leads.length : 0).toString(), detail: 'Total appointments scheduled', color: '#10b981', icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
-    { label: 'TOTAL PROPERTIES', value: (Array.isArray(properties) ? properties.length : 0).toString(), detail: 'Total in your portfolio', color: '#8b5cf6', icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" },
+    { label: 'ACTIVE PROPERTIES', value: activeListings.toString(), detail: 'Available for client inquiries', color: '#627B68', icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m4 0h1m-5 4h1m4 0h1m-5 4h1m4 0h1" },
+    { label: 'CLIENT BOOKINGS', value: (Array.isArray(leads) ? leads.length : 0).toString(), detail: 'Total appointments scheduled', color: '#B2846B', icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
+    { label: 'TOTAL PROPERTIES', value: (Array.isArray(properties) ? properties.length : 0).toString(), detail: 'Total in your portfolio', color: '#819B8B', icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" },
   ];
 
   // --- Filtering Logic ---
@@ -117,7 +117,7 @@ const AgentDashboard = () => {
         .status-active { background: #ecfdf5; color: #059669; }
         .status-sold { background: #fef2f2; color: #dc2626; }
         .status-pending { background: #fffbeb; color: #d97706; }
-        .status-completed { background: #eff6ff; color: #2563eb; }
+        .status-completed { background: rgba(129, 155, 139, 0.15); color: #627b68; }
         .table-row:hover { background: #f8fafc; }
         .booking-card { display: flex; gap: 20px; padding: 20px; border-bottom: 1px solid #f1f5f9; }
         .booking-img, .listing-img { width: 100px; height: 100px; border-radius: 12px; object-fit: cover; }
@@ -240,7 +240,7 @@ const AgentDashboard = () => {
                       <div className="client-detail">📞 {lead.clientPhone}</div>
                     </div>
 
-                    <div style={{ marginTop: '12px', fontSize: '12px', color: '#6366f1', fontWeight: '600' }}>
+                    <div style={{ marginTop: '12px', fontSize: '12px', color: '#b2846b', fontWeight: '600' }}>
                       Appointment: {lead.appointmentDate}
                     </div>
                     {lead.message && (
@@ -262,19 +262,19 @@ const AgentDashboard = () => {
 const styles = {
   container: { maxWidth: '1200px', margin: '0 auto', padding: '0 20px 40px' },
   header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px', marginTop: '40px' },
-  title: { fontSize: '28px', fontWeight: '800', color: '#0f172a', margin: '0 0 8px 0', letterSpacing: '-0.5px' },
+  title: { fontSize: '28px', fontWeight: '800', color: '#4c3324', margin: '0 0 8px 0', letterSpacing: '-0.5px' },
   subtitle: { fontSize: '15px', color: '#64748b', margin: 0 },
   statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginBottom: '32px' },
   statCard: { padding: '24px' },
   statHeader: { display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' },
   iconContainer: { width: '44px', height: '44px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' },
   statLabel: { fontSize: '14px', fontWeight: '600', color: '#64748b' },
-  statValue: { fontSize: '32px', fontWeight: '800', color: '#0f172a', marginBottom: '4px' },
+  statValue: { fontSize: '32px', fontWeight: '800', color: '#4c3324', marginBottom: '4px' },
   statDetail: { fontSize: '13px', color: '#94a3b8', fontWeight: '500' },
   gridContainer: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', alignItems: 'start' },
   tableHeader: { padding: '20px 24px', borderBottom: '1px solid #f1f5f9', display: 'flex', justifyContent: 'space-between', alignItems: 'center' },
-  tableTitle: { fontSize: '16px', fontWeight: '700', color: '#0f172a', margin: 0 },
-  viewAllBtn: { background: 'none', border: 'none', color: '#6366f1', fontSize: '13px', fontWeight: '700', cursor: 'pointer' },
+  tableTitle: { fontSize: '16px', fontWeight: '700', color: '#4c3324', margin: 0 },
+  viewAllBtn: { background: 'none', border: 'none', color: '#b2846b', fontSize: '13px', fontWeight: '700', cursor: 'pointer' },
   table: { width: '100%', borderCollapse: 'collapse' },
   th: { textAlign: 'left', padding: '12px 24px', fontSize: '10px', fontWeight: '700', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px', background: '#f8fafc' },
   td: { padding: '16px 24px', borderBottom: '1px solid #f1f5f9', verticalAlign: 'middle' },

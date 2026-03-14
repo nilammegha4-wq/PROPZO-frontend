@@ -584,11 +584,20 @@
 
 
 
+<<<<<<< HEAD
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Contact = () => {
+=======
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const Contact = () => {
+  const navigate = useNavigate();
+>>>>>>> e85f1ae (nilam2)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -619,6 +628,14 @@ const Contact = () => {
       setSuccess("Message sent successfully ✅");
       setFormData({ name: "", email: "", message: "" });
       setLoading(false);
+<<<<<<< HEAD
+=======
+      
+      setTimeout(() => {
+        setSuccess("");
+        navigate("/");
+      }, 2000);
+>>>>>>> e85f1ae (nilam2)
     } catch (error) {
       console.error(error);
       setLoading(false);
@@ -663,6 +680,7 @@ const Contact = () => {
            HERO SECTION
         ===================== */
         .contact-hero {
+<<<<<<< HEAD
           background: linear-gradient(135deg, #627B68 0%, #4C3324 100%);
           position: relative;
           color: white;
@@ -670,6 +688,18 @@ const Contact = () => {
           display: flex;
           justify-content: space-between;
           align-items: flex-end; /* Align to bottom so image can drop down */
+=======
+          background: linear-gradient(rgba(76, 51, 36, 0.82), rgba(76, 51, 36, 0.75)),
+                      url("/PremiumVilla.jpg");
+          background-size: cover;
+          background-position: center;
+          position: relative;
+          color: white;
+          padding: 120px 5% 0 5%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+>>>>>>> e85f1ae (nilam2)
         }
 
         .hero-content {
@@ -685,9 +715,17 @@ const Contact = () => {
         }
 
         .hero-desc {
+<<<<<<< HEAD
           font-size: 1rem;
           color: #E4CBB6;
           line-height: 1.6;
+=======
+          font-size: 1.15rem;
+          color: #f9f6f1;
+          line-height: 1.8;
+          max-width: 600px;
+          opacity: 0.9;
+>>>>>>> e85f1ae (nilam2)
         }
 
         .hero-image-wrapper {
@@ -1020,8 +1058,13 @@ const Contact = () => {
         <div className="hero-content">
           <h1 className="hero-title">Contact Us</h1>
           <p className="hero-desc">
+<<<<<<< HEAD
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
             luctus nec ullamcorper mattis, pulvinar dapibus leo.
+=======
+            Discover your next chapter with PropZo. Our elite team provides bespoke guidance,
+            ensuring a seamless journey to your dream residence.
+>>>>>>> e85f1ae (nilam2)
           </p>
         </div>
         <div className="hero-image-wrapper">
@@ -1039,14 +1082,20 @@ const Contact = () => {
           <div className="info-header">
             <h2>Contact Information</h2>
             <p>
+<<<<<<< HEAD
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+=======
+              Whether you're seeking a private viewing or have detailed inquiries about our portfolio,
+              our dedicated consultants are here to provide comprehensive assistance.
+>>>>>>> e85f1ae (nilam2)
             </p>
           </div>
 
           <div className="info-grid">
             <div className="info-card">
               <div className="info-icon">📞</div>
+<<<<<<< HEAD
               <h4>(+654) 6544 55</h4>
               <p>Lorem ipsum dolor sit</p>
             </div>
@@ -1054,11 +1103,24 @@ const Contact = () => {
               <div className="info-icon">✉</div>
               <h4>mail@ktchn.com</h4>
               <p>Lorem ipsum dolor sit</p>
+=======
+              <h4>(+91) 98765 43210</h4>
+              <p>Client Relations & Support</p>
+            </div>
+            <div className="info-card">
+              <div className="info-icon">✉</div>
+              <h4>propzoestate@gmail.com</h4>
+              <p>Inquiries & Consultations</p>
+>>>>>>> e85f1ae (nilam2)
             </div>
             <div className="info-card">
               <div className="info-icon">📍</div>
               <h4>Mumbai, India</h4>
+<<<<<<< HEAD
               <p>Lorem ipsum dolor sit</p>
+=======
+              <p>PropZo Global Headquarters</p>
+>>>>>>> e85f1ae (nilam2)
             </div>
           </div>
         </div>
@@ -1071,8 +1133,13 @@ const Contact = () => {
         <div className="dark-form-card">
           <h2>Get In Touch !</h2>
           <p>
+<<<<<<< HEAD
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus.
+=======
+            Reach out through the form below, and one of our senior property
+            advisors will contact you within 24 hours.
+>>>>>>> e85f1ae (nilam2)
           </p>
 
           {success && <p className="success-text">{success}</p>}
@@ -1111,7 +1178,11 @@ const Contact = () => {
               ></textarea>
             </div>
             <button className="btn-green" type="submit" disabled={loading}>
+<<<<<<< HEAD
               {loading ? "Sending..." : "Submit Button"}
+=======
+              {loading ? "Sending..." : "Send Message"}
+>>>>>>> e85f1ae (nilam2)
             </button>
           </form>
         </div>
@@ -1120,8 +1191,13 @@ const Contact = () => {
         <div className="map-section">
           <h2>Our Location</h2>
           <p>
+<<<<<<< HEAD
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
             luctus nec ullamcorper mattis, pulvinar dapibus leo.
+=======
+            Visit us at our headquarters for a personalized consultation
+            with our premium property specialists.
+>>>>>>> e85f1ae (nilam2)
           </p>
 
           <div className="map-container">

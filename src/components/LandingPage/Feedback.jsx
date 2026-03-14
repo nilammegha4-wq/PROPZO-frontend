@@ -450,6 +450,10 @@
 //   );
 // }
 import React, { useState, useEffect } from "react";
+<<<<<<< HEAD
+=======
+import { useNavigate } from "react-router-dom";
+>>>>>>> e85f1ae (nilam2)
 
 const css = `
   @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
@@ -705,6 +709,10 @@ const css = `
 `;
 
 export default function FeedbackSection() {
+<<<<<<< HEAD
+=======
+  const navigate = useNavigate();
+>>>>>>> e85f1ae (nilam2)
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -753,7 +761,13 @@ export default function FeedbackSection() {
           setSubmitted(false);
           setFormData({ name: "", rating: 0, feedback: "" });
           fetchReviews();
+<<<<<<< HEAD
         }, 1500);
+=======
+          setShowForm(false);
+          navigate("/");
+        }, 2000);
+>>>>>>> e85f1ae (nilam2)
       }
     } catch (err) {
       alert("Submission failed.");

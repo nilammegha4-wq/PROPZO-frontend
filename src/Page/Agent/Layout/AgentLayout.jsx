@@ -49,7 +49,7 @@ const styles = {
   wrapper: {
     display: "flex",
     minHeight: "100vh",
-    background: "#f8fafc",
+    background: "#f9f6f1",
     fontFamily: "'Inter', sans-serif",
   },
   mainWrapper: {

@@ -408,7 +408,11 @@ import {
   FaPhoneAlt, FaEnvelope, FaWhatsapp, FaArrowLeft, FaMapMarkerAlt,
   FaCheckCircle, FaBed, FaBath, FaRulerCombined, FaLayerGroup,
   FaParking, FaCompass, FaCouch, FaCalendarAlt, FaHistory,
+<<<<<<< HEAD
   FaShareAlt, FaHeart, FaRegHeart, FaEllipsisH, FaImage
+=======
+  FaShareAlt, FaHeart, FaRegHeart, FaEllipsisH, FaImage, FaStar, FaTimes
+>>>>>>> e85f1ae (nilam2)
 } from "react-icons/fa";
 
 export default function PropertyDetails() {
@@ -424,6 +428,7 @@ export default function PropertyDetails() {
   const [loan, setLoan] = useState(0);
   const [rate, setRate] = useState(8.5);
   const [years, setYears] = useState(20);
+  const [showGallery, setShowGallery] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -488,8 +493,11 @@ export default function PropertyDetails() {
   const tabs = [
     { id: "Overview", label: "Overview" },
     { id: "Location", label: "Location" },
+<<<<<<< HEAD
     { id: "Amenities", label: "Building" },
     { id: "FloorPlan", label: "Floor Plan" },
+=======
+>>>>>>> e85f1ae (nilam2)
   ];
 
   const imgLen = property.images.length;
@@ -582,13 +590,22 @@ export default function PropertyDetails() {
 
       {/* HEADER NAV */}
       <div style={styles.navRow}>
+<<<<<<< HEAD
         <button style={styles.backBtn} onClick={() => navigate(-1)}>
           <FaArrowLeft /> Back
+=======
+        <button style={styles.backBtn} onClick={() => navigate("/properties")}>
+          <FaArrowLeft /> Back to Properties
+>>>>>>> e85f1ae (nilam2)
         </button>
       </div>
 
       {/* GALLERY */}
+<<<<<<< HEAD
       <div style={styles.galleryWrapper}>
+=======
+      <div onClick={() => setShowGallery(true)} style={{ ...styles.galleryWrapper, cursor: "pointer" }}>
+>>>>>>> e85f1ae (nilam2)
         <div style={styles.galleryGrid}>
           <div style={{ ...styles.peekImg, marginRight: -20 }} className="img-peek">
             <img src={getImageUrl(property.images[prevIdx])} alt="prev" style={styles.imgFull} className="gallery-img" />
@@ -596,7 +613,11 @@ export default function PropertyDetails() {
           <div style={styles.centerImg} className="img-main">
             <img src={getImageUrl(property.images[currentImage])} alt="Main" style={styles.imgFull} className="gallery-img" />
             <div style={styles.imgCount}>
+<<<<<<< HEAD
               <FaImage /> {property.images.length}
+=======
+              <FaImage /> Show all {property.images.length} Photos
+>>>>>>> e85f1ae (nilam2)
             </div>
           </div>
           <div style={{ ...styles.peekImg, marginLeft: -20 }} className="img-peek">
@@ -736,6 +757,35 @@ export default function PropertyDetails() {
               {property.category === "Buy" ? "Schedule Visit" : "Rent Now"}
             </button>
 
+<<<<<<< HEAD
+=======
+
+            {/* OWNER DETAILS */}
+            <div style={{ ...styles.agentInfoRow, marginBottom: "20px", border: '1.5px solid #E4CBB6' }}>
+              <img
+                src={
+                  property.owner?.profileImage
+                    ? getImageUrl(property.owner.profileImage)
+                    : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                }
+                alt="Owner"
+                style={styles.agentPic}
+              />
+              <div style={styles.agentMeta}>
+                <span style={styles.partnerTag}>PROPERTY OWNER</span>
+                <h4 style={styles.agentName}>{property.owner?.name || "Patel Mahi"}</h4>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '2px' }}>
+                   <span style={{ fontSize: '11px', color: '#819B8B', fontWeight: 500 }}>Verified Seller</span>
+                </div>
+              </div>
+              <div style={{ display: "flex", gap: "8px" }}>
+                <a href={`https://wa.me/${property.owner?.phone?.replace(/\D/g, '') || '919876543210'}`} target="_blank" rel="noreferrer" style={styles.miniIcon}><FaWhatsapp /></a>
+                <a href={`tel:${property.owner?.phone || '+919876543210'}`} style={styles.miniIcon}><FaPhoneAlt /></a>
+                <a href={`mailto:${property.owner?.email || 'prpzoestate@gmail.com'}`} style={styles.miniIcon}><FaEnvelope /></a>
+              </div>
+            </div>
+
+>>>>>>> e85f1ae (nilam2)
             <div style={styles.agentInfoRow}>
               <img
                 src={
@@ -744,6 +794,7 @@ export default function PropertyDetails() {
                     : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                 }
                 alt="Agent"
+<<<<<<< HEAD
                 style={styles.agentPic}
               />
               <div style={styles.agentMeta}>
@@ -753,6 +804,29 @@ export default function PropertyDetails() {
               <div style={{ display: "flex", gap: "8px" }}>
                 <a href="#" style={styles.miniIcon}><FaWhatsapp /></a>
                 <a href="#" style={styles.miniIcon}><FaPhoneAlt /></a>
+=======
+                style={{...styles.agentPic, cursor: property.agent?._id ? 'pointer' : 'default'}}
+                onClick={() => property.agent?._id && navigate(`/agent-details/${property.agent._id}`)}
+              />
+              <div style={styles.agentMeta}>
+                <span style={styles.partnerTag}>PARTNER AGENT</span>
+                <h4 
+                  style={{...styles.agentName, cursor: property.agent?._id ? 'pointer' : 'default'}} 
+                  onClick={() => property.agent?._id && navigate(`/agent-details/${property.agent._id}`)}
+                >
+                  {property.agent?.name || "Premium Advisor"}
+                </h4>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '2px' }}>
+                   <span style={{ fontSize: '11px', color: '#819B8B', fontWeight: 500 }}>{property.agent?.role || "Specialist"}</span>
+                   <span style={{ fontSize: '11px', color: '#B2846B', display: 'flex', alignItems: 'center', gap: '2px', fontWeight: 600 }}>
+                      <FaStar size={10} /> {property.agent?.rating || "4.8"}
+                   </span>
+                </div>
+              </div>
+              <div style={{ display: "flex", gap: "8px" }}>
+                <a href={`https://wa.me/${property.agent?.phone?.replace(/\D/g, '') || '919876543210'}`} target="_blank" rel="noreferrer" style={styles.miniIcon}><FaWhatsapp /></a>
+                <a href={`tel:${property.agent?.phone || '+919876543210'}`} style={styles.miniIcon}><FaPhoneAlt /></a>
+>>>>>>> e85f1ae (nilam2)
               </div>
             </div>
           </div>
@@ -782,6 +856,25 @@ export default function PropertyDetails() {
           )}
         </div>
       </div>
+
+      {/* PHOTO GALLERY MODAL */}
+      {showGallery && (
+        <div style={styles.modalOverlay} onClick={() => setShowGallery(false)}>
+          <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <div style={styles.modalHeader}>
+              <h2 style={{ margin: 0, fontSize: "20px", color: "#4C3324" }}>Property Gallery</h2>
+              <button style={styles.closeBtn} onClick={() => setShowGallery(false)}><FaTimes /></button>
+            </div>
+            <div style={styles.galleryGridFull}>
+              {property.images.map((img, i) => (
+                <div key={i} style={styles.galleryItemFull}>
+                  <img src={getImageUrl(img)} alt={`Property ${i}`} style={styles.galleryImgFull} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -791,7 +884,11 @@ const styles = {
   loaderContainer: { height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px", background: "#F5EDE6" },
   spinner: { width: "40px", height: "40px", border: "4px solid #E4CBB6", borderTop: "4px solid #B2846B", borderRadius: "50%", animation: "spin 1s linear infinite" },
 
+<<<<<<< HEAD
   navRow: { maxWidth: "1280px", margin: "0 auto", padding: "100px 20px 20px" },
+=======
+  navRow: { maxWidth: "1280px", margin: "0 auto", padding: "120px 20px 20px" },
+>>>>>>> e85f1ae (nilam2)
   backBtn: { background: "none", border: "none", display: "flex", alignItems: "center", gap: "8px", fontSize: "15px", fontWeight: "600", color: "#819B8B", cursor: "pointer" },
 
   galleryWrapper: { marginBottom: "48px", overflow: "hidden" },
@@ -848,4 +945,15 @@ const styles = {
   calcCard: { marginTop: "24px", padding: "32px", backgroundColor: "#FDFAF8", borderRadius: "32px", border: "1px solid #E4CBB6" },
   calcTitle: { fontSize: "16px", fontWeight: "700", color: "#4C3324", marginBottom: "16px" },
   calcResult: { padding: "20px", backgroundColor: "#F5EDE6", borderRadius: "24px", display: "flex", flexDirection: "column", gap: "4px", border: "1px solid #E4CBB6" },
+<<<<<<< HEAD
+=======
+
+  modalOverlay: { position: "fixed", inset: 0, backgroundColor: "rgba(76,51,36,0.9)", zIndex: 2000, display: "flex", alignItems: "center", justifyContent: "center", padding: "40px", backdropFilter: "blur(8px)" },
+  modalContent: { backgroundColor: "#F5EDE6", width: "100%", maxWidth: "1200px", maxHeight: "90vh", borderRadius: "32px", padding: "32px", overflow: "hidden", display: "flex", flexDirection: "column", position: 'relative' },
+  modalHeader: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" },
+  closeBtn: { background: "#FDFAF8", border: "1.5px solid #E4CBB6", width: "40px", height: "40px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "#B2846B", cursor: "pointer", fontSize: "18px" },
+  galleryGridFull: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "20px", overflowY: "auto", paddingRight: "10px" },
+  galleryItemFull: { borderRadius: "20px", overflow: "hidden", height: "240px", border: '1px solid #E4CBB6' },
+  galleryImgFull: { width: "100%", height: "100%", objectFit: "cover" },
+>>>>>>> e85f1ae (nilam2)
 };

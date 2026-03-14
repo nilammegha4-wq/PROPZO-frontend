@@ -584,6 +584,7 @@ export default function HomeMaintenance() {
     <div className="maintenance-wrapper">
       <style>{`
         :root {
+<<<<<<< HEAD
           --dark: #4C3324;
           --primary: #627B68;
           --primary-dark: #4C3324;
@@ -594,6 +595,18 @@ export default function HomeMaintenance() {
           --gray: #627B68;
           --glass: rgba(255, 255, 255, 0.95);
           --shadow: 0 20px 40px -10px rgba(76, 51, 36, 0.15);
+=======
+          --dark: #4c3324;
+          --primary: #627b68;
+          --primary-dark: #4c3324;
+          --accent: #819b8b;
+          --success: #3a2e28;
+          --light: #f9f6f1;
+          --white: #ffffff;
+          --gray: #6b5e58;
+          --glass: rgba(255, 255, 255, 0.95);
+          --shadow: 0 20px 40px -10px rgba(76, 51, 36, 0.1);
+>>>>>>> e85f1ae (nilam2)
           --radius: 20px;
         }
 
@@ -609,18 +622,31 @@ export default function HomeMaintenance() {
           transition: all 0.3s ease; cursor: pointer; border: none; font-size: 1rem;
         }
         .btn-primary { 
+<<<<<<< HEAD
           background: linear-gradient(135deg, #819B8B 0%, #627B68 100%); 
           color: white; box-shadow: 0 10px 20px rgba(98, 123, 104, 0.3);
         }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(98, 123, 104, 0.4); }
+=======
+          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%); 
+          color: white; box-shadow: 0 10px 20px rgba(98, 123, 104, 0.2);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(98, 123, 104, 0.3); }
+>>>>>>> e85f1ae (nilam2)
         
         .btn-outline { background: transparent; border: 2px solid white; color: white; }
         .btn-outline:hover { background: white; color: var(--dark); }
 
         .btn-emergency {
+<<<<<<< HEAD
           background: #B2846B; color: white; animation: pulse 2s infinite;
         }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(178, 132, 107, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(178, 132, 107, 0); } 100% { box-shadow: 0 0 0 0 rgba(178, 132, 107, 0); } }
+=======
+          background: #819b8b; color: white; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(129, 155, 139, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(129, 155, 139, 0); } 100% { box-shadow: 0 0 0 0 rgba(129, 155, 139, 0); } }
+>>>>>>> e85f1ae (nilam2)
 
         /* --- HERO SECTION --- */
         .hero {
@@ -637,6 +663,7 @@ export default function HomeMaintenance() {
         
         .hero h1 { 
           font-size: 4rem; font-weight: 800; margin-bottom: 24px; line-height: 1.1;
+<<<<<<< HEAD
           background: linear-gradient(to right, #E4CBB6, #fff);
           -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
@@ -647,6 +674,18 @@ export default function HomeMaintenance() {
           background: #f5ede8; color: #B2846B; padding: 15px; text-align: center;
           display: flex; justify-content: center; align-items: center; gap: 15px;
           font-weight: 600; border-bottom: 1px solid #e8d5c8;
+=======
+          background: linear-gradient(to right, #ffffff, #f9f6f1);
+          -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p { font-size: 1.25rem; color: #f9f6f1; max-width: 700px; margin: 0 auto 40px; }
+
+        /* --- EMERGENCY BANNER --- */
+        .emergency-banner {
+          background: #f9f6f1; color: #4c3324; padding: 15px; text-align: center;
+          display: flex; justify-content: center; align-items: center; gap: 15px;
+          font-weight: 600; border-bottom: 1px solid rgba(76, 51, 36, 0.1);
+>>>>>>> e85f1ae (nilam2)
         }
 
         /* --- STATS OVERLAP --- */
@@ -657,7 +696,11 @@ export default function HomeMaintenance() {
           display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
           text-align: center;
         }
+<<<<<<< HEAD
         .stat-num { font-size: 2.5rem; font-weight: 800; color: #627B68; display: block; margin-bottom: 5px; }
+=======
+        .stat-num { font-size: 2.5rem; font-weight: 800; color: #627b68; display: block; margin-bottom: 5px; }
+>>>>>>> e85f1ae (nilam2)
         .stat-label { color: var(--gray); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
 
         /* --- SERVICES SECTION --- */
@@ -670,6 +713,7 @@ export default function HomeMaintenance() {
         
         .service-card {
           background: white; padding: 40px; border-radius: var(--radius);
+<<<<<<< HEAD
           border: 1px solid #e8d5c8; transition: all 0.3s ease; position: relative; overflow: hidden;
         }
         .service-card:hover { transform: translateY(-10px); border-color: #819B8B; box-shadow: var(--shadow); }
@@ -677,16 +721,30 @@ export default function HomeMaintenance() {
         
         .icon-bg {
           width: 60px; height: 60px; background: #eef2ef; color: #627B68;
+=======
+          border: 1px solid rgba(228, 203, 182, 0.3); transition: all 0.3s ease; position: relative; overflow: hidden;
+        }
+        .service-card:hover { transform: translateY(-10px); border-color: #627b68; box-shadow: var(--shadow); }
+        .service-card:hover .icon-bg { background: #627b68; color: white; transform: rotate(-5deg); }
+        
+        .icon-bg {
+          width: 60px; height: 60px; background: rgba(129, 155, 139, 0.1); color: #627b68;
+>>>>>>> e85f1ae (nilam2)
           border-radius: 12px; display: flex; align-items: center; justify-content: center;
           margin-bottom: 25px; transition: 0.3s;
         }
         .service-price { 
+<<<<<<< HEAD
           display: inline-block; background: #eef2ef; color: #627B68; 
+=======
+          display: inline-block; background: rgba(129, 155, 139, 0.1); color: #627b68; 
+>>>>>>> e85f1ae (nilam2)
           padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 15px;
         }
         
         .service-card h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 700; color: #4C3324; }
         .service-card p { font-size: 1rem; color: var(--gray); line-height: 1.6; margin-bottom: 20px; }
+<<<<<<< HEAD
         .sub-services { list-style: none; border-top: 1px solid #f5f0ec; padding-top: 15px; }
         .sub-services li { font-size: 0.9rem; color: var(--gray); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
         .sub-services li svg { width: 16px; color: #819B8B; }
@@ -708,6 +766,29 @@ export default function HomeMaintenance() {
         .plan-price span { font-size: 1rem; color: var(--gray); font-weight: 500; }
         .plan-features { list-style: none; margin: 30px 0; text-align: left; }
         .plan-features li { padding: 10px 0; border-bottom: 1px solid #f5f0ec; display: flex; gap: 10px; align-items: center; color: #4C3324; }
+=======
+        .sub-services { list-style: none; border-top: 1px solid rgba(76, 51, 36, 0.05); padding-top: 15px; }
+        .sub-services li { font-size: 0.9rem; color: var(--gray); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .sub-services li svg { width: 16px; color: #627b68; }
+
+        /* --- PRICING PLANS --- */
+        .pricing-section { background: #f9f6f1; padding: 100px 0; }
+        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto; }
+        
+        .plan-card {
+          background: white; padding: 50px; border-radius: var(--radius); border: 1px solid rgba(228, 203, 182, 0.3); text-align: center;
+          transition: 0.3s; position: relative;
+        }
+        .plan-card.popular { border: 2px solid #627b68; transform: scale(1.05); box-shadow: var(--shadow); z-index: 2; }
+        .badge-popular {
+          position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+          background: #4c3324; color: white; padding: 5px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 700;
+        }
+        .plan-price { font-size: 3rem; font-weight: 800; color: #4c3324; margin: 20px 0; }
+        .plan-price span { font-size: 1rem; color: var(--gray); font-weight: 500; }
+        .plan-features { list-style: none; margin: 30px 0; text-align: left; }
+        .plan-features li { padding: 10px 0; border-bottom: 1px solid rgba(76, 51, 36, 0.05); display: flex; gap: 10px; align-items: center; color: #4c3324; }
+>>>>>>> e85f1ae (nilam2)
 
         /* --- BOOKING FORM (Modern Glass) --- */
         .booking-section { 
@@ -719,17 +800,29 @@ export default function HomeMaintenance() {
         .booking-container { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: center; }
         
         .booking-text { color: white; }
+<<<<<<< HEAD
         .booking-text h2 { font-size: 3rem; margin-bottom: 20px; color: #E4CBB6; }
         .booking-text p { color: #E4CBB6; }
         .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
         .benefit-box { background: rgba(228, 203, 182, 0.12); padding: 20px; border-radius: 12px; backdrop-filter: blur(5px); }
         .benefit-box h4 { font-size: 1.1rem; margin-bottom: 5px; color: #E4CBB6; display: flex; align-items: center; gap: 8px; }
+=======
+        .booking-text h2 { font-size: 3rem; margin-bottom: 20px; color: #ffffff; }
+        .booking-text p { color: #f9f6f1; }
+        .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+        .benefit-box { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; backdrop-filter: blur(5px); }
+        .benefit-box h4 { font-size: 1.1rem; margin-bottom: 5px; color: #ffffff; display: flex; align-items: center; gap: 8px; }
+>>>>>>> e85f1ae (nilam2)
         
         .form-glass {
           background: rgba(255, 255, 255, 0.97); padding: 40px; border-radius: var(--radius);
           box-shadow: 0 25px 50px rgba(76, 51, 36, 0.3); backdrop-filter: blur(10px);
         }
+<<<<<<< HEAD
         .form-glass h3 { color: #4C3324; }
+=======
+        .form-glass h3 { color: #4c3324; }
+>>>>>>> e85f1ae (nilam2)
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .input-group { margin-bottom: 20px; }
         .input-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: #4C3324; }
@@ -737,7 +830,11 @@ export default function HomeMaintenance() {
           width: 100%; padding: 14px; border: 1px solid #d5c4bb; border-radius: 8px;
           background: white; font-size: 1rem; transition: 0.3s; color: #4C3324;
         }
+<<<<<<< HEAD
         .input-field:focus { border-color: #819B8B; outline: none; box-shadow: 0 0 0 3px rgba(129, 155, 139, 0.2); }
+=======
+        .input-field:focus { border-color: #627b68; outline: none; box-shadow: 0 0 0 3px rgba(98, 123, 104, 0.2); }
+>>>>>>> e85f1ae (nilam2)
 
         /* --- FAQ SECTION --- */
         .faq-section { background: white; padding: 100px 0; }
@@ -749,9 +846,15 @@ export default function HomeMaintenance() {
           font-weight: 700; color: #4C3324; font-size: 1.1rem;
         }
         .faq-btn:hover { background: #f5f0ec; }
+<<<<<<< HEAD
         .faq-answer { padding: 0 20px 20px; color: #627B68; display: none; line-height: 1.6; }
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-btn { color: #627B68; }
+=======
+        .faq-answer { padding: 0 20px 20px; color: #6b5e58; display: none; line-height: 1.6; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-btn { color: #627b68; }
+>>>>>>> e85f1ae (nilam2)
         .faq-item.active .faq-btn svg { transform: rotate(180deg); }
 
         /* --- RESPONSIVE --- */

@@ -197,6 +197,7 @@ function Field({ label, children, style }) {
   );
 }
 
+<<<<<<< HEAD
 const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700&display=swap');
 
@@ -355,3 +356,23 @@ const s = {
     marginTop: 4,
   },
 };
+=======
+const styles = {
+  container: { padding: "40px 60px", backgroundColor: "#f9f6f1", minHeight: "100vh", fontFamily: "'DM Sans', sans-serif" },
+  header: { marginBottom: "40px" },
+  title: { fontSize: "32px", fontWeight: "800", color: "#4c3324", margin: 0 },
+  subtitle: { fontSize: "16px", color: "#64748b", marginTop: "8px" },
+  grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "30px", maxWidth: "1100px" },
+  card: { backgroundColor: "#ffffff", padding: "30px", borderRadius: "16px", boxShadow: "0 10px 15px -3px rgba(76, 51, 36, 0.05)", border: "1px solid rgba(228, 203, 182, 0.2)" },
+  cardHeader: { marginBottom: "24px" },
+  cardTitle: { fontSize: "18px", fontWeight: "700", color: "#4c3324", margin: 0 },
+  cardSub: { fontSize: "13px", color: "#94a3b8", marginTop: "4px" },
+  formGroup: { marginBottom: "20px" },
+  row: { display: "flex", gap: "20px", marginBottom: "20px" },
+  label: { display: "block", fontSize: "13px", fontWeight: "600", color: "#627b68", marginBottom: "8px" },
+  input: { width: "100%", padding: "12px 16px", borderRadius: "8px", border: "1px solid rgba(228, 203, 182, 0.3)", fontSize: "14px", boxSizing: "border-box", outline: "none", color: "#334155", backgroundColor: "#fdf8f4" },
+  select: { width: "100%", padding: "12px 16px", borderRadius: "8px", border: "1px solid rgba(228, 203, 182, 0.3)", fontSize: "14px", backgroundColor: "#fff", cursor: "pointer" },
+  primaryBtn: { backgroundColor: "#627b68", color: "white", padding: "12px 24px", borderRadius: "8px", border: "none", fontWeight: "600", cursor: "pointer", transition: "all 0.2s" },
+  secondaryBtn: { backgroundColor: "#4c3324", color: "white", padding: "12px 24px", borderRadius: "8px", border: "none", fontWeight: "600", cursor: "pointer" },
+};
+>>>>>>> e85f1ae (nilam2)

@@ -876,6 +876,24 @@ export default function SellProperty() {
     "Swimming Pool", "Power Backup", "Balcony"
   ];
 
+  const parseIndianPrice = (priceStr) => {
+    if (!priceStr) return 0;
+    let cleanStr = priceStr.toString().replace(/[₹,]/g, "").trim().toLowerCase();
+    let multiplier = 1;
+    if (cleanStr.includes("cr") || cleanStr.includes("crore")) {
+      multiplier = 10000000;
+      cleanStr = cleanStr.replace(/cr|crore/g, "").trim();
+    } else if (cleanStr.includes("l") || cleanStr.includes("lakh")) {
+      multiplier = 100000;
+      cleanStr = cleanStr.replace(/l|lakh/g, "").trim();
+    } else if (cleanStr.includes("k") || cleanStr.includes("thousand")) {
+      multiplier = 1000;
+      cleanStr = cleanStr.replace(/k|thousand/g, "").trim();
+    }
+    const numericValue = parseFloat(cleanStr);
+    return isNaN(numericValue) ? 0 : numericValue * multiplier;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name.includes(".")) {
@@ -913,13 +931,30 @@ export default function SellProperty() {
       alert("Please login to list a property");
       return navigate("/login");
     }
+<<<<<<< HEAD
+=======
+
+    // Frontend file size validation (20MB per file)
+    const oversizedFiles = imageFiles.filter(f => f.size > 20 * 1024 * 1024);
+    if (oversizedFiles.length > 0) {
+      toast.error(`Image "${oversizedFiles[0].name}" is too large. Max 20MB per image.`);
+      return;
+    }
+
+>>>>>>> e85f1ae (nilam2)
     setLoading(true);
     try {
       const token = auth.token || localStorage.getItem("token");
       const formDataToSend = new FormData();
       formDataToSend.append("title", formData.title);
       formDataToSend.append("description", formData.description);
+<<<<<<< HEAD
       formDataToSend.append("price", formData.price);
+=======
+      const parsedPrice = parseIndianPrice(formData.price);
+      formDataToSend.append("price", parsedPrice);
+      formDataToSend.append("displayPrice", formData.price.includes(" ") || formData.price.toLowerCase().includes("cr") || formData.price.toLowerCase().includes("l") ? formData.price : `₹${Number(formData.price).toLocaleString('en-IN')}`);
+>>>>>>> e85f1ae (nilam2)
       formDataToSend.append("propertyType", formData.category);
       formDataToSend.append("category", formData.category);
       formDataToSend.append("type", formData.type);
@@ -951,11 +986,12 @@ export default function SellProperty() {
         headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" }
       });
 
-      toast.success("🎉 Property listed successfully with images!");
+      toast.success("🎉 Property listed successfully!");
       navigate("/properties");
     } catch (error) {
       console.error("Submission error:", error);
-      toast.error(error.response?.data?.message || "Failed to list property. Please try again.");
+      const errorMsg = error.response?.data?.message || "Failed to list property. Please try again.";
+      toast.error(errorMsg);
     } finally {
       setLoading(false);
     }
@@ -1029,7 +1065,11 @@ export default function SellProperty() {
                 </div>
                 <div className="form-group">
                   <label>Price (₹)</label>
+<<<<<<< HEAD
                   <input type="number" name="price" className="form-control" placeholder="Asking Price" value={formData.price} onChange={handleChange} required />
+=======
+                  <input type="text" name="price" className="form-control" placeholder="e.g. 2.1 Cr or 50 Lakh" value={formData.price} onChange={handleChange} required />
+>>>>>>> e85f1ae (nilam2)
                 </div>
                 <div className="form-group">
                   <label>Area (sqft)</label>
@@ -1201,7 +1241,11 @@ export default function SellProperty() {
                 </div>
                 <div className="summary-row total">
                   <span>Price</span>
+<<<<<<< HEAD
                   <span>₹{Number(formData.price).toLocaleString()}</span>
+=======
+                  <span>{formData.price.toString().includes(" ") || formData.price.toString().toLowerCase().includes("cr") || formData.price.toString().toLowerCase().includes("l") ? formData.price : `₹${Number(formData.price).toLocaleString('en-IN')}`}</span>
+>>>>>>> e85f1ae (nilam2)
                 </div>
               </div>
 
