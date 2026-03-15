@@ -109,7 +109,7 @@ const css = `
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    height: 1px;
+    height: 1.5px;
     background: var(--blush);
     transition: width 0.3s ease;
   }
@@ -121,14 +121,16 @@ const css = `
   .lv-nav-link.active::after {
     width: calc(100% - 36px);
     background: var(--gold);
+    height: 2px;
   }
 
   /* ── Right side ── */
   .lv-nav-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     flex-shrink: 0;
+    margin-left: auto; /* Pushes to the right */
   }
 
   .lv-cta-btn {
@@ -386,19 +388,19 @@ const css = `
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 9px 22px;
+    padding: 10px 24px;
     border: 1px solid rgba(228,203,182,0.32);
-    border-radius: 3px;
+    border-radius: 40px; /* Pill shape */
     background: transparent;
     color: var(--white);
     font-family: 'DM Sans', sans-serif;
     font-size: 11px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
-    transition: border-color 0.25s, color 0.25s, background 0.25s;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     position: relative;
     overflow: hidden;
   }
@@ -412,7 +414,7 @@ const css = `
     transition: transform 0.3s cubic-bezier(0.76,0,0.24,1);
   }
 
-  .lv-signin-btn:hover { color: #4C3324; border-color: var(--gold); }
+  .lv-signin-btn:hover { color: #4C3324; border-color: var(--gold); transform: translateY(-1px); }
   .lv-signin-btn:hover::before { transform: translateX(0); }
   .lv-signin-btn span { position: relative; z-index: 1; }
 
@@ -420,7 +422,7 @@ const css = `
   .lv-mobile-toggle {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 4px;
     cursor: pointer;
     padding: 4px;
     margin-left: 16px;
@@ -428,10 +430,10 @@ const css = `
 
   .lv-mobile-toggle span {
     display: block;
-    width: 22px;
-    height: 1px;
+    width: 24px;
+    height: 1.8px;
     background: var(--blush);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     transform-origin: center;
   }
 
