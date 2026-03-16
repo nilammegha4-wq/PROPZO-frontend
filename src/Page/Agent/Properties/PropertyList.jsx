@@ -105,11 +105,7 @@ const PropertyList = () => {
       <div style={styles.header} className="apl-header">
         <div>
           <h1 style={styles.title} className="apl-title">My Properties</h1>
-<<<<<<< HEAD
-          <p style={{ color: '#64748b', margin: '4px 0 0 0' }}>Manage and track your real estate inventory</p>
-=======
           <p style={{ color: '#6b5e58', margin: '4px 0 0 0' }}>Manage and track your real estate inventory</p>
->>>>>>> e85f1ae (nilam2)
         </div>
       </div>
 

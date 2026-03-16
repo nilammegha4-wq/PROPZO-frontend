@@ -55,28 +55,19 @@ const Properties = () => {
 
   // Earthy category badge colors
   const categoryColors = {
-<<<<<<< HEAD
-    Buy:     { bg: "#e8ddd5", color: "#4C3324" },
-    Rent:    { bg: "#dde8e0", color: "#3a5c42" },
-    PerRent: { bg: "#f0e8de", color: "#7a4f2e" },
-    default: { bg: "#e4d9d0", color: "#5a3e30" },
-=======
     Buy: { bg: "rgba(178, 132, 107, 0.1)", color: "#b2846b" }, // Brand Tan
     Rent: { bg: "rgba(129, 155, 139, 0.1)", color: "#819b8b" }, // Brand Sage Light
     PerRent: { bg: "rgba(228, 203, 182, 0.2)", color: "#4c3324" }, // Brand Brown
     default: { bg: "#f9f6f1", color: "#627b68" },
->>>>>>> e85f1ae (nilam2)
+
   };
 
   if (loading)
     return (
       <div style={loaderWrap}>
         <div style={spinner}></div>
-<<<<<<< HEAD
-        <p style={{ color: "#B2846B", marginTop: 16, fontFamily: "'DM Sans', sans-serif" }}>
-=======
         <p style={{ color: "#627b68", marginTop: 16, fontFamily: "'DM Sans', sans-serif" }}>
->>>>>>> e85f1ae (nilam2)
+
           Loading properties...
         </p>
         <style>{spinnerStyle}</style>
@@ -140,16 +131,6 @@ const Properties = () => {
                 className="prop-add-btn"
                 onClick={() => navigate("/admin/properties/add")}
                 onMouseEnter={(e) => {
-<<<<<<< HEAD
-                  e.currentTarget.style.background = "#4C3324";
-                  e.currentTarget.style.transform = "translateY(-1px)";
-                  e.currentTarget.style.boxShadow = "0 8px 20px rgba(76,51,36,0.4)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#627B68";
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 14px rgba(98,123,104,0.35)";
-=======
                   e.currentTarget.style.background = "#4c3324";
                   e.currentTarget.style.transform = "translateY(-1px)";
                   e.currentTarget.style.boxShadow = "0 8px 20px rgba(76,51,36,0.3)";
@@ -158,7 +139,7 @@ const Properties = () => {
                   e.currentTarget.style.background = "#627b68";
                   e.currentTarget.style.transform = "translateY(0)";
                   e.currentTarget.style.boxShadow = "0 4px 14px rgba(98,123,104,0.2)";
->>>>>>> e85f1ae (nilam2)
+
                 }}
               >
                 + Add Property
@@ -247,21 +228,13 @@ const Properties = () => {
                           background: "rgba(98, 123, 104, 0.1)"
                         }}
                         onMouseEnter={(e) => {
-<<<<<<< HEAD
-                          e.currentTarget.style.background = "#627B68";
-                          e.currentTarget.style.color = "#fff";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.background = "#eef2ee";
-                          e.currentTarget.style.color = "#627B68";
-=======
                           e.currentTarget.style.background = "#627b68";
                           e.currentTarget.style.color = "#fff";
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.background = "rgba(98, 123, 104, 0.1)";
                           e.currentTarget.style.color = "#627b68";
->>>>>>> e85f1ae (nilam2)
+
                         }}
                       >
                         ✏️ Edit
@@ -298,23 +271,16 @@ const loaderWrap = {
   alignItems: "center",
   justifyContent: "center",
   height: "100vh",
-<<<<<<< HEAD
-  background: "#f5ede6",
-=======
   background: "#f9f6f1",
->>>>>>> e85f1ae (nilam2)
+
 };
 
 const spinner = {
   width: 40,
   height: 40,
-<<<<<<< HEAD
-  border: "4px solid #e4cbb6",
-  borderTop: "4px solid #B2846B",
-=======
   border: "4px solid rgba(98, 123, 104, 0.2)",
   borderTop: "4px solid #627b68",
->>>>>>> e85f1ae (nilam2)
+
   borderRadius: "50%",
   animation: "spin 0.8s linear infinite",
 };
@@ -335,11 +301,8 @@ const globalStyles = `
   }
   .prop-card:hover {
     transform: translateY(-4px) !important;
-<<<<<<< HEAD
-    box-shadow: 0 20px 40px rgba(76,51,36,0.10) !important;
-=======
     box-shadow: 0 20px 40px rgba(76, 51, 36, 0.1) !important;
->>>>>>> e85f1ae (nilam2)
+
   }
 `;
 
@@ -347,20 +310,14 @@ const styles = {
   page: {
     display: "flex",
     minHeight: "100vh",
-<<<<<<< HEAD
-    background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
-=======
     background: "linear-gradient(135deg, #f9f6f1 0%, #ffffff 60%, #f4f1eb 100%)",
->>>>>>> e85f1ae (nilam2)
+
     fontFamily: "'DM Sans', sans-serif",
   },
   accentBar: {
     width: 5,
-<<<<<<< HEAD
-    background: "linear-gradient(180deg, #4C3324 0%, #B2846B 100%)",
-=======
     background: "linear-gradient(180deg, #627b68 0%, #819b8b 100%)",
->>>>>>> e85f1ae (nilam2)
+
     flexShrink: 0,
   },
   container: {
@@ -378,11 +335,8 @@ const styles = {
   },
   breadcrumb: {
     fontSize: 12,
-<<<<<<< HEAD
-    color: "#B2846B",
-=======
     color: "#b2846b",
->>>>>>> e85f1ae (nilam2)
+
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     fontWeight: 600,
@@ -391,11 +345,8 @@ const styles = {
   title: {
     fontSize: 34,
     fontWeight: 700,
-<<<<<<< HEAD
-    color: "#4C3324",
-=======
     color: "#4c3324",
->>>>>>> e85f1ae (nilam2)
+
     fontFamily: "'Sora', sans-serif",
     margin: 0,
     letterSpacing: "-0.5px",
@@ -437,11 +388,8 @@ const styles = {
     paddingRight: 4,
   },
   addBtn: {
-<<<<<<< HEAD
-    background: "#627B68",
-=======
     background: "#627b68",
->>>>>>> e85f1ae (nilam2)
+
     color: "#fff",
     padding: "0 22px",
     height: 44,
@@ -453,12 +401,9 @@ const styles = {
     fontFamily: "'DM Sans', sans-serif",
     letterSpacing: "0.01em",
     transition: "all 0.2s ease",
-<<<<<<< HEAD
-    boxShadow: "0 4px 14px rgba(98,123,104,0.35)",
-=======
     boxShadow: "0 4px 14px rgba(98, 123, 104, 0.2)",
->>>>>>> e85f1ae (nilam2)
   },
+
   tabRow: {
     display: "flex",
     gap: 6,
@@ -483,15 +428,10 @@ const styles = {
     transition: "all 0.18s",
   },
   tabActive: {
-<<<<<<< HEAD
-    background: "#627B68",
-    color: "#fff",
-    boxShadow: "0 2px 8px rgba(98,123,104,0.28)",
-=======
     background: "#627b68",
     color: "#fff",
     boxShadow: "0 2px 8px rgba(98, 123, 104, 0.2)",
->>>>>>> e85f1ae (nilam2)
+
   },
   grid: {
     display: "grid",
@@ -501,13 +441,9 @@ const styles = {
   card: {
     background: "#ffffff",
     borderRadius: 16,
-<<<<<<< HEAD
-    boxShadow: "0 4px 16px rgba(76,51,36,0.06)",
-    border: "1px solid #e8ddd5",
-=======
     boxShadow: "0 4px 16px rgba(76, 51, 36, 0.06)",
     border: "1px solid rgba(228, 203, 182, 0.3)",
->>>>>>> e85f1ae (nilam2)
+
     overflow: "hidden",
     display: "flex",
     flexDirection: "column",
@@ -527,11 +463,8 @@ const styles = {
   },
   cardTopBar: {
     height: 4,
-<<<<<<< HEAD
-    background: "linear-gradient(90deg, #4C3324, #B2846B)",
-=======
     background: "linear-gradient(90deg, #627b68, #819b8b)",
->>>>>>> e85f1ae (nilam2)
+
   },
   cardBody: {
     padding: "22px 22px 16px",
@@ -540,11 +473,8 @@ const styles = {
   propertyTitle: {
     fontSize: 17,
     fontWeight: 600,
-<<<<<<< HEAD
-    color: "#4C3324",
-=======
     color: "#4c3324",
->>>>>>> e85f1ae (nilam2)
+
     margin: 0,
     fontFamily: "'Sora', sans-serif",
     flex: 1,
@@ -554,11 +484,8 @@ const styles = {
   price: {
     fontSize: 22,
     fontWeight: 700,
-<<<<<<< HEAD
-    color: "#627B68",
-=======
     color: "#b2846b",
->>>>>>> e85f1ae (nilam2)
+
     margin: "12px 0 14px",
     fontFamily: "'Sora', sans-serif",
   },

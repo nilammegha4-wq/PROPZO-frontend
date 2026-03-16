@@ -49,16 +49,15 @@ export default function UserList() {
   return (
     <>
       <style>{`
-<<<<<<< HEAD
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700&display=swap');
         * { box-sizing: border-box; }
         .ul-search:focus {
           outline: none !important;
-          border-color: #B2846B !important;
-          box-shadow: 0 0 0 3px rgba(178,132,107,0.15) !important;
+          border-color: #819B8B !important;
+          box-shadow: 0 0 0 3px rgba(129,155,139,0.15) !important;
         }
         .ul-search::placeholder { color: #a89385; font-size: 13.5px; }
-        .toggle-btn:hover { color: #4C3324 !important; }
+        .toggle-btn:hover { color: #627B68 !important; }
         .delete-btn:hover { color: #6b1a0a !important; }
         @media (max-width: 991px) { .ul-container { padding: 30px 20px !important; } }
         @media (max-width: 768px) { .ul-search { width: 100% !important; } }
@@ -76,42 +75,7 @@ export default function UserList() {
               <p style={s.subtitle}>Manage user accounts and permissions</p>
             </div>
           </div>
-=======
-        @media (max-width: 991px) {
-          .ul-container { padding: 30px 20px !important; }
-        }
-        @media (max-width: 768px) {
-          .ul-search { width: 100% !important; }
-        }
-      `}</style>
-      <div style={styles.container} className="ul-container">
-        <h1 style={styles.title}>User Management</h1>
-        <p style={styles.subtitle}>
-          Manage user accounts and permissions
-        </p>
 
-        <div style={styles.card}>
-          {/* Search */}
-          <input
-            type="text"
-            placeholder="Search by name or email..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            style={styles.searchInput}
-            className="ul-search"
-          />
-
-          <div style={{ width: "100%", overflowX: "auto" }} className="ul-table-wrap">
-            <table style={styles.table}>
-          <thead>
-            <tr style={styles.headerRow}>
-              <th style={styles.th}>USER NAME</th>
-              <th style={styles.th}>EMAIL</th>
-              <th style={styles.th}>STATUS</th>
-              <th style={styles.th}>ACTIONS</th>
-            </tr>
-          </thead>
->>>>>>> e85f1ae (nilam2)
 
           {/* Card */}
           <div style={s.card}>
@@ -172,57 +136,11 @@ export default function UserList() {
               </table>
             </div>
 
-<<<<<<< HEAD
             {filteredUsers.length === 0 && (
               <div style={s.noUsers}>No users found</div>
             )}
           </div>
-=======
-                <td style={styles.td}>
-                  <span
-                    style={{
-                      ...styles.status,
-                      backgroundColor:
-                        u.status === "Active"
-                          ? "rgba(129, 155, 139, 0.15)"
-                          : "#FEE2E2",
-                      color:
-                        u.status === "Active"
-                          ? "#627b68"
-                          : "#991B1B",
-                    }}
-                  >
-                    {u.status}
-                  </span>
-                </td>
 
-                <td style={styles.td}>
-                  <button
-                    onClick={() => toggleStatus(u._id, u.status)}
-                    style={styles.toggleBtn}
-                  >
-                    {u.status === "Active"
-                      ? "Deactivate"
-                      : "Activate"}
-                  </button>
-
-                  <button
-                    onClick={() => deleteUser(u._id)}
-                    style={styles.deleteBtn}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-          </table>
-          </div>
-
-          {filteredUsers.length === 0 && (
-            <div style={styles.noUsers}>No users found</div>
-          )}
->>>>>>> e85f1ae (nilam2)
         </div>
       </div>
     </>
@@ -234,17 +152,16 @@ export default function UserList() {
 // #627B68 — forest green | #4C3324 — dark brown
 // ─────────────────────────────────────────────────────────────────────────────
 
-<<<<<<< HEAD
 const s = {
   page: {
     display: "flex",
     minHeight: "100vh",
-    background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
+    background: "linear-gradient(135deg, #f9f6f1 0%, #ffffff 60%, #f4f1eb 100%)",
     fontFamily: "'DM Sans', sans-serif",
   },
   accentBar: {
     width: 5,
-    background: "linear-gradient(180deg, #4C3324 0%, #B2846B 100%)",
+    background: "linear-gradient(180deg, #627b68 0%, #819b8b 100%)",
     flexShrink: 0,
   },
   wrapper: {
@@ -259,7 +176,7 @@ const s = {
   },
   breadcrumb: {
     fontSize: 12,
-    color: "#B2846B",
+    color: "#b2846b",
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     fontWeight: 600,
@@ -268,24 +185,10 @@ const s = {
   pageTitle: {
     fontSize: 32,
     fontWeight: 700,
-    color: "#4C3324",
+    color: "#4c3324",
     fontFamily: "'Sora', sans-serif",
     margin: "0 0 6px 0",
     letterSpacing: "-0.5px",
-=======
-const styles = {
-  container: {
-    padding: "40px",
-    backgroundColor: "#f9f6f1", // Brand Cream
-    minHeight: "100vh",
-    fontFamily: "'DM Sans', sans-serif",
-  },
-  title: {
-    fontSize: "28px",
-    fontWeight: "700",
-    marginBottom: "5px",
-    color: "#4c3324", // Brand Brown
->>>>>>> e85f1ae (nilam2)
   },
   subtitle: {
     color: "#819B8B",
@@ -294,67 +197,47 @@ const styles = {
   },
   card: {
     background: "#ffffff",
-<<<<<<< HEAD
     borderRadius: 16,
-    border: "1px solid #e8ddd5",
-    boxShadow: "0 4px 16px rgba(76,51,36,0.06)",
+    border: "1px solid rgba(228, 203, 182, 0.3)",
+    boxShadow: "0 4px 16px rgba(76, 51, 36, 0.06)",
     padding: "24px",
     overflow: "hidden",
-=======
-    padding: "25px",
-    borderRadius: "12px",
-    boxShadow: "0 4px 15px rgba(76, 51, 36, 0.05)",
-    border: "1px solid rgba(228, 203, 182, 0.2)",
->>>>>>> e85f1ae (nilam2)
+
   },
   searchInput: {
     padding: "10px 14px",
     width: "320px",
-<<<<<<< HEAD
     borderRadius: 9,
-    border: "1.5px solid #ddd0c6",
+    border: "1px solid rgba(228, 203, 182, 0.4)",
     marginBottom: 20,
     fontSize: 14,
-    color: "#3b2416",
-    background: "#fdf9f7",
+    color: "#4c3324",
+    background: "#fff",
     fontFamily: "'DM Sans', sans-serif",
     transition: "border-color 0.18s, box-shadow 0.18s",
     display: "block",
-=======
-    borderRadius: "8px",
-    border: "1px solid rgba(228, 203, 182, 0.4)",
-    marginBottom: "20px",
     outline: "none",
->>>>>>> e85f1ae (nilam2)
+
   },
   table: {
     width: "100%",
     borderCollapse: "collapse",
   },
-<<<<<<< HEAD
   thead: {
-    background: "linear-gradient(90deg, #f0ebe5, #faf6f3)",
-    borderBottom: "1.5px solid #e8ddd5",
-=======
-  headerRow: {
     backgroundColor: "rgba(178, 132, 107, 0.05)", // Brand Tan light
->>>>>>> e85f1ae (nilam2)
+    borderBottom: "1.5px solid #e8ddd5",
+
   },
   th: {
     padding: "15px 22px",
     textAlign: "left",
-<<<<<<< HEAD
     fontSize: 12,
     fontWeight: 600,
     color: "#627B68",
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     fontFamily: "'Sora', sans-serif",
-=======
-    fontSize: "13px",
-    fontWeight: "600",
-    color: "#4c3324", // Brand Brown
->>>>>>> e85f1ae (nilam2)
+
   },
   tr: {
     borderBottom: "1px solid #f5ede6",
@@ -373,11 +256,8 @@ const styles = {
     width: 36,
     height: 36,
     borderRadius: "50%",
-<<<<<<< HEAD
-    backgroundColor: "#B2846B",
-=======
     backgroundColor: "#627b68", // Brand Sage Dark
->>>>>>> e85f1ae (nilam2)
+
     color: "#fff",
     display: "flex",
     alignItems: "center",
@@ -407,20 +287,15 @@ const styles = {
     background: "none",
     border: "none",
     cursor: "pointer",
-<<<<<<< HEAD
     fontWeight: 600,
     marginRight: 16,
-    color: "#B2846B",
+    color: "#627b68", // Brand Sage Dark
     fontFamily: "'DM Sans', sans-serif",
     fontSize: "0.85rem",
     letterSpacing: "0.02em",
     transition: "color 0.18s",
     padding: 0,
-=======
-    fontWeight: "600",
-    marginRight: "12px",
-    color: "#627b68", // Brand Sage Dark
->>>>>>> e85f1ae (nilam2)
+
   },
   deleteBtn: {
     background: "none",

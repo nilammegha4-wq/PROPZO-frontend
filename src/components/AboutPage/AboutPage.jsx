@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> e85f1ae (nilam2)
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -17,52 +13,25 @@ const css = `
 
   /* =========== Hero Section =========== */
   .about-hero {
-<<<<<<< HEAD
-    height: 60vh;
-    min-height: 400px;
-    background: linear-gradient(rgba(76,51,36,0.50), rgba(76,51,36,0.72)), url('https://images.unsplash.com/photo-1541882299865-c35061c28c6e?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
-=======
     height: 70vh;
     min-height: 500px;
-    background: linear-gradient(rgba(76,51,36,0.25), rgba(76,51,36,0.55)), url('/about_bg.png') center/cover no-repeat;
->>>>>>> e85f1ae (nilam2)
+    background: linear-gradient(rgba(76,51,36,0.35), rgba(76,51,36,0.65)), url('https://images.unsplash.com/photo-1541882299865-c35061c28c6e?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-left: 10%;
     color: #F5EDE3;
-<<<<<<< HEAD
-  }
-
-  .about-breadcrumb {
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #E4CBB6;
-    margin-bottom: 20px;
-  }
-
-  .about-breadcrumb span { color: #F5EDE3; }
-
-  .about-hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    font-weight: 700;
-    margin: 0;
-    color: #F5EDE3;
-=======
     position: relative;
     border-bottom: 1px solid rgba(228, 203, 182, 0.3);
   }
 
   .about-breadcrumb {
     font-size: 14px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: #F5EDE3;
     margin-bottom: 24px;
     font-weight: 500;
-    opacity: 0.9;
   }
 
   .about-breadcrumb span { color: #E4CBB6; cursor: pointer; transition: color 0.3s; }
@@ -70,13 +39,12 @@ const css = `
 
   .about-hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: 6rem;
+    font-size: clamp(3.5rem, 8vw, 6rem);
     font-weight: 700;
     margin: 0;
     color: #F5EDE3;
-    line-height: 1;
+    line-height: 1.1;
     text-shadow: 0 10px 30px rgba(0,0,0,0.15);
->>>>>>> e85f1ae (nilam2)
   }
 
   /* =========== Section 1: Intro =========== */
@@ -226,7 +194,6 @@ const css = `
     color: #F5EDE3;
   }
 
-<<<<<<< HEAD
   .play-btn-wrapper {
     position: absolute;
     bottom: -100px;
@@ -255,9 +222,6 @@ const css = `
     background: #B2846B;
     color: #fff;
   }
-
-=======
->>>>>>> e85f1ae (nilam2)
   /* =========== Section 3: Why Choose Us =========== */
   .why-choose-sec {
     padding: 150px 5% 100px;
@@ -625,7 +589,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-<<<<<<< HEAD
-
-=======
->>>>>>> e85f1ae (nilam2)

@@ -162,11 +162,7 @@ const MySellProperties = () => {
 
 const s = {
     pageWrapper: {
-<<<<<<< HEAD
         background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
-=======
-        backgroundColor: "#f9f6f1",
->>>>>>> e85f1ae (nilam2)
         minHeight: "100vh",
         padding: "100px 20px 60px",
         fontFamily: "'DM Sans', sans-serif",
@@ -184,15 +180,14 @@ const s = {
         gap: 8,
         background: "none",
         border: "none",
-<<<<<<< HEAD
         color: "#B2846B",
         fontWeight: 600,
         fontSize: 15,
         cursor: "pointer",
-        marginBottom: 16,
+        marginBottom: 20,
         padding: 0,
         fontFamily: "'DM Sans', sans-serif",
-        transition: "color 0.18s",
+        transition: "all 0.2s",
     },
     breadcrumb: {
         fontSize: 12,
@@ -201,41 +196,19 @@ const s = {
         textTransform: "uppercase",
         fontWeight: 600,
         margin: "0 0 6px 0",
-=======
-        color: "#819b8b",
-        fontWeight: "600",
-        fontSize: "15px",
-        cursor: "pointer",
-        marginBottom: "20px",
-        padding: "0",
-        transition: "all 0.2s",
->>>>>>> e85f1ae (nilam2)
     },
     title: {
-<<<<<<< HEAD
         fontSize: 32,
-        fontWeight: 700,
+        fontWeight: 800,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
         margin: "0 0 8px 0",
-        letterSpacing: "-0.5px",
+        letterSpacing: "-1px",
     },
     subTitle: {
         fontSize: 15,
         color: "#819B8B",
         margin: 0,
-=======
-        fontSize: "32px",
-        fontWeight: "800",
-        color: "#4c3324",
-        margin: "0 0 8px 0",
-        letterSpacing: "-1px",
-    },
-    subTitle: {
-        fontSize: "16px",
-        color: "#6b5e58",
-        margin: "0",
->>>>>>> e85f1ae (nilam2)
     },
     errorBanner: {
         backgroundColor: "#f5ddd7",
@@ -257,17 +230,10 @@ const s = {
         background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
     },
     spinner: {
-<<<<<<< HEAD
         width: 40,
         height: 40,
         border: "4px solid #e8ddd5",
         borderTop: "4px solid #B2846B",
-=======
-        width: "40px",
-        height: "40px",
-        border: "4px solid #faf7f5",
-        borderTop: "4px solid #627b68",
->>>>>>> e85f1ae (nilam2)
         borderRadius: "50%",
         animation: "spin 1s linear infinite",
     },
@@ -275,14 +241,14 @@ const s = {
         textAlign: "center",
         padding: "80px 20px",
         backgroundColor: "#ffffff",
-<<<<<<< HEAD
-        borderRadius: 20,
-        border: "2px dashed #ddd0c6",
+        borderRadius: 24,
+        border: "2px dashed rgba(228, 203, 182, 0.4)",
     },
     emptyIcon: {
-        fontSize: 60,
+        fontSize: 64,
         color: "#E4CBB6",
         marginBottom: 20,
+        opacity: 0.5,
     },
     browseBtn: {
         display: "inline-block",
@@ -296,27 +262,6 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
         boxShadow: "0 3px 10px rgba(98,123,104,0.3)",
         transition: "all 0.18s",
-=======
-        borderRadius: "24px",
-        border: "2px dashed rgba(228, 203, 182, 0.4)",
-    },
-    emptyIcon: {
-        fontSize: "64px",
-        color: "#b2846b",
-        marginBottom: "20px",
-        opacity: 0.3,
-    },
-    browseBtn: {
-        display: "inline-block",
-        marginTop: "24px",
-        padding: "12px 24px",
-        backgroundColor: "#627b68",
-        color: "white",
-        textDecoration: "none",
-        borderRadius: "10px",
-        fontWeight: "600",
-        transition: "all 0.2s",
->>>>>>> e85f1ae (nilam2)
     },
     grid: {
         display: "grid",
@@ -327,11 +272,6 @@ const s = {
         backgroundColor: "#ffffff",
         borderRadius: 18,
         overflow: "hidden",
-<<<<<<< HEAD
-        boxShadow: "0 4px 16px rgba(76,51,36,0.07)",
-        transition: "transform 0.2s ease, box-shadow 0.2s ease",
-        border: "1px solid #e8ddd5",
-=======
         boxShadow: "0 10px 15px -3px rgba(76, 51, 36, 0.05)",
         transition: "transform 0.2s ease, box-shadow 0.2s ease",
         border: "1px solid rgba(228, 203, 182, 0.2)",
@@ -339,16 +279,16 @@ const s = {
     imgPlaceholder: {
         width: "100%",
         height: "200px",
-        backgroundColor: "#f1f5f9",
+        backgroundColor: "#f0ebe5",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         gap: "10px",
-        color: "#94a3b8",
+        color: "#B2846B",
         fontSize: "14px",
         fontWeight: "600",
->>>>>>> e85f1ae (nilam2)
+        fontFamily: "'DM Sans', sans-serif",
     },
     imageSection: {
         position: "relative",
@@ -374,7 +314,6 @@ const s = {
     },
     badge: {
         position: "absolute",
-<<<<<<< HEAD
         top: 14,
         right: 14,
         padding: "5px 14px",
@@ -386,54 +325,28 @@ const s = {
         border: "1px solid #4d6454",
         fontFamily: "'DM Sans', sans-serif",
         letterSpacing: "0.04em",
-=======
-        top: "15px",
-        right: "15px",
-        padding: "6px 12px",
-        borderRadius: "30px",
-        fontSize: "12px",
-        fontWeight: "700",
-        backgroundColor: "#e4cbb6",
-        color: "#4c3324",
-        border: "1px solid rgba(76, 51, 36, 0.1)",
->>>>>>> e85f1ae (nilam2)
     },
     cardBody: {
         padding: "22px 24px",
     },
     typeTag: {
         display: "inline-block",
-<<<<<<< HEAD
         padding: "3px 10px",
         backgroundColor: "#E4CBB6",
         color: "#4C3324",
         fontSize: 11,
         fontWeight: 700,
         borderRadius: 6,
-=======
-        padding: "4px 10px",
-        backgroundColor: "rgba(129, 155, 139, 0.1)",
-        color: "#627b68",
-        fontSize: "11px",
-        fontWeight: "700",
-        borderRadius: "6px",
->>>>>>> e85f1ae (nilam2)
         textTransform: "uppercase",
         marginBottom: 10,
         letterSpacing: "0.05em",
         fontFamily: "'DM Sans', sans-serif",
     },
     propertyTitle: {
-<<<<<<< HEAD
         fontSize: 17,
         fontWeight: 700,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
-=======
-        fontSize: "18px",
-        fontWeight: "700",
-        color: "#4c3324",
->>>>>>> e85f1ae (nilam2)
         margin: "0 0 12px 0",
         whiteSpace: "nowrap",
         overflow: "hidden",
@@ -449,7 +362,6 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
     },
     infoIcon: {
-<<<<<<< HEAD
         color: "#B2846B",
         flexShrink: 0,
     },
@@ -457,24 +369,11 @@ const s = {
         marginTop: 18,
         padding: "14px 16px",
         backgroundColor: "#fdf9f7",
-        borderRadius: 10,
+        borderRadius: 12,
         border: "1px solid #e8ddd5",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-=======
-        color: "#819b8b",
-    },
-    priceSection: {
-        marginTop: "20px",
-        padding: "16px",
-        backgroundColor: "#faf7f5",
-        borderRadius: "12px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        border: "1px solid rgba(228, 203, 182, 0.1)"
->>>>>>> e85f1ae (nilam2)
     },
     priceLabel: {
         fontSize: 13,
@@ -483,16 +382,10 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
     },
     priceValue: {
-<<<<<<< HEAD
         fontSize: 18,
-        fontWeight: 700,
+        fontWeight: 800,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
-=======
-        fontSize: "18px",
-        fontWeight: "800",
-        color: "#4c3324",
->>>>>>> e85f1ae (nilam2)
     },
     actionRow: {
         marginTop: 18,
@@ -505,19 +398,11 @@ const s = {
         textAlign: "center",
         padding: 10,
         backgroundColor: "#ffffff",
-<<<<<<< HEAD
         color: "#627B68",
         border: "1.5px solid #627B68",
         borderRadius: 9,
         fontSize: 14,
         fontWeight: 600,
-=======
-        color: "#819b8b",
-        border: "1px solid #819b8b",
-        borderRadius: "8px",
-        fontSize: "14px",
-        fontWeight: "600",
->>>>>>> e85f1ae (nilam2)
         textDecoration: "none",
         fontFamily: "'DM Sans', sans-serif",
         transition: "all 0.2s",
@@ -528,13 +413,8 @@ const s = {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-<<<<<<< HEAD
-        backgroundColor: "#f0ebe5",
-        color: "#7a5c4a",
-=======
         backgroundColor: "rgba(129, 155, 139, 0.1)",
         color: "#627b68",
->>>>>>> e85f1ae (nilam2)
         border: "none",
         borderRadius: 9,
         cursor: "not-allowed",

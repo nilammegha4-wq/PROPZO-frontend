@@ -197,7 +197,6 @@ function Field({ label, children, style }) {
   );
 }
 
-<<<<<<< HEAD
 const globalStyles = `
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700&display=swap');
 
@@ -209,8 +208,8 @@ const globalStyles = `
   }
   input:focus, textarea:focus, select:focus {
     outline: none !important;
-    border-color: #B2846B !important;
-    box-shadow: 0 0 0 3px rgba(178,132,107,0.15) !important;
+    border-color: #627b68 !important;
+    box-shadow: 0 0 0 3px rgba(98,123,104,0.15) !important;
   }
 `;
 
@@ -218,12 +217,12 @@ const s = {
   page: {
     display: "flex",
     minHeight: "100vh",
-    background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
+    background: "linear-gradient(135deg, #f9f6f1 0%, #ffffff 60%, #f4f1eb 100%)",
     fontFamily: "'DM Sans', sans-serif",
   },
   accentBar: {
     width: 5,
-    background: "linear-gradient(180deg, #4C3324 0%, #B2846B 100%)",
+    background: "linear-gradient(180deg, #627b68 0%, #819b8b 100%)",
     flexShrink: 0,
   },
   wrapper: {
@@ -236,7 +235,7 @@ const s = {
   },
   breadcrumb: {
     fontSize: 12,
-    color: "#B2846B",
+    color: "#b2846b",
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     fontWeight: 600,
@@ -245,7 +244,7 @@ const s = {
   pageTitle: {
     fontSize: 34,
     fontWeight: 700,
-    color: "#4C3324",
+    color: "#4c3324",
     fontFamily: "'Sora', sans-serif",
     margin: "0 0 8px",
     letterSpacing: "-0.5px",
@@ -264,7 +263,7 @@ const s = {
   cardWrap: {
     background: "#fff",
     borderRadius: 16,
-    border: "1px solid #e8ddd5",
+    border: "1px solid rgba(228, 203, 182, 0.3)",
     boxShadow: "0 4px 16px rgba(76,51,36,0.06)",
     overflow: "hidden",
   },
@@ -274,23 +273,24 @@ const s = {
     gap: 14,
     padding: "20px 24px",
     borderBottom: "1px solid #e8ddd5",
-    background: "linear-gradient(90deg, #f0ebe5, #faf6f3)",
+    background: "rgba(178, 132, 107, 0.05)",
   },
   cardIconCircle: {
     width: 44,
     height: 44,
     borderRadius: "50%",
-    background: "#e8ddd5",
+    background: "rgba(129, 155, 139, 0.1)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: 20,
     flexShrink: 0,
+    color: "#627b68",
   },
   cardTitle: {
     fontSize: 16,
     fontWeight: 700,
-    color: "#4C3324",
+    color: "#4c3324",
     margin: 0,
     fontFamily: "'Sora', sans-serif",
   },
@@ -312,7 +312,7 @@ const s = {
     display: "block",
     fontSize: 13,
     fontWeight: 600,
-    color: "#5a3e30",
+    color: "#627b68",
     marginBottom: 7,
     letterSpacing: "0.02em",
   },
@@ -320,10 +320,10 @@ const s = {
     width: "100%",
     padding: "11px 14px",
     borderRadius: 9,
-    border: "1.5px solid #ddd0c6",
+    border: "1px solid rgba(228, 203, 182, 0.3)",
     fontSize: 14,
-    color: "#3b2416",
-    background: "#fdf9f7",
+    color: "#334155",
+    background: "#fdf8f4",
     fontFamily: "'DM Sans', sans-serif",
     transition: "border-color 0.18s, box-shadow 0.18s",
   },
@@ -356,23 +356,4 @@ const s = {
     marginTop: 4,
   },
 };
-=======
-const styles = {
-  container: { padding: "40px 60px", backgroundColor: "#f9f6f1", minHeight: "100vh", fontFamily: "'DM Sans', sans-serif" },
-  header: { marginBottom: "40px" },
-  title: { fontSize: "32px", fontWeight: "800", color: "#4c3324", margin: 0 },
-  subtitle: { fontSize: "16px", color: "#64748b", marginTop: "8px" },
-  grid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "30px", maxWidth: "1100px" },
-  card: { backgroundColor: "#ffffff", padding: "30px", borderRadius: "16px", boxShadow: "0 10px 15px -3px rgba(76, 51, 36, 0.05)", border: "1px solid rgba(228, 203, 182, 0.2)" },
-  cardHeader: { marginBottom: "24px" },
-  cardTitle: { fontSize: "18px", fontWeight: "700", color: "#4c3324", margin: 0 },
-  cardSub: { fontSize: "13px", color: "#94a3b8", marginTop: "4px" },
-  formGroup: { marginBottom: "20px" },
-  row: { display: "flex", gap: "20px", marginBottom: "20px" },
-  label: { display: "block", fontSize: "13px", fontWeight: "600", color: "#627b68", marginBottom: "8px" },
-  input: { width: "100%", padding: "12px 16px", borderRadius: "8px", border: "1px solid rgba(228, 203, 182, 0.3)", fontSize: "14px", boxSizing: "border-box", outline: "none", color: "#334155", backgroundColor: "#fdf8f4" },
-  select: { width: "100%", padding: "12px 16px", borderRadius: "8px", border: "1px solid rgba(228, 203, 182, 0.3)", fontSize: "14px", backgroundColor: "#fff", cursor: "pointer" },
-  primaryBtn: { backgroundColor: "#627b68", color: "white", padding: "12px 24px", borderRadius: "8px", border: "none", fontWeight: "600", cursor: "pointer", transition: "all 0.2s" },
-  secondaryBtn: { backgroundColor: "#4c3324", color: "white", padding: "12px 24px", borderRadius: "8px", border: "none", fontWeight: "600", cursor: "pointer" },
-};
->>>>>>> e85f1ae (nilam2)
+

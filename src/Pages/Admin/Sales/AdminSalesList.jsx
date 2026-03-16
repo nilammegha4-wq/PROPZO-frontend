@@ -60,14 +60,12 @@ const AdminSalesList = () => {
     return (
         <>
             <style>{`
-<<<<<<< HEAD
                 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@600;700&display=swap');
                 * { box-sizing: border-box; }
                 .asl-row:hover { background: #faf6f3 !important; }
                 .asl-view-btn:hover { background: #627B68 !important; color: #fff !important; }
                 .asl-del-btn:hover { background: #b85c3a !important; color: #fff !important; }
-=======
->>>>>>> e85f1ae (nilam2)
+
                 @media (max-width: 991px) {
                     .asl-container { padding: 20px !important; }
                     .asl-header { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
@@ -77,7 +75,6 @@ const AdminSalesList = () => {
                     .asl-title { font-size: 24px !important; }
                 }
             `}</style>
-<<<<<<< HEAD
 
             <div style={s.page}>
                 <div style={s.accentBar} />
@@ -92,124 +89,20 @@ const AdminSalesList = () => {
                         </div>
                         <div style={s.statsRow} className="asl-stats-row">
                             <div style={s.statCard}>
-                                <div style={{ ...s.statIcon, background: "#e8ddd5", color: "#4C3324" }}><FaList /></div>
+                                <div style={{ ...s.statIcon, background: 'rgba(178, 132, 107, 0.1)', color: '#b2846b' }}><FaList /></div>
                                 <div>
                                     <p style={s.statLabel}>Total Requests</p>
                                     <h3 style={s.statValue}>{stats.total}</h3>
                                 </div>
                             </div>
                             <div style={s.statCard}>
-                                <div style={{ ...s.statIcon, background: "#dde8e0", color: "#3a5c42" }}><FaMoneyBillWave /></div>
+                                <div style={{ ...s.statIcon, background: 'rgba(98, 123, 104, 0.1)', color: '#627b68' }}><FaMoneyBillWave /></div>
                                 <div>
                                     <p style={s.statLabel}>Total Value</p>
                                     <h3 style={s.statValue}>₹{(stats.totalValue / 1000000).toFixed(1)}M</h3>
                                 </div>
                             </div>
                         </div>
-=======
-            <div style={styles.container} className="asl-container">
-                <header style={styles.header} className="asl-header">
-                    <div>
-                        <h1 style={styles.title} className="asl-title">Property Sale Requests</h1>
-                        <p style={styles.subtitle}>Manage and monitor all incoming seller submissions</p>
-                    </div>
-                    <div style={styles.statsRow} className="asl-stats-row">
-                        <div style={styles.statCard}>
-                            <div style={{ ...styles.statIcon, background: 'rgba(178, 132, 107, 0.1)', color: '#b2846b' }}><FaList /></div>
-                            <div>
-                                <p style={styles.statLabel}>Total Requests</p>
-                                <h3 style={styles.statValue}>{stats.total}</h3>
-                            </div>
-                        </div>
-                        <div style={styles.statCard}>
-                            <div style={{ ...styles.statIcon, background: 'rgba(98, 123, 104, 0.1)', color: '#627b68' }}><FaMoneyBillWave /></div>
-                            <div>
-                                <p style={styles.statLabel}>Total Value</p>
-                                <h3 style={styles.statValue}>₹{(stats.totalValue / 1000000).toFixed(1)}M</h3>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-
-                <div style={{ ...styles.tableCard, overflowX: "auto" }} className="asl-table-card">
-                    <div style={{ minWidth: "900px" }}>
-                        <table style={styles.table}>
-                    <thead>
-                        <tr>
-                            <th style={styles.th}>Property</th>
-                            <th style={styles.th}>Price</th>
-                            <th style={styles.th}>Location</th>
-                            <th style={styles.th}>Seller Details</th>
-                            <th style={styles.th}>Type / BHK</th>
-                            <th style={styles.th}>Date</th>
-                            <th style={styles.th}>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {sales.map((sale) => (
-                            <tr key={sale._id} style={styles.tr}>
-                                <td style={styles.td}>
-                                    <div style={styles.propInfo}>
-                                        <div style={styles.propPreview}>
-                                            {sale.image ? (
-                                                <img
-                                                    src={sale.image.startsWith('http') ? sale.image : `${BASE_URL}${sale.image.startsWith('/') ? '' : '/'}${sale.image}`}
-                                                    alt=""
-                                                    style={styles.tinyImg}
-                                                    onError={(e) => { e.target.src = 'https://via.placeholder.com/50?text=No+Img'; }}
-                                                />
-                                            ) : <FaHome />}
-                                        </div>
-                                        <div>
-                                            <p style={styles.propTitle}>{sale.title}</p>
-                                            <span style={styles.statusBadge}>New Listing</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td style={styles.td}>
-                                    <p style={styles.priceText}>₹{sale.price?.toLocaleString()}</p>
-                                </td>
-                                <td style={styles.td}>
-                                    <div style={styles.locationInfo}>
-                                        <FaMapMarkerAlt style={{ color: '#64748b' }} />
-                                        <span>{sale.city}</span>
-                                    </div>
-                                </td>
-                                <td style={styles.td}>
-                                    <div style={styles.sellerInfo}>
-                                        <p style={styles.sellerName}><FaUser size={12} /> {sale.sellerName || "N/A"}</p>
-                                        <p style={styles.sellerPhone}><FaPhoneAlt size={12} /> {sale.phone || "N/A"}</p>
-                                    </div>
-                                </td>
-                                <td style={styles.td}>
-                                    <div style={styles.typeInfo}>
-                                        <span style={styles.tag}>{sale.propertyType}</span>
-                                        <span style={styles.tag}>{sale.bhk || "-"} BHK</span>
-                                    </div>
-                                </td>
-                                <td style={styles.td}>
-                                    <p style={styles.dateText}><FaCalendarAlt size={12} /> {new Date(sale.createdAt).toLocaleDateString()}</p>
-                                </td>
-                                <td style={styles.td}>
-                                    <div style={styles.actionButtons}>
-                                        <button onClick={() => openDetails(sale)} style={styles.viewBtn} title="View Details">
-                                            <FaRegEye />
-                                        </button>
-                                        <button onClick={() => handleDelete(sale._id)} style={styles.delBtn} title="Delete Request">
-                                            <FaTrashAlt />
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-                    </div>
-                {sales.length === 0 && (
-                    <div style={styles.emptyState}>
-                        <FaInfoCircle size={40} color="#94a3b8" />
-                        <p>No sales requests found yet.</p>
->>>>>>> e85f1ae (nilam2)
                     </div>
 
                     {/* Table */}
@@ -375,7 +268,6 @@ const AdminSalesList = () => {
                     </div>
                 </div>
             )}
-<<<<<<< HEAD
         </>
     );
 };
@@ -384,32 +276,20 @@ const s = {
     page: {
         display: "flex",
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
+        background: "linear-gradient(135deg, #f9f6f1 0%, #ffffff 60%, #f4f1eb 100%)",
         fontFamily: "'DM Sans', sans-serif",
     },
     accentBar: {
         width: 5,
-        background: "linear-gradient(180deg, #4C3324 0%, #B2846B 100%)",
+        background: "linear-gradient(180deg, #627b68 0%, #819b8b 100%)",
         flexShrink: 0,
     },
     container: {
         flex: 1,
         padding: "48px 52px",
         maxWidth: 1400,
-        color: "#3b2416",
-=======
-        </div>
-    </>
-  );
-};
+        color: "#4c3324",
 
-const styles = {
-    container: {
-        background: "#f9f6f1", // Brand Cream
-        padding: "30px",
-        minHeight: "100vh",
-        color: "#4c3324", // Brand Brown
->>>>>>> e85f1ae (nilam2)
     },
     header: {
         display: "flex",
@@ -428,18 +308,12 @@ const styles = {
         margin: 0,
     },
     title: {
-<<<<<<< HEAD
         fontSize: 34,
         fontWeight: 700,
         margin: "6px 0 0",
-        color: "#4C3324",
-        fontFamily: "'Sora', sans-serif",
-=======
-        fontSize: "28px",
-        fontWeight: "800",
-        margin: 0,
         color: "#4c3324",
->>>>>>> e85f1ae (nilam2)
+        fontFamily: "'Sora', sans-serif",
+
         letterSpacing: "-0.5px",
     },
     subtitle: {
@@ -483,12 +357,9 @@ const styles = {
         fontSize: 18,
         fontWeight: 700,
         margin: 0,
-<<<<<<< HEAD
-        color: "#4C3324",
-        fontFamily: "'Sora', sans-serif",
-=======
         color: "#4c3324",
->>>>>>> e85f1ae (nilam2)
+        fontFamily: "'Sora', sans-serif",
+
     },
     tableCard: {
         background: "#fff",
@@ -503,26 +374,16 @@ const styles = {
         textAlign: "left",
     },
     th: {
-<<<<<<< HEAD
         padding: "18px 20px",
-        background: "linear-gradient(90deg, #f0ebe5, #faf6f3)",
+        background: "rgba(178, 132, 107, 0.05)",
         fontSize: 12,
         fontWeight: 700,
-        color: "#7a5c4a",
-        textTransform: "uppercase",
-        letterSpacing: "0.05em",
-        borderBottom: "1px solid #e8ddd5",
-        fontFamily: "'DM Sans', sans-serif",
-=======
-        padding: "20px",
-        background: "rgba(178, 132, 107, 0.05)",
-        fontSize: "13px",
-        fontWeight: "700",
         color: "#4c3324",
         textTransform: "uppercase",
-        letterSpacing: "1px",
+        letterSpacing: "0.05em",
         borderBottom: "1px solid rgba(228, 203, 182, 0.3)",
->>>>>>> e85f1ae (nilam2)
+        fontFamily: "'DM Sans', sans-serif",
+
     },
     tr: {
         borderBottom: "1px solid #f0e8e0",
@@ -577,15 +438,10 @@ const styles = {
         letterSpacing: "0.04em",
     },
     priceText: {
-<<<<<<< HEAD
         fontSize: 16,
         fontWeight: 800,
-        color: "#627B68",
-=======
-        fontSize: "16px",
-        fontWeight: "800",
         color: "#b2846b", // Brand Tan
->>>>>>> e85f1ae (nilam2)
+
         margin: 0,
         fontFamily: "'Sora', sans-serif",
     },
@@ -638,21 +494,13 @@ const styles = {
         gap: 10,
     },
     viewBtn: {
-<<<<<<< HEAD
         width: 36,
         height: 36,
         borderRadius: 10,
-        border: "1.5px solid #627B68",
-        background: "#eef2ee",
-        color: "#627B68",
-=======
-        width: "36px",
-        height: "36px",
-        borderRadius: "10px",
         border: "none",
         background: "rgba(98, 123, 104, 0.1)",
         color: "#627b68",
->>>>>>> e85f1ae (nilam2)
+
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -729,27 +577,18 @@ const styles = {
         paddingBottom: 24,
     },
     modalTitle: {
-<<<<<<< HEAD
         fontSize: 26,
         fontWeight: 700,
         margin: "0 0 8px 0",
-        color: "#4C3324",
-        fontFamily: "'Sora', sans-serif",
-=======
-        fontSize: "28px",
-        fontWeight: "800",
-        margin: "0 0 10px 0",
         color: "#4c3324",
->>>>>>> e85f1ae (nilam2)
+        fontFamily: "'Sora', sans-serif",
+
     },
     modalBadge: {
         display: "inline-block",
         padding: "8px 20px",
-<<<<<<< HEAD
-        background: "#627B68",
-=======
         background: "#b2846b",
->>>>>>> e85f1ae (nilam2)
+
         color: "#fff",
         borderRadius: 14,
         fontSize: 18,
@@ -845,11 +684,8 @@ const styles = {
         padding: "12px 24px",
         borderRadius: 12,
         border: "none",
-<<<<<<< HEAD
-        background: "#627B68",
-=======
         background: "#627b68",
->>>>>>> e85f1ae (nilam2)
+
         color: "#fff",
         fontWeight: 700,
         cursor: "pointer",

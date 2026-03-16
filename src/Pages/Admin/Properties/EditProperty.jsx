@@ -986,13 +986,8 @@ const globalStyles = `
   }
   input:focus, textarea:focus, select:focus {
     outline: none !important;
-<<<<<<< HEAD
     border-color: #B2846B !important;
     box-shadow: 0 0 0 3px rgba(178,132,107,0.15) !important;
-=======
-    border-color: #627b68 !important;
-    box-shadow: 0 0 0 3px rgba(98,123,104,0.1) !important;
->>>>>>> e85f1ae (nilam2)
   }
 `;
 
@@ -1000,20 +995,12 @@ const s = {
   page: {
     display: "flex",
     minHeight: "100vh",
-<<<<<<< HEAD
     background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
-=======
-    background: "linear-gradient(135deg, #f9f6f1 0%, #ffffff 60%, #f4f1eb 100%)",
->>>>>>> e85f1ae (nilam2)
     fontFamily: "'DM Sans', sans-serif",
   },
   accentBar: {
     width: 5,
-<<<<<<< HEAD
     background: "linear-gradient(180deg, #4C3324 0%, #B2846B 100%)",
-=======
-    background: "linear-gradient(180deg, #627b68 0%, #819b8b 100%)",
->>>>>>> e85f1ae (nilam2)
     flexShrink: 0,
   },
   wrapper: {
@@ -1033,11 +1020,7 @@ const s = {
   },
   breadcrumb: {
     fontSize: 12,
-<<<<<<< HEAD
     color: "#B2846B",
-=======
-    color: "#b2846b",
->>>>>>> e85f1ae (nilam2)
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     fontWeight: 600,
@@ -1046,11 +1029,7 @@ const s = {
   pageTitle: {
     fontSize: 32,
     fontWeight: 700,
-<<<<<<< HEAD
     color: "#4C3324",
-=======
-    color: "#4c3324",
->>>>>>> e85f1ae (nilam2)
     fontFamily: "'Sora', sans-serif",
     margin: 0,
     letterSpacing: "-0.5px",
@@ -1093,11 +1072,7 @@ const s = {
   sectionTitle: {
     fontSize: 15,
     fontWeight: 600,
-<<<<<<< HEAD
     color: "#627B68",
-=======
-    color: "#627b68",
->>>>>>> e85f1ae (nilam2)
     margin: 0,
     fontFamily: "'Sora', sans-serif",
     letterSpacing: "0.01em",
@@ -1153,21 +1128,13 @@ const s = {
     padding: "12px 36px",
     borderRadius: 10,
     border: "none",
-<<<<<<< HEAD
     background: "#627B68",
-=======
-    background: "#627b68",
->>>>>>> e85f1ae (nilam2)
     color: "#fff",
     fontSize: 15,
     fontWeight: 600,
     cursor: "pointer",
     fontFamily: "'DM Sans', sans-serif",
-<<<<<<< HEAD
     boxShadow: "0 4px 14px rgba(98,123,104,0.35)",
-=======
-    boxShadow: "0 4px 14px rgba(98,123,104,0.3)",
->>>>>>> e85f1ae (nilam2)
     transition: "all 0.2s ease",
     letterSpacing: "0.01em",
   },

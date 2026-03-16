@@ -37,13 +37,10 @@ export default function BookingList() {
   return (
     <>
       <style>{`
-<<<<<<< HEAD
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@600;700&display=swap');
         * { box-sizing: border-box; }
         .bl-row:hover { background: #faf6f3 !important; }
         .bl-view-btn:hover { color: #4C3324 !important; }
-=======
->>>>>>> e85f1ae (nilam2)
         @media (max-width: 991px) {
           .bl-container { padding: 30px 20px !important; }
         }
@@ -51,8 +48,6 @@ export default function BookingList() {
           .bl-title { font-size: 24px !important; }
         }
       `}</style>
-<<<<<<< HEAD
-
       <div style={s.page}>
         <div style={s.accentBar} />
 
@@ -125,112 +120,6 @@ export default function BookingList() {
               </div>
             )}
           </div>
-=======
-      <div style={styles.container} className="bl-container">
-        <div style={styles.header} className="bl-header">
-          <h1 style={styles.title} className="bl-title">Bookings</h1>
-          <p style={styles.subtitle}>
-            Monitor and manage all client property reservations.
-          </p>
-        </div>
-
-        <div style={styles.card} className="bl-card">
-          {loading ? (
-            <p style={{ padding: "20px" }}>Loading bookings...</p>
-          ) : (
-            <div style={{ width: "100%", overflowX: "auto" }} className="bl-table-wrap">
-              <table style={styles.table}>
-            <thead>
-              <tr>
-                <th style={styles.th}>USER</th>
-                <th style={styles.th}>PROPERTY</th>
-                <th style={styles.th}>DATE</th>
-                <th style={styles.th}>STATUS</th>
-                <th style={styles.th}>AMOUNT</th>
-                <th style={{ ...styles.th, textAlign: "right" }}>
-                  ACTION
-                </th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {filteredBookings.map((b) => {
-                const statusTheme = getStatusStyle(b.status || "Pending");
-
-                return (
-                  <tr key={b._id} style={styles.tr}>
-                    <td style={styles.td}>
-                      <div style={styles.userCell}>
-                        <div style={styles.avatar}>
-                          {b.name?.charAt(0) || "U"}
-                        </div>
-                        <span style={styles.userName}>
-                          {b.name || "Unknown"}
-                          <br />
-                          <small style={{ color: "#6B7280", fontWeight: "normal" }}>
-                            {b.phone || ""}
-                          </small>
-                        </span>
-                      </div>
-                    </td>
-
-                    <td style={styles.td}>
-                      {b.propertyId?.title || "N/A"}
-                    </td>
-
-                    <td style={{ ...styles.td, color: "#6B7280" }}>
-                      {b.visitDate} <br /> {b.visitTime}
-                    </td>
-
-                    <td style={styles.td}>
-                      <span
-                        style={{
-                          ...styles.badge,
-                          backgroundColor: statusTheme.bg,
-                          color: statusTheme.text,
-                        }}
-                      >
-                        {b.status || "Pending"}
-                      </span>
-                    </td>
-
-                    <td
-                      style={{
-                        ...styles.td,
-                        color: "#111827",
-                        maxWidth: "150px",
-                        whiteSpace: "nowrap",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis"
-                      }}
-                      title={b.message}
-                    >
-                      {b.message || "-"}
-                    </td>
-
-                    <td style={{ ...styles.td, textAlign: "right" }}>
-                      <Link
-                        to={`/admin/bookings/${b._id}`}
-                        style={styles.viewBtn}
-                      >
-                        View Details
-                      </Link>
-                    </td>
-                  </tr>
-                );
-              })}
-              {filteredBookings.length === 0 && (
-                <tr>
-                  <td colSpan="6" style={{ padding: "40px", textAlign: "center", color: "#64748b" }}>
-                    No bookings found matching your search.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-            </div>
-          )}
->>>>>>> e85f1ae (nilam2)
         </div>
       </div>
     </>

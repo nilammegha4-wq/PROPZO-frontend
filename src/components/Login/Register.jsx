@@ -353,7 +353,7 @@ export default function Register() {
           <div style={styles.formContent}>
             <div style={styles.formContainer}>
               <h1 style={styles.h1}>Sign Up</h1>
-              <p style={styles.p}>Create your account and start your journey</p>
+              <p style={styles.p}>Welcome to PROPZO</p>
 
               <form onSubmit={handleRegister} style={styles.form}>
                 <div style={styles.inputGroup}>
