@@ -37,23 +37,13 @@ const MyBookings = () => {
         switch (status?.toLowerCase()) {
             case "confirmed":
             case "completed":
-<<<<<<< HEAD
-                return { bg: "rgba(129, 155, 139, 0.15)", color: "#627b68", border: "rgba(129, 155, 139, 0.2)" };
-            case "pending":
-                return { bg: "rgba(178, 132, 107, 0.15)", color: "#b2846b", border: "rgba(178, 132, 107, 0.2)" };
-=======
                 return { bg: "#d4e6da", color: "#627B68", border: "#b8d4c0" };
             case "pending":
                 return { bg: "#ede8d8", color: "#7a6435", border: "#d9d0b0" };
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
             case "failed":
                 return { bg: "#f5ddd7", color: "#8b3a25", border: "#e8c4b8" };
             default:
-<<<<<<< HEAD
-                return { bg: "#faf7f5", color: "#6b5e58", border: "rgba(228, 203, 182, 0.2)" };
-=======
                 return { bg: "#f0ebe5", color: "#7a5c4a", border: "#ddd0c6" };
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
     };
 
@@ -73,20 +63,6 @@ const MyBookings = () => {
     }
 
     return (
-<<<<<<< HEAD
-    <div style={styles.pageWrapper}>
-      <style>{`
-        @media (max-width: 768px) {
-          .mb-grid { grid-template-columns: 1fr !important; }
-          .mb-header h1 { font-size: 24px !important; }
-        }
-        @media (max-width: 480px) {
-          .mb-card { border-radius: 12px !important; }
-          .mb-img-section { height: 160px !important; }
-        }
-      `}</style>
-      <div style={styles.container}>
-=======
         <div style={s.pageWrapper}>
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700&display=swap');
@@ -112,7 +88,6 @@ const MyBookings = () => {
             `}</style>
 
             <div style={s.container}>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 {/* Header */}
                 <div style={s.header}>
                     <button onClick={() => navigate(-1)} style={s.backBtn}>
@@ -133,11 +108,7 @@ const MyBookings = () => {
                         <Link to="/properties" style={s.browseBtn}>Browse Properties</Link>
                     </div>
                 ) : (
-<<<<<<< HEAD
-                    <div style={styles.grid} className="mb-grid">
-=======
                     <div style={s.grid} className="mb-grid">
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                         {bookings.map((booking) => {
                             const statusStyle = getStatusStyle(booking.status);
                             const property = booking.property || {};
@@ -147,13 +118,8 @@ const MyBookings = () => {
                             if (typeLabel === "Buy") typeLabel = "BUY";
 
                             return (
-<<<<<<< HEAD
-                                <div key={booking._id} style={styles.card} className="mb-card">
-                                    <div style={styles.imageSection} className="mb-img-section">
-=======
                                 <div key={booking._id} style={s.card} className="mb-card">
                                     <div style={s.imageSection} className="mb-img-section">
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                                         <img
                                             src={property.image || (property.images && property.images[0]) || "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1073"}
                                             alt={property.title}
@@ -216,11 +182,7 @@ const MyBookings = () => {
 
 const s = {
     pageWrapper: {
-<<<<<<< HEAD
-        backgroundColor: "#f9f6f1",
-=======
         background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         minHeight: "100vh",
         padding: "100px 20px 60px",
         fontFamily: "'DM Sans', sans-serif",
@@ -238,15 +200,6 @@ const s = {
         gap: 8,
         background: "none",
         border: "none",
-<<<<<<< HEAD
-        color: "#819b8b",
-        fontWeight: "600",
-        fontSize: "15px",
-        cursor: "pointer",
-        marginBottom: "20px",
-        padding: "0",
-        transition: "all 0.2s",
-=======
         color: "#B2846B",
         fontWeight: 600,
         fontSize: 15,
@@ -263,32 +216,19 @@ const s = {
         textTransform: "uppercase",
         fontWeight: 600,
         margin: "0 0 6px 0",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     title: {
-<<<<<<< HEAD
-        fontSize: "32px",
-        fontWeight: "800",
-        color: "#4c3324",
-=======
         fontSize: 32,
         fontWeight: 800,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         margin: "0 0 8px 0",
         letterSpacing: "-1px",
     },
     subTitle: {
-<<<<<<< HEAD
-        fontSize: "16px",
-        color: "#6b5e58",
-        margin: "0",
-=======
         fontSize: 15,
         color: "#819B8B",
         margin: 0,
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     errorBanner: {
         backgroundColor: "#f5ddd7",
@@ -310,17 +250,10 @@ const s = {
         background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
     },
     spinner: {
-<<<<<<< HEAD
-        width: "40px",
-        height: "40px",
-        border: "4px solid #faf7f5",
-        borderTop: "4px solid #627b68",
-=======
         width: 40,
         height: 40,
         border: "4px solid #e8ddd5",
         borderTop: "4px solid #B2846B",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         borderRadius: "50%",
         animation: "spin 1s linear infinite",
     },
@@ -328,26 +261,6 @@ const s = {
         textAlign: "center",
         padding: "80px 20px",
         backgroundColor: "#ffffff",
-<<<<<<< HEAD
-        borderRadius: "24px",
-        border: "2px dashed rgba(228, 203, 182, 0.4)",
-    },
-    emptyIcon: {
-        fontSize: "64px",
-        color: "rgba(228, 203, 182, 0.5)",
-        marginBottom: "20px",
-    },
-    browseBtn: {
-        display: "inline-block",
-        marginTop: "24px",
-        padding: "12px 24px",
-        backgroundColor: "#627b68",
-        color: "white",
-        textDecoration: "none",
-        borderRadius: "10px",
-        fontWeight: "600",
-        transition: "all 0.2s",
-=======
         borderRadius: 24,
         border: "2px dashed rgba(228, 203, 182, 0.4)",
     },
@@ -369,7 +282,6 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
         boxShadow: "0 3px 10px rgba(98,123,104,0.3)",
         transition: "all 0.18s",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     grid: {
         display: "grid",
@@ -409,37 +321,22 @@ const s = {
     },
     typeTag: {
         display: "inline-block",
-<<<<<<< HEAD
-        padding: "4px 10px",
-        backgroundColor: "rgba(129, 155, 139, 0.1)",
-        color: "#627b68",
-        fontSize: "11px",
-        fontWeight: "700",
-        borderRadius: "6px",
-=======
         padding: "3px 10px",
         backgroundColor: "#E4CBB6",
         color: "#4C3324",
         fontSize: 11,
         fontWeight: 700,
         borderRadius: 6,
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         textTransform: "uppercase",
         marginBottom: 10,
         letterSpacing: "0.05em",
         fontFamily: "'DM Sans', sans-serif",
     },
     propertyTitle: {
-<<<<<<< HEAD
-        fontSize: "18px",
-        fontWeight: "700",
-        color: "#4c3324",
-=======
         fontSize: 17,
         fontWeight: 700,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         margin: "0 0 12px 0",
         whiteSpace: "nowrap",
         overflow: "hidden",
@@ -455,15 +352,6 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
     },
     infoIcon: {
-<<<<<<< HEAD
-        color: "#819b8b",
-    },
-    priceSection: {
-        marginTop: "20px",
-        padding: "16px",
-        backgroundColor: "#faf7f5",
-        borderRadius: "12px",
-=======
         color: "#B2846B",
         flexShrink: 0,
     },
@@ -472,7 +360,6 @@ const s = {
         padding: "14px 16px",
         backgroundColor: "#fdf9f7",
         borderRadius: 12,
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -485,16 +372,10 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
     },
     priceValue: {
-<<<<<<< HEAD
-        fontSize: "18px",
-        fontWeight: "800",
-        color: "#4c3324",
-=======
         fontSize: 18,
         fontWeight: 800,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     actionRow: {
         marginTop: 18,
@@ -507,19 +388,11 @@ const s = {
         textAlign: "center",
         padding: "10px",
         backgroundColor: "#ffffff",
-<<<<<<< HEAD
-        color: "#819b8b",
-        border: "1px solid #819b8b",
-        borderRadius: "8px",
-        fontSize: "14px",
-        fontWeight: "600",
-=======
         color: "#627B68",
         border: "1.5px solid #627B68",
         borderRadius: 9,
         fontSize: 14,
         fontWeight: 600,
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         textDecoration: "none",
         fontFamily: "'DM Sans', sans-serif",
         transition: "all 0.2s",
@@ -535,25 +408,7 @@ const s = {
         border: "none",
         borderRadius: 9,
         cursor: "pointer",
-<<<<<<< HEAD
-        fontSize: "16px",
-        transition: "all 0.2s",
-    },
-    contactBtn: {
-        width: "40px",
-        height: "40px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "rgba(129, 155, 139, 0.1)",
-        color: "#627b68",
-        border: "none",
-        borderRadius: "8px",
-        cursor: "pointer",
-        fontSize: "16px",
-=======
         fontSize: 16,
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         transition: "all 0.2s",
     },
 };

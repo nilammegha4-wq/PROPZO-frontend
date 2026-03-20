@@ -600,18 +600,6 @@ export default function RelocationMoving() {
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
 
         :root {
-<<<<<<< HEAD
-          --primary: #4c3324;
-          --primary-light: #627b68;
-          --accent: #819b8b;
-          --dark: #3a2e28;
-          --light: #f9f6f1;
-          --gray: #6b5e58;
-          --white: #ffffff;
-          --radius: 12px;
-          --shadow-sm: 0 4px 6px -1px rgba(76, 51, 36, 0.05);
-          --shadow-lg: 0 20px 25px -5px rgba(76, 51, 36, 0.08), 0 8px 10px -6px rgba(76, 51, 36, 0.05);
-=======
           --primary: #819B8B;
           --primary-dark: #627B68;
           --secondary: #4C3324;
@@ -623,7 +611,6 @@ export default function RelocationMoving() {
           --radius: 12px;
           --shadow-sm: 0 4px 6px -1px rgba(76, 51, 36, 0.05);
           --shadow-lg: 0 20px 25px -5px rgba(76, 51, 36, 0.1), 0 8px 10px -6px rgba(76, 51, 36, 0.05);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           --glass: rgba(255, 255, 255, 0.96);
         }
 
@@ -632,13 +619,8 @@ export default function RelocationMoving() {
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
-<<<<<<< HEAD
-        h1, h2, h3, h4 { line-height: 1.2; font-weight: 800; color: var(--dark); }
-        .text-accent { color: #ffffff; }
-=======
         h1, h2, h3, h4 { line-height: 1.1; font-weight: 300; color: var(--dark); font-family: 'Cormorant Garamond', serif; }
         .text-accent { color: white; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .text-center { text-align: center; }
         
         .btn {
@@ -647,32 +629,18 @@ export default function RelocationMoving() {
           transition: 0.3s; cursor: pointer; border: none; font-size: 1rem; text-transform: uppercase;
           letter-spacing: 0.5px;
         }
-<<<<<<< HEAD
-        .btn-accent { background: linear-gradient(135deg, #627b68 0%, #4c3324 100%); color: #fff; }
-        .btn-accent:hover { opacity: 0.9; transform: translateY(-2px); }
-        .btn-primary { background: #627b68; color: white; }
-        .btn-primary:hover { background: #4c3324; }
-        .btn-outline-white { background: transparent; border: 2px solid white; color: white; }
-        .btn-outline-white:hover { background: white; color: #4c3324; }
-=======
         .btn-accent { background: var(--accent); color: #fff; box-shadow: 0 4px 14px 0 rgba(178, 132, 107, 0.3); }
         .btn-accent:hover { background: var(--secondary); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(178, 132, 107, 0.2); }
         .btn-primary { background: var(--primary); color: white; }
         .btn-primary:hover { background: var(--primary-dark); }
         .btn-outline-white { background: transparent; border: 1px solid white; color: white; }
         .btn-outline-white:hover { background: white; color: var(--secondary); }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
         /* HERO */
         .hero {
           position: relative;
-<<<<<<< HEAD
-          min-height: 600px;
-          background: linear-gradient(rgba(76, 51, 36, 0.82), rgba(76, 51, 36, 0.75)),
-=======
           min-height: 700px;
           background: linear-gradient(rgba(76, 51, 36, 0.85), rgba(76, 51, 36, 0.7)),
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                       url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80");
           background-size: cover;
           background-position: center;
@@ -684,25 +652,6 @@ export default function RelocationMoving() {
         }
 
         .hero-content { max-width: 800px; margin: 0 auto; }
-<<<<<<< HEAD
-        .hero-content h1 { font-size: 3.8rem; color: #ffffff; margin-bottom: 24px; }
-        .hero-content p { font-size: 1.3rem; color: #f9f6f1; margin-bottom: 40px; opacity: 0.88; }
-        
-        .trust-badges { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-        .badge { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(5px); color: #f9f6f1; padding: 10px 20px; border-radius: 50px; font-size: 1rem; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(255, 255, 255, 0.2); }
-
-        /* STATS STRIP */
-        .stats-section { background: white; padding: 40px 0; border-bottom: 1px solid #e8d5c8; }
-        .stats-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
-        .stat-item { text-align: center; }
-        .stat-num { display: block; font-size: 2.5rem; font-weight: 800; color: #627b68; line-height: 1; }
-        .stat-label { font-size: 0.9rem; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* ESTIMATE SECTION */
-        .estimate-section {
-          padding: 100px 0;
-          background: linear-gradient(rgba(76, 51, 36, 0.88), rgba(76, 51, 36, 0.92)), 
-=======
         .hero-content h1 { font-size: clamp(3rem, 8vw, 4.5rem); color: #E4CBB6; margin-bottom: 24px; }
         .hero-content p { font-size: 1.3rem; color: #E4CBB6; margin-bottom: 40px; opacity: 0.9; font-family: 'DM Sans', sans-serif; }
         
@@ -720,7 +669,6 @@ export default function RelocationMoving() {
         .estimate-section {
           padding: 120px 0;
           background: linear-gradient(rgba(76, 51, 36, 0.9), rgba(76, 51, 36, 0.95)), 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                       url("https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80");
           background-size: cover;
           background-position: center;
@@ -731,23 +679,14 @@ export default function RelocationMoving() {
         .booking-card {
           max-width: 700px; margin: 0 auto;
           background: var(--glass);
-<<<<<<< HEAD
-          padding: 40px; border-radius: 20px;
-=======
           padding: 50px; border-radius: 20px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           box-shadow: 0 25px 50px -12px rgba(76, 51, 36, 0.4);
           backdrop-filter: blur(10px);
           position: relative; z-index: 2;
         }
         
-<<<<<<< HEAD
-        .booking-card h3 { margin-bottom: 20px; color: #4c3324; font-size: 1.8rem; text-align: center; }
-        .booking-subtitle { text-align: center; color: var(--gray); margin-bottom: 30px; margin-top: -10px; }
-=======
         .booking-card h3 { margin-bottom: 15px; color: var(--secondary); font-size: 2.2rem; text-align: center; }
         .booking-subtitle { text-align: center; color: var(--gray); margin-bottom: 35px; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         
         .form-group { margin-bottom: 20px; position: relative; }
         .form-label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--gray); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
@@ -756,21 +695,6 @@ export default function RelocationMoving() {
         .input-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--primary); }
         
         .form-input, .form-select {
-<<<<<<< HEAD
-          width: 100%; padding: 12px 12px 12px 42px; 
-          border: 1px solid #d5c4bb; border-radius: 8px;
-          font-size: 1rem; transition: 0.3s; color: #4C3324;
-          background: white;
-        }
-        .form-input:focus { border-color: #627b68; outline: none; box-shadow: 0 0 0 3px rgba(98, 123, 104, 0.15); }
-
-        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-
-        /* PROCESS SECTION */
-        .section { padding: 100px 0; }
-        .section-header { text-align: center; margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; color: #4C3324; }
-=======
           width: 100%; padding: 14px 14px 14px 44px; 
           border: 1px solid rgba(228, 203, 182, 0.4); border-radius: 8px;
           font-size: 1rem; transition: 0.3s; color: var(--secondary);
@@ -784,68 +708,16 @@ export default function RelocationMoving() {
         .section { padding: 100px 0; }
         .section-header { text-align: center; margin-bottom: 80px; max-width: 700px; margin-left: auto; margin-right: auto; }
         .section-header h2 { font-size: 3rem; margin-bottom: 15px; color: var(--secondary); }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .section-header p { color: var(--gray); font-size: 1.1rem; }
 
         .timeline { position: relative; max-width: 900px; margin: 0 auto; }
         .timeline::before {
           content: ''; position: absolute; left: 50%; transform: translateX(-50%);
-<<<<<<< HEAD
-          width: 2px; height: 100%; background: #e8d5c8; z-index: 0;
-=======
           width: 1px; height: 100%; background: rgba(228, 203, 182, 0.5); z-index: 0;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .timeline-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; position: relative; z-index: 1; }
         .timeline-item:nth-child(even) { flex-direction: row-reverse; }
         
-<<<<<<< HEAD
-        .timeline-content { width: 42%; background: white; padding: 30px; border-radius: 12px; box-shadow: var(--shadow-sm); border: 1px solid #e8d5c8; position: relative; }
-        .timeline-content h4 { color: #4C3324; }
-        .timeline-content p { color: #627B68; }
-        .timeline-num { 
-          width: 50px; height: 50px; background: #627b68; color: white;
-          border-radius: 50%; display: flex; align-items: center; justify-content: center;
-          font-weight: 700; font-size: 1.2rem; border: 4px solid white; box-shadow: 0 0 0 2px rgba(228, 203, 182, 0.3);
-          position: absolute; left: 50%; transform: translateX(-50%);
-        }
-
-        /* SERVICES CARDS */
-        .services-bg { background: #eef2ef; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        
-        .service-card {
-          background: white; padding: 40px; border-radius: 16px;
-          transition: 0.3s; border: 1px solid #e8d5c8; position: relative; overflow: hidden;
-        }
-        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: #627b68; }
-        .service-card::before {
-          content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #627b68;
-          transform: scaleX(0); transform-origin: left; transition: 0.3s;
-        }
-        .service-card:hover::before { transform: scaleX(1); }
-        .service-card h4 { color: #4C3324; margin-bottom: 10px; }
-        .service-card p { color: #627B68; }
-
-        .icon-circle {
-          width: 60px; height: 60px; background: #eef2ef; color: #627B68;
-          border-radius: 12px; display: flex; align-items: center; justify-content: center;
-          margin-bottom: 24px;
-        }
-        .service-card:hover .icon-circle { background: #627b68; color: white; }
-
-        /* TESTIMONIALS */
-        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .review-card { background: white; padding: 30px; border-radius: 16px; box-shadow: var(--shadow-sm); border: 1px solid #e8d5c8; }
-        .stars { display: flex; gap: 4px; margin-bottom: 15px; }
-        .review-text { font-style: italic; color: #627B68; margin-bottom: 20px; }
-        .reviewer { display: flex; align-items: center; gap: 12px; }
-        .avatar { width: 40px; height: 40px; background: #e8d5c8; border-radius: 50%; }
-
-        /* FAQ ACCORDION */
-        .faq-max { max-width: 800px; margin: 0 auto; }
-        .faq-item { background: white; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e8d5c8; overflow: hidden; }
-=======
         .timeline-content { width: 42%; background: white; padding: 40px; border-radius: 16px; box-shadow: var(--shadow-sm); border: 1px solid rgba(228, 203, 182, 0.2); position: relative; }
         .timeline-content h4 { color: var(--secondary); font-size: 1.8rem; margin-bottom: 15px; font-weight: 400; }
         .timeline-content p { color: var(--gray); line-height: 1.7; }
@@ -893,46 +765,25 @@ export default function RelocationMoving() {
         /* FAQ ACCORDION */
         .faq-max { max-width: 850px; margin: 0 auto; }
         .faq-item { background: white; margin-bottom: 15px; border-radius: 12px; border: 1px solid rgba(228, 203, 182, 0.2); overflow: hidden; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .faq-btn {
           width: 100%; padding: 25px 30px; text-align: left; background: none; border: none;
           display: flex; justify-content: space-between; align-items: center; cursor: pointer;
-<<<<<<< HEAD
-          font-weight: 600; font-size: 1.1rem; color: #4C3324;
-        }
-        .faq-btn:hover { background: #f5f0ec; }
-        .faq-answer {
-          padding: 0 20px 20px; color: var(--gray); display: none; line-height: 1.6;
-=======
           font-weight: 500; font-size: 1.25rem; color: var(--secondary); font-family: 'Cormorant Garamond', serif;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .faq-btn:hover { background: #F9F6F1; }
         .faq-answer { padding: 0 30px 25px; color: var(--gray); display: none; line-height: 1.7; }
         .faq-item.active .faq-answer { display: block; }
-<<<<<<< HEAD
-        .faq-item.active .faq-btn { color: #627B68; }
-=======
         .faq-item.active .faq-btn { color: var(--primary-dark); }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .faq-item.active .faq-btn svg { transform: rotate(180deg); }
 
         /* CTA */
         .cta-banner {
           background: white;
-<<<<<<< HEAD
-          color: var(--dark); padding: 80px 0; text-align: center;
-          border-top: 1px solid #e8d5c8;
-        }
-        .cta-banner h2 { color: #4c3324; }
-        .cta-banner p { color: #6b5e58; }
-=======
           color: var(--dark); padding: 100px 0; text-align: center;
           border-top: 1px solid rgba(228, 203, 182, 0.2);
         }
         .cta-banner h2 { font-size: 3rem; margin-bottom: 20px; }
         .cta-banner p { color: var(--gray); margin-bottom: 40px; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
         @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -946,11 +797,7 @@ export default function RelocationMoving() {
         }
       `}</style>
 
-<<<<<<< HEAD
-      {/* HERO */}
-=======
       {/* Hero */}
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       <section className="hero">
         <div className="container">
           <div className="hero-content">
@@ -965,23 +812,14 @@ export default function RelocationMoving() {
               <div className="badge"><IconStar /> 4.9/5 Rating</div>
               <div className="badge"><IconCalendar /> Same Day Service</div>
             </div>
-<<<<<<< HEAD
-            <div style={{ marginTop: '40px' }}>
-              <button onClick={scrollToQuote} className="btn btn-accent">Get Free Quote</button>
-=======
             <div style={{ marginTop: '45px' }}>
               <button onClick={scrollToQuote} className="btn btn-accent">Request Private Quote</button>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
             </div>
           </div>
         </div>
       </section>
 
-<<<<<<< HEAD
-      {/* STATS STRIP */}
-=======
       {/* Stats */}
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       <div className="stats-section">
         <div className="container stats-grid">
           <div className="stat-item">
@@ -1003,11 +841,7 @@ export default function RelocationMoving() {
         </div>
       </div>
 
-<<<<<<< HEAD
-      {/* HOW IT WORKS (TIMELINE) */}
-=======
       {/* Process */}
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       <section className="section">
         <div className="container">
           <div className="section-header">
@@ -1040,11 +874,7 @@ export default function RelocationMoving() {
         </div>
       </section>
 
-<<<<<<< HEAD
-      {/* SERVICES */}
-=======
       {/* Services */}
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       <section className="section services-bg">
         <div className="container">
           <div className="section-header">
@@ -1071,11 +901,7 @@ export default function RelocationMoving() {
         </div>
       </section>
 
-<<<<<<< HEAD
-      {/* ESTIMATE FORM SECTION */}
-=======
       {/* Quote Form */}
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       <section className="estimate-section" id="quote-section">
         <div className="container">
           <div className="booking-card">
@@ -1152,13 +978,8 @@ export default function RelocationMoving() {
         </div>
       </section>
 
-<<<<<<< HEAD
-      {/* TESTIMONIALS */}
-      <section className="section">
-=======
       {/* Reviews */}
       <section className="section" style={{ background: '#F5F0E8' }}>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         <div className="container">
           <div className="section-header">
             <h2>The Client Perspective</h2>
@@ -1172,17 +993,10 @@ export default function RelocationMoving() {
                 </div>
                 <p className="review-text">"Seamless transition. The team treated my collection with exceptional care. Truly the gold standard in relocation."</p>
                 <div className="reviewer">
-<<<<<<< HEAD
-                  <div className="avatar"></div>
-                  <div>
-                    <strong style={{ color: '#4C3324' }}>Client Name</strong>
-                    <div style={{ fontSize: '0.85rem', color: '#819B8B' }}>Moved in Oct 2023</div>
-=======
                   <div className="avatar" style={{ background: '#D5C4BB' }}></div>
                   <div className="reviewer-info">
                     <strong>Marcus Holloway</strong>
                     <span>Moved in January 2024</span>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                   </div>
                 </div>
               </div>
@@ -1192,11 +1006,7 @@ export default function RelocationMoving() {
       </section>
 
       {/* FAQ */}
-<<<<<<< HEAD
-      <section className="section" style={{ background: '#fff' }}>
-=======
       <section className="section bg-white">
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         <div className="container faq-max">
           <div className="section-header">
             <h2>Inquiries</h2>
@@ -1217,19 +1027,11 @@ export default function RelocationMoving() {
         </div>
       </section>
 
-<<<<<<< HEAD
-      {/* FINAL CTA */}
-      <section className="cta-banner">
-        <div className="container">
-          <h2>Still have questions?</h2>
-          <p style={{ marginBottom: '30px' }}>Our support team is available 24/7 to assist you.</p>
-=======
       {/* Final CTA */}
       <section className="cta-banner">
         <div className="container">
           <h2>Bespoke Support</h2>
           <p>Our concierge team is available to assist with your complex requirements.</p>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           <NavLink to="/contact" className="btn btn-primary">
             Speak with an Expert
           </NavLink>

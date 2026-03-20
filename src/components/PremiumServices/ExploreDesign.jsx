@@ -228,21 +228,8 @@ export default function ExploreDesign() {
     <div style={{ background: "#F5F0E8", minHeight: "100vh" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Sans:wght@300;400;500;700&display=swap');
-<<<<<<< HEAD
-
-        * {
-          box-sizing: border-box;
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        body {
-          margin: 0;
-          background: #f9f6f1;
-        }
-=======
 
         * { box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
         /* HERO */
         .design-hero {
@@ -253,11 +240,7 @@ export default function ExploreDesign() {
           justify-content: center;
           align-items: center;
           text-align: center;
-<<<<<<< HEAD
-          color: #4c3324;
-=======
           color: #F5F0E8;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           padding: 20px;
         }
 
@@ -267,38 +250,24 @@ export default function ExploreDesign() {
           font-weight: 300;
           margin-bottom: 20px;
           letter-spacing: -0.01em;
-<<<<<<< HEAD
-=======
           color: #E4CBB6;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         
         .design-hero p {
           font-size: 1.25rem;
           margin-bottom: 40px;
-<<<<<<< HEAD
-          color: #6b5e58;
-          max-width: 600px;
-          margin-left: auto;
-          margin-right: auto;
-=======
           color: #E4CBB6;
           max-width: 600px;
           margin-left: auto;
           margin-right: auto;
           opacity: 0.9;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         .hero-btn {
           padding: 18px 45px;
           background: #819B8B;
           color: #fff;
-<<<<<<< HEAD
-          border-radius: 2px;
-=======
           border-radius: 4px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           text-decoration: none;
           font-weight: 500;
           font-size: 1rem;
@@ -307,49 +276,18 @@ export default function ExploreDesign() {
           text-transform: uppercase;
           letter-spacing: 0.15em;
         }
-<<<<<<< HEAD
-        .hero-btn:hover { background: #627B68; transform: translateY(-3px); }
-
-        /* LAYOUT UTILS */
-        .container {
-          width: 90%;
-          max-width: 1250px;
-          margin: auto;
-        }
-
-        .section {
-          padding: 100px 0;
-        }
-        
-        .bg-white { background: #fff; }
-=======
         .hero-btn:hover { background: #627B68; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(98,123,104,0.2); }
 
         /* LAYOUT UTILS */
         .container { width: 90%; max-width: 1250px; margin: auto; }
         .section { padding: 100px 0; }
         .bg-white { background: #FFFFFF; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
         .section-title {
           font-family: 'Cormorant Garamond', serif;
           text-align: center;
           font-size: clamp(2.5rem, 5vw, 3.5rem);
           margin-bottom: 15px;
-<<<<<<< HEAD
-          color: #4c3324;
-          font-weight: 300;
-        }
-
-        .section-title span { 
-          color: #819b8b; 
-          font-style: italic;
-        }
-
-        .section-subtitle {
-          text-align: center;
-          color: #6b5e58;
-=======
           color: #4C3324;
           font-weight: 300;
         }
@@ -359,7 +297,6 @@ export default function ExploreDesign() {
         .section-subtitle {
           text-align: center;
           color: #6B5E58;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           max-width: 600px;
           margin: 0 auto 70px auto;
           font-size: 1.1rem;
@@ -367,27 +304,9 @@ export default function ExploreDesign() {
         }
 
         /* PROCESS SECTION */
-<<<<<<< HEAD
-        .process-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-          gap: 40px;
-          text-align: center;
-        }
-        
-        .process-card {
-          padding: 30px;
-          transition: all 0.3s ease;
-        }
-
-        .process-card:hover {
-          transform: translateY(-8px);
-        }
-=======
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; text-align: center; }
         .process-card { padding: 30px; transition: all 0.3s ease; }
         .process-card:hover { transform: translateY(-8px); }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         
         .process-icon {
           width: 90px;
@@ -400,38 +319,6 @@ export default function ExploreDesign() {
           justify-content: center;
           margin: 0 auto 30px auto;
           font-size: 2.2rem;
-<<<<<<< HEAD
-          color: #819b8b;
-          position: relative;
-        }
-        
-        .process-title {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.6rem;
-          margin-bottom: 12px;
-          color: #4c3324;
-          font-weight: 400;
-        }
-        
-        .process-desc {
-          font-size: 0.95rem;
-          color: #6b5e58;
-          line-height: 1.7;
-        }
-
-        /* PACKAGES CSS */
-        .design-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 30px;
-          align-items: stretch; 
-          padding: 20px 0;
-        }
-
-        .package-card {
-          background: #ffffff;
-          border-radius: 4px; /* Sophisticated edges */
-=======
           color: #819B8B;
           position: relative;
         }
@@ -444,7 +331,6 @@ export default function ExploreDesign() {
         .package-card {
           background: #ffffff;
           border-radius: 8px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           padding: 50px 40px;
           position: relative;
           border: 1px solid rgba(228, 203, 182, 0.3);
@@ -461,11 +347,7 @@ export default function ExploreDesign() {
         }
 
         .package-card.popular-card {
-<<<<<<< HEAD
-          border: 1px solid #627b68;
-=======
           border: 1px solid #627B68;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           box-shadow: 0 40px 80px -12px rgba(98, 123, 104, 0.12);
         }
 
@@ -474,401 +356,16 @@ export default function ExploreDesign() {
           top: -15px;
           left: 50%;
           transform: translateX(-50%);
-<<<<<<< HEAD
-          background: #627b68;
-          color: #ffffff;
-          padding: 8px 24px;
-          border-radius: 2px;
-=======
           background: #627B68;
           color: #ffffff;
           padding: 8px 24px;
           border-radius: 4px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           font-size: 0.75rem;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.15em;
         }
 
-<<<<<<< HEAD
-        .pkg-header {
-          text-align: center;
-          margin-bottom: 35px;
-          border-bottom: 1px solid rgba(228, 203, 182, 0.2);
-          padding-bottom: 35px;
-        }
-
-        .pkg-title {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.8rem;
-          font-weight: 400;
-          margin: 0 0 15px 0;
-          color: #4c3324;
-          letter-spacing: 0.02em;
-        }
-
-        .pkg-desc {
-          color: #6b5e58;
-          margin: 0;
-          font-size: 0.95rem;
-        }
-
-        .pkg-price {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 3rem;
-          font-weight: 300;
-          color: #4c3324;
-          display: block;
-          margin-bottom: 8px;
-        }
-
-        .pkg-features {
-          list-style: none;
-          padding: 0;
-          margin: 0 0 40px 0;
-          flex-grow: 1; 
-        }
-
-        .pkg-features li {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          margin-bottom: 18px;
-          color: #3a2e28;
-          font-size: 0.95rem;
-        }
-
-        .check-icon {
-          width: 20px;
-          height: 20px;
-          background: rgba(129, 155, 139, 0.1);
-          color: #627b68;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 10px;
-          font-weight: 700;
-        }
-
-        .pkg-btn {
-          display: block;
-          width: 100%;
-          padding: 18px;
-          border-radius: 2px;
-          text-align: center;
-          text-decoration: none;
-          font-weight: 500;
-          transition: all 0.3s;
-          border: none;
-          cursor: pointer;
-          font-size: 0.9rem;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-        }
-
-        .btn-outline {
-          background: transparent;
-          border: 1px solid rgba(129, 155, 139, 0.4);
-          color: #627b68;
-        }
-        .btn-outline:hover {
-          border-color: #4c3324;
-          background: rgba(129, 155, 139, 0.05);
-          color: #4c3324;
-        }
-
-        .btn-filled {
-          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%);
-          color: #ffffff;
-        }
-        .btn-filled:hover {
-          opacity: 0.9;
-          transform: translateY(-2px);
-          box-shadow: 0 10px 20px rgba(98, 123, 104, 0.2);
-        }
-
-        /* GALLERY & FILTERS */
-        .filter-bar {
-          display: flex;
-          justify-content: center;
-          gap: 10px;
-          margin-bottom: 50px;
-          flex-wrap: wrap;
-        }
-
-        .filter-btn {
-          padding: 12px 30px;
-          border: 1px solid rgba(228, 203, 182, 0.4);
-          border-radius: 4px;
-          background: transparent;
-          color: #6b5e58;
-          cursor: pointer;
-          font-weight: 500;
-          transition: all 0.3s;
-          text-transform: uppercase;
-          font-size: 0.8rem;
-          letter-spacing: 0.1em;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-          background: #627b68;
-          color: #ffffff;
-          border-color: #627b68;
-        }
-
-        .gallery-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 20px;
-        }
-
-        .gallery-item {
-          border-radius: 2px;
-          overflow: hidden;
-          cursor: pointer;
-          height: 320px;
-          border: 1px solid rgba(129, 155, 139, 0.15);
-        }
-
-        .gallery-item img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.7s ease;
-        }
-        .gallery-item:hover img { transform: scale(1.08); }
-
-        /* REVIEWS */
-        .review-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 30px;
-        }
-        .review-card {
-          background: #ffffff;
-          padding: 40px;
-          border-radius: 4px;
-          border: 1px solid rgba(228, 203, 182, 0.2);
-          transition: all 0.3s ease;
-          box-shadow: 0 10px 30px rgba(76, 51, 36, 0.04);
-        }
-        .review-card:hover {
-          border-color: rgba(129, 155, 139, 0.3);
-          box-shadow: 0 15px 45px rgba(76, 51, 36, 0.08);
-        }
-        .review-header {
-          display: flex;
-          gap: 18px;
-          align-items: center;
-          margin-bottom: 25px;
-        }
-        .review-header img {
-          width: 56px;
-          height: 56px;
-          border-radius: 50%;
-          border: 1px solid rgba(228, 203, 182, 0.3);
-        }
-        .reviewer-name {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.3rem;
-          color: #4c3324;
-          display: block;
-        }
-        .stars { 
-          color: #819b8b; 
-          font-size: 0.9rem;
-          letter-spacing: 2px;
-        }
-        .review-text {
-          color: #6b5e58;
-          font-style: italic;
-          line-height: 1.7;
-          font-size: 1rem;
-        }
-
-        /* FAQ SECTION */
-        .faq-container {
-          max-width: 850px;
-          margin: auto;
-        }
-
-        .faq-item {
-          background: #ffffff;
-          margin-bottom: 20px;
-          border-radius: 4px;
-          border: 1px solid rgba(228, 203, 182, 0.3);
-          overflow: hidden;
-          transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-          border-color: rgba(129, 155, 139, 0.4);
-          box-shadow: 0 10px 25px rgba(76, 51, 36, 0.03);
-        }
-
-        .faq-question {
-          padding: 25px 30px;
-          cursor: pointer;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-weight: 500;
-          color: #4c3324;
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.4rem;
-          letter-spacing: 0.02em;
-        }
-
-        .faq-answer {
-          padding: 0 30px 30px 30px;
-          color: #6b5e58;
-          line-height: 1.8;
-          border-top: 1px solid rgba(228, 203, 182, 0.1);
-          padding-top: 25px;
-          font-size: 1rem;
-        }
-
-        /* CTA FOOTER */
-        .cta-footer {
-          background: #4c3324;
-          color: #ffffff;
-          text-align: center;
-          padding: 120px 20px;
-          position: relative;
-        }
-
-        .cta-footer::before {
-          content: "";
-          position: absolute;
-          top: 0; left: 0; width: 100%; height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(228, 203, 182, 0.3), transparent);
-        }
-        
-        .cta-footer h2 { 
-          font-family: 'Cormorant Garamond', serif;
-          font-size: clamp(2.5rem, 6vw, 4rem); 
-          font-weight: 300;
-          margin-bottom: 25px;
-          color: #E4CBB6;
-        }
-
-        .cta-footer p {
-          color: #B2846B;
-        }
-
-        .btn-cta {
-          margin-top: 10px;
-        }
-
-        /* LIGHTBOX & MODAL */
-        .lightbox, .modal-overlay {
-          position: fixed;
-          inset: 0;
-          background: rgba(76, 51, 36, 0.92);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 9999;
-          backdrop-filter: blur(8px);
-        }
-        .lightbox img {
-          max-width: 90%;
-          max-height: 90vh;
-          border-radius: 2px;
-          border: 1px solid rgba(228, 203, 182, 0.3);
-        }
-        .lightbox span {
-          position: absolute;
-          top: 30px;
-          right: 40px;
-          color: #E4CBB6;
-          font-size: 3rem;
-          cursor: pointer;
-          transition: color 0.3s;
-        }
-        .lightbox span:hover { color: #819B8B; }
-
-        /* MODAL STYLES */
-        .modal-content {
-          background: #ffffff;
-          padding: 50px;
-          border-radius: 8px;
-          width: 95%;
-          max-width: 550px;
-          position: relative;
-          box-shadow: 0 40px 100px rgba(76, 51, 36, 0.15);
-          animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-          border: 1px solid rgba(228, 203, 182, 0.3);
-        }
-
-        .modal-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 35px;
-          border-bottom: 1px solid rgba(129, 155, 139, 0.15);
-          padding-bottom: 20px;
-        }
-
-        .modal-header h2 {
-          margin: 0;
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 2.2rem;
-          font-weight: 400;
-          color: #4c3324;
-        }
-
-        .close-modal-btn {
-          background: none;
-          border: none;
-          font-size: 1.8rem;
-          cursor: pointer;
-          color: #6b5e58;
-          transition: color 0.2s;
-        }
-        .close-modal-btn:hover { color: #627b68; }
-
-        .modal-form-group {
-          margin-bottom: 25px;
-        }
-
-        .modal-form-group label {
-          display: block;
-          margin-bottom: 12px;
-          font-weight: 500;
-          color: #627b68;
-          text-transform: uppercase;
-          font-size: 0.75rem;
-          letter-spacing: 0.15em;
-        }
-
-        .modal-form-group input, .modal-form-group textarea {
-          width: 100%;
-          padding: 16px 20px;
-          background: rgba(129, 155, 139, 0.04);
-          border: 1px solid rgba(129, 155, 139, 0.25);
-          border-radius: 2px;
-          color: #4C3324;
-          font-size: 1rem;
-          outline: none;
-          transition: all 0.3s ease;
-        }
-
-        .modal-form-group input:focus, .modal-form-group textarea:focus {
-          border-color: #819B8B;
-          background: rgba(129, 155, 139, 0.08);
-          box-shadow: 0 0 0 1px #819B8B;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .design-hero h1{ font-size: 2.5rem; }
-            .section{ padding: 60px 0; }
-            .package-card.popular-card { transform: scale(1); }
-        }
-=======
         .pkg-header { text-align: center; margin-bottom: 35px; border-bottom: 1px solid rgba(228, 203, 182, 0.2); padding-bottom: 35px; }
         .pkg-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; margin: 0 0 15px 0; color: #4C3324; letter-spacing: 0.02em; }
         .pkg-desc { color: #6B5E58; margin: 0; font-size: 0.95rem; }
@@ -941,7 +438,6 @@ export default function ExploreDesign() {
         .modal-form-group input:focus, .modal-form-group textarea:focus { border-color: #819B8B; background: #FFFFFF; box-shadow: 0 0 0 1px #819B8B; }
 
         @media (max-width: 768px) { .design-hero h1 { font-size: 2.5rem; } .section { padding: 60px 0; } }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       `}</style>
 
       {/* 1. HERO SECTION */}
@@ -1040,22 +536,10 @@ export default function ExploreDesign() {
                   <img src={r.image} alt={r.name} />
                   <div>
                     <b className="reviewer-name">{r.name}</b>
-<<<<<<< HEAD
-                    <div className="stars">
-                      {"★".repeat(r.rating)}
-                      {"☆".repeat(5 - r.rating)}
-                    </div>
-                  </div>
-                </div>
-                <p className="review-text">
-                  "{r.text}"
-                </p>
-=======
                     <div className="stars">{"★".repeat(r.rating)}{"☆".repeat(5 - r.rating)}</div>
                   </div>
                 </div>
                 <p className="review-text">"{r.text}"</p>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
               </div>
             ))}
           </div>
@@ -1085,16 +569,7 @@ export default function ExploreDesign() {
         <div className="container">
           <h2>Ready to transform your space?</h2>
           <p>Book a free consultation call with our senior designers today.</p>
-<<<<<<< HEAD
-          <NavLink
-            to="/contact"
-            className="hero-btn btn-cta"
-          >
-            Book Consultation
-          </NavLink>
-=======
           <NavLink to="/contact" className="hero-btn btn-cta">Book Consultation</NavLink>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         </div>
       </footer>
 
@@ -1117,15 +592,9 @@ export default function ExploreDesign() {
 
             {success ? (
               <div style={{ textAlign: "center", padding: "20px" }}>
-<<<<<<< HEAD
-                <div style={{ fontSize: "3rem", color: "#819B8B", marginBottom: "15px" }}>✓</div>
-                <h3 style={{ color: "#4C3324" }}>Request Received!</h3>
-                <p style={{ color: "#627B68" }}>We've received your inquiry for the {selectedPlan.title}. Our team will contact you soon.</p>
-=======
                 <div style={{ fontSize: "3.5rem", color: "#819B8B", marginBottom: "15px" }}>✓</div>
                 <h3 style={{ color: "#4C3324", fontSize: '1.8rem' }}>Request Received!</h3>
                 <p style={{ color: "#6B5E58", fontSize: '1.1rem' }}>We've received your inquiry for the {selectedPlan.title}. Our team will contact you soon.</p>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
               </div>
             ) : (
               <form onSubmit={handleFormSubmit}>

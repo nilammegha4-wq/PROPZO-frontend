@@ -622,21 +622,6 @@ export default function LegalServices() {
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
 
         :root {
-<<<<<<< HEAD
-          --primary: #627b68;
-          --primary-dark: #4c3324;
-          --secondary: #4c3324;
-          --accent: #819b8b;
-
-          --bg-page: #f9f6f1;
-          --bg-white: #ffffff;
-
-          --text-main: #3a2e28;
-          --text-muted: #6b5e58;
-
-          --radius: 12px;
-          --shadow-lg: 0 20px 25px -5px rgba(76, 51, 36, 0.08), 0 8px 10px -6px rgba(76, 51, 36, 0.05);
-=======
           --primary: #819B8B;
           --primary-dark: #627B68;
           --secondary: #4C3324;
@@ -650,7 +635,6 @@ export default function LegalServices() {
 
           --radius: 12px;
           --shadow-lg: 0 20px 25px -5px rgba(76, 51, 36, 0.1), 0 8px 10px -6px rgba(76, 51, 36, 0.05);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         body { margin: 0; font-family: 'DM Sans', sans-serif; background-color: var(--bg-page); color: var(--text-main); line-height: 1.6; }
@@ -679,21 +663,12 @@ export default function LegalServices() {
         .btn-primary { 
           background: linear-gradient(135deg, #627b68 0%, #4c3324 100%); 
           color: white; 
-<<<<<<< HEAD
-          box-shadow: 0 4px 14px 0 rgba(98, 123, 104, 0.2);
-        }
-        .btn-primary:hover { 
-          opacity: 0.9;
-          transform: translateY(-2px); 
-          box-shadow: 0 6px 20px rgba(98, 123, 104, 0.3);
-=======
           box-shadow: 0 4px 14px 0 rgba(178, 132, 107, 0.3);
         }
         .btn-primary:hover { 
           background: var(--secondary); 
           transform: translateY(-2px); 
           box-shadow: 0 6px 20px rgba(178, 132, 107, 0.2);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         /* HERO SECTION */
@@ -714,11 +689,7 @@ export default function LegalServices() {
 
         .hero-overlay {
           position: absolute; inset: 0;
-<<<<<<< HEAD
-          background: linear-gradient(135deg, rgba(76, 51, 36, 0.92) 0%, rgba(98, 123, 104, 0.82) 100%);
-=======
           background: linear-gradient(135deg, rgba(76, 51, 36, 0.92) 0%, rgba(129, 155, 139, 0.82) 100%);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         .hero-content {
@@ -730,11 +701,7 @@ export default function LegalServices() {
           display: inline-block;
           background: rgba(255, 255, 255, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.2);
-<<<<<<< HEAD
-          color: #f9f6f1;
-=======
           color: #E4CBB6;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           padding: 8px 24px;
           border-radius: 50px;
           font-size: 0.9rem;
@@ -750,13 +717,8 @@ export default function LegalServices() {
           text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .hero p {
-<<<<<<< HEAD
-          font-size: 1.3rem; color: #f9f6f1; margin-bottom: 40px; max-width: 650px; margin-left: auto; margin-right: auto;
-          font-family: 'Inter', sans-serif; font-weight: 300;
-=======
           font-size: 1.3rem; color: #E4CBB6; margin-bottom: 40px; max-width: 650px; margin-left: auto; margin-right: auto;
           font-family: 'DM Sans', sans-serif; font-weight: 300; opacity: 0.9;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         /* SERVICES GRID */
@@ -777,11 +739,7 @@ export default function LegalServices() {
         .service-card {
           background: white; padding: 40px 30px; border-radius: var(--radius);
           box-shadow: 0 4px 6px -1px rgba(76, 51, 36, 0.05); transition: 0.3s;
-<<<<<<< HEAD
-          border: 1px solid rgba(228, 203, 182, 0.3); position: relative; overflow: hidden;
-=======
           border: 1px solid rgba(228, 203, 182, 0.2); position: relative; overflow: hidden;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .service-card::before {
           content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
@@ -793,11 +751,7 @@ export default function LegalServices() {
         .service-card:hover::before { transform: scaleX(1); }
 
         .icon-circle {
-<<<<<<< HEAD
-          font-size: 3rem; margin-bottom: 20px; display: block; color: #819b8b;
-=======
           font-size: 3rem; margin-bottom: 25px; display: block;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .service-card h3 { font-size: 1.6rem; font-weight: 400; margin-bottom: 12px; color: var(--secondary); font-family: 'Cormorant Garamond', serif; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
@@ -812,11 +766,7 @@ export default function LegalServices() {
           border: 1px solid rgba(228, 203, 182, 0.3);
         }
         .step-badge {
-<<<<<<< HEAD
-          background: #4c3324; color: #f9f6f1; width: 50px; height: 50px;
-=======
           background: var(--secondary); color: #E4CBB6; width: 50px; height: 50px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           border-radius: 50%; display: flex; align-items: center; justify-content: center;
           font-weight: 700; margin: 0 auto 20px; font-size: 1.2rem; font-family: 'Cormorant Garamond', serif;
         }
@@ -829,30 +779,13 @@ export default function LegalServices() {
         }
         .form-pattern {
           position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-<<<<<<< HEAD
-          background-image: radial-gradient(rgba(249, 246, 241, 0.07) 1px, transparent 1px);
-=======
           background-image: radial-gradient(rgba(228, 203, 182, 0.08) 1px, transparent 1px);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           background-size: 30px 30px;
         }
 
         .form-wrapper {
           display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 2;
         }
-<<<<<<< HEAD
-        
-        .form-info h2 { font-size: 3rem; font-weight: 700; margin-bottom: 20px; line-height: 1.1; color: #ffffff; }
-        .form-info p { color: #f9f6f1; font-size: 1.15rem; margin-bottom: 40px; font-family: 'Inter', sans-serif; opacity: 0.85; }
-        
-        .feature-list { list-style: none; padding: 0; }
-        .feature-list li { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-weight: 500; font-size: 1.1rem; font-family: 'Inter', sans-serif; color: #f9f6f1; }
-        .check { color: #4c3324; background: #819b8b; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; font-weight: bold; }
-
-        .legal-form {
-          background: white; padding: 50px; border-radius: 20px; color: var(--text-main);
-          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-=======
 
         .form-info h2 { font-size: 3.5rem; font-weight: 300; margin-bottom: 20px; line-height: 1.1; color: #E4CBB6; }
         .form-info p { color: #E4CBB6; font-size: 1.15rem; margin-bottom: 40px; opacity: 0.85; }
@@ -864,66 +797,39 @@ export default function LegalServices() {
         .legal-form {
           background: white; padding: 50px; border-radius: 20px; color: var(--text-main);
           box-shadow: 0 25px 50px -12px rgba(76, 51, 36, 0.4);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .form-label { display: block; font-size: 0.75rem; font-weight: 700; margin-bottom: 8px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
         .form-input, .form-select, .form-textarea {
-<<<<<<< HEAD
-          width: 100%; padding: 14px 16px; border: 1px solid #d5c4bb; border-radius: 8px;
-          font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; transition: 0.2s;
-          background: #f5f0ec; box-sizing: border-box; margin-bottom: 20px; color: #4C3324;
-        }
-        .form-input:focus, .form-select:focus, .form-textarea:focus {
-          border-color: #819B8B; background: white; box-shadow: 0 0 0 3px rgba(129, 155, 139, 0.15);
-=======
           width: 100%; padding: 16px; border: 1px solid rgba(228, 203, 182, 0.4); border-radius: 8px;
           font-family: 'DM Sans', sans-serif; font-size: 1rem; outline: none; transition: 0.2s;
           background: #F9F6F1; box-sizing: border-box; margin-bottom: 20px; color: var(--secondary);
         }
         .form-input:focus, .form-select:focus, .form-textarea:focus {
           border-color: var(--primary); background: white; box-shadow: 0 0 0 3px rgba(129, 155, 139, 0.15);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .submit-btn {
           width: 100%; padding: 18px; background: #4C3324; color: white;
           font-weight: 600; border-radius: 8px; border: none; cursor: pointer; transition: 0.2s;
           font-size: 1rem; text-transform: uppercase; letter-spacing: 1.5px;
         }
-<<<<<<< HEAD
-        .submit-btn:hover { background: #627B68; }
-=======
         .submit-btn:hover { background: var(--primary-dark); }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
         /* FAQ ACCORDION */
         .faq-container { max-width: 850px; margin: auto; }
         .faq-item {
-<<<<<<< HEAD
-          background: white; border: 1px solid #e8d5c8; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: 0.3s;
-=======
           background: white; border: 1px solid rgba(228, 203, 182, 0.3); border-radius: 12px; margin-bottom: 15px; overflow: hidden; transition: 0.3s;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .faq-item:hover { border-color: #819B8B; }
         .faq-head {
           padding: 25px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
           font-weight: 500; color: var(--secondary); font-size: 1.2rem; font-family: 'Cormorant Garamond', serif;
         }
-<<<<<<< HEAD
-        .faq-head:hover { background: #f5f0ec; }
-        .faq-body {
-          padding: 0 25px 25px; color: var(--text-muted); font-size: 1rem; border-top: 1px solid #e8d5c8; display: none; font-family: 'Inter', sans-serif;
-        }
-        .faq-item.active .faq-body { display: block; }
-        .faq-item.active .faq-head { color: #627B68; }
-=======
         .faq-head:hover { background: #F9F6F1; }
         .faq-body {
           padding: 0 30px 30px 30px; color: var(--text-muted); font-size: 1rem; border-top: 1px solid rgba(228, 203, 182, 0.1); display: none; line-height: 1.7; padding-top: 25px;
         }
         .faq-item.active .faq-body { display: block; }
         .faq-item.active .faq-head { color: var(--primary-dark); }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
         @media(max-width: 900px) {
           .hero h1 { font-size: 3rem; }
@@ -1003,11 +909,7 @@ export default function LegalServices() {
           </div>
 
           <div className="legal-form">
-<<<<<<< HEAD
-            <h3 style={{ marginTop: 0, marginBottom: '25px', fontSize: '1.8rem', fontFamily: 'Playfair Display, serif', color: '#4C3324' }}>Request Call Back</h3>
-=======
             <h3 style={{ marginTop: 0, marginBottom: '25px', fontSize: '2.2rem', fontFamily: 'Cormorant Garamond, serif', color: 'var(--secondary)', fontWeight: 400 }}>Request Call Back</h3>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
             <form onSubmit={handleSubmit}>
               <label className="form-label">Full Name</label>
               <input type="text" name="name" className="form-input" placeholder="Enter your name" value={formData.name} onChange={handleChange} required />
@@ -1032,14 +934,9 @@ export default function LegalServices() {
               <textarea name="message" className="form-textarea" rows="3" placeholder="Describe your requirement..." value={formData.message} onChange={handleChange}></textarea>
 
               {submitted ? (
-<<<<<<< HEAD
-                <div style={{ textAlign: 'center', padding: '20px', color: '#819B8B', fontWeight: 'bold' }}>
-                  ✓ Request submitted! Our legal team will call you shortly.
-=======
                 <div style={{ textAlign: 'center', padding: '20px', color: 'var(--primary-dark)', fontWeight: 'bold' }}>
                   <div style={{ fontSize: '2rem', marginBottom: '10px' }}>✓</div>
                   Request submitted! Our legal team will call you shortly.
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 </div>
               ) : (
                 <button type="submit" className="submit-btn" disabled={loading}>

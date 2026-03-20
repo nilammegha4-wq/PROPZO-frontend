@@ -59,10 +59,7 @@ const Properties = () => {
     Rent: { bg: "rgba(129, 155, 139, 0.1)", color: "#819b8b" }, // Brand Sage Light
     PerRent: { bg: "rgba(228, 203, 182, 0.2)", color: "#4c3324" }, // Brand Brown
     default: { bg: "#f9f6f1", color: "#627b68" },
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   };
 
   if (loading)
@@ -70,10 +67,7 @@ const Properties = () => {
       <div style={loaderWrap}>
         <div style={spinner}></div>
         <p style={{ color: "#627b68", marginTop: 16, fontFamily: "'DM Sans', sans-serif" }}>
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           Loading properties...
         </p>
         <style>{spinnerStyle}</style>
@@ -145,10 +139,7 @@ const Properties = () => {
                   e.currentTarget.style.background = "#627b68";
                   e.currentTarget.style.transform = "translateY(0)";
                   e.currentTarget.style.boxShadow = "0 4px 14px rgba(98,123,104,0.2)";
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 }}
               >
                 + Add Property
@@ -243,10 +234,7 @@ const Properties = () => {
                         onMouseLeave={(e) => {
                           e.currentTarget.style.background = "rgba(98, 123, 104, 0.1)";
                           e.currentTarget.style.color = "#627b68";
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                         }}
                       >
                         ✏️ Edit
@@ -284,10 +272,7 @@ const loaderWrap = {
   justifyContent: "center",
   height: "100vh",
   background: "#f9f6f1",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 };
 
 const spinner = {
@@ -295,10 +280,7 @@ const spinner = {
   height: 40,
   border: "4px solid rgba(98, 123, 104, 0.2)",
   borderTop: "4px solid #627b68",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   borderRadius: "50%",
   animation: "spin 0.8s linear infinite",
 };
@@ -320,10 +302,7 @@ const globalStyles = `
   .prop-card:hover {
     transform: translateY(-4px) !important;
     box-shadow: 0 20px 40px rgba(76, 51, 36, 0.1) !important;
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   }
 `;
 
@@ -332,19 +311,13 @@ const styles = {
     display: "flex",
     minHeight: "100vh",
     background: "linear-gradient(135deg, #f9f6f1 0%, #ffffff 60%, #f4f1eb 100%)",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     fontFamily: "'DM Sans', sans-serif",
   },
   accentBar: {
     width: 5,
     background: "linear-gradient(180deg, #627b68 0%, #819b8b 100%)",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     flexShrink: 0,
   },
   container: {
@@ -363,10 +336,7 @@ const styles = {
   breadcrumb: {
     fontSize: 12,
     color: "#b2846b",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     fontWeight: 600,
@@ -376,10 +346,7 @@ const styles = {
     fontSize: 34,
     fontWeight: 700,
     color: "#4c3324",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     fontFamily: "'Sora', sans-serif",
     margin: 0,
     letterSpacing: "-0.5px",
@@ -422,10 +389,7 @@ const styles = {
   },
   addBtn: {
     background: "#627b68",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     color: "#fff",
     padding: "0 22px",
     height: 44,
@@ -467,10 +431,7 @@ const styles = {
     background: "#627b68",
     color: "#fff",
     boxShadow: "0 2px 8px rgba(98, 123, 104, 0.2)",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   },
   grid: {
     display: "grid",
@@ -482,10 +443,7 @@ const styles = {
     borderRadius: 16,
     boxShadow: "0 4px 16px rgba(76, 51, 36, 0.06)",
     border: "1px solid rgba(228, 203, 182, 0.3)",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     overflow: "hidden",
     display: "flex",
     flexDirection: "column",
@@ -506,10 +464,7 @@ const styles = {
   cardTopBar: {
     height: 4,
     background: "linear-gradient(90deg, #627b68, #819b8b)",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   },
   cardBody: {
     padding: "22px 22px 16px",
@@ -519,10 +474,7 @@ const styles = {
     fontSize: 17,
     fontWeight: 600,
     color: "#4c3324",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     margin: 0,
     fontFamily: "'Sora', sans-serif",
     flex: 1,
@@ -533,10 +485,7 @@ const styles = {
     fontSize: 22,
     fontWeight: 700,
     color: "#b2846b",
-<<<<<<< HEAD
-=======
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     margin: "12px 0 14px",
     fontFamily: "'Sora', sans-serif",
   },

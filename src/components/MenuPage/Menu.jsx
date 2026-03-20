@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 // import { FaSearch, FaChevronDown, FaArrowRight } from "react-icons/fa";
@@ -313,7 +311,6 @@
 // };
 
 // export default Menu;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch, FaChevronDown, FaArrowRight } from "react-icons/fa";

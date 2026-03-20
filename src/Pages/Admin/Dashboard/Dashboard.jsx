@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import React, { useEffect, useState, useCallback } from "react";
-=======
 // import React, { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 // import {
@@ -297,7 +294,6 @@ import React, { useEffect, useState, useCallback } from "react";
 // const loadingContainer = { height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" };
 // const errorContainer = { height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", color: "#ef4444" };
 import React, { useEffect, useState } from "react";
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 import { useNavigate } from "react-router-dom";
 import {
   PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer
@@ -399,45 +395,6 @@ export default function Dashboard() {
   }
 
   const stats = [
-<<<<<<< HEAD
-    { title: "Total Users",       value: data.totalUsers ?? 0,               icon: "👥", color: "#627B68" },
-    { title: "Total Properties",  value: data.totalProperties ?? 0,           icon: "🏠", color: "#819B8B" },
-    { title: "Buy Appointments",  value: data.totalBuyAppointments ?? 0,      icon: "🔑", color: "#B2846B" },
-    { title: "Rent Appointments", value: data.totalRentAppointments ?? 0,     icon: "📅", color: "#4C3324" },
-    { title: "PreRent Bookings",  value: data.totalPreRentAppointments ?? 0,  icon: "⏳", color: "#a07058" },
-  ];
-
-  // Build a unified recent-activity feed (users + latest bookings + recent properties)
-  const activityFeed = [
-    ...(data.recentUsers || []).map(u => ({
-      icon: "👤",
-      color: "#627B68",
-      bg: "#eef2ef",
-      label: <><strong>{u.name || "A user"}</strong> joined PropZo</>,
-      time: u.createdAt ? new Date(u.createdAt) : null,
-      key: `u-${u._id}`
-    })),
-    ...(data.recentBookings || []).slice(0, 5).map((b, i) => ({
-      icon: b.type === "Pre-Rent" ? "⏳" : b.type === "Rental" ? "🏡" : "🔑",
-      color: b.type === "Pre-Rent" ? "#B2846B" : b.type === "Rental" ? "#819B8B" : "#627B68",
-      bg: b.type === "Pre-Rent" ? "#f5ede8" : "#eef2ef",
-      label: <><strong>{b.user?.name || "A user"}</strong> booked a <em>{b.type}</em> visit for <strong>{b.property?.title || "a property"}</strong></>,
-      time: b.createdAt ? new Date(b.createdAt) : null,
-      key: `b-${i}`
-    })),
-    ...(data.recentProperties || []).slice(0, 3).map((p, i) => ({
-      icon: "🏗️",
-      color: "#4C3324",
-      bg: "#f5ede8",
-      label: <><strong>{p.title || "A property"}</strong> was listed ({p.category})</>,
-      time: p.createdAt ? new Date(p.createdAt) : null,
-      key: `p-${i}`
-    }))
-  ]
-    .filter(a => a.time)
-    .sort((a, b) => b.time - a.time)
-    .slice(0, 8);
-=======
     { title: "Total Users", value: data.totalUsers ?? 0, icon: "👥", color: "#627B68" },
     { title: "Total Properties", value: data.totalProperties ?? 0, icon: "🏠", color: "#819B8B" },
     { title: "Buy Appointments", value: data.totalBuyAppointments ?? data.totalBuyBookings ?? 0, icon: "🔑", color: "#B2846B" },
@@ -446,67 +403,22 @@ export default function Dashboard() {
   ];
 
   const COLORS = ["#627B68", "#819B8B", "#B2846B"];
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
   return (
     <div style={containerStyle}>
       <style>{`
-<<<<<<< HEAD
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(12px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        .stat-card:hover {
-          box-shadow: 0 8px 24px rgba(76,51,36,0.12) !important;
-          transform: translateY(-2px);
-        }
-        .activity-row:hover { background: #f5f0ec; }
-        .action-btn-hover:hover { background: #e8d5c8 !important; color: #4C3324 !important; }
-        table.dash-table thead th {
-          padding: 10px 14px;
-          text-align: left;
-          font-size: 11px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.6px;
-          color: #819B8B;
-          background: #faf7f5;
-          border-bottom: 1.5px solid #e8d5c8;
-        }
-        table.dash-table tbody td {
-          padding: 14px;
-          border-bottom: 1px solid #f0e9e4;
-          font-size: 14px;
-          color: #4C3324;
-          vertical-align: middle;
-        }
-        table.dash-table tbody tr:last-child td { border-bottom: none; }
-        table.dash-table tbody tr:hover td { background: #faf7f5; }
-=======
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         @media (max-width: 1200px) {
           .dashboard-middle { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 768px) {
           .dashboard-stats { grid-template-columns: repeat(2, 1fr) !important; }
           .dashboard-header { flex-direction: column !important; align-items: flex-start !important; gap: 15px !important; }
-<<<<<<< HEAD
-=======
           .dashboard-title { font-size: 24px !important; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         @media (max-width: 480px) {
           .dashboard-stats { grid-template-columns: 1fr !important; }
         }
       `}</style>
-<<<<<<< HEAD
-
-      {/* ── HEADER ── */}
-=======
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       <header style={headerStyle} className="dashboard-header">
         <div>
           <h1 style={titleStyle} className="dashboard-title">System Overview</h1>
@@ -529,28 +441,11 @@ export default function Dashboard() {
         </div>
       </header>
 
-<<<<<<< HEAD
-      {/* ── STATS CARDS ── */}
-      <div style={statsGrid} className="dashboard-stats">
-        {stats.map((s, i) => (
-          <div
-            key={i}
-            className="stat-card"
-            style={{
-              ...statCard,
-              animation: `fadeInUp 0.35s ease ${i * 0.07}s both`
-            }}
-          >
-            <div style={{ ...iconBox, backgroundColor: `${s.color}18`, fontSize: 26 }}>
-              {s.icon}
-            </div>
-=======
       {/* STATS CARDS */}
       <div style={statsGrid} className="dashboard-stats">
         {stats.map((s, i) => (
           <div key={i} style={statCard}>
             <div style={{ ...iconBox, backgroundColor: `${s.color}18`, color: s.color }}>{s.icon}</div>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
             <div style={statInfo}>
               <h3 style={{ ...statVal, color: s.color }}>{s.value.toLocaleString()}</h3>
               <p style={statLbl}>{s.title}</p>
@@ -560,14 +455,8 @@ export default function Dashboard() {
         ))}
       </div>
 
-<<<<<<< HEAD
-      {/* ── PIE CHART + RECENT ACTIVITY ── */}
-      <div style={middleGrid} className="dashboard-middle">
-        {/* Pie Chart */}
-=======
       {/* MIDDLE SECTION: CHARTS & ACTIVITY */}
       <div style={middleGrid} className="dashboard-middle">
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         <div style={chartCard}>
           <h3 style={sectionTitle}>📊 Property Distribution</h3>
           <div style={{ height: 280 }}>
@@ -701,11 +590,7 @@ export default function Dashboard() {
                 ))
               ) : (
                 <tr>
-<<<<<<< HEAD
-                  <td colSpan="6" style={emptyCell}>No properties listed yet</td>
-=======
                   <td colSpan="6" style={{ textAlign: "center", padding: "40px", color: "#819B8B" }}>No properties listed yet</td>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 </tr>
               )}
             </tbody>
@@ -735,25 +620,12 @@ export default function Dashboard() {
                 (data.recentBookings).map((b, i) => (
                   <tr key={i}>
                     <td>
-<<<<<<< HEAD
-                      <div style={{ fontWeight: 600, color: "#4C3324" }}>{b.user?.name || "—"}</div>
-                      <div style={{ fontSize: 12, color: "#819B8B" }}>{b.user?.email || "N/A"}</div>
-                    </td>
-                    <td style={{ color: "#627B68", fontWeight: 500 }}>
-                      {b.property?.title || "Deleted Property"}
-=======
                       <div style={{ fontWeight: 600 }}>{b.user?.name}</div>
                       <div style={{ fontSize: 12, color: "#819B8B" }}>{b.user?.email || "N/A"}</div>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                     </td>
                     <td>
-<<<<<<< HEAD
-                      <div style={{ fontWeight: 600, color: "#4C3324" }}>{b.proposedDate || "—"}</div>
-                      <div style={{ fontSize: 12, color: "#819B8B" }}>{b.proposedTime || "—"}</div>
-=======
                       <div>{b.proposedDate}</div>
                       <div style={{ fontSize: 12, color: "#819B8B" }}>{b.proposedTime}</div>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                     </td>
                     <td><span style={typeBadge(b.type)}>{b.type || "—"}</span></td>
                     <td><span style={bookingStatusBadge(b.status)}>{b.status || "Pending"}</span></td>
@@ -761,11 +633,7 @@ export default function Dashboard() {
                 ))
               ) : (
                 <tr>
-<<<<<<< HEAD
-                  <td colSpan="5" style={emptyCell}>No appointment requests yet</td>
-=======
                   <td colSpan="5" style={{ textAlign: "center", padding: "40px", color: "#819B8B" }}>No appointment requests yet</td>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 </tr>
               )}
             </tbody>
@@ -776,342 +644,6 @@ export default function Dashboard() {
   );
 }
 
-<<<<<<< HEAD
-/* ─── Styles ─────────────────────────────────────────────── */
-
-const containerStyle = {
-  padding: "20px 0",
-  display: "flex",
-  flexDirection: "column",
-  gap: "28px",
-};
-
-const headerStyle = {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-};
-
-const titleStyle = {
-  margin: 0,
-  fontSize: 28,
-  fontWeight: 800,
-  color: "#4C3324",
-};
-
-const subtitleStyle = {
-  margin: "6px 0 0",
-  color: "#819B8B",
-  fontSize: 14,
-};
-
-const liveIndicator = {
-  display: "flex",
-  alignItems: "center",
-  gap: 6,
-  background: "#faf7f5",
-  border: "1px solid #e8d5c8",
-  borderRadius: 20,
-  padding: "6px 14px",
-};
-
-const liveDot = {
-  width: 8,
-  height: 8,
-  borderRadius: "50%",
-  background: "#627B68",
-  display: "inline-block",
-  animation: "none",
-};
-
-const statsGrid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-  gap: 20,
-};
-
-const statCard = {
-  background: "#fff",
-  padding: "22px 20px",
-  borderRadius: 20,
-  border: "1px solid #e8d5c8",
-  display: "flex",
-  alignItems: "center",
-  gap: 16,
-  boxShadow: "0 2px 8px rgba(76,51,36,0.06)",
-  transition: "box-shadow 0.25s ease, transform 0.25s ease",
-  cursor: "default",
-  position: "relative",
-  overflow: "hidden",
-};
-
-const iconBox = {
-  width: 52,
-  height: 52,
-  borderRadius: 14,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  flexShrink: 0,
-};
-
-const statInfo = {
-  display: "flex",
-  flexDirection: "column",
-};
-
-const statVal = {
-  margin: 0,
-  fontSize: 30,
-  fontWeight: 800,
-  lineHeight: 1,
-};
-
-const statLbl = {
-  margin: "6px 0 0",
-  fontSize: 11,
-  fontWeight: 700,
-  color: "#819B8B",
-  textTransform: "uppercase",
-  letterSpacing: "0.6px",
-};
-
-const trendBar = {
-  position: "absolute",
-  right: 0,
-  top: 0,
-  bottom: 0,
-  width: 4,
-  borderRadius: "0 20px 20px 0",
-};
-
-const middleGrid = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))",
-  gap: 24,
-};
-
-const chartCard = {
-  background: "#fff",
-  borderRadius: 20,
-  border: "1px solid #e8d5c8",
-  padding: "24px",
-  boxShadow: "0 2px 8px rgba(76,51,36,0.06)",
-};
-
-const activityCard = {
-  ...{},
-  background: "#fff",
-  borderRadius: 20,
-  border: "1px solid #e8d5c8",
-  padding: "24px",
-  boxShadow: "0 2px 8px rgba(76,51,36,0.06)",
-  maxHeight: 380,
-  overflowY: "auto",
-};
-
-const sectionTitle = {
-  margin: "0 0 18px 0",
-  fontSize: 17,
-  fontWeight: 700,
-  color: "#4C3324",
-  display: "flex",
-  alignItems: "center",
-  gap: 8,
-};
-
-const activityRow = {
-  display: "flex",
-  gap: 12,
-  alignItems: "flex-start",
-  padding: "10px 8px",
-  borderRadius: 12,
-  cursor: "default",
-  transition: "background 0.2s",
-};
-
-const activityIcon = {
-  width: 36,
-  height: 36,
-  borderRadius: 10,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  fontSize: 16,
-  flexShrink: 0,
-};
-
-const activityText = {
-  margin: 0,
-  fontSize: 13,
-  color: "#4C3324",
-  fontWeight: 500,
-  lineHeight: 1.4,
-};
-
-const activityTime = {
-  fontSize: 11,
-  color: "#a0b8a8",
-  fontWeight: 500,
-};
-
-const tableWrapper = {
-  background: "#fff",
-  borderRadius: 20,
-  border: "1px solid #e8d5c8",
-  padding: "24px",
-  overflow: "hidden",
-  boxShadow: "0 2px 8px rgba(76,51,36,0.06)",
-};
-
-const tableHeader = {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  marginBottom: 16,
-};
-
-const tableImg = {
-  width: 44,
-  height: 44,
-  borderRadius: 10,
-  objectFit: "cover",
-  border: "1px solid #e8d5c8",
-  flexShrink: 0,
-};
-
-const actionBtn = {
-  padding: "6px 14px",
-  background: "#f5f0ec",
-  border: "1px solid #e8d5c8",
-  borderRadius: 8,
-  fontSize: 12,
-  fontWeight: 700,
-  cursor: "pointer",
-  color: "#627B68",
-  transition: "all 0.2s",
-};
-
-const btnPrimary = {
-  padding: "10px 22px",
-  background: "#627B68",
-  color: "#fff",
-  border: "none",
-  borderRadius: 10,
-  fontWeight: 700,
-  cursor: "pointer",
-  fontSize: 14,
-  boxShadow: "0 4px 10px rgba(98,123,104,0.25)",
-  transition: "opacity 0.2s",
-};
-
-const btnLink = {
-  background: "rgba(98,123,104,0.08)",
-  border: "none",
-  color: "#627B68",
-  padding: "8px 16px",
-  borderRadius: 10,
-  fontWeight: 700,
-  cursor: "pointer",
-  fontSize: 13,
-  transition: "background 0.2s",
-};
-
-const emptyCell = {
-  textAlign: "center",
-  padding: "36px",
-  color: "#a0b8a8",
-  fontSize: 14,
-};
-
-const emptyState = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  height: "100%",
-  minHeight: 180,
-};
-
-const catBadge = (cat) => {
-  const map = {
-    Buy:      { bg: "#eef2ef", color: "#627B68" },
-    Rent:     { bg: "#f5ede8", color: "#B2846B" },
-    "Pre-Rent": { bg: "#f0ebe7", color: "#a07058" },
-    Sale:     { bg: "#eef2ef", color: "#4C3324" },
-  };
-  const c = map[cat] || { bg: "#f5f0ec", color: "#819B8B" };
-  return {
-    padding: "4px 10px",
-    borderRadius: 6,
-    fontSize: 11,
-    fontWeight: 700,
-    background: c.bg,
-    color: c.color,
-  };
-};
-
-const statusBadge = (isSold) => ({
-  padding: "4px 10px",
-  borderRadius: 6,
-  fontSize: 11,
-  fontWeight: 700,
-  background: isSold ? "#f5ede8" : "#eef2ef",
-  color: isSold ? "#B2846B" : "#627B68",
-});
-
-const typeBadge = (type) => {
-  const map = {
-    Visit:    { bg: "#eef2ef", color: "#627B68" },
-    Rental:   { bg: "#eef2ef", color: "#4C3324" },
-    "Pre-Rent": { bg: "#f5ede8", color: "#B2846B" },
-    Buy:      { bg: "#eef2ef", color: "#627B68" },
-    Rent:     { bg: "#f5ede8", color: "#B2846B" },
-  };
-  const c = map[type] || map["Visit"];
-  return { padding: "4px 10px", borderRadius: 6, fontSize: 11, fontWeight: 700, background: c.bg, color: c.color };
-};
-
-const bookingStatusBadge = (s) => ({
-  padding: "4px 10px",
-  borderRadius: 6,
-  fontSize: 11,
-  fontWeight: 700,
-  background: s === "Completed" ? "#eef2ef" : s === "Approved" ? "#e8f4ef" : s === "Rejected" ? "#fde8e8" : "#f5ede8",
-  color:      s === "Completed" ? "#627B68" : s === "Approved" ? "#2d7a50" : s === "Rejected" ? "#c0392b" : "#B2846B",
-});
-
-const loadingContainer = {
-  height: "60vh",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-};
-
-const spinnerWrap = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-};
-
-const spinner = {
-  width: 44,
-  height: 44,
-  border: "4px solid #e8d5c8",
-  borderTop: "4px solid #627B68",
-  borderRadius: "50%",
-  animation: "spin 0.8s linear infinite",
-};
-
-const errorBox = {
-  textAlign: "center",
-  background: "#fff",
-  padding: "40px 48px",
-  borderRadius: 20,
-  border: "1px solid #e8d5c8",
-  boxShadow: "0 4px 20px rgba(76,51,36,0.08)",
-};
-=======
 const containerStyle = { padding: "20px 0", display: "flex", flexDirection: "column", gap: "32px" };
 const headerStyle = { display: "flex", justifyContent: "space-between", alignItems: "flex-end" };
 const titleStyle = { margin: 0, fontSize: "28px", fontWeight: "800", color: "#4C3324" };
@@ -1158,4 +690,3 @@ const statusBadge = (active) => ({ padding: "4px 8px", borderRadius: "6px", font
 const bookingStatusBadge = (s) => ({ padding: "4px 8px", borderRadius: "6px", fontSize: "11px", fontWeight: "700", backgroundColor: s === "Completed" ? "#eef2ef" : s === "Pending" ? "#f5ede8" : "#f5f0ec", color: s === "Completed" ? "#627B68" : s === "Pending" ? "#B2846B" : "#819B8B" });
 const loadingContainer = { height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" };
 const errorContainer = { height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", color: "#B2846B" };
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610

@@ -112,22 +112,6 @@ const UserSettings = () => {
     );
 
     return (
-<<<<<<< HEAD
-    <div style={styles.pageWrapper}>
-      <style>{`
-        @media (max-width: 768px) {
-          .pz-settings-layout { grid-template-columns: 1fr !important; }
-          .pz-settings-sidebar { position: static !important; width: 100% !important; }
-          .pz-settings-form-grid { grid-template-columns: 1fr !important; }
-          .pz-settings-glass-card { padding: 20px !important; }
-          .pz-settings-avatar-main { flex-direction: column !important; text-align: center !important; }
-        }
-      `}</style>
-      <div style={styles.container}>
-                {/* Navbar / Breadcrumb */}
-                <div style={styles.topNav}>
-                    <button onClick={() => navigate(-1)} style={styles.backBtn}>
-=======
         <div style={s.pageWrapper}>
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@600;700&display=swap');
@@ -166,7 +150,6 @@ const UserSettings = () => {
                 {/* Top Nav */}
                 <div style={s.topNav}>
                     <button onClick={() => navigate(-1)} style={s.backBtn}>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                         <FaArrowLeft /> Exit Settings
                     </button>
                 </div>
@@ -365,12 +348,7 @@ const UserSettings = () => {
 
 const s = {
     pageWrapper: {
-<<<<<<< HEAD
-        backgroundColor: "#f9f6f1",
-        backgroundImage: "radial-gradient(at 0% 0%, rgba(98, 123, 104, 0.05) 0, transparent 50%), radial-gradient(at 50% 100%, rgba(178, 132, 107, 0.05) 0, transparent 50%)",
-=======
         background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         minHeight: "100vh",
         padding: "80px 20px 60px",
         fontFamily: "'DM Sans', sans-serif",
@@ -383,15 +361,6 @@ const s = {
         marginBottom: 28,
     },
     backBtn: {
-<<<<<<< HEAD
-        background: "white",
-        border: "1px solid rgba(228, 203, 182, 0.4)",
-        borderRadius: "12px",
-        padding: "10px 20px",
-        fontSize: "14px",
-        fontWeight: "600",
-        color: "#819b8b",
-=======
         background: "#fff",
         border: "1.5px solid #d9c8bb",
         borderRadius: 10,
@@ -399,18 +368,12 @@ const s = {
         fontSize: 14,
         fontWeight: 600,
         color: "#7a5c4a",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         display: "flex",
         alignItems: "center",
         gap: 10,
         cursor: "pointer",
-<<<<<<< HEAD
-        boxShadow: "0 2px 4px rgba(76, 51, 36, 0.02)",
-        transition: "all 0.2s",
-=======
         fontFamily: "'DM Sans', sans-serif",
         transition: "all 0.18s",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     mainLayout: {
         display: "grid",
@@ -427,15 +390,6 @@ const s = {
         gap: 32,
         height: "fit-content",
         position: "sticky",
-<<<<<<< HEAD
-        top: "100px",
-        boxShadow: "0 10px 20px rgba(76, 51, 36, 0.03)",
-        border: "1px solid rgba(228, 203, 182, 0.2)",
-    },
-    sidebarHeader: {
-        "& h2": { margin: 0, fontSize: "24px", fontWeight: "800", color: "#4c3324" },
-        "& p": { margin: "4px 0 0", fontSize: "14px", color: "#6b5e58" }
-=======
         top: 100,
         boxShadow: "0 4px 16px rgba(76,51,36,0.06)",
         border: "1px solid #e8ddd5",
@@ -452,7 +406,6 @@ const s = {
         fontWeight: 700,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     sideNav: {
         display: "flex",
@@ -469,15 +422,9 @@ const s = {
         borderRadius: 10,
         border: "none",
         background: "transparent",
-<<<<<<< HEAD
-        color: "#6b5e58",
-        fontSize: "15px",
-        fontWeight: "600",
-=======
         color: "#7a5c4a",
         fontSize: 14,
         fontWeight: 600,
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         textAlign: "left",
         cursor: "pointer",
         transition: "all 0.18s",
@@ -485,13 +432,8 @@ const s = {
         width: "100%",
     },
     navItemActive: {
-<<<<<<< HEAD
-        background: "rgba(129, 155, 139, 0.1)",
-        color: "#627b68",
-=======
         background: "#f0ebe5",
         color: "#4C3324",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     sidebarFooter: {
         paddingTop: 20,
@@ -502,27 +444,16 @@ const s = {
         padding: "11px 14px",
         borderRadius: 10,
         border: "none",
-<<<<<<< HEAD
-        background: "#faf7f5",
-        color: "#b2846b",
-        fontSize: "14px",
-        fontWeight: "600",
-=======
         background: "#f5ddd7",
         color: "#8b3a25",
         fontSize: 14,
         fontWeight: 600,
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         display: "flex",
         alignItems: "center",
         gap: 10,
         cursor: "pointer",
-<<<<<<< HEAD
-        transition: "all 0.2s",
-=======
         fontFamily: "'DM Sans', sans-serif",
         transition: "all 0.18s",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     contentArea: { display: "flex", flexDirection: "column", gap: 24 },
     messageBox: {
@@ -535,20 +466,6 @@ const s = {
         fontWeight: 600,
         fontFamily: "'DM Sans', sans-serif",
     },
-<<<<<<< HEAD
-    sectionHeader: {
-        marginBottom: "24px",
-        "& h3": { margin: 0, fontSize: "20px", fontWeight: "700", color: "#4c3324" },
-        "& p": { margin: "6px 0 0", fontSize: "14px", color: "#6b5e58", lineHeight: "1.6" }
-    },
-    glassCard: {
-        background: "rgba(255, 255, 255, 0.9)",
-        backdropFilter: "blur(10px)",
-        borderRadius: "24px",
-        padding: "40px",
-        border: "1px solid rgba(228, 203, 182, 0.3)",
-        boxShadow: "0 20px 40px rgba(76, 51, 36, 0.04)",
-=======
     sectionHeader: { marginBottom: 20 },
     sectionTitle: {
         margin: "0 0 6px",
@@ -564,48 +481,10 @@ const s = {
         padding: "36px",
         border: "1px solid #e8ddd5",
         boxShadow: "0 4px 16px rgba(76,51,36,0.05)",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     avatarRow: {
         display: "flex",
         alignItems: "center",
-<<<<<<< HEAD
-        gap: "30px",
-        marginBottom: "40px",
-        borderBottom: "1px solid rgba(228, 203, 182, 0.2)",
-        paddingBottom: "40px",
-    },
-    avatarLargeWrapper: {
-        position: "relative",
-    },
-    avatarLarge: {
-        width: "120px",
-        height: "120px",
-        borderRadius: "32px",
-        objectFit: "cover",
-        boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-    },
-    cameraOverlay: {
-        position: "absolute",
-        bottom: "-10px",
-        right: "-10px",
-        width: "40px",
-        height: "40px",
-        borderRadius: "12px",
-        background: "white",
-        color: "#627b68",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        boxShadow: "0 4px 10px rgba(76, 51, 36, 0.1)",
-        cursor: "pointer",
-        border: "1px solid rgba(228, 203, 182, 0.3)",
-    },
-    avatarText: {
-        flex: 1,
-        "& h4": { margin: "0 0 4px", fontSize: "18px", fontWeight: "700", color: "#4c3324" },
-        "& p": { margin: "0 0 15px", fontSize: "14px", color: "#6b5e58" }
-=======
         gap: 28,
         marginBottom: 36,
         paddingBottom: 36,
@@ -634,7 +513,6 @@ const s = {
         fontWeight: 700,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     avatarDesc: { margin: 0, fontSize: 13, color: "#819B8B", lineHeight: 1.5 },
     formGrid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px 24px" },
@@ -644,21 +522,6 @@ const s = {
         fontWeight: 600,
         color: "#5a3e30",
         display: "flex",
-<<<<<<< HEAD
-        flexDirection: "column",
-        gap: "10px",
-        "& label": { fontSize: "14px", fontWeight: "600", color: "#4c3324", display: 'flex', alignItems: 'center', gap: '8px' },
-        "& input": {
-            padding: "14px 18px",
-            borderRadius: "14px",
-            border: "1px solid rgba(228, 203, 182, 0.4)",
-            fontSize: "15px",
-            background: "white",
-            transition: "all 0.2s",
-            color: "#3a2e28",
-            "&:focus": { outline: 'none', borderColor: '#819b8b', boxShadow: '0 0 0 4px rgba(129, 155, 139, 0.1)' }
-        }
-=======
         alignItems: "center",
         gap: 7,
         letterSpacing: "0.02em",
@@ -669,43 +532,16 @@ const s = {
         borderTop: "1px solid #f0ebe5",
         display: "flex",
         justifyContent: "flex-end",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     primaryBtn: {
-<<<<<<< HEAD
-        padding: "14px 30px",
-        background: "linear-gradient(135deg, #627b68 0%, #4c3324 100%)",
-        color: "white",
-=======
         padding: "12px 30px",
         background: "#627B68",
         color: "#fff",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         border: "none",
         borderRadius: 10,
         fontSize: 15,
         fontWeight: 700,
         cursor: "pointer",
-<<<<<<< HEAD
-        boxShadow: "0 10px 20px rgba(76, 51, 36, 0.2)",
-        transition: "all 0.2s ease",
-    },
-    securityAlert: {
-        background: "#faf7f5",
-        padding: "20px",
-        borderRadius: "16px",
-        display: "flex",
-        gap: "16px",
-        marginBottom: "30px",
-        border: "1px solid rgba(228, 203, 182, 0.3)",
-        "& h5": { margin: 0, fontSize: "15px", fontWeight: "700", color: "#4c3324" },
-        "& p": { fontSize: "13px", color: "#6b5e58" }
-    },
-    settingsList: {
-        display: "flex",
-        flexDirection: "column",
-        gap: "20px",
-=======
         fontFamily: "'DM Sans', sans-serif",
         boxShadow: "0 4px 14px rgba(98,123,104,0.3)",
         transition: "all 0.2s",
@@ -720,7 +556,6 @@ const s = {
         marginBottom: 28,
         border: "1px solid #e8ddd5",
         alignItems: "flex-start",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     settingItem: {
         display: "flex",
@@ -734,21 +569,11 @@ const s = {
         gap: 20,
     },
     settingLabel: {
-<<<<<<< HEAD
-        fontSize: "15px",
-        fontWeight: "600",
-        color: "#4c3324",
-    },
-    settingDesc: {
-        fontSize: "13px",
-        color: "#6b5e58",
-=======
         fontSize: 14,
         fontWeight: 600,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
         marginBottom: 3,
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     settingDesc: { fontSize: 13, color: "#819B8B" },
     toggle: {
@@ -779,43 +604,6 @@ const s = {
         gap: 20,
         background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
     },
-<<<<<<< HEAD
-    themeCardActive: {
-        borderColor: "#627b68",
-        background: "rgba(129, 155, 139, 0.03)",
-    },
-    themePreview: {
-        width: "100%",
-        height: "100px",
-        borderRadius: "12px",
-        background: "#f8fafc",
-        border: "1px solid #e2e8f0",
-        position: "relative",
-        overflow: "hidden",
-    },
-    fullInputGroup: {
-        display: "flex",
-        flexDirection: "column",
-        gap: "10px",
-        marginBottom: "24px",
-        "& label": { fontSize: "14px", fontWeight: "600", color: "#475569" },
-        "& input": {
-            padding: "14px 18px",
-            borderRadius: "14px",
-            border: "1px solid #e2e8f0",
-            fontSize: "15px",
-        }
-    },
-    comingSoon: {
-        padding: "60px 0",
-        textAlign: "center",
-        "& h4": { margin: "20px 0 8px", fontSize: "20px", fontWeight: "700" },
-        "& p": { fontSize: "15px", color: "#64748b", maxWidth: "400px", margin: "0 auto" }
-    },
-    loaderContainer: { height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "20px" },
-    spinner: { width: "50px", height: "50px", border: "5px solid #faf7f5", borderTop: "5px solid #627b68", borderRadius: "50%", animation: "spin 1s linear infinite" },
-    sectionAnim: { animation: "fadeIn 0.4s ease-out" }
-=======
     spinner: {
         width: 44,
         height: 44,
@@ -825,7 +613,6 @@ const s = {
         animation: "spin 1s linear infinite",
     },
     sectionAnim: { animation: "fadeIn 0.35s ease-out" },
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 };
 
 export default UserSettings;

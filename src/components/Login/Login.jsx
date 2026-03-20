@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 // import React, { useState, useEffect } from "react";
 // import { useNavigate, Link, useLocation } from "react-router-dom";
 // import axios from "axios";
@@ -478,7 +476,6 @@
 //   socialRow: { display: "flex", justifyContent: "center", gap: "25px", marginTop: "40px" },
 //   socIcon: { color: "#cbd5e1", fontSize: "18px", transition: "0.3s" }
 // };
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import axios from "axios";
@@ -728,13 +725,8 @@ export default function Login() {
                 <>
                   {!otpSent ? (
                     <>
-<<<<<<< HEAD
-                      <h1 style={styles.h1}>Welcome back</h1>
-                      <p style={styles.p}>to PropZo</p>
-=======
                       <h1 style={styles.h1}>Welcome Back</h1>
                       <p style={styles.p}>Welcome to PROPZO</p>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                       <form onSubmit={handleLogin} style={styles.form}>
                         <div style={styles.inputGroup}>
                           <label style={styles.label}>Email</label>

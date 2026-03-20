@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
-import { useAuth } from "../../context/AuthContext";
-
-=======
 // import React, { useState, useEffect } from "react";
 // import { useNavigate, Link } from "react-router-dom";
 // import axios from "axios";
@@ -270,7 +263,6 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 export default function Register() {
   const { auth } = useAuth();
   const [name, setName] = useState("");
@@ -361,11 +353,7 @@ export default function Register() {
           <div style={styles.formContent}>
             <div style={styles.formContainer}>
               <h1 style={styles.h1}>Sign Up</h1>
-<<<<<<< HEAD
-              <p style={styles.p}>Create your account and start your journey</p>
-=======
               <p style={styles.p}>Welcome to PROPZO</p>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
               <form onSubmit={handleRegister} style={styles.form}>
                 <div style={styles.inputGroup}>

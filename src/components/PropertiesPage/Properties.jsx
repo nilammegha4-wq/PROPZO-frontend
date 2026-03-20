@@ -805,10 +805,6 @@ export default function Properties() {
 
 const PropertyCard = (props) => {
   const navigate = useNavigate();
-  const beds = props.bedrooms || Math.floor(Math.random() * 3) + 2;
-  const baths = props.bathrooms || Math.floor(Math.random() * 2) + 1;
-  const sqft = props.sqft || (Math.floor(Math.random() * 20) + 10) * 100;
-
   const beds = props.bedrooms || props.bhk || Math.floor(Math.random() * 3) + 2;
   const baths = props.bathrooms || Math.floor(Math.random() * 2) + 1;
   const sqft = props.area || props.sqft || (Math.floor(Math.random() * 20) + 10) * 100;
@@ -818,11 +814,7 @@ const PropertyCard = (props) => {
       <div className="card-img-container">
         <div className="card-badge">For Sale</div>
         <img
-<<<<<<< HEAD
-          src={getImageUrl(props.image) || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800"}
-=======
           src={getImageUrl(props.images?.[0] || props.image) || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800"}
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           alt={props.title}
           className="card-img"
         />
@@ -830,11 +822,7 @@ const PropertyCard = (props) => {
 
       <div className="card-content">
         <div className="card-location">
-<<<<<<< HEAD
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B2846B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-=======
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
@@ -846,19 +834,6 @@ const PropertyCard = (props) => {
         <div className="card-stats">
           <div className="stat-item">
             <span className="stat-icon">
-<<<<<<< HEAD
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B2846B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9" />
-              </svg>
-            </span>
-            {beds} Bed Room
-          </div>
-          <div className="stat-item">
-            <span className="stat-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B2846B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5M10 5h5a2 2 0 0 1 2 2v3M7 19v2M17 19v2" />
-              </svg>
-=======
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg>
             </span>
             {beds} BHK
@@ -866,20 +841,12 @@ const PropertyCard = (props) => {
           <div className="stat-item">
             <span className="stat-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5M10 5h5a2 2 0 0 1 2 2v3M7 19v2M17 19v2"/></svg>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
             </span>
             {baths} Bath
           </div>
           <div className="stat-item">
             <span className="stat-icon">
-<<<<<<< HEAD
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B2846B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="m21 16-5.5 5.5a2.121 2.121 0 0 1-3 0L3.5 12.5a2.121 2.121 0 0 1 0-3L9 4a2.121 2.121 0 0 1 3 0l5.5 5.5a2.121 2.121 0 0 1 0 3Z" />
-                <path d="m4.5 11.5 5.5-5.5" /><path d="m8.5 15.5 5.5-5.5" />
-              </svg>
-=======
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m21 16-5.5 5.5a2.121 2.121 0 0 1-3 0L3.5 12.5a2.121 2.121 0 0 1 0-3L9 4a2.121 2.121 0 0 1 3 0l5.5 5.5a2.121 2.121 0 0 1 0 3Z"/><path d="m4.5 11.5 5.5-5.5"/><path d="m8.5 15.5 5.5-5.5"/></svg>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
             </span>
             {sqft} SQ FT
           </div>
@@ -887,11 +854,7 @@ const PropertyCard = (props) => {
       </div>
 
       <div className="card-footer">
-<<<<<<< HEAD
-        <div className="card-price">{props.displayPrice}</div>
-=======
         <div className="card-price">{props.displayPrice || `₹${Number(props.price).toLocaleString('en-IN')}`}</div>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         <button
           className="card-btn"
           onClick={() => navigate(`/property/${props._id}`)}

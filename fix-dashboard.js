@@ -1,75 +1,14 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { useNavigate, useOutletContext } from "react-router-dom";
-import axios from 'axios';
+import fs from 'fs';
 
-const AgentDashboard = () => {
-    const navigate = useNavigate();
-    const { searchQuery } = useOutletContext();
-    const [properties, setProperties] = useState([]);
-    const [leads, setLeads] = useState([]); // Visit Bookings
-    const [rentalLeads, setRentalLeads] = useState([]); // Rent & PreRent Bookings
-    const [loading, setLoading] = useState(true);
-    const [refreshing, setRefreshing] = useState(false);
-    const [lastUpdated, setLastUpdated] = useState(new Date());
-    const [agent, setAgent] = useState(null);
-    const [error, setError] = useState(null);
+const filePath = 'C:/Users/91743/OneDrive/Desktop/patiyyu/patiyyu/project(7-3)/vite-project/src/Page/Agent/Dashboard/Dashboard.jsx';
+let content = fs.readFileSync(filePath, 'utf8');
 
-    const refreshTimerRef = useRef(null);
+// Remove the duplicate first "const stats = [" definition
+content = content.replace(/const stats = \[\s*\{\s*label: 'ACTIVE PROPERTIES'[\s\S]*?\];/m, '');
 
-    // Fetch Data Function
-    const fetchData = useCallback(async (isBackground = false) => {
-        if (!isBackground) setLoading(true);
-        else setRefreshing(true);
-        setError(null);
-
-        try {
-            const agentAuthStr = localStorage.getItem("agentAuth");
-            if (!agentAuthStr) throw new Error("Agent session not found");
-            const parsedAgent = JSON.parse(agentAuthStr);
-
-            const token = localStorage.getItem("token");
-            const config = { headers: { Authorization: `Bearer ${token}` } };
-
-            // Parallel fetching for performance
-            const [propRes, leadsRes, rentalRes] = await Promise.all([
-                axios.get(`http://localhost:5000/api/properties/agent/${parsedAgent._id}`, config),
-                axios.get(`http://localhost:5000/api/bookings/agent/${parsedAgent._id}`, config),
-                axios.get(`http://localhost:5000/api/rental-bookings/agent/${parsedAgent._id}`, config)
-            ]);
-
-            setProperties(Array.isArray(propRes.data) ? propRes.data : []);
-            setLeads(Array.isArray(leadsRes.data) ? leadsRes.data : []);
-            setRentalLeads(Array.isArray(rentalRes.data) ? rentalRes.data : []);
-            setLastUpdated(new Date());
-        } catch (err) {
-            console.error("Dashboard Fetch Error:", err);
-            setError("Failed to sync dashboard data.");
-        } finally {
-            setLoading(false);
-            setRefreshing(false);
-        }
-    }, []);
-
-    // Initial load and Agent setup
-    useEffect(() => {
-        const role = localStorage.getItem("role");
-        const agentAuthStr = localStorage.getItem("agentAuth");
-
-        if (role !== "agent" || !agentAuthStr) {
-            navigate("/agent/login");
-            return;
-        }
-
-  
-
-        // 60-second Refresh Interval
-        refreshTimerRef.current = setInterval(() => {
-            fetchData(true);
-        }, 60000);
-
-        return (
+const newReturnBlock = `  return (
     <div style={styles.container}>
-      <style>{`
+      <style>{\`
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.4s ease-out forwards; }
         .data-card { background: #ffffff; border: 1px solid #f1f5f9; border-radius: 20px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: default; }
@@ -84,7 +23,7 @@ const AgentDashboard = () => {
         .booking-info, .listing-info { flex: 1; }
         .client-detail, .spec-detail { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #64748b; margin-top: 4px; }
         .price-tag { font-weight: 800; color: #0f172a; font-size: 15px; margin-top: 8px; }
-      `}</style>
+      \`}</style>
 
       {/* Header */}
       <div style={styles.header} className="fade-in">
@@ -97,9 +36,9 @@ const AgentDashboard = () => {
       {/* Stats Grid */}
       <div style={styles.statsGrid} className="fade-in">
         {stats?.map((stat, i) => (
-          <div key={i} className="data-card" style={{ ...styles.statCard, animationDelay: `${i * 0.1}s` }}>
+          <div key={i} className="data-card" style={{ ...styles.statCard, animationDelay: \`\${i * 0.1}s\` }}>
             <div style={styles.statHeader}>
-              <div style={{ ...styles.iconContainer, backgroundColor: `${stat.color}10`, color: stat.color }}>
+              <div style={{ ...styles.iconContainer, backgroundColor: \`\${stat.color}10\`, color: stat.color }}>
                 <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={stat.icon} />
                 </svg>
@@ -128,7 +67,7 @@ const AgentDashboard = () => {
                 <div className="listing-info">
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <div style={styles.propertyName}>{prop.title}</div>
-                    <span className={`status-pill status-${prop.status?.toLowerCase() || 'pending'}`}>{prop.status || 'Pending'}</span>
+                    <span className={\`status-pill status-\${prop.status?.toLowerCase() || 'pending'}\`}>{prop.status || 'Pending'}</span>
                   </div>
                   <div style={styles.propertySub}>{prop.city || prop.location}</div>
                   <div className="price-tag">₹{Number(prop.price).toLocaleString('en-IN')}</div>
@@ -165,7 +104,16 @@ const AgentDashboard = () => {
         </div>
       </div>
     </div>
-  );
-};
+  );`;
 
-export default AgentDashboard;
+// Replace from '  return (' to the end '};'
+const returnStartIndex = content.indexOf('  return (');
+const lastBraceIndex = content.lastIndexOf('};');
+
+if (returnStartIndex !== -1 && lastBraceIndex !== -1) {
+  content = content.slice(0, returnStartIndex) + newReturnBlock + '\n' + content.slice(lastBraceIndex);
+  fs.writeFileSync(filePath, content, 'utf8');
+  console.log("Successfully fixed Dashboard.jsx");
+} else {
+  console.log("Could not find return block");
+}

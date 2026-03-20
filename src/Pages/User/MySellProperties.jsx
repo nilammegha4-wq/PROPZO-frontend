@@ -162,11 +162,7 @@ const MySellProperties = () => {
 
 const s = {
     pageWrapper: {
-<<<<<<< HEAD
-        backgroundColor: "#f9f6f1",
-=======
         background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         minHeight: "100vh",
         padding: "100px 20px 60px",
         fontFamily: "'DM Sans', sans-serif",
@@ -184,15 +180,6 @@ const s = {
         gap: 8,
         background: "none",
         border: "none",
-<<<<<<< HEAD
-        color: "#819b8b",
-        fontWeight: "600",
-        fontSize: "15px",
-        cursor: "pointer",
-        marginBottom: "20px",
-        padding: "0",
-        transition: "all 0.2s",
-=======
         color: "#B2846B",
         fontWeight: 600,
         fontSize: 15,
@@ -209,32 +196,19 @@ const s = {
         textTransform: "uppercase",
         fontWeight: 600,
         margin: "0 0 6px 0",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     title: {
-<<<<<<< HEAD
-        fontSize: "32px",
-        fontWeight: "800",
-        color: "#4c3324",
-=======
         fontSize: 32,
         fontWeight: 800,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         margin: "0 0 8px 0",
         letterSpacing: "-1px",
     },
     subTitle: {
-<<<<<<< HEAD
-        fontSize: "16px",
-        color: "#6b5e58",
-        margin: "0",
-=======
         fontSize: 15,
         color: "#819B8B",
         margin: 0,
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     errorBanner: {
         backgroundColor: "#f5ddd7",
@@ -256,17 +230,10 @@ const s = {
         background: "linear-gradient(135deg, #f5ede6 0%, #faf6f3 60%, #eef2ee 100%)",
     },
     spinner: {
-<<<<<<< HEAD
-        width: "40px",
-        height: "40px",
-        border: "4px solid #faf7f5",
-        borderTop: "4px solid #627b68",
-=======
         width: 40,
         height: 40,
         border: "4px solid #e8ddd5",
         borderTop: "4px solid #B2846B",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         borderRadius: "50%",
         animation: "spin 1s linear infinite",
     },
@@ -274,27 +241,6 @@ const s = {
         textAlign: "center",
         padding: "80px 20px",
         backgroundColor: "#ffffff",
-<<<<<<< HEAD
-        borderRadius: "24px",
-        border: "2px dashed rgba(228, 203, 182, 0.4)",
-    },
-    emptyIcon: {
-        fontSize: "64px",
-        color: "#b2846b",
-        marginBottom: "20px",
-        opacity: 0.3,
-    },
-    browseBtn: {
-        display: "inline-block",
-        marginTop: "24px",
-        padding: "12px 24px",
-        backgroundColor: "#627b68",
-        color: "white",
-        textDecoration: "none",
-        borderRadius: "10px",
-        fontWeight: "600",
-        transition: "all 0.2s",
-=======
         borderRadius: 24,
         border: "2px dashed rgba(228, 203, 182, 0.4)",
     },
@@ -316,7 +262,6 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
         boxShadow: "0 3px 10px rgba(98,123,104,0.3)",
         transition: "all 0.18s",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     grid: {
         display: "grid",
@@ -369,17 +314,6 @@ const s = {
     },
     badge: {
         position: "absolute",
-<<<<<<< HEAD
-        top: "15px",
-        right: "15px",
-        padding: "6px 12px",
-        borderRadius: "30px",
-        fontSize: "12px",
-        fontWeight: "700",
-        backgroundColor: "#e4cbb6",
-        color: "#4c3324",
-        border: "1px solid rgba(76, 51, 36, 0.1)",
-=======
         top: 14,
         right: 14,
         padding: "5px 14px",
@@ -391,44 +325,28 @@ const s = {
         border: "1px solid #4d6454",
         fontFamily: "'DM Sans', sans-serif",
         letterSpacing: "0.04em",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     cardBody: {
         padding: "22px 24px",
     },
     typeTag: {
         display: "inline-block",
-<<<<<<< HEAD
-        padding: "4px 10px",
-        backgroundColor: "rgba(129, 155, 139, 0.1)",
-        color: "#627b68",
-        fontSize: "11px",
-        fontWeight: "700",
-        borderRadius: "6px",
-=======
         padding: "3px 10px",
         backgroundColor: "#E4CBB6",
         color: "#4C3324",
         fontSize: 11,
         fontWeight: 700,
         borderRadius: 6,
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         textTransform: "uppercase",
         marginBottom: 10,
         letterSpacing: "0.05em",
         fontFamily: "'DM Sans', sans-serif",
     },
     propertyTitle: {
-<<<<<<< HEAD
-        fontSize: "18px",
-        fontWeight: "700",
-        color: "#4c3324",
-=======
         fontSize: 17,
         fontWeight: 700,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         margin: "0 0 12px 0",
         whiteSpace: "nowrap",
         overflow: "hidden",
@@ -444,19 +362,6 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
     },
     infoIcon: {
-<<<<<<< HEAD
-        color: "#819b8b",
-    },
-    priceSection: {
-        marginTop: "20px",
-        padding: "16px",
-        backgroundColor: "#faf7f5",
-        borderRadius: "12px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        border: "1px solid rgba(228, 203, 182, 0.1)"
-=======
         color: "#B2846B",
         flexShrink: 0,
     },
@@ -469,7 +374,6 @@ const s = {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     priceLabel: {
         fontSize: 13,
@@ -478,16 +382,10 @@ const s = {
         fontFamily: "'DM Sans', sans-serif",
     },
     priceValue: {
-<<<<<<< HEAD
-        fontSize: "18px",
-        fontWeight: "800",
-        color: "#4c3324",
-=======
         fontSize: 18,
         fontWeight: 800,
         color: "#4C3324",
         fontFamily: "'Sora', sans-serif",
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     actionRow: {
         marginTop: 18,
@@ -500,19 +398,11 @@ const s = {
         textAlign: "center",
         padding: 10,
         backgroundColor: "#ffffff",
-<<<<<<< HEAD
-        color: "#819b8b",
-        border: "1px solid #819b8b",
-        borderRadius: "8px",
-        fontSize: "14px",
-        fontWeight: "600",
-=======
         color: "#627B68",
         border: "1.5px solid #627B68",
         borderRadius: 9,
         fontSize: 14,
         fontWeight: 600,
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         textDecoration: "none",
         fontFamily: "'DM Sans', sans-serif",
         transition: "all 0.2s",

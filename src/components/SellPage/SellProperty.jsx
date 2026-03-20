@@ -799,15 +799,6 @@ const css = `
     position: absolute;
     top: -5px;
     right: -5px;
-<<<<<<< HEAD
-    background: var(--ink);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    font-size: 10px;
-=======
     background: var(--gold-hover);
     color: #fff;
     border: none;
@@ -815,51 +806,11 @@ const css = `
     width: 20px;
     height: 20px;
     font-size: 12px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-<<<<<<< HEAD
-    transition: background 0.2s;
-  }
-
-  .remove-btn:hover { background: var(--gold); }
-
-  /* Spinner */
-  .animate-spin {
-    animation: spin 1s linear infinite;
-  }
-
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-
-  @media (max-width: 968px) {
-    .sell-property-layout {
-      grid-template-columns: 1fr;
-    }
-    .summary-right {
-      position: static;
-    }
-    .amenities-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 560px) {
-    .form-grid {
-      grid-template-columns: 1fr;
-    }
-    .full-width {
-      grid-column: span 1;
-    }
-    .sell-property-container {
-      padding: 100px 5% 60px;
-    }
-=======
     z-index: 5;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   }
 `;
 
@@ -872,25 +823,11 @@ export default function SellProperty() {
 
   const [formData, setFormData] = useState({
     title: "", type: "Apartment", category: "Buy", price: "", description: "",
-<<<<<<< HEAD
-    beds: "", baths: "", area: "", furnishingStatus: "Unfurnished",
-    floorNumber: "", totalFloors: "", propertyAge: "", balconies: "",
-    parking: "N/A", facing: "East", availableFrom: "", rentDuration: "month",
-    address: "", city: "", state: "", pincode: "", map: "", mapEmbed: "",
-    amenities: [],
-    owner: {
-      name: auth?.name || "",
-      phone: auth?.phone || "",
-      email: auth?.email || "",
-      whatsapp: "",
-    }
-=======
     beds: "", baths: "", area: "", furnishingStatus: "Unfurnished", floorNumber: "",
     totalFloors: "", propertyAge: "", balconies: "", parking: "N/A", facing: "East",
     availableFrom: "", rentDuration: "month", address: "", city: "", state: "",
     pincode: "", map: "", mapEmbed: "", amenities: [],
     owner: { name: auth?.name || "", phone: auth?.phone || "", email: auth?.email || "", whatsapp: "" }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   });
 
   const amenitiesList = ["Parking", "Lift", "Security", "Garden", "Gym", "Swimming Pool", "Power Backup", "Balcony"];
@@ -948,57 +885,10 @@ export default function SellProperty() {
       toast.info("Please login to list a property");
       return navigate("/login");
     }
-<<<<<<< HEAD
-
-    // Frontend file size validation (20MB per file)
-    const oversizedFiles = imageFiles.filter(f => f.size > 20 * 1024 * 1024);
-    if (oversizedFiles.length > 0) {
-      toast.error(`Image "${oversizedFiles[0].name}" is too large. Max 20MB per image.`);
-      return;
-    }
-
-=======
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     setLoading(true);
     try {
       const token = auth.token || localStorage.getItem("token");
       const formDataToSend = new FormData();
-<<<<<<< HEAD
-      formDataToSend.append("title", formData.title);
-      formDataToSend.append("description", formData.description);
-      const parsedPrice = parseIndianPrice(formData.price);
-      formDataToSend.append("price", parsedPrice);
-      formDataToSend.append("displayPrice", formData.price.includes(" ") || formData.price.toLowerCase().includes("cr") || formData.price.toLowerCase().includes("l") ? formData.price : `₹${Number(formData.price).toLocaleString('en-IN')}`);
-      formDataToSend.append("propertyType", formData.category);
-      formDataToSend.append("category", formData.category);
-      formDataToSend.append("type", formData.type);
-      formDataToSend.append("bhk", formData.beds);
-      formDataToSend.append("bathrooms", formData.baths);
-      formDataToSend.append("area", formData.area);
-      formDataToSend.append("furnishing", formData.furnishingStatus);
-      formDataToSend.append("floor", formData.floorNumber);
-      formDataToSend.append("totalFloors", formData.totalFloors);
-      formDataToSend.append("propertyAge", formData.propertyAge);
-      formDataToSend.append("address", formData.address);
-      formDataToSend.append("city", formData.city);
-      formDataToSend.append("state", formData.state);
-      formDataToSend.append("pincode", formData.pincode);
-      formDataToSend.append("map", formData.map);
-      formDataToSend.append("mapEmbed", formData.mapEmbed);
-      formDataToSend.append("balconies", formData.balconies);
-      formDataToSend.append("parking", formData.parking);
-      formDataToSend.append("facing", formData.facing);
-      formDataToSend.append("availableFrom", formData.availableFrom);
-      formDataToSend.append("rentDuration", formData.rentDuration);
-      formDataToSend.append("sellerName", formData.owner.name);
-      formDataToSend.append("phone", formData.owner.phone);
-      formDataToSend.append("email", formData.owner.email);
-      formData.amenities.forEach(amenity => formDataToSend.append("amenities", amenity));
-      imageFiles.forEach(file => formDataToSend.append("images", file));
-
-      await axios.post("/api/sales/create", formDataToSend, {
-        headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" }
-=======
       Object.keys(formData).forEach(key => {
         if (key === 'owner') {
           formDataToSend.append("sellerName", formData.owner.name);
@@ -1009,18 +899,9 @@ export default function SellProperty() {
         } else {
           formDataToSend.append(key, formData[key]);
         }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       });
       imageFiles.forEach(file => formDataToSend.append("images", file));
 
-<<<<<<< HEAD
-      toast.success("🎉 Property listed successfully!");
-      navigate("/properties");
-    } catch (error) {
-      console.error("Submission error:", error);
-      const errorMsg = error.response?.data?.message || "Failed to list property. Please try again.";
-      toast.error(errorMsg);
-=======
       await axios.post("/api/sales/create", formDataToSend, {
         headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" }
       });
@@ -1028,273 +909,12 @@ export default function SellProperty() {
       navigate("/properties");
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to list property.");
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     } finally {
       setLoading(false);
     }
   };
 
   return (
-<<<<<<< HEAD
-    <>
-      <style>{css}</style>
-      <div className="sell-property-container">
-
-        {/* Breadcrumbs */}
-        <div className="breadcrumbs">
-          <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
-          <span>/</span>
-          <Link to="/menu" style={{ color: 'inherit', textDecoration: 'none' }}>Menu</Link>
-          <span>/</span>
-          <span className="active">List Property</span>
-        </div>
-
-        <div className="sell-property-layout">
-          <form className="form-left" onSubmit={handleSubmit}>
-
-            {/* SECTION 1: CONTACT */}
-            <section className="section-group">
-              <h2 className="section-group-title">Contact Information</h2>
-              <div className="form-grid">
-                <div className="form-group">
-                  <label>Seller Name</label>
-                  <input type="text" name="owner.name" className="form-control" placeholder="Full name" value={formData.owner.name} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                  <label>Email Address</label>
-                  <input type="email" name="owner.email" className="form-control" placeholder="Email" value={formData.owner.email} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                  <label>Phone Number</label>
-                  <input type="text" name="owner.phone" className="form-control" placeholder="Phone" value={formData.owner.phone} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                  <label>WhatsApp (Optional)</label>
-                  <input type="text" name="owner.whatsapp" className="form-control" placeholder="WhatsApp" value={formData.owner.whatsapp} onChange={handleChange} />
-                </div>
-              </div>
-            </section>
-
-            {/* SECTION 2: PROPERTY INFO */}
-            <section className="section-group">
-              <h2 className="section-group-title">Property Details</h2>
-              <div className="form-grid">
-                <div className="form-group full-width">
-                  <label>Listing Title</label>
-                  <input type="text" name="title" className="form-control" placeholder="e.g. Luxury 3BHK Apartment in Bandra" value={formData.title} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                  <label>Property Type</label>
-                  <select name="type" className="form-control" value={formData.type} onChange={handleChange}>
-                    <option value="Apartment">Apartment</option>
-                    <option value="House">House</option>
-                    <option value="Villa">Villa</option>
-                    <option value="Plot">Plot</option>
-                    <option value="Commercial">Commercial</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>Category</label>
-                  <select name="category" className="form-control" value={formData.category} onChange={handleChange}>
-                    <option value="Buy">Sell / Full Ownership</option>
-                    <option value="Rent">Long Term Rent</option>
-                    <option value="PerRent">Flexible / Short Stay</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>Price (₹)</label>
-                  <input type="text" name="price" className="form-control" placeholder="e.g. 2.1 Cr or 50 Lakh" value={formData.price} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                  <label>Area (sqft)</label>
-                  <input type="number" name="area" className="form-control" placeholder="Size" value={formData.area} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                  <label>BHK</label>
-                  <input type="number" name="beds" className="form-control" placeholder="Bedrooms" value={formData.beds} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                  <label>Bathrooms</label>
-                  <input type="number" name="baths" className="form-control" placeholder="Baths" value={formData.baths} onChange={handleChange} required />
-                </div>
-                <div className="form-group full-width">
-                  <label>Description</label>
-                  <textarea name="description" className="form-control" placeholder="Describe the unique features of your property..." value={formData.description} onChange={handleChange} required />
-                </div>
-              </div>
-            </section>
-
-            {/* SECTION 3: DETAILED SPECS */}
-            <section className="section-group">
-              <h2 className="section-group-title">Detailed Specifications</h2>
-              <div className="form-grid">
-                <div className="form-group">
-                  <label>Furnishing Status</label>
-                  <select name="furnishingStatus" className="form-control" value={formData.furnishingStatus} onChange={handleChange}>
-                    <option value="Furnished">Furnished</option>
-                    <option value="Semi-Furnished">Semi-Furnished</option>
-                    <option value="Unfurnished">Unfurnished</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>Property Age</label>
-                  <input type="text" name="propertyAge" className="form-control" placeholder="e.g. 5 Years" value={formData.propertyAge} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                  <label>Floor Number</label>
-                  <input type="number" name="floorNumber" className="form-control" placeholder="Floor" value={formData.floorNumber} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                  <label>Total Floors</label>
-                  <input type="number" name="totalFloors" className="form-control" placeholder="Total" value={formData.totalFloors} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                  <label>Parking</label>
-                  <select name="parking" className="form-control" value={formData.parking} onChange={handleChange}>
-                    <option value="N/A">N/A</option>
-                    <option value="Covered">Covered</option>
-                    <option value="Open">Open</option>
-                    <option value="Both">Both</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>Facing Direction</label>
-                  <select name="facing" className="form-control" value={formData.facing} onChange={handleChange}>
-                    <option value="East">East</option>
-                    <option value="West">West</option>
-                    <option value="North">North</option>
-                    <option value="South">South</option>
-                    <option value="North-East">North-East</option>
-                    <option value="North-West">North-West</option>
-                    <option value="South-East">South-East</option>
-                    <option value="South-West">South-West</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>Balconies</label>
-                  <input type="number" name="balconies" className="form-control" value={formData.balconies} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                  <label>Available From</label>
-                  <input type="text" name="availableFrom" className="form-control" placeholder="Immediately/Date" value={formData.availableFrom} onChange={handleChange} />
-                </div>
-              </div>
-            </section>
-
-            {/* SECTION 4: LOCATION */}
-            <section className="section-group">
-              <h2 className="section-group-title">Location Information</h2>
-              <div className="form-grid">
-                <div className="form-group full-width">
-                  <label>Full Address</label>
-                  <input type="text" name="address" className="form-control" placeholder="Building, Street Name" value={formData.address} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                  <label>City</label>
-                  <input type="text" name="city" className="form-control" placeholder="City" value={formData.city} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                  <label>State</label>
-                  <input type="text" name="state" className="form-control" placeholder="State" value={formData.state} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                  <label>Pincode</label>
-                  <input type="number" name="pincode" className="form-control" placeholder="Pincode" value={formData.pincode} onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                  <label>Google Maps Link</label>
-                  <input type="text" name="map" className="form-control" placeholder="Map URL" value={formData.map} onChange={handleChange} />
-                </div>
-              </div>
-            </section>
-
-            {/* SECTION 5: AMENITIES */}
-            <section className="section-group">
-              <h2 className="section-group-title">Amenities</h2>
-              <div className="amenities-grid">
-                {amenitiesList.map(amenity => (
-                  <label key={amenity} className={`amenity-item ${formData.amenities.includes(amenity) ? 'active' : ''}`}>
-                    <input type="checkbox" checked={formData.amenities.includes(amenity)} onChange={() => handleAmenityChange(amenity)} style={{ display: 'none' }} />
-                    <span>{amenity}</span>
-                  </label>
-                ))}
-              </div>
-            </section>
-
-            {/* SECTION 6: MEDIA */}
-            <section className="section-group">
-              <h2 className="section-group-title">Property Media</h2>
-              <div className="upload-box" onClick={() => document.getElementById('imageUpload').click()}>
-                <input type="file" id="imageUpload" multiple accept="image/*" style={{ display: 'none' }} onChange={handleImageChange} />
-                <FaRegImage size={24} color="#B2846B" />
-                <p style={{ marginTop: '10px', fontSize: '13px' }}>Drag & drop or Click to upload photos</p>
-              </div>
-              {previews.length > 0 && (
-                <div className="previews">
-                  {previews.map((src, idx) => (
-                    <div key={idx} className="preview-chip">
-                      <img src={src} alt="Preview" />
-                      <button type="button" className="remove-btn" onClick={(e) => { e.stopPropagation(); removeImage(idx); }}>&times;</button>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </section>
-
-          </form>
-
-          {/* RIGHT COLUMN: LISTING SUMMARY */}
-          <div className="summary-right">
-            <div className="summary-card">
-              <h3 className="summary-title">Listing Summary</h3>
-              <div className="summary-item">
-                <img
-                  src={previews[0] || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop"}
-                  alt="Property"
-                  className="summary-img"
-                />
-                <div className="summary-info">
-                  <h4>{formData.title || "Untitled Property"}</h4>
-                  <p>{formData.type} • {formData.city || "Location TBA"}</p>
-                  <p style={{ marginTop: '5px', color: '#B2846B' }}>{formData.beds || 0} BHK | {formData.area || 0} sqft</p>
-                </div>
-              </div>
-
-              <div className="summary-details">
-                <div className="summary-row">
-                  <span>Category</span>
-                  <span style={{ fontWeight: '600' }}>{formData.category}</span>
-                </div>
-                <div className="summary-row">
-                  <span>Verification Fee</span>
-                  <span>FREE</span>
-                </div>
-                <div className="summary-row">
-                  <span>Listing Duration</span>
-                  <span>Active (90 Days)</span>
-                </div>
-                <div className="summary-row total">
-                  <span>Price</span>
-                  <span>{formData.price.toString().includes(" ") || formData.price.toString().toLowerCase().includes("cr") || formData.price.toString().toLowerCase().includes("l") ? formData.price : `₹${Number(formData.price).toLocaleString('en-IN')}`}</span>
-                </div>
-              </div>
-
-              <button type="button" className="pay-btn" onClick={(e) => handleSubmit(e)} disabled={loading}>
-                {loading ? (
-                  <><ImSpinner2 className="animate-spin" /> Processing...</>
-                ) : (
-                  "List Property Now"
-                )}
-              </button>
-              <p style={{ textAlign: 'center', fontSize: '11px', color: '#9a7060', marginTop: '15px' }}>
-                By proceeding, I accept the Terms & Conditions
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-=======
     <div className="sell-property-container">
       <style>{css}</style>
       <div className="breadcrumbs">
@@ -1371,6 +991,5 @@ export default function SellProperty() {
         </div>
       </div>
     </div>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   );
 }

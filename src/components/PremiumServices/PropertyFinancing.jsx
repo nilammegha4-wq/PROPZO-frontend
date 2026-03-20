@@ -334,16 +334,6 @@ export default function PropertyFinancing() {
   return (
     <div className="financing-page">
       <style>{`
-<<<<<<< HEAD
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Sans:wght@300;400;500;700&display=swap');
-
-        * { box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
-        
-        body { 
-          margin: 0; 
-          background-color: #f9f6f1;
-          color: #31211b; 
-=======
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
 
         :root {
@@ -358,7 +348,6 @@ export default function PropertyFinancing() {
           --radius: 12px;
           --shadow-sm: 0 4px 6px -1px rgba(76, 51, 36, 0.05);
           --shadow-lg: 0 20px 25px -5px rgba(76, 51, 36, 0.1), 0 8px 10px -6px rgba(76, 51, 36, 0.05);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
@@ -366,77 +355,6 @@ export default function PropertyFinancing() {
 
         .container { max-width: 1250px; margin: 0 auto; padding: 0 24px; }
         .section { padding: 100px 0; position: relative; }
-<<<<<<< HEAD
-        .bg-white { background: #fff; }
-        .text-center { text-align: center; }
-        .text-blue { color: #B2846B; }
-        .bold { font-weight: 700; }
-
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-
-        .section-title { 
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 3.5rem; 
-          margin-bottom: 20px; 
-          color: #4c3324; 
-          font-weight: 300;
-          letter-spacing: -1px;
-        }
-        .section-subtitle { 
-          color: #6b5e58; 
-          margin-bottom: 60px; 
-          max-width: 600px; 
-          margin-left: auto; 
-          margin-right: auto; 
-          line-height: 1.6;
-          font-size: 1.1rem;
-        }
-
-        /* BUTTONS */
-        .cta-btn {
-          background: #B2846B;
-          color: #fff;
-          padding: 16px 40px;
-          border-radius: 2px;
-          border: none;
-          font-weight: 600;
-          font-size: 1rem;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-        }
-        .cta-btn:hover { 
-          opacity: 0.9;
-          transform: translateY(-3px); 
-          box-shadow: 0 15px 30px rgba(98, 123, 104, 0.3); 
-        }
-
-        .outline-btn {
-          background: transparent;
-          border: 1px solid rgba(129, 155, 139, 0.4);
-          color: #627b68;
-          padding: 12px 30px;
-          border-radius: 4px;
-          font-weight: 600;
-          cursor: pointer;
-          transition: 0.3s;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          font-size: 0.85rem;
-        }
-        .outline-btn:hover {
-          border-color: #4c3324;
-          background: rgba(129, 155, 139, 0.05);
-          color: #4c3324;
-=======
         .bg-white { background: var(--white); }
         .text-center { text-align: center; }
         .text-accent { color: var(--accent); }
@@ -448,7 +366,6 @@ export default function PropertyFinancing() {
           padding: 14px 28px; border-radius: 8px; font-weight: 600; text-decoration: none;
           transition: 0.3s; cursor: pointer; border: none; font-size: 1rem; text-transform: uppercase;
           letter-spacing: 1px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .btn-accent { background: var(--accent); color: white; }
         .btn-accent:hover { background: var(--secondary); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(178, 132, 107, 0.2); }
@@ -465,75 +382,31 @@ export default function PropertyFinancing() {
           align-items: center;
           justify-content: center;
           overflow: hidden;
-<<<<<<< HEAD
-          background: #4C3324;
-          color: #E4CBB6;
-=======
           background: var(--secondary);
           color: white;
           text-align: center;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         .hero-bg {
           position: absolute;
           inset: 0;
           background: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80") center/cover;
-<<<<<<< HEAD
-          opacity: 0.25;
-          transform: scale(1.05);
-=======
           opacity: 0.2;
           transform: scale(1.05);
           transition: 10s transform linear;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .finance-hero:hover .hero-bg { transform: scale(1.1); }
 
         .hero-overlay {
           position: absolute;
           inset: 0;
-<<<<<<< HEAD
-          background: linear-gradient(to bottom, rgba(249, 246, 241, 0.3), #f9f6f1);
-        }
-
-        .hero-content {
-          position: relative;
-          z-index: 2;
-          text-align: center;
-          max-width: 950px;
-          padding: 20px;
-=======
           background: linear-gradient(to bottom, rgba(76, 51, 36, 0.3), var(--secondary));
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 24px; }
         
         .hero-badge {
           display: inline-block;
-<<<<<<< HEAD
-          background: rgba(129, 155, 139, 0.1);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(129, 155, 139, 0.2);
-          padding: 8px 24px;
-          border-radius: 4px;
-          font-size: 0.8rem;
-          margin-bottom: 25px;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          color: #627b68;
-        }
-
-        .finance-hero h1 { 
-          font-family: 'Cormorant Garamond', serif;
-          font-size: clamp(3.5rem, 8vw, 5.5rem); 
-          margin-bottom: 25px; 
-          line-height: 1.1; 
-          font-weight: 300;
-          color: #4c3324;
-          letter-spacing: -0.02em;
-=======
           background: rgba(178, 132, 107, 0.15);
           backdrop-filter: blur(10px);
           border: 1px solid rgba(178, 132, 107, 0.3);
@@ -551,20 +424,9 @@ export default function PropertyFinancing() {
           font-size: clamp(3.5rem, 8vw, 5.5rem); 
           margin-bottom: 25px; 
           color: #E4CBB6;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         .finance-hero p { 
-<<<<<<< HEAD
-          font-size: 1.25rem; 
-          color: #6b5e58; 
-          margin-bottom: 40px; 
-          font-weight: 400; 
-          max-width: 650px;
-          margin-left: auto;
-          margin-right: auto;
-          opacity: 0.8;
-=======
           font-size: 1.3rem; 
           color: #E4CBB6;
           margin-bottom: 40px; 
@@ -572,7 +434,6 @@ export default function PropertyFinancing() {
           max-width: 650px;
           margin: 0 auto 40px;
           opacity: 0.9;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         /* CALCULATOR SECTION */
@@ -580,80 +441,41 @@ export default function PropertyFinancing() {
           display: grid;
           grid-template-columns: 1.25fr 0.75fr;
           gap: 60px;
-<<<<<<< HEAD
-          background: #ffffff;
-          padding: 60px;
-          border-radius: 8px;
-          box-shadow: 0 40px 80px rgba(76, 51, 36, 0.08);
-=======
           background: white;
           padding: 60px;
           border-radius: 24px;
           box-shadow: 0 30px 60px rgba(76, 51, 36, 0.1);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           border: 1px solid rgba(228, 203, 182, 0.3);
           margin-top: -100px;
           position: relative;
           z-index: 10;
         }
 
-<<<<<<< HEAD
-=======
         .calc-title { font-size: 2.5rem; margin-bottom: 10px; }
         .calc-subtitle { color: var(--gray); margin-bottom: 45px; }
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .range-group { margin-bottom: 40px; }
         .range-label { 
           display: flex; 
           justify-content: space-between; 
-<<<<<<< HEAD
-          font-weight: 500; 
-          margin-bottom: 18px; 
-          font-size: 1rem;
-          color: #4c3324;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-=======
           font-weight: 600; 
           margin-bottom: 18px; 
           font-size: 1rem;
           color: var(--secondary);
           text-transform: uppercase;
           letter-spacing: 1.5px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         
         input[type=range] {
           width: 100%;
-<<<<<<< HEAD
-          height: 4px;
-          background: rgba(129, 155, 139, 0.15);
-          border-radius: 4px;
-=======
           height: 5px;
           background: #EEF2EF;
           border-radius: 10px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           outline: none;
           -webkit-appearance: none;
         }
         input[type=range]::-webkit-slider-thumb {
           -webkit-appearance: none;
-<<<<<<< HEAD
-          width: 22px;
-          height: 22px;
-          background: #627b68;
-          border: 2px solid #ffffff;
-          border-radius: 50%;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        input[type=range]::-webkit-slider-thumb:hover { 
-          transform: scale(1.2); 
-          background: #4c3324;
-        }
-=======
           width: 24px;
           height: 24px;
           background: var(--primary);
@@ -664,28 +486,18 @@ export default function PropertyFinancing() {
           box-shadow: 0 4px 10px rgba(129, 155, 139, 0.3);
         }
         input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.1); background: var(--primary-dark); }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
         /* CHART CONTAINER */
         .chart-container {
-<<<<<<< HEAD
-          background: rgba(129, 155, 139, 0.04);
-          border-radius: 4px;
-=======
           background: #F9FDFB;
           border-radius: 20px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           padding: 50px 40px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           text-align: center;
-<<<<<<< HEAD
-          border: 1px solid rgba(129, 155, 139, 0.15);
-=======
           border: 1px solid rgba(129, 155, 139, 0.1);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         
         .pie-chart {
@@ -703,15 +515,9 @@ export default function PropertyFinancing() {
         .pie-chart::after {
           content: '';
           position: absolute;
-<<<<<<< HEAD
-          width: 160px;
-          height: 160px;
-          background: #ffffff;
-=======
           width: 170px;
           height: 170px;
           background: #F9FDFB;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           border-radius: 50%;
         }
 
@@ -729,39 +535,15 @@ export default function PropertyFinancing() {
           display: flex; 
           flex-direction: column;
           gap: 15px;
-<<<<<<< HEAD
-          font-size: 0.9rem; 
-          margin-top: 15px; 
-          border-top: 1px solid rgba(228, 203, 182, 0.2); 
-          padding-top: 25px; 
-          color: #6b5e58;
-=======
           font-size: 0.95rem; 
           margin-top: 15px; 
           border-top: 1px solid rgba(129, 155, 139, 0.1); 
           padding-top: 25px; 
           color: var(--gray);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .legend-item { display: flex; align-items: center; gap: 12px; }
         .dot { width: 12px; height: 12px; border-radius: 50%; }
 
-<<<<<<< HEAD
-        /* SERVICES GRID */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .service-card {
-          background: #ffffff;
-          padding: 50px 40px;
-          border-radius: 8px;
-          transition: all 0.4s ease;
-          position: relative;
-          border: 1px solid rgba(228, 203, 182, 0.3);
-        }
-        .service-card:hover { 
-          transform: translateY(-8px); 
-          border-color: rgba(129, 155, 139, 0.4); 
-          box-shadow: 0 30px 60px rgba(76, 51, 36, 0.08);
-=======
         /* SERVICES SECTION */
         .section-header { text-align: center; margin-bottom: 80px; max-width: 700px; margin: 0 auto 80px; }
         .section-header h2 { font-size: 3.5rem; margin-bottom: 15px; }
@@ -781,20 +563,10 @@ export default function PropertyFinancing() {
         .service-card::before {
           content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--primary);
           transform: scaleX(0); transition: 0.4s; transform-origin: left;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .service-card:hover::before { transform: scaleX(1); }
         
         .service-icon { 
-<<<<<<< HEAD
-          width: 64px; height: 64px; 
-          background: rgba(129, 155, 139, 0.08); 
-          color: #819b8b; 
-          border-radius: 50%; 
-          display: flex; align-items: center; justify-content: center; 
-          font-size: 1.8rem; margin-bottom: 30px; 
-          border: 1px solid rgba(129, 155, 139, 0.2);
-=======
           width: 70px; height: 70px; 
           background: #F9FDFB; color: var(--primary); 
           border-radius: 15px; 
@@ -802,25 +574,15 @@ export default function PropertyFinancing() {
           font-size: 2rem; margin-bottom: 30px; 
           border: 1px solid rgba(129, 155, 139, 0.1);
           transition: 0.3s;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .service-card:hover .service-icon { background: var(--primary); color: white; transform: rotate(-5deg); }
 
         .service-rate-badge {
-<<<<<<< HEAD
-          position: absolute; top: 40px; right: 40px;
-          background: rgba(129, 155, 139, 0.1); color: #627b68;
-          padding: 6px 16px; border-radius: 4px;
-          font-weight: 700; font-size: 0.8rem;
-          border: 1px solid rgba(129, 155, 139, 0.2);
-          letter-spacing: 0.05em;
-=======
           position: absolute; top: 50px; right: 40px;
           background: rgba(129, 155, 139, 0.1); color: var(--primary-dark);
           padding: 6px 16px; border-radius: 50px;
           font-weight: 700; font-size: 0.85rem;
           border: 1px solid rgba(129, 155, 139, 0.2);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         .service-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--secondary); font-weight: 400; }
@@ -831,83 +593,6 @@ export default function PropertyFinancing() {
         .features-list li::before { content: '✓'; color: var(--primary); font-weight: 900; }
 
         /* WHY CHOOSE US */
-<<<<<<< HEAD
-        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
-        .why-card {
-          background: #ffffff; padding: 50px 30px; border-radius: 8px; text-align: center;
-          border: 1px solid rgba(228, 203, 182, 0.3); transition: 0.4s ease;
-        }
-        .why-card:hover { 
-          transform: translateY(-5px); 
-          border-color: rgba(129, 155, 139, 0.4);
-        }
-        .why-icon { font-size: 2.8rem; margin-bottom: 25px; display: block; opacity: 0.9; }
-
-        /* DOCUMENT TABS */
-        .doc-tabs { display: flex; justify-content: center; gap: 20px; margin-bottom: 50px; }
-        .tab-btn {
-          padding: 14px 40px; background: transparent; border: 1px solid rgba(228, 203, 182, 0.5);
-          border-radius: 4px; cursor: pointer; font-weight: 600; color: #6b5e58; transition: 0.3s;
-          font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em;
-        }
-        .tab-btn.active { 
-          background: #627b68; 
-          color: #ffffff; 
-          border-color: #627b68; 
-          box-shadow: 10px 10px 0px rgba(98, 123, 104, 0.1); 
-        }
-        
-        .doc-list {
-          background: #ffffff; padding: 50px; border-radius: 8px;
-          max-width: 850px; margin: auto;
-          border: 1px solid rgba(228, 203, 182, 0.3);
-          position: relative;
-        }
-        .doc-item {
-          display: flex; align-items: center; gap: 20px; padding: 22px 0;
-          border-bottom: 1px solid rgba(228, 203, 182, 0.2); color: #3a2e28; font-weight: 400; font-size: 1.1rem;
-        }
-        .doc-item:last-child { border-bottom: none; }
-        .check-circle { 
-          width: 24px; height: 24px; background: rgba(129, 155, 139, 0.1); color: #627b68; 
-          border-radius: 50%; display: flex; align-items: center; justify-content: center; 
-          font-size: 0.8rem; flex-shrink: 0;
-        }
-
-        /* TESTIMONIALS */
-        .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
-        .testi-card {
-          background: #ffffff; padding: 50px; border-radius: 8px; position: relative;
-          border: 1px solid rgba(228, 203, 182, 0.3); 
-        }
-        .testi-card:hover { border-color: rgba(129, 155, 139, 0.4); }
-        .user-info { display: flex; align-items: center; gap: 20px; margin-top: 30px; }
-        .user-img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(228, 203, 182, 0.3); }
-        .quote-icon { font-size: 6rem; color: rgba(129, 155, 139, 0.05); position: absolute; top: 10px; right: 40px; z-index: 0; pointer-events: none; }
-        .testi-text { position: relative; z-index: 1; font-size: 1.1rem; line-height: 1.8; color: #6b5e58; font-style: italic; }
-
-        /* FLOATING CTA */
-        .floating-btn {
-          position: fixed; bottom: 40px; right: 40px;
-          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%); color: #ffffff; padding: 18px 32px;
-          border-radius: 4px; font-weight: 700; font-size: 0.9rem;
-          box-shadow: 0 15px 35px rgba(98, 123, 104, 0.2);
-          z-index: 900; cursor: pointer; display: flex; align-items: center; gap: 15px;
-          transition: all 0.4s ease; border: none; text-transform: uppercase; letter-spacing: 0.1em;
-        }
-        .floating-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(98, 123, 104, 0.4); }
-
-        /* MODAL */
-        .modal-overlay {
-          position: fixed; inset: 0; background: rgba(76, 51, 36, 0.92);
-          backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 1000;
-        }
-        .modal-content {
-          background: #ffffff; padding: 60px 50px; border-radius: 8px; width: 95%; max-width: 550px;
-          position: relative; animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-          border: 1px solid rgba(228, 203, 182, 0.3);
-          box-shadow: 0 40px 100px rgba(76, 51, 36, 0.15);
-=======
         .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
         .why-card {
           background: white; padding: 50px 40px; border-radius: 24px; text-align: center;
@@ -972,27 +657,10 @@ export default function PropertyFinancing() {
           position: relative; border: 1px solid rgba(228, 203, 182, 0.2);
           box-shadow: 0 40px 100px rgba(0,0,0,0.3);
           animation: modalSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         @keyframes modalSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
         .form-input { 
-<<<<<<< HEAD
-          width: 100%; padding: 18px; background: #fdfaf8; border: 1px solid rgba(228, 203, 182, 0.4); 
-          border-radius: 4px; margin-bottom: 20px; outline: none; transition: 0.3s; 
-          font-size: 1rem; color: #3a2e28;
-        }
-        .form-input:focus { 
-          border-color: #627b68; 
-          background: #ffffff; 
-          box-shadow: 0 0 0 1px #627b68; 
-        }
-        
-        @media(max-width: 900px) {
-          .calc-wrapper { grid-template-columns: 1fr; padding: 40px 30px; }
-          .finance-hero h1 { font-size: 3.5rem; }
-          .section { padding: 60px 0; }
-=======
           width: 100%; padding: 18px; background: #F9F6F1; border: 1px solid rgba(228, 203, 182, 0.3); 
           border-radius: 12px; margin-bottom: 20px; outline: none; transition: 0.3s; 
           font-size: 1rem; color: var(--secondary);
@@ -1018,7 +686,6 @@ export default function PropertyFinancing() {
           .hero-content h1 { font-size: 3rem; }
           .calc-wrapper { padding: 30px 20px; margin-top: -60px; }
           .container { padding: 0 15px; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
       `}</style>
 
@@ -1049,16 +716,9 @@ export default function PropertyFinancing() {
       <section className="section" id="calculator">
         <div className="container">
           <div className="calc-wrapper animate-up delay-1">
-<<<<<<< HEAD
-
-            <div>
-              <h3 className="section-title" style={{ marginTop: 0, fontSize: '2rem' }}>EMI Calculator</h3>
-              <p style={{ color: '#627B68', marginBottom: '40px' }}>Adjust the sliders to plan your perfect repayment schedule.</p>
-=======
             <div>
               <h2 className="calc-title">Investment Calculator</h2>
               <p className="calc-subtitle">Define your parameters to visualize your priority repayment framework.</p>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
               <div className="range-group">
                 <div className="range-label">
@@ -1091,22 +751,13 @@ export default function PropertyFinancing() {
                 style={{
                   background: `conic-gradient(
                     #B2846B 0% ${(amount / totalPayment) * 100}%, 
-<<<<<<< HEAD
-                    rgba(129, 155, 139, 0.2) ${(amount / totalPayment) * 100}% 100%
-=======
                     rgba(129, 155, 139, 0.15) ${(amount / totalPayment) * 100}% 100%
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                   )`
                 }}
               >
                 <div className="chart-center-text">
-<<<<<<< HEAD
-                  <span style={{ fontSize: '0.85rem', color: '#627B68', fontWeight: '600' }}>Monthly EMI</span>
-                  <span style={{ fontSize: '1.8rem', fontWeight: '800', color: '#4C3324' }}>{formatCurrency(emi)}</span>
-=======
                   <span className="chart-emi-label">Monthly EMI</span>
                   <span className="chart-emi-amount">{formatCurrency(emi)}</span>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 </div>
               </div>
 
@@ -1116,13 +767,8 @@ export default function PropertyFinancing() {
                   <span>Principal: {formatCurrency(amount)}</span>
                 </div>
                 <div className="legend-item">
-<<<<<<< HEAD
-                  <div className="dot" style={{ background: 'rgba(129, 155, 139, 0.3)' }}></div>
-                  <span>Interest: {formatCurrency(totalInterest)}</span>
-=======
                   <div className="dot" style={{ background: 'rgba(129, 155, 139, 0.15)' }}></div>
                   <span>Total Interest: {formatCurrency(totalInterest)}</span>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 </div>
               </div>
 
@@ -1151,17 +797,10 @@ export default function PropertyFinancing() {
               <div key={service.id} className="service-card">
                 <div className="service-icon">{service.icon}</div>
                 <div className="service-rate-badge">{service.rate} ROI</div>
-<<<<<<< HEAD
-                <h3 style={{ fontSize: '1.5rem', margin: '0 0 10px 0', color: '#4C3324' }}>{service.title}</h3>
-                <p style={{ color: '#627B68', fontSize: '1rem', lineHeight: '1.6' }}>{service.desc}</p>
-
-                <ul style={{ listStyle: 'none', padding: 0, margin: '25px 0', color: '#819B8B', fontSize: '0.95rem' }}>
-=======
                 <h3>{service.title}</h3>
                 <p>{service.desc}</p>
 
                 <ul className="features-list">
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                   {service.features.map((feat, i) => (
                     <li key={i}>{feat}</li>
                   ))}
@@ -1186,25 +825,6 @@ export default function PropertyFinancing() {
           <div className="why-grid">
             <div className="why-card">
               <span className="why-icon">⚡</span>
-<<<<<<< HEAD
-              <h3 style={{ color: '#4C3324' }}>Fast Approval</h3>
-              <p style={{ color: '#627B68' }}>Provisional sanction letters issued within 72 hours of application.</p>
-            </div>
-            <div className="why-card">
-              <span className="why-icon">📄</span>
-              <h3 style={{ color: '#4C3324' }}>Minimal Docs</h3>
-              <p style={{ color: '#627B68' }}>Paperless digital process with doorstep document collection.</p>
-            </div>
-            <div className="why-card">
-              <span className="why-icon">💎</span>
-              <h3 style={{ color: '#4C3324' }}>Transparency</h3>
-              <p style={{ color: '#627B68' }}>No hidden processing fees or surprise clauses in fine print.</p>
-            </div>
-            <div className="why-card">
-              <span className="why-icon">🤝</span>
-              <h3 style={{ color: '#4C3324' }}>Expert Guidance</h3>
-              <p style={{ color: '#627B68' }}>Dedicated relationship manager to guide you until disbursal.</p>
-=======
               <h3>Elite Velocity</h3>
               <p>In-principle sanction letters delivered within 72 business hours for qualified applicants.</p>
             </div>
@@ -1222,7 +842,6 @@ export default function PropertyFinancing() {
               <span className="why-icon">🤝</span>
               <h3>Direct Access</h3>
               <p>A dedicated relationship concierge manages your journey from application to disbursal.</p>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
             </div>
           </div>
         </div>
@@ -1270,15 +889,9 @@ export default function PropertyFinancing() {
                 <p className="testi-text">"{t.text}"</p>
                 <div className="user-info">
                   <img src={t.image} alt={t.name} className="user-img" />
-<<<<<<< HEAD
-                  <div>
-                    <div style={{ fontWeight: '700', color: '#4C3324' }}>{t.name}</div>
-                    <div style={{ fontSize: '0.85rem', color: '#819B8B' }}>{t.role}</div>
-=======
                   <div className="user-meta">
                     <h4>{t.name}</h4>
                     <span>{t.role}</span>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                   </div>
                 </div>
               </div>
@@ -1292,27 +905,16 @@ export default function PropertyFinancing() {
         <div className="modal-overlay" onClick={() => setSelectedService(null)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
             <button
-<<<<<<< HEAD
-              style={{ position: 'absolute', top: '20px', right: '20px', background: 'none', border: 'none', fontSize: '1.8rem', cursor: 'pointer', color: '#819B8B' }}
-=======
               style={{ position: 'absolute', top: '25px', right: '25px', background: 'none', border: 'none', fontSize: '2rem', cursor: 'pointer', color: 'var(--gray)' }}
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
               onClick={() => setSelectedService(null)}
             >
               &times;
             </button>
 
-<<<<<<< HEAD
-            <h2 style={{ marginTop: 0, color: '#4C3324', fontSize: '1.8rem' }}>Quick Application</h2>
-            <p style={{ color: "#627B68", marginBottom: "30px", fontSize: '0.95rem' }}>
-              You are applying for: <strong style={{ color: '#B2846B' }}>{selectedService.title}</strong>
-              {selectedService.rate && <span style={{ display: 'block', fontSize: '0.85rem', marginTop: '5px' }}>Applicable Rate: {selectedService.rate}</span>}
-=======
             <h2 style={{ fontSize: '2.5rem', marginBottom: '10px' }}>Priority Inquiry</h2>
             <p style={{ color: "var(--gray)", marginBottom: "35px", fontSize: '1.1rem' }}>
               Your interest: <strong className="text-accent">{selectedService.title}</strong>
               {selectedService.rate && <span style={{ display: 'block', fontSize: '0.9rem', marginTop: '5px' }}>Indicative ROI: {selectedService.rate}</span>}
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
             </p>
 
             <form onSubmit={handleFormSubmit}>
@@ -1330,14 +932,9 @@ export default function PropertyFinancing() {
               </div>
 
               {submitted ? (
-<<<<<<< HEAD
-                <div style={{ textAlign: 'center', padding: '20px', color: '#819B8B', fontWeight: 'bold' }}>
-                  ✓ Application submitted successfully!
-=======
                 <div className="text-center" style={{ padding: '20px', color: 'var(--primary-dark)', fontWeight: '700' }}>
                   <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '10px' }}>✓</span>
                   Inquiry Dispatched Successfully
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 </div>
               ) : (
                 <button type="submit" className="btn btn-accent" style={{ width: "100%", marginTop: '10px' }} disabled={loading}>

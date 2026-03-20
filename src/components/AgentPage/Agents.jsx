@@ -148,20 +148,6 @@ const styles = {
     marginBottom: "15px",
   },
   tagDot: { width: "6px", height: "6px", backgroundColor: "#819b8b", borderRadius: "50%" },
-<<<<<<< HEAD
-  heading: {
-    fontSize: "52px",
-    fontWeight: "700",
-    color: "#4c3324",
-    margin: "0",
-    letterSpacing: "-1.5px",
-    lineHeight: "1.1"
-  },
-  subHeading: {
-    color: "#6b5e58",
-    marginTop: "20px",
-    fontSize: "18px",
-=======
   heading: { 
     fontSize: "52px", 
     fontWeight: "700", 
@@ -174,7 +160,6 @@ const styles = {
     color: "#6b5e58", 
     marginTop: "20px", 
     fontSize: "18px", 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     fontWeight: "400",
     lineHeight: "1.6"
   },
@@ -238,16 +223,6 @@ const styles = {
     border: "1px solid rgba(228, 203, 182, 0.2)",
   },
   loadingContainer: { padding: "100px", textAlign: "center", color: "#666" },
-<<<<<<< HEAD
-  spinner: {
-    width: "40px",
-    height: "40px",
-    border: "3px solid #faf7f5",
-    borderTop: "3px solid #627b68",
-    borderRadius: "50%",
-    margin: "0 auto 20px",
-    animation: "spin 1s linear infinite"
-=======
   spinner: { 
     width: "40px", 
     height: "40px", 
@@ -256,7 +231,6 @@ const styles = {
     borderRadius: "50%", 
     margin: "0 auto 20px",
     animation: "spin 1s linear infinite" 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   },
   emptyState: { textAlign: "center", padding: "100px", color: "#888", fontSize: "18px" }
 };

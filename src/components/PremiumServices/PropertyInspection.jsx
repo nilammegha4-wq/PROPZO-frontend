@@ -557,21 +557,12 @@ export default function PropertyInspection() {
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
 
         :root {
-<<<<<<< HEAD
-          --primary: #4c3324;
-          --secondary: #627b68;
-          --accent: #819b8b;
-          --text-dark: #3a2e28;
-          --text-light: #6b5e58;
-          --bg-light: #f9f6f1;
-=======
           --primary: #4C3324;
           --secondary: #819B8B;
           --accent: #B2846B;
           --text-dark: #4C3324;
           --text-light: #627B68;
           --bg-light: #F5F0E8;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           --white: #ffffff;
         }
 
@@ -590,11 +581,7 @@ export default function PropertyInspection() {
         .hero-section {
           width: 100%;
           height: 85vh;
-<<<<<<< HEAD
-          background: linear-gradient(rgba(76, 51, 36, 0.75), rgba(76, 51, 36, 0.65)), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=2000&q=80') center/cover fixed;
-=======
           background: linear-gradient(rgba(76, 51, 36, 0.8), rgba(76, 51, 36, 0.7)), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=2000&q=80') center/cover fixed;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           display: flex;
           align-items: center;
           justify-content: center;
@@ -604,16 +591,6 @@ export default function PropertyInspection() {
         }
 
         .hero-content { max-width: 800px; padding: 20px; }
-<<<<<<< HEAD
-        .hero-content h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; text-shadow: 0 4px 6px rgba(0,0,0,0.3); color: #ffffff; }
-        .hero-content p { font-size: 1.25rem; margin-bottom: 2.5rem; color: #f9f6f1; font-weight: 300; opacity: 0.9; }
-        
-        .hero-btn {
-          padding: 1rem 3rem;
-          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%);
-          color: #fff;
-          font-weight: 700;
-=======
         .hero-content h1 { font-size: clamp(3rem, 8vw, 4.5rem); font-weight: 300; margin-bottom: 1.5rem; line-height: 1.1; text-shadow: 0 4px 10px rgba(0,0,0,0.3); color: #E4CBB6; }
         .hero-content p { font-size: 1.25rem; margin-bottom: 2.5rem; color: #E4CBB6; font-weight: 300; opacity: 0.9; font-family: 'DM Sans', sans-serif; }
         
@@ -622,25 +599,16 @@ export default function PropertyInspection() {
           background: var(--accent);
           color: #fff;
           font-weight: 600;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           font-size: 1.1rem;
           border: none;
           border-radius: 50px;
           cursor: pointer;
           transition: all 0.3s ease;
-<<<<<<< HEAD
-          box-shadow: 0 10px 20px rgba(98, 123, 104, 0.2);
-          text-transform: uppercase;
-          letter-spacing: 1px;
-        }
-        .hero-btn:hover { opacity: 0.9; transform: translateY(-3px); box-shadow: 0 15px 30px rgba(98, 123, 104, 0.3); }
-=======
           box-shadow: 0 10px 20px rgba(178, 132, 107, 0.3);
           text-transform: uppercase;
           letter-spacing: 1px;
         }
         .hero-btn:hover { background: var(--secondary); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(129, 155, 139, 0.3); }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
         /* STATS BAR */
         .stats-bar {
@@ -648,15 +616,9 @@ export default function PropertyInspection() {
           justify-content: center;
           gap: 50px;
           background: var(--white);
-<<<<<<< HEAD
-          padding: 40px 20px;
-          box-shadow: 0 4px 20px rgba(76, 51, 36, 0.08);
-          margin-top: -50px;
-=======
           padding: 50px 30px;
           box-shadow: 0 15px 40px rgba(76, 51, 36, 0.08);
           margin-top: -60px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           position: relative;
           z-index: 10;
           border-radius: 20px;
@@ -666,67 +628,6 @@ export default function PropertyInspection() {
           border: 1px solid rgba(228, 203, 182, 0.3);
         }
         .stat-item { text-align: center; }
-<<<<<<< HEAD
-        .stat-number { font-size: 2.5rem; font-weight: 700; color: #627b68; display: block; }
-        .stat-label { font-size: 0.9rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-
-        /* WHY CHOOSE US */
-        .why-section { padding: 100px 20px; background: var(--bg-light); text-align: center; }
-        .section-title { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; font-weight: 700; }
-        .section-subtitle { color: var(--text-light); margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto; }
-        
-        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
-        .why-card { 
-          background: var(--white); padding: 40px 30px; border-radius: 20px; 
-          box-shadow: 0 10px 30px rgba(76, 51, 36, 0.05); transition: 0.4s; border: 1px solid rgba(228, 203, 182, 0.3);
-        }
-        .why-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(76, 51, 36, 0.08); border-color: #627b68; }
-        .why-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
-        .why-card h3 { margin-bottom: 15px; font-size: 1.4rem; color: var(--primary); }
-        .why-card p { color: var(--text-light); line-height: 1.6; }
-
-        /* FORM SECTION */
-        .form-section { 
-          padding: 100px 20px; 
-          background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=2000&q=80') center/cover fixed; 
-          position: relative;
-        }
-        .form-overlay { position: absolute; inset: 0; background: rgba(76, 51, 36, 0.88); }
-        
-        .form-container { position: relative; z-index: 2; max-width: 800px; margin: auto; }
-        .form-header { text-align: center; color: var(--white); margin-bottom: 40px; }
-        .form-header h2 { font-size: 2.5rem; margin-bottom: 10px; color: #ffffff; }
-        .form-header p { opacity: 0.8; color: #f9f6f1; }
-
-        .inspection-form { 
-          background: rgba(255, 255, 255, 0.1); 
-          backdrop-filter: blur(10px); 
-          border: 1px solid rgba(255, 255, 255, 0.2); 
-          padding: 50px; 
-          border-radius: 20px; 
-          box-shadow: 0 25px 50px rgba(0,0,0,0.2); 
-        }
-        
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-        
-        .inspection-form input, .inspection-form select, .inspection-form textarea {
-          width: 100%; padding: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3);
-          background: rgba(255,255,255,0.92); color: var(--text-dark); font-size: 1rem; outline: none; transition: 0.3s;
-          box-sizing: border-box;
-        }
-        .inspection-form input:focus, .inspection-form select:focus, .inspection-form textarea:focus {
-          border-color: #627b68; background: var(--white); box-shadow: 0 0 0 4px rgba(98, 123, 104, 0.25);
-        }
-        
-        .submit-btn {
-          width: 100%; padding: 18px; background: #627b68; color: white; font-size: 1.1rem; font-weight: 700;
-          border: none; border-radius: 10px; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
-        }
-        .submit-btn:hover { background: #4c3324; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(76, 51, 36, 0.3); }
-
-        /* GALLERY */
-        .gallery-section { padding: 100px 20px; text-align: center; }
-=======
         .stat-number { font-size: 3rem; font-weight: 300; color: var(--secondary); display: block; font-family: 'Cormorant Garamond', serif; line-height: 1; }
         .stat-label { font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-top: 10px; }
 
@@ -751,48 +652,22 @@ export default function PropertyInspection() {
 
         /* GALLERY SECTION */
         .gallery-section { padding: 100px 20px; text-align: center; background: white; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .gallery-grid { 
           display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; 
           max-width: 1200px; margin: 0 auto; 
         }
-<<<<<<< HEAD
-        .gallery-item { overflow: hidden; border-radius: 15px; box-shadow: 0 10px 20px rgba(76, 51, 36, 0.1); position: relative; height: 250px; }
-=======
         .gallery-item { overflow: hidden; border-radius: 20px; box-shadow: 0 10px 25px rgba(76, 51, 36, 0.08); position: relative; height: 300px; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .gallery-item img { 
           width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
         }
         .gallery-item:hover img { transform: scale(1.1); }
         .gallery-overlay {
-<<<<<<< HEAD
-          position: absolute; inset: 0; background: rgba(76, 51, 36, 0.45); opacity: 0; transition: 0.3s; display: flex; align-items: center; justify-content: center;
-=======
           position: absolute; inset: 0; background: rgba(76, 51, 36, 0.5); opacity: 0; transition: 0.3s; display: flex; align-items: center; justify-content: center;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .gallery-item:hover .gallery-overlay { opacity: 1; }
         .gallery-text { color: white; font-weight: 300; font-size: 1.5rem; transform: translateY(20px); transition: 0.4s; font-family: 'Cormorant Garamond', serif; }
         .gallery-item:hover .gallery-text { transform: translateY(0); }
 
-<<<<<<< HEAD
-        /* TESTIMONIALS */
-        .testimonials-section { padding: 100px 20px; background: var(--white); text-align: center; }
-        .testimonials-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 1200px; margin: auto; }
-        .testimonial-card { 
-          background: var(--bg-light); padding: 40px 30px; width: 350px; border-radius: 20px; position: relative; text-align: left; 
-          border: 1px solid rgba(228, 203, 182, 0.3);
-        }
-        .quote-icon { font-size: 4rem; color: #e8d5c8; position: absolute; top: 10px; right: 20px; z-index: 0; }
-        .testimonial-text { font-style: italic; color: var(--text-dark); position: relative; z-index: 1; margin-bottom: 20px; line-height: 1.6; }
-        .user-info { display: flex; align-items: center; gap: 15px; }
-        .user-avatar { width: 50px; height: 50px; background: #e8d5c8; border-radius: 50%; object-fit: cover; }
-        .user-name h4 { margin: 0; color: var(--primary); font-size: 1.1rem; }
-        .user-name span { font-size: 0.85rem; color: var(--text-light); }
-        .stars { color: #819b8b; margin-bottom: 10px; }
-
-=======
         /* FORM SECTION (Elegant Glass) */
         .form-section { 
           padding: 120px 20px; 
@@ -846,7 +721,6 @@ export default function PropertyInspection() {
         .user-name span { font-size: 0.85rem; color: var(--text-light); font-weight: 500; }
         .stars { color: var(--accent); margin-bottom: 12px; font-size: 1.1rem; }
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         /* CTA SECTION */
         .cta-section-new {
           padding: 80px 20px 140px 20px;
@@ -857,31 +731,18 @@ export default function PropertyInspection() {
           max-width: 1100px;
           margin: 0 auto;
           background: linear-gradient(135deg, #4C3324 0%, #627B68 100%);
-<<<<<<< HEAD
-          border-radius: 30px;
-          padding: 80px 40px;
-          text-align: center;
-          position: relative;
-          overflow: hidden;
-          box-shadow: 0 25px 50px -12px rgba(76, 51, 36, 0.4);
-=======
           border-radius: 40px;
           padding: 100px 50px;
           text-align: center;
           position: relative;
           overflow: hidden;
           box-shadow: 0 30px 60px -12px rgba(76, 51, 36, 0.4);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           color: var(--white);
         }
 
         .cta-blob {
           position: absolute;
-<<<<<<< HEAD
-          background: rgba(255, 255, 255, 0.05);
-=======
           background: rgba(228, 203, 182, 0.08);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           border-radius: 50%;
         }
         .blob-1 { width: 400px; height: 400px; top: -150px; left: -150px; }
@@ -890,29 +751,6 @@ export default function PropertyInspection() {
         .cta-content { position: relative; z-index: 2; }
         
         .cta-title {
-<<<<<<< HEAD
-          font-size: 3rem; 
-          margin-bottom: 20px; 
-          color: #ffffff; 
-          font-weight: 700;
-          text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        
-        .cta-desc {
-          font-size: 1.25rem;
-          color: #f9f6f1;
-          max-width: 650px;
-          margin: 0 auto 40px auto;
-          line-height: 1.6;
-          opacity: 0.85;
-        }
-
-        .cta-btn-premium {
-          padding: 18px 50px;
-          background: #819b8b;
-          color: #fff;
-          font-weight: 700;
-=======
           font-size: 3.5rem; 
           margin-bottom: 25px; 
           color: #E4CBB6; 
@@ -936,7 +774,6 @@ export default function PropertyInspection() {
           background: var(--accent);
           color: #fff;
           font-weight: 600;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           border-radius: 50px;
           border: none;
           font-size: 1rem;
@@ -948,17 +785,10 @@ export default function PropertyInspection() {
         }
         
         .cta-btn-premium:hover {
-<<<<<<< HEAD
-          transform: translateY(-5px) scale(1.05);
-          box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-          background: #fff;
-          color: #4C3324;
-=======
           transform: translateY(-5px);
           box-shadow: 0 25px 45px rgba(0,0,0,0.3);
           background: white;
           color: var(--primary);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         @media(max-width: 900px) {
@@ -1001,11 +831,7 @@ export default function PropertyInspection() {
         </div>
       </div>
 
-<<<<<<< HEAD
-      {/* WHY CHOOSE US */}
-=======
       {/* Why Section */}
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       <section className="why-section">
         <h2 className="section-title">The Standard of Excellence</h2>
         <p className="section-subtitle">We deploy world-class engineering expertise and advanced diagnostic technology.</p>
@@ -1084,15 +910,10 @@ export default function PropertyInspection() {
                 <input type="time" name="preferredTime" value={formData.preferredTime} onChange={handleChange} required />
               </div>
             </div>
-<<<<<<< HEAD
-            <textarea name="message" rows="4" placeholder="Any specific concerns or additional details?" value={formData.message} onChange={handleChange} style={{ marginBottom: '20px' }}></textarea>
-            <button type="submit" className="submit-btn">{loading ? "Submitting..." : "Confirm Booking"}</button>
-=======
             <textarea name="message" rows="4" placeholder="Specific areas of concern or high-value features?" value={formData.message} onChange={handleChange} style={{ marginBottom: '25px' }}></textarea>
             <button type="submit" className="submit-btn" disabled={loading}>
               {loading ? "Processing Priority..." : "Confirm Private Booking"}
             </button>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           </form>
         </div>
       </section>
@@ -1143,11 +964,7 @@ export default function PropertyInspection() {
         </div>
       </section>
 
-<<<<<<< HEAD
-      {/* CTA SECTION */}
-=======
       {/* CTA Section */}
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       <section className="cta-section-new">
         <div className="cta-card">
           <div className="cta-blob blob-1"></div>

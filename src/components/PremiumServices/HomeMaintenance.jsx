@@ -83,18 +83,6 @@ export default function HomeMaintenance() {
     <div className="maintenance-wrapper">
       <style>{`
         :root {
-<<<<<<< HEAD
-          --dark: #4c3324;
-          --primary: #627b68;
-          --primary-dark: #4c3324;
-          --accent: #819b8b;
-          --success: #3a2e28;
-          --light: #f9f6f1;
-          --white: #ffffff;
-          --gray: #6b5e58;
-          --glass: rgba(255, 255, 255, 0.95);
-          --shadow: 0 20px 40px -10px rgba(76, 51, 36, 0.1);
-=======
           --dark: #4C3324;
           --primary: #627B68;
           --primary-dark: #4C3324;
@@ -105,7 +93,6 @@ export default function HomeMaintenance() {
           --gray: #6B5E58;
           --glass: rgba(255, 255, 255, 0.95);
           --shadow: 0 20px 40px -10px rgba(76, 51, 36, 0.15);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           --radius: 20px;
         }
 
@@ -121,28 +108,16 @@ export default function HomeMaintenance() {
           transition: all 0.3s ease; cursor: pointer; border: none; font-size: 1rem;
         }
         .btn-primary { 
-<<<<<<< HEAD
-          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%); 
-          color: white; box-shadow: 0 10px 20px rgba(98, 123, 104, 0.2);
-        }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(98, 123, 104, 0.3); }
-        
-=======
           background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
           color: white; box-shadow: 0 10px 20px rgba(98, 123, 104, 0.2);
         }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(98, 123, 104, 0.3); }
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .btn-outline { background: transparent; border: 2px solid white; color: white; }
         .btn-outline:hover { background: white; color: var(--dark); }
 
         .btn-emergency {
-<<<<<<< HEAD
-          background: #819b8b; color: white; animation: pulse 2s infinite;
-=======
           background: var(--success); color: white; animation: pulse 2s infinite;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(129, 155, 139, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(129, 155, 139, 0); } 100% { box-shadow: 0 0 0 0 rgba(129, 155, 139, 0); } }
 
@@ -161,16 +136,6 @@ export default function HomeMaintenance() {
 
         .hero h1 { 
           font-size: 4rem; font-weight: 800; margin-bottom: 24px; line-height: 1.1;
-<<<<<<< HEAD
-          background: linear-gradient(to right, #ffffff, #f9f6f1);
-          -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .hero p { font-size: 1.25rem; color: #f9f6f1; max-width: 700px; margin: 0 auto 40px; }
-
-        /* --- EMERGENCY BANNER --- */
-        .emergency-banner {
-          background: #f9f6f1; color: #4c3324; padding: 15px; text-align: center;
-=======
           background: linear-gradient(to right, #ffffff, #F5F0E8);
           -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
@@ -179,7 +144,6 @@ export default function HomeMaintenance() {
         /* --- EMERGENCY BANNER --- */
         .emergency-banner {
           background: #F9F6F1; color: var(--dark); padding: 15px; text-align: center;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           display: flex; justify-content: center; align-items: center; gap: 15px;
           font-weight: 600; border-bottom: 1px solid rgba(76, 51, 36, 0.1);
         }
@@ -207,37 +171,15 @@ export default function HomeMaintenance() {
           background: white; padding: 40px; border-radius: var(--radius);
           border: 1px solid rgba(228, 203, 182, 0.3); transition: all 0.3s ease; position: relative; overflow: hidden;
         }
-<<<<<<< HEAD
-        .service-card:hover { transform: translateY(-10px); border-color: #627b68; box-shadow: var(--shadow); }
-        .service-card:hover .icon-bg { background: #627b68; color: white; transform: rotate(-5deg); }
-        
-        .icon-bg {
-          width: 60px; height: 60px; background: rgba(129, 155, 139, 0.1); color: #627b68;
-=======
         .service-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: var(--shadow); }
         .service-card:hover .icon-bg { background: var(--primary); color: white; transform: rotate(-5deg); }
 
         .icon-bg {
           width: 60px; height: 60px; background: rgba(129, 155, 139, 0.1); color: var(--primary);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           border-radius: 12px; display: flex; align-items: center; justify-content: center;
           margin-bottom: 25px; transition: 0.3s;
         }
         .service-price { 
-<<<<<<< HEAD
-          display: inline-block; background: rgba(129, 155, 139, 0.1); color: #627b68; 
-          padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 15px;
-        }
-        
-        .service-card h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 700; color: #4C3324; }
-        .service-card p { font-size: 1rem; color: var(--gray); line-height: 1.6; margin-bottom: 20px; }
-        .sub-services { list-style: none; border-top: 1px solid rgba(76, 51, 36, 0.05); padding-top: 15px; }
-        .sub-services li { font-size: 0.9rem; color: var(--gray); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-        .sub-services li svg { width: 16px; color: #627b68; }
-
-        /* --- PRICING PLANS --- */
-        .pricing-section { background: #f9f6f1; padding: 100px 0; }
-=======
           display: inline-block; background: rgba(129, 155, 139, 0.1); color: var(--primary); 
           padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 15px;
         }
@@ -250,7 +192,6 @@ export default function HomeMaintenance() {
 
         /* --- PRICING PLANS --- */
         .pricing-section { background: #F9F6F1; padding: 100px 0; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto; }
 
         .plan-card {
@@ -260,20 +201,12 @@ export default function HomeMaintenance() {
         .plan-card.popular { border: 2px solid #627b68; transform: scale(1.05); box-shadow: var(--shadow); z-index: 2; }
         .badge-popular {
           position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-<<<<<<< HEAD
-          background: #4c3324; color: white; padding: 5px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 700;
-=======
           background: var(--dark); color: white; padding: 5px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 700;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
         .plan-price { font-size: 3rem; font-weight: 800; color: #4c3324; margin: 20px 0; }
         .plan-price span { font-size: 1rem; color: var(--gray); font-weight: 500; }
         .plan-features { list-style: none; margin: 30px 0; text-align: left; }
-<<<<<<< HEAD
-        .plan-features li { padding: 10px 0; border-bottom: 1px solid rgba(76, 51, 36, 0.05); display: flex; gap: 10px; align-items: center; color: #4c3324; }
-=======
         .plan-features li { padding: 10px 0; border-bottom: 1px solid rgba(76, 51, 36, 0.05); display: flex; gap: 10px; align-items: center; color: var(--dark); }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
         /* --- BOOKING FORM (Modern Glass) --- */
         .booking-section { 
@@ -285,14 +218,6 @@ export default function HomeMaintenance() {
         .booking-container { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: center; }
 
         .booking-text { color: white; }
-<<<<<<< HEAD
-        .booking-text h2 { font-size: 3rem; margin-bottom: 20px; color: #ffffff; }
-        .booking-text p { color: #f9f6f1; }
-        .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .benefit-box { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; backdrop-filter: blur(5px); }
-        .benefit-box h4 { font-size: 1.1rem; margin-bottom: 5px; color: #ffffff; display: flex; align-items: center; gap: 8px; }
-        
-=======
         .booking-text h2 { font-size: 3rem; margin-bottom: 20px; color: white; }
         .booking-text p { color: #F5F0E8; opacity: 0.9; margin-bottom: 30px; }
         .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
@@ -300,52 +225,31 @@ export default function HomeMaintenance() {
         .benefit-box h4 { font-size: 1.1rem; margin-bottom: 5px; color: white; display: flex; align-items: center; gap: 8px; }
         .benefit-box p { font-size: 0.9rem; color: #E4CBB6; margin-bottom: 0; }
 
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .form-glass {
           background: rgba(255, 255, 255, 0.97); padding: 40px; border-radius: var(--radius);
           box-shadow: 0 25px 50px rgba(76, 51, 36, 0.3); backdrop-filter: blur(10px);
         }
-<<<<<<< HEAD
-        .form-glass h3 { color: #4c3324; }
-=======
         .form-glass h3 { color: var(--dark); margin-bottom: 25px; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .input-group { margin-bottom: 20px; }
         .input-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: #4C3324; }
         .input-field {
-<<<<<<< HEAD
-          width: 100%; padding: 14px; border: 1px solid #d5c4bb; border-radius: 8px;
-          background: white; font-size: 1rem; transition: 0.3s; color: #4C3324;
-        }
-        .input-field:focus { border-color: #627b68; outline: none; box-shadow: 0 0 0 3px rgba(98, 123, 104, 0.2); }
-=======
           width: 100%; padding: 14px; border: 1px solid #D5C4BB; border-radius: 8px;
           background: white; font-size: 1rem; transition: 0.3s; color: var(--dark);
         }
         .input-field:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(98, 123, 104, 0.2); }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
         /* --- FAQ SECTION --- */
         .faq-section { background: white; padding: 100px 0; }
         .faq-max { max-width: 800px; margin: 0 auto; }
-<<<<<<< HEAD
-        .faq-item { border: 1px solid #e8d5c8; border-radius: 12px; margin-bottom: 15px; overflow: hidden; }
-=======
         .faq-item { border: 1px solid rgba(228, 203, 182, 0.3); border-radius: 12px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .faq-btn {
           width: 100%; padding: 20px; text-align: left; background: white; border: none;
           display: flex; justify-content: space-between; align-items: center; cursor: pointer;
           font-weight: 700; color: #4C3324; font-size: 1.1rem;
         }
-<<<<<<< HEAD
-        .faq-btn:hover { background: #f5f0ec; }
-        .faq-answer { padding: 0 20px 20px; color: #6b5e58; display: none; line-height: 1.6; }
-=======
         .faq-btn:hover { background: #F9F6F1; }
         .faq-answer { padding: 0 20px 20px; color: var(--gray); display: none; line-height: 1.6; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-btn { color: #627b68; }
         .faq-item.active .faq-btn svg { transform: rotate(180deg); }
@@ -439,11 +343,7 @@ export default function HomeMaintenance() {
             <div className="plan-card">
               <h3>Pay Per Visit</h3>
               <div className="plan-price">₹299 <span>/ visit</span></div>
-<<<<<<< HEAD
-              <p style={{ color: '#627B68' }}>Inspection charge waived if service booked.</p>
-=======
               <p style={{ color: 'var(--gray)' }}>Inspection charge waived if service booked.</p>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
               <ul className="plan-features">
                 <li><IconCheck /> Verified Professional</li>
                 <li><IconCheck /> 30-Day Service Warranty</li>
@@ -453,11 +353,7 @@ export default function HomeMaintenance() {
               <button
                 onClick={scrollToBooking}
                 className="btn btn-outline"
-<<<<<<< HEAD
-                style={{ borderColor: '#d5c4bb', color: '#4C3324', width: '100%' }}
-=======
                 style={{ borderColor: '#D5C4BB', color: 'var(--dark)', width: '100%' }}
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
               >
                 Book Now
               </button>
@@ -468,11 +364,7 @@ export default function HomeMaintenance() {
               <span className="badge-popular">Best Value</span>
               <h3>Annual Gold Plan</h3>
               <div className="plan-price">₹2,499 <span>/ year</span></div>
-<<<<<<< HEAD
-              <p style={{ color: '#627B68' }}>Unlimited scheduled maintenance for your home.</p>
-=======
               <p style={{ color: 'var(--gray)' }}>Unlimited scheduled maintenance for your home.</p>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
               <ul className="plan-features">
                 <li><IconCheck /> <strong>Unlimited</strong> Free Inspections</li>
                 <li><IconCheck /> 2 Free AC Servicings</li>
@@ -504,19 +396,11 @@ export default function HomeMaintenance() {
             <div className="benefits-grid">
               <div className="benefit-box">
                 <h4><IconShield /> Fully Insured</h4>
-<<<<<<< HEAD
-                <p style={{ fontSize: '0.9rem', color: '#E4CBB6' }}>Covered up to ₹5 Lakhs against damages.</p>
-              </div>
-              <div className="benefit-box">
-                <h4><IconZap /> Fast Service</h4>
-                <p style={{ fontSize: '0.9rem', color: '#E4CBB6' }}>Same-day arrival for bookings before 12 PM.</p>
-=======
                 <p>Covered up to ₹5 Lakhs against damages.</p>
               </div>
               <div className="benefit-box">
                 <h4><IconZap /> Fast Service</h4>
                 <p>Same-day arrival for bookings before 12 PM.</p>
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
               </div>
             </div>
           </div>

@@ -86,8 +86,6 @@ const PropertyList = () => {
         @media (max-width: 480px) {
           .apl-stats-grid { grid-template-columns: 1fr !important; }
         }
-<<<<<<< HEAD
-=======
       `}</style>
 
       <style>{`
@@ -101,7 +99,6 @@ const PropertyList = () => {
         @media (max-width: 480px) {
           .apl-stats-grid { grid-template-columns: 1fr !important; }
         }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       `}</style>
 
       {/* Header */}

@@ -354,19 +354,6 @@ export default function PremiumRealEstateServices() {
   return (
     <div className="premium-services-page">
       <style>{`
-<<<<<<< HEAD
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&display=swap');
-
-        * {
-          box-sizing: border-box;
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        body {
-          margin: 0;
-          background: #f9f6f1;
-        }
-=======
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
 
         :root {
@@ -382,7 +369,6 @@ export default function PremiumRealEstateServices() {
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
         body { background: var(--dark); color: var(--light); line-height: 1.6; }
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
@@ -395,41 +381,18 @@ export default function PremiumRealEstateServices() {
           display: flex;
           align-items: center;
           justify-content: flex-start;
-<<<<<<< HEAD
-          padding-left: 10%;
-          color: #4c3324;
-        }
-
-        .hero h1 {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 4rem;
-          font-weight: 300;
-          color: #4c3324;
-          margin-bottom: 16px;
-        }
-
-        .hero span {
-          color: #6b5e58;
-          font-size: 1.1rem;
-          font-weight: 400;
-=======
           padding: 80px 0;
           background-image: url("/PremiumServices.jpg");
           background-size: cover;
           background-position: center;
           color: white;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         .hero::before {
           content: "";
           position: absolute;
           inset: 0;
-<<<<<<< HEAD
-          background: linear-gradient(160deg, rgba(249, 246, 241, 0.7) 0%, rgba(129, 155, 139, 0.4) 100%);
-=======
           background: linear-gradient(160deg, rgba(76,51,36,0.85) 0%, rgba(98,123,104,0.6) 100%);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           z-index: 1;
         }
 
@@ -440,18 +403,6 @@ export default function PremiumRealEstateServices() {
           margin-left: 10%;
         }
 
-<<<<<<< HEAD
-        @media (max-width: 768px) {
-          .hero h1 { font-size: 2.5rem !important; }
-          .hero { min-height: 50vh !important; padding-left: 5% !important; }
-          .services-grid {
-            grid-template-columns: 1fr !important;
-            padding: 20px 0 !important;
-          }
-        }
-
-        /* ================= GRID ================= */
-=======
         .hero h1 {
           font-size: clamp(3.5rem, 8vw, 5rem);
           color: var(--light);
@@ -466,64 +417,26 @@ export default function PremiumRealEstateServices() {
         }
 
         /* SERVICES GRID */
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         .services-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
           gap: 40px;
-<<<<<<< HEAD
-          padding: 80px 0;
-=======
           padding: 100px 0;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         /* SERVICE CARD */
         .service-card {
-<<<<<<< HEAD
-          background: #ffffff;
-          border-radius: 4px;
-=======
           background: #3A2218;
           border-radius: 12px;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           overflow: hidden;
           transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
           display: flex;
           flex-direction: column;
-<<<<<<< HEAD
-          border: 1px solid rgba(228, 203, 182, 0.3);
-=======
           border: 1px solid rgba(178, 132, 107, 0.15);
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           position: relative;
         }
 
         .service-card:hover {
-<<<<<<< HEAD
-          transform: translateY(-8px);
-          box-shadow: 0 30px 60px rgba(76, 51, 36, 0.1);
-          border-color: rgba(129, 155, 139, 0.4);
-        }
-
-        .card-image {
-          height: 280px;
-          overflow: hidden;
-          position: relative;
-        }
-
-        .card-image::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(to bottom, transparent, rgba(76, 51, 36, 0.05));
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        .service-card:hover .card-image::after {
-          opacity: 1;
-=======
           transform: translateY(-10px);
           box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
           border-color: var(--accent);
@@ -533,7 +446,6 @@ export default function PremiumRealEstateServices() {
           height: 300px;
           overflow: hidden;
           position: relative;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         .card-image::after {
@@ -552,36 +464,6 @@ export default function PremiumRealEstateServices() {
           height: 100%;
           object-fit: cover;
           transition: transform 0.6s ease;
-<<<<<<< HEAD
-        }
-
-        .service-card:hover .card-image img {
-          transform: scale(1.08);
-        }
-
-        .card-content {
-          padding: 35px;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-        }
-
-        .service-title {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.8rem;
-          font-weight: 400;
-          margin-bottom: 15px;
-          color: #4c3324;
-          letter-spacing: 0.02em;
-        }
-
-        .service-description {
-          color: #6b5e58;
-          margin-bottom: 30px;
-          line-height: 1.7;
-          flex-grow: 1;
-          font-size: 1.05rem;
-=======
           filter: sepia(0.1);
         }
 
@@ -605,45 +487,10 @@ export default function PremiumRealEstateServices() {
           flex-grow: 1;
           font-size: 1.1rem;
           font-weight: 300;
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
 
         .service-btn {
           padding: 16px 36px;
-<<<<<<< HEAD
-          border-radius: 4px;
-          border: none;
-          font-weight: 600;
-          cursor: pointer;
-          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%);
-          color: #ffffff;
-          text-decoration: none;
-          text-align: center;
-          display: inline-block;
-          transition: all 0.3s ease;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          font-size: 0.85rem;
-          box-shadow: 0 6px 18px rgba(98, 123, 104, 0.2);
-        }
-
-        .service-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 12px 24px rgba(98, 123, 104, 0.3);
-          opacity: 0.9;
-        }
-      `}</style>
-
-      {/* HERO */}
-      <section
-        className="hero"
-        style={{
-          backgroundImage: `url(/PremiumServices.jpg)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-=======
           border-radius: 8px;
           border: none;
           font-weight: 600;
@@ -676,7 +523,6 @@ export default function PremiumRealEstateServices() {
 
       {/* HERO SECTION */}
       <section className="hero">
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         <div className="hero-content">
           <h1>Premium Real <br /> Estate Services</h1>
           <span>Transform your property experience with curated excellence</span>
@@ -705,21 +551,3 @@ export default function PremiumRealEstateServices() {
     </div>
   );
 }
-<<<<<<< HEAD
-
-const ServiceCard = ({ image, title, description, buttonText, link }) => (
-  <div className="service-card">
-    <div className="card-image">
-      <img src={image} alt={title} />
-    </div>
-    <div className="card-content">
-      <div className="service-title">{title}</div>
-      <div className="service-description">{description}</div>
-      <NavLink to={link} className="service-btn">
-        {buttonText}
-      </NavLink>
-    </div>
-  </div>
-);
-=======
->>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
