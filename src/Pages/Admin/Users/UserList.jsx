@@ -205,23 +205,34 @@ export default function UserList() {
   );
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>User Management</h1>
-      <p style={styles.subtitle}>
-        Manage user accounts and permissions
-      </p>
+    <>
+      <style>{`
+        @media (max-width: 991px) {
+          .ul-container { padding: 30px 20px !important; }
+        }
+        @media (max-width: 768px) {
+          .ul-search { width: 100% !important; }
+        }
+      `}</style>
+      <div style={styles.container} className="ul-container">
+        <h1 style={styles.title}>User Management</h1>
+        <p style={styles.subtitle}>
+          Manage user accounts and permissions
+        </p>
 
-      <div style={styles.card}>
-        {/* Search */}
-        <input
-          type="text"
-          placeholder="Search by name or email..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          style={styles.searchInput}
-        />
+        <div style={styles.card}>
+          {/* Search */}
+          <input
+            type="text"
+            placeholder="Search by name or email..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            style={styles.searchInput}
+            className="ul-search"
+          />
 
-        <table style={styles.table}>
+          <div style={{ width: "100%", overflowX: "auto" }} className="ul-table-wrap">
+            <table style={styles.table}>
           <thead>
             <tr style={styles.headerRow}>
               <th style={styles.th}>USER NAME</th>
@@ -255,11 +266,11 @@ export default function UserList() {
                       ...styles.status,
                       backgroundColor:
                         u.status === "Active"
-                          ? "#DCFCE7"
+                          ? "rgba(129, 155, 139, 0.15)"
                           : "#FEE2E2",
                       color:
                         u.status === "Active"
-                          ? "#166534"
+                          ? "#627b68"
                           : "#991B1B",
                     }}
                   >
@@ -287,13 +298,15 @@ export default function UserList() {
               </tr>
             ))}
           </tbody>
-        </table>
+          </table>
+          </div>
 
-        {filteredUsers.length === 0 && (
-          <div style={styles.noUsers}>No users found</div>
-        )}
+          {filteredUsers.length === 0 && (
+            <div style={styles.noUsers}>No users found</div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -302,14 +315,15 @@ export default function UserList() {
 const styles = {
   container: {
     padding: "40px",
-    backgroundColor: "#F9FAFB",
+    backgroundColor: "#f9f6f1", // Brand Cream
     minHeight: "100vh",
-    fontFamily: "Segoe UI, sans-serif",
+    fontFamily: "'DM Sans', sans-serif",
   },
   title: {
     fontSize: "28px",
     fontWeight: "700",
     marginBottom: "5px",
+    color: "#4c3324", // Brand Brown
   },
   subtitle: {
     color: "#6B7280",
@@ -319,13 +333,14 @@ const styles = {
     background: "#ffffff",
     padding: "25px",
     borderRadius: "12px",
-    boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
+    boxShadow: "0 4px 15px rgba(76, 51, 36, 0.05)",
+    border: "1px solid rgba(228, 203, 182, 0.2)",
   },
   searchInput: {
     padding: "10px 14px",
     width: "320px",
     borderRadius: "8px",
-    border: "1px solid #E5E7EB",
+    border: "1px solid rgba(228, 203, 182, 0.4)",
     marginBottom: "20px",
     outline: "none",
   },
@@ -334,14 +349,14 @@ const styles = {
     borderCollapse: "collapse",
   },
   headerRow: {
-    backgroundColor: "#F3F4F6",
+    backgroundColor: "rgba(178, 132, 107, 0.05)", // Brand Tan light
   },
   th: {
     padding: "14px",
     textAlign: "left",
     fontSize: "13px",
     fontWeight: "600",
-    color: "#6B7280",
+    color: "#4c3324", // Brand Brown
   },
   row: {
     borderBottom: "1px solid #F1F5F9",
@@ -359,7 +374,7 @@ const styles = {
     width: "36px",
     height: "36px",
     borderRadius: "50%",
-    backgroundColor: "#3B82F6",
+    backgroundColor: "#627b68", // Brand Sage Dark
     color: "#fff",
     display: "flex",
     alignItems: "center",
@@ -381,7 +396,7 @@ const styles = {
     cursor: "pointer",
     fontWeight: "600",
     marginRight: "12px",
-    color: "#2563EB",
+    color: "#627b68", // Brand Sage Dark
   },
   deleteBtn: {
     background: "none",

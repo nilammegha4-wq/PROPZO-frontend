@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }) {
   const [agent, setAgent] = useState(null);
   const navigate = useNavigate();
 
@@ -37,10 +37,24 @@ export default function Sidebar() {
   };
 
   return (
-    <div style={styles.sidebar}>
+    <div style={{
+      ...styles.sidebar,
+      transform: (window.innerWidth <= 960 && !isOpen) ? "translateX(-100%)" : "translateX(0)"
+    }} className="agent-sidebar">
       <div style={styles.brandSection}>
-        <div style={styles.logoSquare}>P</div>
-        <h1 style={styles.brandTitle}>Propzo<span>Agent</span></h1>
+        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+          <div style={styles.logoSquare}>P</div>
+          <h1 style={styles.brandTitle}>Propzo<span>Agent</span></h1>
+        </div>
+        
+        {/* Close button for mobile */}
+        <button 
+          onClick={onClose}
+          style={styles.closeBtn}
+          className="sidebar-close-btn"
+        >
+          ✕
+        </button>
       </div>
 
       <nav style={styles.navStack}>
@@ -97,7 +111,7 @@ const styles = {
   sidebar: {
     width: "280px",
     height: "100vh",
-    background: "linear-gradient(180deg, #0f172a 0%, #1e293b 100%)",
+    background: "#627B68",
     display: "flex",
     flexDirection: "column",
     padding: "32px 20px",
@@ -105,7 +119,7 @@ const styles = {
     left: 0,
     top: 0,
     boxSizing: "border-box",
-    boxShadow: "4px 0 24px rgba(0, 0, 0, 0.2)",
+    boxShadow: "4px 0 24px rgba(0, 0, 0, 0.1)",
     zIndex: 1000,
   },
   brandSection: {
@@ -118,18 +132,18 @@ const styles = {
   logoSquare: {
     width: "36px",
     height: "36px",
-    background: "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)",
+    background: "#E4CBB6",
     borderRadius: "10px",
-    color: "white",
+    color: "#4C3324",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontWeight: "800",
     fontSize: "18px",
-    boxShadow: "0 4px 12px rgba(79, 70, 229, 0.3)",
+    boxShadow: "0 4px 12px rgba(228, 203, 182, 0.2)",
   },
   brandTitle: {
-    color: "#ffffff",
+    color: "#E4CBB6",
     fontSize: "20px",
     fontWeight: "700",
     margin: 0,
@@ -146,17 +160,16 @@ const styles = {
     alignItems: "center",
     padding: "12px 16px",
     borderRadius: "12px",
-    color: "#94a3b8",
+    color: "rgba(228, 203, 182, 0.7)",
     textDecoration: "none",
     fontSize: "14px",
     fontWeight: "500",
     transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
   },
   activeLink: {
-    background: "rgba(99, 102, 241, 0.15)",
-    color: "#818cf8",
+    background: "#E4CBB6",
+    color: "#4C3324",
     fontWeight: "600",
-    boxShadow: "inset 0 0 0 1px rgba(99, 102, 241, 0.2)",
   },
   icon: {
     width: "20px",
@@ -178,12 +191,12 @@ const styles = {
     width: "40px",
     height: "40px",
     borderRadius: "12px",
-    background: "linear-gradient(135deg, #818cf8 0%, #6366f1 100%)",
+    background: "#E4CBB6",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: "13px",
-    color: "#ffffff",
+    color: "#4C3324",
     fontWeight: "600",
     boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
   },
@@ -191,7 +204,7 @@ const styles = {
     overflow: "hidden",
   },
   userName: {
-    color: "#ffffff",
+    color: "#E4CBB6",
     fontSize: "14px",
     fontWeight: "600",
     margin: "0 0 2px 0",
@@ -200,7 +213,7 @@ const styles = {
     textOverflow: "ellipsis",
   },
   userRole: {
-    color: "#64748b",
+    color: "rgba(228, 203, 182, 0.6)",
     fontSize: "12px",
     fontWeight: "500",
     margin: 0,
@@ -216,5 +229,34 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     transition: "all 0.2s ease",
+  },
+  closeBtn: {
+    display: "none",
+    background: "none",
+    border: "none",
+    color: "#fff",
+    fontSize: "24px",
+    cursor: "pointer",
+    padding: "4px",
   }
 };
+
+const respStyles = `
+  @media (max-width: 960px) {
+    .agent-sidebar {
+      width: 280px !important;
+      box-shadow: 8px 0 32px rgba(0,0,0,0.3) !important;
+    }
+    .sidebar-close-btn {
+      display: block !important;
+    }
+  }
+`;
+
+// Add a style tag for the media queries
+if (typeof document !== 'undefined') {
+  const styleTag = document.getElementById('agent-sidebar-styles') || document.createElement('style');
+  styleTag.id = 'agent-sidebar-styles';
+  styleTag.innerHTML = respStyles;
+  document.head.appendChild(styleTag);
+}

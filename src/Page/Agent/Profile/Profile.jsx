@@ -897,23 +897,23 @@ const Profile = () => {
 
         .header-banner {
           height: 160px;
-          background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%);
           position: relative;
         }
 
         .avatar-box {
           width: 140px;
           height: 140px;
-          background: #2563eb;
-          border: 6px solid #ffffff;
+          background: #e4cbb6;
+          border: 6px solid #faf7f5;
           border-radius: 32px;
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 48px;
           font-weight: 800;
-          color: white;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+          color: #4c3324;
+          box-shadow: 0 10px 25px rgba(76, 51, 36, 0.1);
           position: absolute;
           bottom: -70px;
           left: 40px;
@@ -922,25 +922,25 @@ const Profile = () => {
         .profile-card {
           background: white;
           border-radius: 40px;
-          border: 1px solid #f1f5f9;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+          border: 1px solid rgba(228, 203, 182, 0.2);
+          box-shadow: 0 4px 20px rgba(76, 51, 36, 0.03);
           margin-top: -20px;
           padding-top: 80px;
         }
 
         .stat-item {
-          background: #f8fafc;
+          background: #faf7f5;
           padding: 24px;
           border-radius: 24px;
-          border: 1px solid #f1f5f9;
+          border: 1px solid rgba(228, 203, 182, 0.2);
           transition: transform 0.2s ease;
         }
 
         .stat-item:hover {
           transform: translateY(-5px);
           background: #ffffff;
-          box-shadow: 0 10px 20px rgba(37, 99, 235, 0.05);
-          border-color: #dbeafe;
+          box-shadow: 0 10px 20px rgba(178, 132, 107, 0.05);
+          border-color: rgba(178, 132, 107, 0.3);
         }
 
         .badge {
@@ -950,9 +950,9 @@ const Profile = () => {
           font-weight: 800;
           letter-spacing: 0.5px;
           text-transform: uppercase;
-          background: #f0fdf4;
-          color: #166534;
-          border: 1px solid #dcfce7;
+          background: rgba(129, 155, 139, 0.15);
+          color: #627b68;
+          border: 1px solid rgba(129, 155, 139, 0.2);
         }
       `}</style>
 
@@ -1013,12 +1013,12 @@ const Profile = () => {
             </div>
 
             <div className="stat-item">
-              <div style={styles.statIcon}>⭐</div>
+              <div style={styles.statIcon}>💼</div>
               <div>
                 <div style={styles.statValue}>
-                  {agentInfo.rating ?? "0.0"}
+                  {agentInfo.experience || "0 Years"}
                 </div>
-                <div style={styles.statLabel}>Client Rating</div>
+                <div style={styles.statLabel}>Experience</div>
               </div>
             </div>
           </div>
@@ -1048,12 +1048,6 @@ const Profile = () => {
                   </span>
                 </div>
 
-                <div style={styles.contactItem}>
-                  <span style={styles.contactIcon}>💼</span>
-                  <span style={styles.contactValue}>
-                    {agentInfo.experience || "0 Years"} Experience
-                  </span>
-                </div>
               </div>
             </div>
 
@@ -1113,12 +1107,12 @@ const styles = {
   name: {
     fontSize: "36px",
     fontWeight: "800",
-    color: "#1e293b",
+    color: "#4c3324",
     margin: 0,
     letterSpacing: "-1px"
   },
   roleRow: { display: "flex", alignItems: "center", gap: "15px" },
-  roleText: { color: "#2563eb", fontWeight: "700", fontSize: "14px" },
+  roleText: { color: "#b2846b", fontWeight: "700", fontSize: "14px" },
   editBtn: {
     backgroundColor: "#f1f5f9",
     color: "#475569",
@@ -1139,12 +1133,12 @@ const styles = {
   statValue: {
     fontSize: "28px",
     fontWeight: "800",
-    color: "#1e293b"
+    color: "#4c3324"
   },
   statLabel: {
     fontSize: "11px",
     fontWeight: "700",
-    color: "#94a3b8",
+    color: "#819b8b",
     textTransform: "uppercase",
     letterSpacing: "1px"
   },
@@ -1159,7 +1153,7 @@ const styles = {
   sectionTitle: {
     fontSize: "18px",
     fontWeight: "800",
-    color: "#1e293b",
+    color: "#4c3324",
     marginBottom: "24px"
   },
   contactList: { display: "flex", flexDirection: "column", gap: "20px" },
@@ -1177,12 +1171,12 @@ const styles = {
   contactValue: {
     fontSize: "14px",
     fontWeight: "600",
-    color: "#475569"
+    color: "#6b5e58"
   },
   bioText: {
     fontSize: "16px",
     lineHeight: "1.8",
-    color: "#64748b",
+    color: "#6b5e58",
     fontWeight: "500"
   },
   achievementBox: {
@@ -1194,7 +1188,7 @@ const styles = {
   achievementTitle: {
     fontSize: "14px",
     fontWeight: "800",
-    color: "#1e293b",
+    color: "#4c3324",
     marginBottom: "15px",
     textTransform: "uppercase"
   },

@@ -43,13 +43,34 @@ const EditPropertyAgent = () => {
     setProperty({ ...property, [name]: value });
   };
 
+  const parseIndianPrice = (priceStr) => {
+    if (!priceStr) return 0;
+    let cleanStr = priceStr.toString().replace(/[₹,]/g, "").trim().toLowerCase();
+    let multiplier = 1;
+    if (cleanStr.includes("cr") || cleanStr.includes("crore")) {
+      multiplier = 10000000;
+      cleanStr = cleanStr.replace(/cr|crore/g, "").trim();
+    } else if (cleanStr.includes("l") || cleanStr.includes("lakh")) {
+      multiplier = 100000;
+      cleanStr = cleanStr.replace(/l|lakh/g, "").trim();
+    } else if (cleanStr.includes("k") || cleanStr.includes("thousand")) {
+      multiplier = 1000;
+      cleanStr = cleanStr.replace(/k|thousand/g, "").trim();
+    }
+    const numericValue = parseFloat(cleanStr);
+    return isNaN(numericValue) ? 0 : numericValue * multiplier;
+  };
+
   const handleSubmit = () => {
     // 1. Get existing properties
     const savedProperties = JSON.parse(localStorage.getItem("propozo_properties")) || [];
     
     // 2. Map through and update the specific property
+    const parsedPrice = parseIndianPrice(property.price);
+    const displayPrice = property.price.toString().includes(" ") || property.price.toString().toLowerCase().includes("cr") || property.price.toString().toLowerCase().includes("l") ? property.price : `₹${Number(property.price).toLocaleString('en-IN')}`;
+
     const updatedList = savedProperties.map((p) => 
-      p.id === Number(id) ? { ...property, price: Number(property.price) } : p
+      p.id === Number(id) ? { ...property, price: parsedPrice, displayPrice: displayPrice } : p
     );
 
     // 3. Save back to LocalStorage (Persisting the change)
@@ -64,14 +85,14 @@ const EditPropertyAgent = () => {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
         .input-group { display: flex; flex-direction: column; gap: 8px; }
-        .input-label { font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; }
-        .btn-update:hover { background: #2563eb !important; transform: translateY(-2px); }
-        .btn-cancel:hover { background: #f1f5f9 !important; }
+        .input-label { font-size: 11px; font-weight: 700; color: #819b8b; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-update:hover { background: #4c3324 !important; transform: translateY(-2px); }
+        .btn-cancel:hover { background: #faf7f5 !important; border-color: #b2846b !important; }
       `}</style>
 
       <div style={styles.header}>
         <h1 style={styles.title}>Edit Property</h1>
-        <p style={{ color: "#64748b", marginTop: "4px" }}>Modify the details for {property.name || "Property"}</p>
+        <p style={{ color: "#6b5e58", marginTop: "4px" }}>Modify the details for {property.name || "Property"}</p>
       </div>
 
       <div style={styles.formGrid}>
@@ -87,7 +108,7 @@ const EditPropertyAgent = () => {
 
         <div className="input-group">
           <label className="input-label">Price (INR)</label>
-          <input type="number" name="price" value={property.price} onChange={handleChange} style={styles.input} />
+          <input type="text" name="price" value={property.price} onChange={handleChange} style={styles.input} placeholder="e.g. 2.1 Cr or 50 Lakh" />
         </div>
 
         <div className="input-group">
@@ -146,15 +167,15 @@ const styles = {
     padding: "40px",
     background: "#fff",
     borderRadius: "28px",
-    border: "1px solid #f1f5f9",
-    boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
+    border: "1px solid rgba(228, 203, 182, 0.2)",
+    boxShadow: "0 10px 30px rgba(76, 51, 36, 0.04)",
     display: "flex",
     flexDirection: "column",
     gap: "32px",
     fontFamily: "'Plus Jakarta Sans', sans-serif",
   },
-  header: { borderBottom: "1px solid #f1f5f9", paddingBottom: "20px" },
-  title: { fontSize: "32px", fontWeight: "800", color: "#0f172a", margin: 0, letterSpacing: "-1px" },
+  header: { borderBottom: "1px solid rgba(228, 203, 182, 0.2)", paddingBottom: "20px" },
+  title: { fontSize: "32px", fontWeight: "800", color: "#4c3324", margin: 0, letterSpacing: "-1px" },
   formGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
@@ -163,18 +184,20 @@ const styles = {
   input: {
     padding: "16px",
     borderRadius: "14px",
-    border: "1px solid #e2e8f0",
+    border: "1px solid rgba(228, 203, 182, 0.4)",
     fontSize: "14px",
     fontWeight: "500",
     outline: "none",
-    background: "#fcfdfe",
+    background: "#faf7f5",
+    color: "#3a2e28",
+    transition: "all 0.2s ease",
   },
   buttonGroup: { display: "flex", gap: "16px", marginTop: "20px" },
   submitButton: {
     flex: 2,
     padding: "18px",
     borderRadius: "16px",
-    background: "#3b82f6",
+    background: "#627b68",
     color: "#fff",
     fontWeight: "700",
     fontSize: "16px",
@@ -187,10 +210,10 @@ const styles = {
     padding: "18px",
     borderRadius: "16px",
     background: "#fff",
-    color: "#64748b",
+    color: "#b2846b",
     fontWeight: "600",
     fontSize: "16px",
-    border: "1px solid #e2e8f0",
+    border: "1px solid rgba(178, 132, 107, 0.4)",
     cursor: "pointer",
     transition: "all 0.3s ease",
   },

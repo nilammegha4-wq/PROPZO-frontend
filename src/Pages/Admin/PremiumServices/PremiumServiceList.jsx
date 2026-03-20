@@ -191,9 +191,9 @@ const styles = {
     container: {
         padding: "30px",
         fontFamily: "'Inter', system-ui, sans-serif",
-        backgroundColor: "#fff",
+        backgroundColor: "#f5f0ec", // Light Beige background
         borderRadius: "20px",
-        boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+        boxShadow: "0 4px 20px rgba(76,51,36,0.08)", // subtle brown shadow
     },
     header: {
         display: "flex",
@@ -204,7 +204,7 @@ const styles = {
     title: {
         fontSize: "24px",
         fontWeight: "700",
-        color: "#0f172a",
+        color: "#4C3324", // Deep Brown
         margin: 0,
     },
     statsRow: {
@@ -212,24 +212,24 @@ const styles = {
         gap: "20px",
     },
     statCard: {
-        backgroundColor: "#f8fafc",
+        backgroundColor: "#ffffff",
         padding: "10px 20px",
         borderRadius: "12px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        border: "1px solid #e2e8f0",
+        border: "1px solid rgba(178, 132, 107, 0.2)", // Subtle tan border
     },
     statLabel: {
         fontSize: "12px",
-        color: "#64748b",
+        color: "#819B8B", // Light Sage
         fontWeight: "600",
         textTransform: "uppercase",
     },
     statValue: {
         fontSize: "18px",
         fontWeight: "700",
-        color: "#0f172a",
+        color: "#4C3324", // Deep Brown
     },
     filterBar: {
         display: "flex",
@@ -241,9 +241,9 @@ const styles = {
     filterBtn: {
         padding: "8px 16px",
         borderRadius: "30px",
-        border: "1px solid #e2e8f0",
-        backgroundColor: "#fff",
-        color: "#64748b",
+        border: "1px solid rgba(178, 132, 107, 0.3)",
+        backgroundColor: "#faf7f5",
+        color: "#627B68", // Dark Sage
         fontSize: "14px",
         fontWeight: "500",
         cursor: "pointer",
@@ -251,12 +251,16 @@ const styles = {
         transition: "0.2s",
     },
     filterBtnActive: {
-        backgroundColor: "#0f172a",
-        color: "#fff",
-        borderColor: "#0f172a",
+        backgroundColor: "#627B68", // Dark Sage
+        color: "#E4CBB6", // Cream
+        borderColor: "#627B68",
     },
     tableWrapper: {
         overflowX: "auto",
+        backgroundColor: "#ffffff",
+        borderRadius: "16px",
+        padding: "10px",
+        boxShadow: "0 2px 10px rgba(76,51,36,0.04)",
     },
     table: {
         width: "100%",
@@ -264,40 +268,43 @@ const styles = {
         textAlign: "left",
     },
     tableHeader: {
-        borderBottom: "2px solid #f1f5f9",
+        borderBottom: "2px solid rgba(178, 132, 107, 0.15)",
     },
     th: {
         padding: "16px",
-        color: "#64748b",
+        color: "#819B8B", // Light sage
         fontWeight: "600",
         fontSize: "13px",
         textTransform: "uppercase",
     },
     tr: {
-        borderBottom: "1px solid #f1f5f9",
-        transition: "0.2s",
+        borderBottom: "1px solid rgba(178, 132, 107, 0.1)",
+        transition: "background-color 0.2s",
     },
     td: {
         padding: "16px",
         verticalAlign: "middle",
+        color: "#627B68",
     },
     serviceBadge: {
-        padding: "4px 10px",
+        padding: "6px 12px",
         borderRadius: "6px",
         color: "#fff",
         fontSize: "12px",
         fontWeight: "600",
+        whiteSpace: "nowrap",
+        display: "inline-block",
     },
     customerName: {
         margin: 0,
         fontWeight: "600",
-        color: "#0f172a",
+        color: "#4C3324", // Deep Brown
         fontSize: "14px",
     },
     customerDetail: {
         margin: 0,
         fontSize: "12px",
-        color: "#64748b",
+        color: "#819B8B",
     },
     messageCell: {
         maxWidth: "200px",
@@ -305,7 +312,7 @@ const styles = {
         textOverflow: "ellipsis",
         whiteSpace: "nowrap",
         fontSize: "13px",
-        color: "#475569",
+        color: "#627B68",
     },
     statusBadge: {
         padding: "4px 12px",
@@ -319,8 +326,8 @@ const styles = {
         gap: "8px",
     },
     approveBtn: {
-        backgroundColor: "#10b981",
-        color: "#fff",
+        backgroundColor: "#627B68", // Dark Sage
+        color: "#E4CBB6", // Cream
         border: "none",
         padding: "6px 12px",
         borderRadius: "6px",
@@ -330,8 +337,8 @@ const styles = {
         transition: "0.2s",
     },
     rejectBtn: {
-        backgroundColor: "#ef4444",
-        color: "#fff",
+        backgroundColor: "#B2846B", // Soft Tan / Red alternative
+        color: "#ffffff",
         border: "none",
         padding: "6px 12px",
         borderRadius: "6px",
@@ -342,20 +349,20 @@ const styles = {
     },
     doneText: {
         fontSize: "12px",
-        color: "#94a3b8",
+        color: "#B2846B",
         fontStyle: "italic",
     },
     emptyState: {
         textAlign: "center",
         padding: "40px",
-        color: "#94a3b8",
+        color: "#819B8B",
         fontSize: "14px",
     },
     loader: {
         textAlign: "center",
         padding: "50px",
         fontSize: "16px",
-        color: "#4f46e5",
+        color: "#627B68",
     }
 };
 

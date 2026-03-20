@@ -43,13 +43,13 @@ const MyBookings = () => {
         switch (status?.toLowerCase()) {
             case "confirmed":
             case "completed":
-                return { bg: "#ecfdf5", color: "#10b981", border: "#d1fae5" };
+                return { bg: "rgba(129, 155, 139, 0.15)", color: "#627b68", border: "rgba(129, 155, 139, 0.2)" };
             case "pending":
-                return { bg: "#fffbeb", color: "#f59e0b", border: "#fef3c7" };
+                return { bg: "rgba(178, 132, 107, 0.15)", color: "#b2846b", border: "rgba(178, 132, 107, 0.2)" };
             case "failed":
                 return { bg: "#fef2f2", color: "#ef4444", border: "#fee2e2" };
             default:
-                return { bg: "#f1f5f9", color: "#64748b", border: "#e2e8f0" };
+                return { bg: "#faf7f5", color: "#6b5e58", border: "rgba(228, 203, 182, 0.2)" };
         }
     };
 
@@ -71,8 +71,18 @@ const MyBookings = () => {
     }
 
     return (
-        <div style={styles.pageWrapper}>
-            <div style={styles.container}>
+    <div style={styles.pageWrapper}>
+      <style>{`
+        @media (max-width: 768px) {
+          .mb-grid { grid-template-columns: 1fr !important; }
+          .mb-header h1 { font-size: 24px !important; }
+        }
+        @media (max-width: 480px) {
+          .mb-card { border-radius: 12px !important; }
+          .mb-img-section { height: 160px !important; }
+        }
+      `}</style>
+      <div style={styles.container}>
                 {/* Header */}
                 <div style={styles.header}>
                     <button onClick={() => navigate(-1)} style={styles.backBtn}>
@@ -94,7 +104,7 @@ const MyBookings = () => {
                         <Link to="/properties" style={styles.browseBtn}>Browse Properties</Link>
                     </div>
                 ) : (
-                    <div style={styles.grid}>
+                    <div style={styles.grid} className="mb-grid">
                         {bookings.map((booking) => {
                             const statusStyle = getStatusStyle(booking.status);
                             const property = booking.property || {};
@@ -104,8 +114,8 @@ const MyBookings = () => {
                             if (typeLabel === "Buy") typeLabel = "BUY";
 
                             return (
-                                <div key={booking._id} style={styles.card}>
-                                    <div style={styles.imageSection}>
+                                <div key={booking._id} style={styles.card} className="mb-card">
+                                    <div style={styles.imageSection} className="mb-img-section">
                                         <img
                                             src={property.image || (property.images && property.images[0]) || "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1073"}
                                             alt={property.title}
@@ -161,10 +171,10 @@ const MyBookings = () => {
 
 const styles = {
     pageWrapper: {
-        backgroundColor: "#f8fafc",
+        backgroundColor: "#f9f6f1",
         minHeight: "100vh",
         padding: "100px 20px 60px",
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'DM Sans', sans-serif",
     },
     container: {
         maxWidth: "1200px",
@@ -179,23 +189,25 @@ const styles = {
         gap: "8px",
         background: "none",
         border: "none",
-        color: "#6366f1",
+        color: "#819b8b",
         fontWeight: "600",
         fontSize: "15px",
         cursor: "pointer",
         marginBottom: "20px",
         padding: "0",
+        transition: "all 0.2s",
     },
     headerTitle: {},
     title: {
         fontSize: "32px",
         fontWeight: "800",
-        color: "#0f172a",
+        color: "#4c3324",
         margin: "0 0 8px 0",
+        letterSpacing: "-1px",
     },
     subTitle: {
         fontSize: "16px",
-        color: "#64748b",
+        color: "#6b5e58",
         margin: "0",
     },
     errorBanner: {
@@ -218,8 +230,8 @@ const styles = {
     spinner: {
         width: "40px",
         height: "40px",
-        border: "4px solid #f3f3f3",
-        borderTop: "4px solid #6366f1",
+        border: "4px solid #faf7f5",
+        borderTop: "4px solid #627b68",
         borderRadius: "50%",
         animation: "spin 1s linear infinite",
     },
@@ -228,22 +240,23 @@ const styles = {
         padding: "100px 20px",
         backgroundColor: "#ffffff",
         borderRadius: "24px",
-        border: "2px dashed #e2e8f0",
+        border: "2px dashed rgba(228, 203, 182, 0.4)",
     },
     emptyIcon: {
         fontSize: "64px",
-        color: "#e2e8f0",
+        color: "rgba(228, 203, 182, 0.5)",
         marginBottom: "20px",
     },
     browseBtn: {
         display: "inline-block",
         marginTop: "24px",
         padding: "12px 24px",
-        backgroundColor: "#6366f1",
+        backgroundColor: "#627b68",
         color: "white",
         textDecoration: "none",
         borderRadius: "10px",
         fontWeight: "600",
+        transition: "all 0.2s",
     },
     grid: {
         display: "grid",
@@ -254,9 +267,9 @@ const styles = {
         backgroundColor: "#ffffff",
         borderRadius: "20px",
         overflow: "hidden",
-        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)",
+        boxShadow: "0 10px 15px -3px rgba(76, 51, 36, 0.05)",
         transition: "transform 0.2s ease, box-shadow 0.2s ease",
-        border: "1px solid #f1f5f9",
+        border: "1px solid rgba(228, 203, 182, 0.1)",
     },
     imageSection: {
         position: "relative",
@@ -282,8 +295,8 @@ const styles = {
     typeTag: {
         display: "inline-block",
         padding: "4px 10px",
-        backgroundColor: "#f1f5f9",
-        color: "#64748b",
+        backgroundColor: "rgba(129, 155, 139, 0.1)",
+        color: "#627b68",
         fontSize: "11px",
         fontWeight: "700",
         borderRadius: "6px",
@@ -294,7 +307,7 @@ const styles = {
     propertyTitle: {
         fontSize: "18px",
         fontWeight: "700",
-        color: "#0f172a",
+        color: "#4c3324",
         margin: "0 0 12px 0",
         whiteSpace: "nowrap",
         overflow: "hidden",
@@ -309,16 +322,17 @@ const styles = {
         marginBottom: "8px",
     },
     infoIcon: {
-        color: "#6366f1",
+        color: "#819b8b",
     },
     priceSection: {
         marginTop: "20px",
         padding: "16px",
-        backgroundColor: "#f8fafc",
+        backgroundColor: "#faf7f5",
         borderRadius: "12px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        border: "1px solid rgba(228, 203, 182, 0.1)",
     },
     priceLabel: {
         fontSize: "13px",
@@ -328,7 +342,7 @@ const styles = {
     priceValue: {
         fontSize: "18px",
         fontWeight: "800",
-        color: "#0f172a",
+        color: "#4c3324",
     },
     actionRow: {
         marginTop: "20px",
@@ -340,8 +354,8 @@ const styles = {
         textAlign: "center",
         padding: "10px",
         backgroundColor: "#ffffff",
-        color: "#6366f1",
-        border: "1px solid #6366f1",
+        color: "#819b8b",
+        border: "1px solid #819b8b",
         borderRadius: "8px",
         fontSize: "14px",
         fontWeight: "600",
@@ -354,12 +368,13 @@ const styles = {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f1f5f9",
-        color: "#475569",
+        backgroundColor: "rgba(129, 155, 139, 0.1)",
+        color: "#627b68",
         border: "none",
         borderRadius: "8px",
         cursor: "pointer",
         fontSize: "16px",
+        transition: "all 0.2s",
     },
     contactBtn: {
         width: "40px",
@@ -367,12 +382,13 @@ const styles = {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f1f5f9",
-        color: "#475569",
+        backgroundColor: "rgba(129, 155, 139, 0.1)",
+        color: "#627b68",
         border: "none",
         borderRadius: "8px",
         cursor: "pointer",
         fontSize: "16px",
+        transition: "all 0.2s",
     },
 };
 

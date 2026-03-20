@@ -132,9 +132,9 @@ export default function BookingPage() {
 
   return (
     <div style={styles.container}>
-      <div style={styles.glassCard}>
+      <div style={styles.glassCard} className="glassCard">
         {/* Left Side: Brand and Property Summary */}
-        <div style={styles.leftPanel}>
+        <div style={styles.leftPanel} className="leftPanel">
           <div style={styles.brandHeader}>
             <span style={styles.brandIcon}>✨</span> PropZo Premium Buying
           </div>
@@ -164,7 +164,7 @@ export default function BookingPage() {
         </div>
 
         {/* Right Side: Cost Breakdown & Payment Actions */}
-        <div style={styles.rightPanel}>
+        <div style={styles.rightPanel} className="rightPanel">
           <div style={styles.summaryBox}>
             <div style={styles.costBreakdown}>
               <h4 style={{ margin: "0 0 15px 0" }}>Cost Breakdown</h4>

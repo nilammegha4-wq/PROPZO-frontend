@@ -45,9 +45,9 @@ const AgentList = () => {
   const styles = {
     container: {
       padding: "40px 5%",
-      background: "#f8fafc",
+      background: "#f9f6f1", // Brand Cream
       minHeight: "100vh",
-      fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
+      fontFamily: "'DM Sans', sans-serif",
     },
     header: {
       display: "flex",
@@ -58,7 +58,7 @@ const AgentList = () => {
     title: {
       fontSize: "28px",
       fontWeight: "800",
-      color: "#0f172a",
+      color: "#4c3324", // Brand Brown
       margin: 0,
       letterSpacing: "-0.5px",
     },
@@ -66,12 +66,12 @@ const AgentList = () => {
       padding: "12px 24px",
       border: "none",
       borderRadius: "10px",
-      background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+      background: "#627b68", // Brand Sage Dark
       color: "#fff",
       cursor: "pointer",
       fontWeight: "600",
       fontSize: "14px",
-      boxShadow: "0 4px 12px rgba(16, 185, 129, 0.25)",
+      boxShadow: "0 4px 12px rgba(98, 123, 104, 0.25)",
       transition: "transform 0.2s",
     },
     tableContainer: {
@@ -88,13 +88,13 @@ const AgentList = () => {
     },
     th: {
       padding: "16px 24px",
-      background: "#f1f5f9",
-      color: "#64748b",
+      background: "rgba(178, 132, 107, 0.05)", // Brand Tan light
+      color: "#4c3324",
       fontWeight: "700",
       fontSize: "12px",
       textTransform: "uppercase",
       letterSpacing: "0.05em",
-      borderBottom: "1px solid #e2e8f0",
+      borderBottom: "1px solid rgba(228, 203, 182, 0.3)",
     },
     td: {
       padding: "20px 24px",
@@ -105,7 +105,7 @@ const AgentList = () => {
     },
     nameWrapper: {
       fontWeight: "600",
-      color: "#1e293b",
+      color: "#4c3324",
     },
     emailText: {
       color: "#64748b",
@@ -117,16 +117,16 @@ const AgentList = () => {
       fontSize: "11px",
       fontWeight: "700",
       textTransform: "uppercase",
-      background: status === "active" ? "#dcfce7" : "#fee2e2",
-      color: status === "active" ? "#15803d" : "#b91c1c",
+      background: status === "active" ? "rgba(129, 155, 139, 0.15)" : "#fee2e2",
+      color: status === "active" ? "#627b68" : "#b91c1c",
     }),
     editBtn: {
       padding: "8px 14px",
       marginRight: "8px",
-      border: "1px solid #e2e8f0",
+      border: "1px solid rgba(228, 203, 182, 0.3)",
       borderRadius: "8px",
       background: "#fff",
-      color: "#3b82f6",
+      color: "#627b68",
       cursor: "pointer",
       fontSize: "13px",
       fontWeight: "600",
@@ -152,26 +152,36 @@ const AgentList = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.header}>
-        <div>
-          <h2 style={styles.title}>Agent Directory</h2>
-          <p style={{ color: "#64748b", margin: "4px 0 0 0", fontSize: "14px" }}>
-            Overview of all registered real estate agents.
-          </p>
+    <>
+      <style>{`
+        @media (max-width: 991px) {
+          .ag-container { padding: 30px 20px !important; }
+        }
+        @media (max-width: 768px) {
+          .ag-header { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
+          .ag-title { font-size: 24px !important; }
+        }
+      `}</style>
+      <div style={styles.container} className="ag-container">
+        <div style={styles.header} className="ag-header">
+          <div>
+            <h2 style={styles.title} className="ag-title">Agent Directory</h2>
+            <p style={{ color: "#64748b", margin: "4px 0 0 0", fontSize: "14px" }}>
+              Overview of all registered real estate agents.
+            </p>
+          </div>
+          <button
+            style={styles.addBtn}
+            onMouseOver={(e) => (e.currentTarget.style.transform = "translateY(-2px)")}
+            onMouseOut={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+            onClick={() => navigate("/admin/agent/add")}
+          >
+            + Add New Agent
+          </button>
         </div>
-        <button
-          style={styles.addBtn}
-          onMouseOver={(e) => (e.currentTarget.style.transform = "translateY(-2px)")}
-          onMouseOut={(e) => (e.currentTarget.style.transform = "translateY(0)")}
-          onClick={() => navigate("/admin/agent/add")}
-        >
-          + Add New Agent
-        </button>
-      </div>
 
-      <div style={styles.tableContainer}>
-        <table style={styles.table}>
+        <div style={{ ...styles.tableContainer, overflowX: "auto" }} className="ag-table-wrapper">
+          <table style={styles.table}>
           <thead>
             <tr>
               <th style={styles.th}>Full Name</th>
@@ -206,12 +216,12 @@ const AgentList = () => {
                     <button
                       style={styles.editBtn}
                       onMouseOver={(e) => {
-                        e.currentTarget.style.background = "#3b82f6";
+                        e.currentTarget.style.background = "#627b68";
                         e.currentTarget.style.color = "#fff";
                       }}
                       onMouseOut={(e) => {
                         e.currentTarget.style.background = "#fff";
-                        e.currentTarget.style.color = "#3b82f6";
+                        e.currentTarget.style.color = "#627b68";
                       }}
                       onClick={() =>
                         navigate(`/admin/agent/edit/${agent._id}`)
@@ -257,6 +267,7 @@ const AgentList = () => {
         </table>
       </div>
     </div>
+    </>
   );
 };
 

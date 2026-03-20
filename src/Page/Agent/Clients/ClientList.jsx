@@ -54,20 +54,21 @@ const ClientList = () => {
   );
 
   return (
-    <div style={styles.container}>
+    <>
+      <div style={styles.container} className="cl-container">
       <style>{`
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .fade-in { animation: fadeIn 0.4s ease-out forwards; }
         .booking-card { 
           background: #ffffff; 
-          border: 1px solid #f1f5f9; 
+          border: 1px solid rgba(228, 203, 182, 0.2); 
           border-radius: 20px; 
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .booking-card:hover { 
           transform: translateY(-4px); 
-          box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1); 
-          border-color: #e2e8f0; 
+          box-shadow: 0 12px 24px -10px rgba(76, 51, 36, 0.1); 
+          border-color: rgba(228, 203, 182, 0.3); 
         }
         .req-chip { 
           padding: 4px 10px; 
@@ -80,14 +81,14 @@ const ClientList = () => {
           align-items: center;
           gap: 4px;
         }
-        .chip-visitors { background: #f1f5f9; color: #475569; }
-        .chip-preference { background: #eef2ff; color: #6366f1; border: 1px solid #e0e7ff; }
+        .chip-visitors { background: #faf7f5; color: #6b5e58; border: 1px solid rgba(228, 203, 182, 0.2); }
+        .chip-preference { background: rgba(129, 155, 139, 0.1); color: #627b68; border: 1px solid rgba(129, 155, 139, 0.2); }
         
         .avatar {
           width: 48px;
           height: 48px;
-          background: #f1f5f9;
-          color: #6366f1;
+          background: #e4cbb6;
+          color: #4c3324;
           border-radius: 14px;
           display: flex;
           align-items: center;
@@ -100,21 +101,30 @@ const ClientList = () => {
           height: 54px;
           border-radius: 10px;
           object-fit: cover;
-          border: 1px solid #f1f5f9;
+          border: 1px solid rgba(228, 203, 182, 0.2);
         }
-        .tr-row:hover { background: #fbfbfc; }
+        .tr-row:hover { background: #faf7f5; }
+      `}</style>
+
+      <style>{`
+        @media (max-width: 991px) {
+          .cl-container { padding: 30px 20px !important; margin: 20px auto !important; }
+        }
+        @media (max-width: 768px) {
+          .cl-title { font-size: 24px !important; }
+        }
       `}</style>
 
       {/* Header Section */}
-      <div style={styles.header} className="fade-in">
+      <div style={styles.header} className="fade-in cl-header">
         <div>
-          <h2 style={styles.title}>Booking Directory</h2>
+          <h2 style={styles.title} className="cl-title">Booking Directory</h2>
           <p style={styles.subtitle}>Manage and track your property inquiries</p>
         </div>
       </div>
 
       {/* Main Content Table */}
-      <div className="booking-card fade-in" style={{ padding: '0', overflowX: 'auto', animationDelay: '0.2s' }}>
+      <div className="booking-card fade-in cl-table-card" style={{ padding: '0', overflowX: 'auto', animationDelay: '0.2s', width: '100%' }}>
         {loading ? (
           <div style={{ padding: '60px', textAlign: 'center', color: '#64748b' }}>Loading your inquiries...</div>
         ) : filteredClients.length === 0 ? (
@@ -122,9 +132,10 @@ const ClientList = () => {
             {searchQuery ? `No matches found for "${searchQuery}"` : "No inquiries found for your listings."}
           </div>
         ) : (
-          <table style={styles.table}>
+          <div style={{ width: "100%", overflowX: "auto" }}>
+            <table style={styles.table}>
             <thead>
-              <tr style={{ background: '#f8fafc' }}>
+              <tr style={{ background: '#faf7f5' }}>
                 <th style={styles.th}>Client Details</th>
                 <th style={styles.th}>Property Aspect</th>
                 <th style={styles.th}>Appointment</th>
@@ -157,8 +168,8 @@ const ClientList = () => {
                     </div>
                   </td>
                   <td style={styles.td}>
-                    <div style={{ fontWeight: '700', color: '#1e293b', fontSize: '13px' }}>{client.visitDate}</div>
-                    <div style={{ fontSize: '11px', color: '#6366f1', fontWeight: '800', marginTop: '2px' }}>{client.visitTime}</div>
+                    <div style={{ fontWeight: '700', color: '#4c3324', fontSize: '13px' }}>{client.visitDate}</div>
+                    <div style={{ fontSize: '11px', color: '#b2846b', fontWeight: '800', marginTop: '2px' }}>{client.visitTime}</div>
                   </td>
                   <td style={styles.td}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -187,25 +198,27 @@ const ClientList = () => {
               ))}
             </tbody>
           </table>
+          </div>
         )}
       </div>
     </div>
-  );
+  </>
+);
 };
 
 const styles = {
   container: { maxWidth: '1280px', margin: '40px auto', padding: '0 20px' },
   header: { marginBottom: '40px' },
-  title: { fontSize: '28px', fontWeight: '800', color: '#0f172a', margin: '0 0 8px 0', letterSpacing: '-0.5px' },
-  subtitle: { color: '#64748b', fontSize: '15px', margin: 0 },
+  title: { fontSize: '28px', fontWeight: '800', color: '#4c3324', margin: '0 0 8px 0', letterSpacing: '-0.5px' },
+  subtitle: { color: '#6b5e58', fontSize: '15px', margin: 0 },
   table: { width: '100%', borderCollapse: 'collapse' },
-  th: { padding: '16px 24px', textAlign: 'left', fontSize: '10px', fontWeight: '800', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '1px' },
+  th: { padding: '16px 24px', textAlign: 'left', fontSize: '10px', fontWeight: '800', color: '#819b8b', textTransform: 'uppercase', letterSpacing: '1px' },
   td: { padding: '24px' },
   flexCenter: { display: 'flex', alignItems: 'center' },
-  clientName: { fontWeight: '700', color: '#1e293b', fontSize: '15px' },
-  clientContact: { fontSize: '12px', color: '#6366f1', marginTop: '2px', fontWeight: '500' },
-  clientSubtitle: { fontSize: '12px', color: '#94a3b8', marginTop: '2px' },
-  interestText: { fontSize: '14px', fontWeight: '700', color: '#1e293b' }
+  clientName: { fontWeight: '700', color: '#4c3324', fontSize: '15px' },
+  clientContact: { fontSize: '12px', color: '#b2846b', marginTop: '2px', fontWeight: '500' },
+  clientSubtitle: { fontSize: '12px', color: '#6b5e58', marginTop: '2px' },
+  interestText: { fontSize: '14px', fontWeight: '700', color: '#4c3324' }
 };
 
 export default ClientList;

@@ -1168,17 +1168,17 @@ const Properties = () => {
   });
 
   const categoryColors = {
-    Buy: { bg: "#dbeafe", color: "#1d4ed8" },
-    Rent: { bg: "#dcfce7", color: "#15803d" },
-    PerRent: { bg: "#fef9c3", color: "#a16207" },
-    default: { bg: "#e0f2fe", color: "#0369a1" },
+    Buy: { bg: "rgba(178, 132, 107, 0.1)", color: "#b2846b" }, // Brand Tan
+    Rent: { bg: "rgba(129, 155, 139, 0.1)", color: "#819b8b" }, // Brand Sage Light
+    PerRent: { bg: "rgba(228, 203, 182, 0.2)", color: "#4c3324" }, // Brand Brown
+    default: { bg: "#f9f6f1", color: "#627b68" },
   };
 
   if (loading)
     return (
       <div style={loaderWrap}>
         <div style={spinner}></div>
-        <p style={{ color: "#3b82f6", marginTop: 16, fontFamily: "'DM Sans', sans-serif" }}>
+        <p style={{ color: "#627b68", marginTop: 16, fontFamily: "'DM Sans', sans-serif" }}>
           Loading properties...
         </p>
         <style>{spinnerStyle}</style>
@@ -1187,27 +1187,46 @@ const Properties = () => {
 
   return (
     <>
-      <style>{globalStyles}</style>
+      <style>{`
+        ${globalStyles}
+        @media (max-width: 991px) {
+          .prop-container { padding: 30px 20px !important; }
+          .prop-header { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
+          .prop-actions { width: 100% !important; justify-content: space-between !important; }
+        }
+        @media (max-width: 768px) {
+          .prop-grid { grid-template-columns: 1fr !important; }
+          .prop-tabs { overflow-x: auto !important; width: 100% !important; display: flex !important; }
+          .prop-tabs button { flex-shrink: 0 !important; }
+        }
+        @media (max-width: 480px) {
+          .prop-title { font-size: 28px !important; }
+          .prop-actions { flex-direction: column !important; align-items: flex-start !important; }
+          .prop-filter-wrap, .prop-add-btn { width: 100% !important; }
+          .prop-select { width: 100% !important; }
+        }
+      `}</style>
       <div style={styles.page}>
         {/* Sidebar accent */}
         <div style={styles.accentBar} />
 
-        <div style={styles.container}>
+        <div style={styles.container} className="prop-container">
           {/* Header */}
-          <div style={styles.header}>
+          <div style={styles.header} className="prop-header">
             <div>
               <p style={styles.breadcrumb}>Admin / Listings</p>
-              <h1 style={styles.title}>Properties</h1>
+              <h1 style={styles.title} className="prop-title">Properties</h1>
               <p style={styles.subtitle}>
                 {filteredProperties.length} propert{filteredProperties.length !== 1 ? "ies" : "y"} found
               </p>
             </div>
 
-            <div style={styles.actions}>
-              <div style={styles.filterWrap}>
+            <div style={styles.actions} className="prop-actions">
+              <div style={styles.filterWrap} className="prop-filter-wrap">
                 <span style={styles.filterIcon}>⊟</span>
                 <select
                   style={styles.select}
+                  className="prop-select"
                   value={filter}
                   onChange={(e) => setFilter(e.target.value)}
                 >
@@ -1220,16 +1239,17 @@ const Properties = () => {
 
               <button
                 style={styles.addBtn}
+                className="prop-add-btn"
                 onClick={() => navigate("/admin/properties/add")}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#1d4ed8";
+                  e.currentTarget.style.background = "#4c3324";
                   e.currentTarget.style.transform = "translateY(-1px)";
-                  e.currentTarget.style.boxShadow = "0 8px 20px rgba(37,99,235,0.4)";
+                  e.currentTarget.style.boxShadow = "0 8px 20px rgba(76,51,36,0.3)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#2563eb";
+                  e.currentTarget.style.background = "#627b68";
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 14px rgba(37,99,235,0.3)";
+                  e.currentTarget.style.boxShadow = "0 4px 14px rgba(98,123,104,0.2)";
                 }}
               >
                 + Add Property
@@ -1238,7 +1258,7 @@ const Properties = () => {
           </div>
 
           {/* Filter Tabs */}
-          <div style={styles.tabRow}>
+          <div style={styles.tabRow} className="prop-tabs">
             {["All", "Buy", "Rent", "PerRent"].map((tab) => (
               <button
                 key={tab}
@@ -1260,7 +1280,7 @@ const Properties = () => {
               <p style={styles.emptyText}>No properties found in this category.</p>
             </div>
           ) : (
-            <div style={styles.grid}>
+            <div style={styles.grid} className="prop-grid">
               {filteredProperties.map((property, i) => {
                 const badge = categoryColors[property.category] || categoryColors.default;
                 return (
@@ -1318,18 +1338,21 @@ const Properties = () => {
                         </span>
                       </div>
                     </div>
-
                     <div style={styles.cardFooter}>
                       <button
-                        style={styles.editBtn}
                         onClick={() => handleEdit(property._id)}
+                        style={{
+                          ...styles.editBtn,
+                          color: "#627b68",
+                          background: "rgba(98, 123, 104, 0.1)"
+                        }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.background = "#2563eb";
+                          e.currentTarget.style.background = "#627b68";
                           e.currentTarget.style.color = "#fff";
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.background = "#eff6ff";
-                          e.currentTarget.style.color = "#2563eb";
+                          e.currentTarget.style.background = "rgba(98, 123, 104, 0.1)";
+                          e.currentTarget.style.color = "#627b68";
                         }}
                       >
                         ✏️ Edit
@@ -1366,14 +1389,14 @@ const loaderWrap = {
   alignItems: "center",
   justifyContent: "center",
   height: "100vh",
-  background: "#f0f7ff",
+  background: "#f9f6f1",
 };
 
 const spinner = {
   width: 40,
   height: 40,
-  border: "4px solid #bfdbfe",
-  borderTop: "4px solid #2563eb",
+  border: "4px solid rgba(98, 123, 104, 0.2)",
+  borderTop: "4px solid #627b68",
   borderRadius: "50%",
   animation: "spin 0.8s linear infinite",
 };
@@ -1394,7 +1417,7 @@ const globalStyles = `
   }
   .prop-card:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 20px 40px rgba(37,99,235,0.12) !important;
+    box-shadow: 0 20px 40px rgba(76, 51, 36, 0.1) !important;
   }
 `;
 
@@ -1402,12 +1425,12 @@ const styles = {
   page: {
     display: "flex",
     minHeight: "100vh",
-    background: "linear-gradient(135deg, #f0f7ff 0%, #ffffff 60%, #eff6ff 100%)",
+    background: "linear-gradient(135deg, #f9f6f1 0%, #ffffff 60%, #f4f1eb 100%)",
     fontFamily: "'DM Sans', sans-serif",
   },
   accentBar: {
     width: 5,
-    background: "linear-gradient(180deg, #2563eb 0%, #60a5fa 100%)",
+    background: "linear-gradient(180deg, #627b68 0%, #819b8b 100%)",
     flexShrink: 0,
   },
   container: {
@@ -1425,7 +1448,7 @@ const styles = {
   },
   breadcrumb: {
     fontSize: 12,
-    color: "#93c5fd",
+    color: "#b2846b",
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     fontWeight: 600,
@@ -1434,7 +1457,7 @@ const styles = {
   title: {
     fontSize: 34,
     fontWeight: 700,
-    color: "#0f172a",
+    color: "#4c3324",
     fontFamily: "'Sora', sans-serif",
     margin: 0,
     letterSpacing: "-0.5px",
@@ -1476,7 +1499,7 @@ const styles = {
     paddingRight: 4,
   },
   addBtn: {
-    background: "#2563eb",
+    background: "#627b68",
     color: "#fff",
     padding: "0 22px",
     height: 44,
@@ -1488,7 +1511,7 @@ const styles = {
     fontFamily: "'DM Sans', sans-serif",
     letterSpacing: "0.01em",
     transition: "all 0.2s ease",
-    boxShadow: "0 4px 14px rgba(37,99,235,0.3)",
+    boxShadow: "0 4px 14px rgba(98, 123, 104, 0.2)",
   },
   tabRow: {
     display: "flex",
@@ -1514,9 +1537,9 @@ const styles = {
     transition: "all 0.18s",
   },
   tabActive: {
-    background: "#2563eb",
+    background: "#627b68",
     color: "#fff",
-    boxShadow: "0 2px 8px rgba(37,99,235,0.25)",
+    boxShadow: "0 2px 8px rgba(98, 123, 104, 0.2)",
   },
   grid: {
     display: "grid",
@@ -1526,8 +1549,8 @@ const styles = {
   card: {
     background: "#ffffff",
     borderRadius: 16,
-    boxShadow: "0 4px 16px rgba(15,23,42,0.06)",
-    border: "1px solid #e8f0fe",
+    boxShadow: "0 4px 16px rgba(76, 51, 36, 0.06)",
+    border: "1px solid rgba(228, 203, 182, 0.3)",
     overflow: "hidden",
     display: "flex",
     flexDirection: "column",
@@ -1547,7 +1570,7 @@ const styles = {
   },
   cardTopBar: {
     height: 4,
-    background: "linear-gradient(90deg, #2563eb, #60a5fa)",
+    background: "linear-gradient(90deg, #627b68, #819b8b)",
   },
   cardBody: {
     padding: "22px 22px 16px",
@@ -1556,7 +1579,7 @@ const styles = {
   propertyTitle: {
     fontSize: 17,
     fontWeight: 600,
-    color: "#0f172a",
+    color: "#4c3324",
     margin: 0,
     fontFamily: "'Sora', sans-serif",
     flex: 1,
@@ -1566,7 +1589,7 @@ const styles = {
   price: {
     fontSize: 22,
     fontWeight: 700,
-    color: "#2563eb",
+    color: "#b2846b",
     margin: "12px 0 14px",
     fontFamily: "'Sora', sans-serif",
   },

@@ -7,10 +7,10 @@ const styles = `
 
 .agent-login-page {
   min-height: 100vh;
-  background-color: #f8fafc;
+  background-color: #f9f6f1;
   background-image: 
-    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(37, 99, 235, 0.05) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(98, 123, 104, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(178, 132, 107, 0.05) 0px, transparent 50%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,26 +24,25 @@ const styles = `
   max-width: 420px;
   padding: 40px;
   border-radius: 24px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(228, 203, 182, 0.2);
+  box-shadow: 0 20px 25px -5px rgba(76, 51, 36, 0.03), 0 10px 10px -5px rgba(76, 51, 36, 0.02);
   text-align: center;
 }
 
-/* ✅ FIXED TYPO HERE */
 .brand-logo {
   width: 52px;
   height: 52px;
-  background: #eff6ff;
+  background: #e4cbb6;
   border-radius: 12px;
   margin: 0 auto 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2563eb;
+  color: #4c3324;
 }
 
 .agent-login-box h2 {
-  color: #0f172a;
+  color: #4c3324;
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 8px;
@@ -51,7 +50,7 @@ const styles = `
 }
 
 .agent-login-box p {
-  color: #64748b;
+  color: #627b68;
   font-size: 15px;
   margin-bottom: 32px;
 }
@@ -65,17 +64,17 @@ const styles = `
   display: block;
   font-size: 14px;
   font-weight: 600;
-  color: #334155;
+  color: #4c3324;
   margin-bottom: 8px;
 }
 
 .agent-login-box input {
   width: 100%;
   padding: 12px 16px;
-  background: #f8fafc;
-  border: 1.5px solid #e2e8f0;
+  background: #faf7f5;
+  border: 1.5px solid rgba(228, 203, 182, 0.3);
   border-radius: 12px;
-  color: #0f172a;
+  color: #4c3324;
   font-size: 15px;
   transition: all 0.2s ease;
   box-sizing: border-box;
@@ -83,15 +82,15 @@ const styles = `
 
 .agent-login-box input:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #819b8b;
   background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 4px rgba(129, 155, 139, 0.1);
 }
 
 .login-button {
   width: 100%;
   padding: 14px;
-  background: #2563eb;
+  background: #627b68;
   color: white;
   border: none;
   border-radius: 12px;
@@ -103,7 +102,7 @@ const styles = `
 }
 
 .login-button:hover {
-  background: #1d4ed8;
+  background: #4c3324;
 }
 `;
 

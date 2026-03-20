@@ -83,14 +83,36 @@ export default function AddProperty() {
     }
   };
 
+  const parseIndianPrice = (priceStr) => {
+    if (!priceStr) return 0;
+    let cleanStr = priceStr.toString().replace(/[₹,]/g, "").trim().toLowerCase();
+    let multiplier = 1;
+    if (cleanStr.includes("cr") || cleanStr.includes("crore")) {
+      multiplier = 10000000;
+      cleanStr = cleanStr.replace(/cr|crore/g, "").trim();
+    } else if (cleanStr.includes("l") || cleanStr.includes("lakh")) {
+      multiplier = 100000;
+      cleanStr = cleanStr.replace(/l|lakh/g, "").trim();
+    } else if (cleanStr.includes("k") || cleanStr.includes("thousand")) {
+      multiplier = 1000;
+      cleanStr = cleanStr.replace(/k|thousand/g, "").trim();
+    }
+    const numericValue = parseFloat(cleanStr);
+    return isNaN(numericValue) ? 0 : numericValue * multiplier;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Map frontend fields back to standardized backend fields
+    const parsedPrice = parseIndianPrice(formData.price);
+    const displayPrice = formData.price.includes(" ") || formData.price.toLowerCase().includes("cr") || formData.price.toLowerCase().includes("l") ? formData.price : `₹${Number(formData.price).toLocaleString('en-IN')}`;
+
     let finalData = {
       title: formData.title,
       location: formData.location,
-      price: Number(formData.price) || 0,
+      price: parsedPrice,
+      displayPrice: displayPrice,
       category: formData.category,
       propertyType: formData.category, // Standardize with Property model enum
       description: formData.description,
@@ -117,6 +139,10 @@ export default function AddProperty() {
         displayPrice: formData.displayPrice,
         size: formData.size,
         map: formData.map,
+        // Send owner info as top-level fields (schema expects ObjectId for `owner`)
+        sellerName: formData.owner.name,
+        phone: formData.owner.phone,
+        email: formData.owner.email,
       };
     }
 
@@ -132,14 +158,10 @@ export default function AddProperty() {
         furnished: formData.furnished,
         facing: formData.facing,
         availableFrom: formData.availableFrom,
-        owner: {
-          name: formData.owner.name,
-          phone: formData.owner.phone,
-          email: formData.owner.email,
-          experience: formData.owner.experience,
-          rating: Number(formData.owner.rating) || 0,
-          totalListings: Number(formData.owner.totalListings) || 0,
-        },
+        // Send owner info as top-level fields (schema expects ObjectId for `owner`)
+        sellerName: formData.owner.name,
+        phone: formData.owner.phone,
+        email: formData.owner.email,
       };
     }
 
@@ -414,8 +436,8 @@ const globalStyles = `
   }
   input:focus, textarea:focus, select:focus {
     outline: none !important;
-    border-color: #2563eb !important;
-    box-shadow: 0 0 0 3px rgba(37,99,235,0.1) !important;
+    border-color: #627b68 !important;
+    box-shadow: 0 0 0 3px rgba(98,123,104,0.1) !important;
   }
 `;
 
@@ -423,12 +445,12 @@ const s = {
   page: {
     display: "flex",
     minHeight: "100vh",
-    background: "linear-gradient(135deg, #f0f7ff 0%, #ffffff 60%, #eff6ff 100%)",
+    background: "linear-gradient(135deg, #f9f6f1 0%, #ffffff 60%, #f4f1eb 100%)",
     fontFamily: "'DM Sans', sans-serif",
   },
   accentBar: {
     width: 5,
-    background: "linear-gradient(180deg, #2563eb 0%, #60a5fa 100%)",
+    background: "linear-gradient(180deg, #627b68 0%, #819b8b 100%)",
     flexShrink: 0,
   },
   wrapper: {
@@ -448,7 +470,7 @@ const s = {
   },
   breadcrumb: {
     fontSize: 12,
-    color: "#93c5fd",
+    color: "#b2846b",
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     fontWeight: 600,
@@ -457,7 +479,7 @@ const s = {
   pageTitle: {
     fontSize: 32,
     fontWeight: 700,
-    color: "#0f172a",
+    color: "#4c3324",
     fontFamily: "'Sora', sans-serif",
     margin: 0,
     letterSpacing: "-0.5px",
@@ -500,7 +522,7 @@ const s = {
   sectionTitle: {
     fontSize: 15,
     fontWeight: 600,
-    color: "#1e3a8a",
+    color: "#627b68",
     margin: 0,
     fontFamily: "'Sora', sans-serif",
     letterSpacing: "0.01em",
@@ -556,13 +578,13 @@ const s = {
     padding: "12px 36px",
     borderRadius: 10,
     border: "none",
-    background: "#2563eb",
+    background: "#627b68",
     color: "#fff",
     fontSize: 15,
     fontWeight: 600,
     cursor: "pointer",
     fontFamily: "'DM Sans', sans-serif",
-    boxShadow: "0 4px 14px rgba(37,99,235,0.3)",
+    boxShadow: "0 4px 14px rgba(98,123,104,0.3)",
     transition: "all 0.2s ease",
     letterSpacing: "0.01em",
   },

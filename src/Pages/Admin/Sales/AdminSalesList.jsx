@@ -72,33 +72,54 @@ const AdminSalesList = () => {
         totalValue: sales.reduce((acc, curr) => acc + (Number(curr.price) || 0), 0)
     };
 
-    return (
-        <div style={styles.container}>
-            <header style={styles.header}>
-                <div>
-                    <h1 style={styles.title}>Property Sale Requests</h1>
-                    <p style={styles.subtitle}>Manage and monitor all incoming seller submissions</p>
-                </div>
-                <div style={styles.statsRow}>
-                    <div style={styles.statCard}>
-                        <div style={{ ...styles.statIcon, background: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6' }}><FaList /></div>
-                        <div>
-                            <p style={styles.statLabel}>Total Requests</p>
-                            <h3 style={styles.statValue}>{stats.total}</h3>
-                        </div>
-                    </div>
-                    <div style={styles.statCard}>
-                        <div style={{ ...styles.statIcon, background: 'rgba(16, 185, 129, 0.1)', color: '#10b981' }}><FaMoneyBillWave /></div>
-                        <div>
-                            <p style={styles.statLabel}>Total Value</p>
-                            <h3 style={styles.statValue}>₹{(stats.totalValue / 1000000).toFixed(1)}M</h3>
-                        </div>
-                    </div>
-                </div>
-            </header>
+    const formatPrice = (value) => {
+        if (value >= 10000000) {
+            return (value / 10000000).toFixed(2) + " CR";
+        } else if (value >= 100000) {
+            return (value / 100000).toFixed(2) + " Lakh";
+        }
+        return value.toLocaleString('en-IN');
+    };
 
-            <div style={styles.tableCard}>
-                <table style={styles.table}>
+    return (
+        <>
+            <style>{`
+                @media (max-width: 991px) {
+                    .asl-container { padding: 20px !important; }
+                    .asl-header { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
+                    .asl-stats-row { width: 100% !important; overflow-x: auto !important; padding-bottom: 5px !important; }
+                }
+                @media (max-width: 768px) {
+                    .asl-title { font-size: 24px !important; }
+                }
+            `}</style>
+            <div style={styles.container} className="asl-container">
+                <header style={styles.header} className="asl-header">
+                    <div>
+                        <h1 style={styles.title} className="asl-title">Property Sale Requests</h1>
+                        <p style={styles.subtitle}>Manage and monitor all incoming seller submissions</p>
+                    </div>
+                    <div style={styles.statsRow} className="asl-stats-row">
+                        <div style={styles.statCard}>
+                            <div style={{ ...styles.statIcon, background: 'rgba(178, 132, 107, 0.1)', color: '#b2846b' }}><FaList /></div>
+                            <div>
+                                <p style={styles.statLabel}>Total Requests</p>
+                                <h3 style={styles.statValue}>{stats.total}</h3>
+                            </div>
+                        </div>
+                        <div style={styles.statCard}>
+                            <div style={{ ...styles.statIcon, background: 'rgba(98, 123, 104, 0.1)', color: '#627b68' }}><FaMoneyBillWave /></div>
+                            <div>
+                                <p style={styles.statLabel}>Total Value</p>
+                                <h3 style={styles.statValue}>₹{formatPrice(stats.totalValue)}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div style={{ ...styles.tableCard, overflowX: "auto" }} className="asl-table-card">
+                    <div style={{ minWidth: "900px" }}>
+                        <table style={styles.table}>
                     <thead>
                         <tr>
                             <th style={styles.th}>Property</th>
@@ -169,6 +190,7 @@ const AdminSalesList = () => {
                         ))}
                     </tbody>
                 </table>
+                    </div>
                 {sales.length === 0 && (
                     <div style={styles.emptyState}>
                         <FaInfoCircle size={40} color="#94a3b8" />
@@ -267,15 +289,16 @@ const AdminSalesList = () => {
                 </div>
             )}
         </div>
-    );
+    </>
+  );
 };
 
 const styles = {
     container: {
-        background: "#f8fafc",
+        background: "#f9f6f1", // Brand Cream
         padding: "30px",
         minHeight: "100vh",
-        color: "#1e293b",
+        color: "#4c3324", // Brand Brown
     },
     header: {
         display: "flex",
@@ -287,7 +310,7 @@ const styles = {
         fontSize: "28px",
         fontWeight: "800",
         margin: 0,
-        color: "#0f172a",
+        color: "#4c3324",
         letterSpacing: "-0.5px",
     },
     subtitle: {
@@ -327,10 +350,11 @@ const styles = {
         letterSpacing: "0.5px",
     },
     statValue: {
-        fontSize: "18px",
-        fontWeight: "700",
+        fontSize: "24px",
+        fontWeight: "800",
         margin: 0,
-        color: "#0f172a",
+        color: "#4c3324",
+        letterSpacing: "-0.5px",
     },
     tableCard: {
         background: "#fff",
@@ -346,13 +370,13 @@ const styles = {
     },
     th: {
         padding: "20px",
-        background: "#f8fafc",
+        background: "rgba(178, 132, 107, 0.05)",
         fontSize: "13px",
         fontWeight: "700",
-        color: "#475569",
+        color: "#4c3324",
         textTransform: "uppercase",
         letterSpacing: "1px",
-        borderBottom: "1px solid #e2e8f0",
+        borderBottom: "1px solid rgba(228, 203, 182, 0.3)",
     },
     tr: {
         borderBottom: "1px solid #f1f5f9",
@@ -408,7 +432,7 @@ const styles = {
     priceText: {
         fontSize: "16px",
         fontWeight: "800",
-        color: "#2563eb",
+        color: "#b2846b", // Brand Tan
         margin: 0,
     },
     locationInfo: {
@@ -463,8 +487,8 @@ const styles = {
         height: "36px",
         borderRadius: "10px",
         border: "none",
-        background: "#eff6ff",
-        color: "#2563eb",
+        background: "rgba(98, 123, 104, 0.1)",
+        color: "#627b68",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -549,12 +573,12 @@ const styles = {
         fontSize: "28px",
         fontWeight: "800",
         margin: "0 0 10px 0",
-        color: "#0f172a",
+        color: "#4c3324",
     },
     modalBadge: {
         display: "inline-block",
         padding: "8px 20px",
-        background: "#2563eb",
+        background: "#b2846b",
         color: "#fff",
         borderRadius: "14px",
         fontSize: "20px",
@@ -642,7 +666,7 @@ const styles = {
         padding: "14px 28px",
         borderRadius: "16px",
         border: "none",
-        background: "#10b981",
+        background: "#627b68",
         color: "#fff",
         fontWeight: "700",
         cursor: "pointer",

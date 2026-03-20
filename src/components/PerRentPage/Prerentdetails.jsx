@@ -1,859 +1,521 @@
-// import React, { useEffect, useState } from "react";
-// import { useParams, useNavigate } from "react-router-dom";
-
-// /* ===============================
-//    PROPERTY DATA
-// =============================== */
-// const properties = [
-//   {
-//     id: 1,
-//     title: "Cozy Meeting Hall",
-//     location: "Bandra, Mumbai",
-//     type: "hour",
-//     price: 800,
-//     image: "/Cozymeetinghall.jpg",
-//     gallery: ["/Cozymeetinghall.jpg", "/hall2.jpg", "/hall3.jpg"],
-//     description:
-//       "Perfect meeting space with modern facilities, WiFi, AC and comfortable seating. Ideal for client pitches and team brainstorms.",
-//     amenities: ["WiFi", "AC", "Projector", "Parking", "Cafeteria"],
-//     rating: 4.8,
-//   },
-//   {
-//     id: 2,
-//     title: "Mountain View Villa",
-//     location: "Powai, Mumbai",
-//     type: "hour",
-//     price: 800,
-//     image: "/MountainVilla.jpg",
-//     gallery: ["/MountainVilla.jpg", "/villa2.jpg", "/villa3.jpg"],
-//     description:
-//       "Luxury villa with mountain views, private pool and peaceful surroundings. Escape the city noise without leaving the city.",
-//     amenities: ["Pool", "WiFi", "Garden", "Security", "Parking"],
-//     rating: 4.9,
-//   },
-//   {
-//     id: 3,
-//     title: "Event Hall",
-//     location: "Andheri West, Mumbai",
-//     type: "day",
-//     price: 15000,
-//     image: "/Eventhall.jpg",
-//     gallery: ["/Eventhall.jpg", "/event2.jpg", "/event3.jpg"],
-//     description:
-//       "Spacious event hall suitable for weddings, conferences and parties. Full-service support available.",
-//     amenities: ["Stage", "Sound System", "AC", "Catering", "Parking"],
-//     rating: 4.5,
-//   },
-//   {
-//     id: 4,
-//     title: "Beach Side Villa",
-//     location: "Goa",
-//     type: "week",
-//     price: 22000,
-//     image: "/Beachsidevilla.jpg",
-//     gallery: ["/Beachsidevilla.jpg", "/beach2.jpg", "/beach3.jpg"],
-//     description:
-//       "Sea-facing villa with private beach access and luxury interiors. The ultimate vacation gateway.",
-//     amenities: ["Sea View", "Pool", "Kitchen", "WiFi", "Parking"],
-//     rating: 4.9,
-//   },
-//   {
-//     id: 5,
-//     title: "Premium Conference Hall",
-//     location: "Lower Parel, Mumbai",
-//     type: "hour",
-//     price: 1200,
-//     image: "/Conferencehall.jpg",
-//     gallery: ["/Conferencehall.jpg", "/conf2.jpg", "/conf3.jpg"],
-//     description:
-//       "High-end conference hall with advanced presentation facilities and luxury interiors.",
-//     amenities: ["WiFi", "Projector", "AC", "Sound System", "Parking"],
-//     rating: 4.7,
-//   },
-//   {
-//     id: 6,
-//     title: "Guest House",
-//     location: "Bandra West, Mumbai",
-//     type: "day",
-//     price: 6000,
-//     image: "/Guesthouse.jpg",
-//     gallery: ["/Guesthouse.jpg", "/guest2.jpg", "/guest3.jpg"],
-//     description:
-//       "Comfortable guest house with premium rooms and modern hospitality services.",
-//     amenities: ["Room Service", "WiFi", "Parking", "AC", "Security"],
-//     rating: 4.6,
-//   },
-//   {
-//     id: 7,
-//     title: "Floating Home",
-//     location: "Kerala",
-//     type: "week",
-//     price: 35000,
-//     image: "/Floatinghome.jpg",
-//     gallery: ["/Floatinghome.jpg", "/float2.jpg", "/float3.jpg"],
-//     description:
-//       "Unique floating home experience with scenic backwater views and luxury stay.",
-//     amenities: ["Lake View", "WiFi", "Kitchen", "Boat Access", "AC"],
-//     rating: 5.0,
-//   },
-//   {
-//     id: 8,
-//     title: "Farm House",
-//     location: "Andheri East, Mumbai",
-//     type: "hour",
-//     price: 1000,
-//     image: "/Farmhouse.jpg",
-//     gallery: ["/Farmhouse.jpg", "/farm2.jpg", "/farm3.jpg"],
-//     description:
-//       "Peaceful farmhouse for parties, shoots, and weekend relaxation.",
-//     amenities: ["Garden", "Parking", "Pool", "BBQ Area", "Security"],
-//     rating: 4.4,
-//   },
-//   {
-//     id: 9,
-//     title: "Mountain View Villa",
-//     location: "Himachal Pradesh",
-//     type: "week",
-//     price: 28000,
-//     image: "/MountainVilla.jpg",
-//     gallery: ["/MountainVilla.jpg", "/mount2.jpg", "/mount3.jpg"],
-//     description:
-//       "Hilltop villa offering breathtaking mountain views and luxury comfort.",
-//     amenities: ["Fireplace", "WiFi", "Balcony", "Parking", "Security"],
-//     rating: 4.9,
-//   },
-// ];
-
-// /* ===============================
-//    HELPER: GET EMOJI FOR AMENITY
-// =============================== */
-// const getAmenityEmoji = (amenity) => {
-//   const lower = amenity.toLowerCase();
-//   if (lower.includes("wifi")) return "📶";
-//   if (lower.includes("ac")) return "❄️";
-//   if (lower.includes("pool")) return "🏊";
-//   if (lower.includes("parking")) return "🚗";
-//   if (lower.includes("garden")) return "🌳";
-//   if (lower.includes("sea") || lower.includes("beach")) return "🏖️";
-//   if (lower.includes("kitchen") || lower.includes("catering")) return "🍳";
-//   if (lower.includes("sound") || lower.includes("speaker")) return "🔊";
-//   if (lower.includes("security")) return "🛡️";
-//   if (lower.includes("tv") || lower.includes("projector")) return "📺";
-//   if (lower.includes("fire")) return "🔥";
-//   if (lower.includes("boat")) return "🚤";
-//   return "✨"; // Default
-// };
-
-// /* ===============================
-//    MAIN COMPONENT
-// =============================== */
-// export default function Prerentdetails() {
-//   const { id } = useParams();
-//   const navigate = useNavigate();
-//   const [mounted, setMounted] = useState(false);
-
-//   useEffect(() => {
-//     window.scrollTo(0, 0);
-//     setMounted(true); // Triggers the fade-in animation
-//   }, []);
-
-//   const property = properties.find((item) => item.id === Number(id));
-
-//   if (!property) {
-//     return (
-//       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", color: "#6b7280" }}>
-//         <h2>Property Not Found</h2>
-//       </div>
-//     );
-//   }
-
-//   /* ===============================
-//      STYLES
-//   =============================== */
-//   const styles = {
-//     page: {
-//       background: "#f8fafc",
-//       minHeight: "100vh",
-//       fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
-//       color: "#1e293b",
-//       paddingBottom: 80,
-//       opacity: mounted ? 1 : 0,
-//       transform: mounted ? "translateY(0)" : "translateY(10px)",
-//       transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
-//     },
-//     navBar: {
-//       position: "fixed",
-//       top: 0,
-//       left: 0,
-//       right: 0,
-//       background: "rgba(255, 255, 255, 0.85)",
-//       backdropFilter: "blur(12px)",
-//       borderBottom: "1px solid #e2e8f0",
-//       padding: "16px 0",
-//       zIndex: 1000,
-//     },
-//     container: {
-//       maxWidth: 1100,
-//       margin: "0 auto",
-//       padding: "0 24px",
-//     },
-//     backButton: {
-//       border: "none",
-//       background: "transparent",
-//       color: "#64748b",
-//       cursor: "pointer",
-//       fontSize: 15,
-//       fontWeight: 600,
-//       padding: "8px 0",
-//       display: "flex",
-//       alignItems: "center",
-//       gap: "6px",
-//       transition: "color 0.2s",
-//     },
-
-//     // Header
-//     headerSection: {
-//       marginTop: 100,
-//       marginBottom: 32,
-//     },
-//     title: {
-//       fontSize: 34,
-//       fontWeight: 800,
-//       color: "#0f172a",
-//       margin: "0 0 8px 0",
-//       letterSpacing: "-0.02em",
-//     },
-//     location: {
-//       fontSize: 16,
-//       color: "#64748b",
-//       display: "flex",
-//       alignItems: "center",
-//       gap: "6px",
-//     },
-
-//     // Gallery
-//     galleryGrid: {
-//       display: "grid",
-//       gridTemplateColumns: "2fr 1fr",
-//       gap: 12,
-//       height: 420,
-//       borderRadius: 20,
-//       overflow: "hidden",
-//       marginBottom: 48,
-//       boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-//     },
-//     mainImg: {
-//       width: "100%",
-//       height: "100%",
-//       objectFit: "cover",
-//       cursor: "pointer",
-//       transition: "transform 0.3s ease",
-//     },
-//     sideImgCol: {
-//       display: "flex",
-//       flexDirection: "column",
-//       gap: 12,
-//       height: "100%",
-//     },
-//     sideImg: {
-//       width: "100%",
-//       height: "calc(50% - 6px)",
-//       objectFit: "cover",
-//       cursor: "pointer",
-//       transition: "opacity 0.2s",
-//     },
-
-//     // Content Layout
-//     layout: {
-//       display: "grid",
-//       gridTemplateColumns: "minmax(0, 1.8fr) minmax(0, 1fr)",
-//       gap: 48,
-//       position: "relative",
-//     },
-
-//     // Left Side
-//     section: {
-//       marginBottom: 40,
-//       borderBottom: "1px solid #e2e8f0",
-//       paddingBottom: 40,
-//     },
-//     sectionTitle: {
-//       fontSize: 22,
-//       fontWeight: 700,
-//       marginBottom: 20,
-//       color: "#1e293b",
-//     },
-//     text: {
-//       lineHeight: 1.7,
-//       color: "#475569",
-//       fontSize: 16,
-//     },
-//     amenitiesGrid: {
-//       display: "grid",
-//       gridTemplateColumns: "repeat(auto-fill, minmax(130px, 1fr))",
-//       gap: 16,
-//     },
-//     amenityCard: {
-//       background: "#ffffff",
-//       border: "1px solid #f1f5f9",
-//       padding: "16px",
-//       borderRadius: 16,
-//       textAlign: "center",
-//       boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-//       transition: "transform 0.2s, box-shadow 0.2s",
-//       cursor: "default",
-//     },
-//     amenityIcon: {
-//       fontSize: 24,
-//       marginBottom: 8,
-//       display: "block",
-//     },
-//     amenityLabel: {
-//       fontSize: 13,
-//       fontWeight: 600,
-//       color: "#334155",
-//     },
-
-//     // Right Side (Sticky Card)
-//     sidebar: {
-//       position: "sticky",
-//       top: 100,
-//       height: "fit-content",
-//     },
-//     card: {
-//       background: "#fff",
-//       border: "1px solid #e2e8f0",
-//       borderRadius: 24,
-//       padding: 24,
-//       boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-//     },
-//     priceRow: {
-//       display: "flex",
-//       justifyContent: "space-between",
-//       alignItems: "flex-end",
-//       marginBottom: 24,
-//     },
-//     price: {
-//       fontSize: 28,
-//       fontWeight: 800,
-//       color: "#0f172a",
-//     },
-//     period: {
-//       fontSize: 15,
-//       color: "#64748b",
-//       fontWeight: 500,
-//     },
-//     ratingBadge: {
-//         background: '#fef3c7',
-//         color: '#b45309',
-//         padding: '4px 8px',
-//         borderRadius: 6,
-//         fontSize: 13,
-//         fontWeight: 700,
-//         display: 'flex',
-//         alignItems: 'center',
-//         gap: 4
-//     },
-//     form: {
-//       display: "grid",
-//       gap: 16,
-//     },
-//     inputGroup: {
-//       background: "#fff",
-//       border: "1px solid #cbd5e1",
-//       borderRadius: 12,
-//       overflow: "hidden",
-//     },
-//     row: {
-//       display: "flex",
-//       borderBottom: "1px solid #cbd5e1",
-//     },
-//     field: {
-//       flex: 1,
-//       padding: "10px 14px",
-//       borderRight: "1px solid #cbd5e1",
-//     },
-//     label: {
-//       display: "block",
-//       fontSize: 10,
-//       fontWeight: 700,
-//       textTransform: "uppercase",
-//       color: "#64748b",
-//       marginBottom: 4,
-//     },
-//     input: {
-//       width: "100%",
-//       border: "none",
-//       outline: "none",
-//       fontSize: 14,
-//       fontFamily: "inherit",
-//       background: "transparent",
-//       color: "#334155",
-//     },
-//     btn: {
-//       width: "100%",
-//       padding: "16px",
-//       background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
-//       color: "#fff",
-//       border: "none",
-//       borderRadius: 12,
-//       fontSize: 16,
-//       fontWeight: 600,
-//       cursor: "pointer",
-//       marginTop: 8,
-//       transition: "transform 0.1s, opacity 0.2s",
-//       boxShadow: "0 4px 6px -1px rgba(37, 99, 235, 0.2)",
-//     },
-//     subtext: {
-//       textAlign: "center",
-//       fontSize: 13,
-//       color: "#94a3b8",
-//       marginTop: 16,
-//     }
-//   };
-
-//   /* ===============================
-//      INLINE CSS FOR RESPONSIVENESS & INTERACTION
-//   =============================== */
-//   const stylesCSS = `
-//     .gallery-img:hover { transform: scale(1.02); }
-//     .amenity-card:hover { transform: translateY(-3px); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-//     .action-btn:hover { opacity: 0.95; }
-//     .action-btn:active { transform: scale(0.98); }
-
-//     @media (max-width: 900px) {
-//       .content-layout { grid-template-columns: 1fr !important; }
-//       .gallery-grid { height: 320px !important; }
-//     }
-//     @media (max-width: 600px) {
-//       .gallery-grid { display: block !important; height: auto !important; }
-//       .main-img { height: 240px !important; border-radius: 12px; margin-bottom: 12px; }
-//       .side-img-col { display: none !important; }
-//     }
-//   `;
-
-//   return (
-//     <div style={styles.page}>
-//       <style>{stylesCSS}</style>
-
-//       {/* NAV */}
-//       <nav style={styles.navBar}>
-//         <div style={styles.container}>
-//           <button style={styles.backButton} onClick={() => navigate(-1)}>
-//             ← Back to Listings
-//           </button>
-//         </div>
-//       </nav>
-
-//       {/* MAIN CONTAINER */}
-//       <div style={styles.container}>
-
-//         {/* HEADER */}
-//         <div style={styles.headerSection}>
-//           <h1 style={styles.title}>{property.title}</h1>
-//           <div style={styles.location}>
-//             <span>📍</span> {property.location}
-//           </div>
-//         </div>
-
-//         {/* GALLERY */}
-//         <div style={styles.galleryGrid} className="gallery-grid">
-//           <img 
-//             src={property.gallery[0]} 
-//             alt="Main" 
-//             style={styles.mainImg} 
-//             className="gallery-img main-img" 
-//           />
-//           <div style={styles.sideImgCol} className="side-img-col">
-//             <img 
-//               src={property.gallery[1] || property.image} 
-//               alt="Side 1" 
-//               style={styles.sideImg} 
-//               className="gallery-img" 
-//             />
-//             <img 
-//               src={property.gallery[2] || property.image} 
-//               alt="Side 2" 
-//               style={styles.sideImg} 
-//               className="gallery-img" 
-//             />
-//           </div>
-//         </div>
-
-//         {/* CONTENT LAYOUT */}
-//         <div style={styles.layout} className="content-layout">
-
-//           {/* LEFT COLUMN */}
-//           <div>
-//             <div style={styles.section}>
-//               <h3 style={styles.sectionTitle}>About this space</h3>
-//               <p style={styles.text}>{property.description}</p>
-//             </div>
-
-//             <div style={{...styles.section, borderBottom: "none"}}>
-//               <h3 style={styles.sectionTitle}>What this place offers</h3>
-//               <div style={styles.amenitiesGrid}>
-//                 {property.amenities.map((item, index) => (
-//                   <div key={index} style={styles.amenityCard} className="amenity-card">
-//                     <span style={styles.amenityIcon}>{getAmenityEmoji(item)}</span>
-//                     <span style={styles.amenityLabel}>{item}</span>
-//                   </div>
-//                 ))}
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* RIGHT COLUMN (STICKY) */}
-//           <div style={styles.sidebar}>
-//             <div style={styles.card}>
-//               <div style={styles.priceRow}>
-//                 <div>
-//                   <span style={styles.price}>₹{property.price.toLocaleString()}</span>
-//                   <span style={styles.period}> / {property.type}</span>
-//                 </div>
-//                 <div style={styles.ratingBadge}>
-//                   <span>★</span> {property.rating}
-//                 </div>
-//               </div>
-
-//               <div style={styles.form}>
-//                 <div style={styles.inputGroup}>
-//                   <div style={styles.row}>
-//                     <div style={styles.field}>
-//                       <label style={styles.label}>Check-in</label>
-//                       <input type="date" style={styles.input} />
-//                     </div>
-//                     <div style={{...styles.field, borderRight: "none"}}>
-//                       <label style={styles.label}>Time</label>
-//                       <input type="time" style={styles.input} />
-//                     </div>
-//                   </div>
-//                   <div style={{...styles.row, borderBottom: "none"}}>
-//                     <div style={{...styles.field, borderRight: "none"}}>
-//                       <label style={styles.label}>Guests</label>
-//                       <select style={styles.input}>
-//                         <option>1 Guest</option>
-//                         <option>2 Guests</option>
-//                         <option>3+ Guests</option>
-//                       </select>
-//                     </div>
-//                   </div>
-//                 </div>
-
-//                 <button style={styles.btn} className="action-btn">
-//                   Reserve now
-//                 </button>
-//               </div>
-
-//               <p style={styles.subtext}>You won't be charged yet</p>
-//             </div>
-//           </div>
-
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-
-
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getImageUrl } from "../../config";
-
-/* ===============================
-   HELPER: GET EMOJI FOR AMENITY
-=============================== */
-const getAmenityEmoji = (amenity) => {
-  const lower = amenity.toLowerCase();
-  if (lower.includes("wifi")) return "📶";
-  if (lower.includes("ac")) return "❄️";
-  if (lower.includes("pool")) return "🏊";
-  if (lower.includes("parking")) return "🚗";
-  if (lower.includes("garden")) return "🌳";
-  if (lower.includes("sea") || lower.includes("beach")) return "🏖️";
-  if (lower.includes("kitchen") || lower.includes("catering")) return "🍳";
-  if (lower.includes("sound")) return "🔊";
-  if (lower.includes("security")) return "🛡️";
-  if (lower.includes("tv") || lower.includes("projector")) return "📺";
-  if (lower.includes("fire")) return "🔥";
-  if (lower.includes("boat")) return "🚤";
-  return "✨";
-};
+import {
+    FaArrowLeft, FaBed, FaRulerCombined,
+    FaCheckCircle, FaWhatsapp, FaStar,
+    FaLayerGroup, FaCouch, FaParking,
+    FaMapMarkerAlt, FaHome, FaBolt, FaShieldAlt, FaWifi, FaTshirt
+} from "react-icons/fa";
 
 export default function Prerentdetails() {
-  const { id } = useParams();
-  const navigate = useNavigate();
+    const { id } = useParams();
+    const navigate = useNavigate();
 
-  const [mounted, setMounted] = useState(false);
-  const [property, setProperty] = useState(null);
+    const [property, setProperty] = useState(null);
+    const [similarProperties, setSimilarProperties] = useState([]);
+    const [currentImage, setCurrentImage] = useState(0);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setMounted(true);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        const fetchPropertyData = async () => {
+            try {
+                const [propRes, allRes] = await Promise.all([
+                    axios.get(`/api/properties/${id}`),
+                    axios.get("/api/properties"),
+                ]);
+                setProperty(propRes.data);
+                const similar = allRes.data
+                    .filter((p) => p.propertyType === "PerRent" && p._id !== id)
+                    .slice(0, 4);
+                setSimilarProperties(similar);
+                setLoading(false);
+            } catch (error) {
+                console.error(error);
+                setLoading(false);
+            }
+        };
+        fetchPropertyData();
+    }, [id]);
 
-    const fetchProperty = async () => {
-      try {
-        const res = await axios.get(`/api/properties/${id}`);
-        setProperty(res.data);
-      } catch (error) {
-        console.error("Error fetching property:", error);
-      }
-    };
+    useEffect(() => {
+        if (property?.images?.length > 1) {
+            const timer = setInterval(() => {
+                setCurrentImage((prev) => (prev + 1) % property.images.length);
+            }, 3000);
+            return () => clearInterval(timer);
+        }
+    }, [property]);
 
-    fetchProperty();
-  }, [id]);
+    if (loading)
+        return (
+            <div style={styles.loader}>
+                <div className="spinner"></div>
+                <p>Loading premium details...</p>
+            </div>
+        );
 
-  if (!property) {
+    if (!property)
+        return <h2 style={{ padding: 100, textAlign: "center" }}>Property Not Found</h2>;
+
+    const images = property.images || (property.image ? [property.image] : []);
+
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          color: "#6b7280",
-        }}
-      >
-        <h2>Loading...</h2>
-      </div>
+        <div style={styles.dashboardContainer}>
+            <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+        * { font-family: 'Plus Jakarta Sans', sans-serif; box-sizing: border-box; }
+
+        .hero-section {
+          position: relative;
+          height: 550px;
+          border-radius: 40px;
+          overflow: hidden;
+          margin-bottom: -100px;
+          box-shadow: 0 30px 60px rgba(76,51,36,0.15);
+        }
+
+        .hero-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: sepia(0.1);
+        }
+
+        .hero-gradient {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, transparent 40%, #F5EDE6 100%);
+        }
+
+        .back-floating {
+          position: absolute;
+          top: 30px;
+          left: 30px;
+          z-index: 10;
+          background: rgba(253,250,248,0.92);
+          border: none;
+          padding: 12px 20px;
+          border-radius: 16px;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 4px 20px rgba(76,51,36,0.12);
+          transition: all 0.3s ease;
+          color: #4C3324;
+        }
+        .back-floating:hover { transform: translateX(-5px); }
+
+        .main-card {
+          background: #FDFAF8;
+          border-radius: 40px;
+          padding: 50px;
+          position: relative;
+          z-index: 2;
+          box-shadow: 0 20px 40px rgba(76,51,36,0.05);
+          border: 1px solid #E4CBB6;
+        }
+
+        .spec-bar {
+          display: flex;
+          background: #F5EDE6;
+          border-radius: 20px;
+          padding: 24px;
+          gap: 48px;
+          margin: 32px 0;
+          border: 1px solid #E4CBB6;
+          flex-wrap: wrap;
+        }
+
+        .spec-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .spec-icon {
+          color: #B2846B;
+          font-size: 20px;
+        }
+
+        .spec-info {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .spec-label {
+          font-size: 11px;
+          font-weight: 800;
+          color: #819B8B;
+          letter-spacing: 0.05em;
+        }
+
+        .spec-value {
+          font-size: 15px;
+          font-weight: 700;
+          color: #4C3324;
+        }
+
+        .amenity-tag {
+          background: #F5EDE6;
+          padding: 12px 20px;
+          border-radius: 16px;
+          font-size: 14px;
+          font-weight: 600;
+          color: #627B68;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          border: 1px solid #E4CBB6;
+        }
+
+        .property-score-box {
+          background: #F5EDE6;
+          border-radius: 24px;
+          padding: 24px;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          margin-bottom: 24px;
+          border: 1px solid #E4CBB6;
+        }
+
+        .score-circle {
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #B2846B 0%, #627B68 100%);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          font-weight: 800;
+          flex-shrink: 0;
+        }
+
+        .status-bar-container {
+          height: 12px;
+          width: 100%;
+          background: #E4CBB6;
+          border-radius: 10px;
+          overflow: hidden;
+          display: flex;
+          margin: 16px 0;
+        }
+
+        .similar-card {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          cursor: pointer;
+        }
+        .similar-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(76,51,36,0.12);
+        }
+
+        .spinner {
+          width: 40px;
+          height: 40px;
+          border: 4px solid #E4CBB6;
+          border-top: 4px solid #B2846B;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          margin-bottom: 16px;
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+          0% { transform: scale(0.95); opacity: 0.8; }
+          50% { transform: scale(1); opacity: 1; }
+          100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        @media (max-width: 1024px) {
+          .content-grid { grid-template-columns: 1fr !important; }
+          .spec-bar { flex-wrap: wrap; gap: 20px; }
+          .hero-section { border-radius: 0; margin-bottom: -50px; height: 400px; }
+          .main-card { border-radius: 30px 30px 0 0; }
+        }
+      `}</style>
+
+            {/* HERO */}
+            <div className="hero-section">
+                <button className="back-floating" onClick={() => navigate(-1)}>
+                    <FaArrowLeft /> Back to Discover
+                </button>
+                <img src={getImageUrl(images[currentImage])} alt="Hero" className="hero-img" />
+                <div className="hero-gradient"></div>
+            </div>
+
+            <div style={styles.mainWrapper}>
+                <div className="main-card">
+                    {/* HEADER */}
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "20px" }}>
+                        <div style={{ flex: 1, minWidth: "300px" }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', background: '#ecfdf5', color: '#059669', padding: '4px 10px', borderRadius: '10px', fontSize: '11px', fontWeight: '800' }}>
+                                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#059669', animation: 'pulse 1.5s infinite' }}></div> LIVE VIEWING
+                                </div>
+                                <span style={{ fontSize: '12px', color: '#819B8B' }}>14 people looking now</span>
+                            </div>
+                            <h1 style={styles.titleH1}>{property.title}</h1>
+                            <p style={styles.locationText}>
+                                <FaMapMarkerAlt /> {property.city}, {property.locationType || "Premium District"}
+                            </p>
+                        </div>
+                        <div style={{ textAlign: "right" }}>
+                            <div style={styles.priceTag}>
+                                ₹{property.price?.toLocaleString()}{" "}
+                                <span style={{ fontSize: "16px", color: "#819B8B", fontWeight: 500 }}>
+                                    /per {property.rentDuration || "stay"}
+                                </span>
+                            </div>
+                            <button
+                                style={styles.investBtn}
+                                onClick={() => navigate(`/book-rental-appointment/${property._id}`)}
+                            >
+                                Reserve Now
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* SPEC BAR */}
+                    <div className="spec-bar">
+                        <div className="spec-item">
+                            <FaHome className="spec-icon" />
+                            <div className="spec-info">
+                                <span className="spec-label">ESTABLISHED</span>
+                                <span className="spec-value">{property.yearBuilt || "2023"}</span>
+                            </div>
+                        </div>
+                        <div className="spec-item">
+                            <FaBed className="spec-icon" />
+                            <div className="spec-info">
+                                <span className="spec-label">ROOMS</span>
+                                <span className="spec-value">{property.beds || 1} Space</span>
+                            </div>
+                        </div>
+                        <div className="spec-item">
+                            <FaRulerCombined className="spec-icon" />
+                            <div className="spec-info">
+                                <span className="spec-label">TOTAL AREA</span>
+                                <span className="spec-value">{property.area || 850} m²</span>
+                            </div>
+                        </div>
+                        <div className="spec-item">
+                            <FaLayerGroup className="spec-icon" />
+                            <div className="spec-info">
+                                <span className="spec-label">RENT TYPE</span>
+                                <span className="spec-value">
+                                    {property.propertyType === "PerRent" ? "Flexible" : "Monthly"}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* CONTENT GRID */}
+                    <div style={styles.contentGrid} className="content-grid">
+                        <div style={styles.leftCol}>
+                            <h2 style={styles.sectionTitle}>A perfect place for work and life</h2>
+                            <p style={styles.description}>{property.description}</p>
+
+                            <h3 style={{ fontSize: "18px", fontWeight: 800, marginBottom: "20px", color: "#4C3324" }}>
+                                Space Amenities
+                            </h3>
+                            <div style={styles.amenitiesGrid}>
+                                <div className="amenity-tag"><FaWifi color="#819B8B" /> High-Speed Wifi</div>
+                                <div className="amenity-tag"><FaBolt color="#B2846B" /> Power Backup</div>
+                                <div className="amenity-tag"><FaShieldAlt color="#627B68" /> 24/7 Security</div>
+                                <div className="amenity-tag"><FaTshirt color="#B2846B" /> Laundry Service</div>
+                                <div className="amenity-tag"><FaParking color="#627B68" /> Secure Parking</div>
+                                <div className="amenity-tag"><FaCouch color="#819B8B" /> Modern Furniture</div>
+                            </div>
+                        </div>
+
+                        <div style={styles.rightCol}>
+                            {/* SCORE WIDGET */}
+                            <div className="property-score-box">
+                                <div className="score-circle">87</div>
+                                <div>
+                                    <p style={{ margin: 0, fontSize: "14px", fontWeight: 700, color: "#4C3324" }}>
+                                        Property Vitality
+                                    </p>
+                                    <p style={{ margin: 0, fontSize: "12px", color: "#819B8B" }}>
+                                        Market activity index: High
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* STATUS BAR */}
+                            <div style={{ marginBottom: "32px", background: "#FDFAF8", padding: "24px", borderRadius: "24px", border: "1px solid #E4CBB6" }}>
+                                <p style={{ margin: 0, fontSize: "13px", fontWeight: 700, color: "#627B68", display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
+                                    <span>Current Booking Status</span>
+                                    <span style={{ color: "#B2846B" }}>78% Active</span>
+                                </p>
+                                <div className="status-bar-container">
+                                    <div style={{ width: "40%", background: "#B2846B" }} title="Reserved" />
+                                    <div style={{ width: "25%", background: "#E4CBB6" }} title="Pending" />
+                                    <div style={{ width: "13%", background: "#627B68" }} title="New" />
+                                    <div style={{ width: "22%", background: "#EDE3DB" }} title="Available" />
+                                </div>
+                                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
+                                    <span style={{ fontSize: "11px", color: "#819B8B", display: "flex", alignItems: "center", gap: "4px" }}>
+                                        <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#B2846B" }} /> Reserved
+                                    </span>
+                                    <span style={{ fontSize: "11px", color: "#819B8B", display: "flex", alignItems: "center", gap: "4px" }}>
+                                        <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#E4CBB6" }} /> Pending
+                                    </span>
+                                    <span style={{ fontSize: "11px", color: "#819B8B", display: "flex", alignItems: "center", gap: "4px" }}>
+                                        <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#627B68" }} /> New
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* AGENT WIDGET */}
+                            <div style={styles.agentCard}>
+                                <h4 style={{ fontSize: "15px", fontWeight: 800, color: "#4C3324", marginBottom: "20px", letterSpacing: "0.05em" }}>
+                                    DEDICATED SUPPORT
+                                </h4>
+                                <div style={{ display: "flex", alignItems: "center", gap: "15px", marginBottom: "24px" }}>
+                                    <div style={styles.agentAvatarWrapper}>
+                                        <img
+                                            src={property.agent?.image ? getImageUrl(property.agent.image) : "https://i.pravatar.cc/100?img=12"}
+                                            alt="Agent"
+                                            style={styles.agentAvatar}
+                                        />
+                                    </div>
+                                    <div style={{ flex: 1 }}>
+                                        <p style={{ margin: 0, fontSize: "15px", fontWeight: 700, color: "#4C3324" }}>
+                                            {property.agent?.name || "PropZo Advisor"}
+                                        </p>
+                                        <p style={{ margin: 0, fontSize: "12px", color: "#819B8B" }}>
+                                            {property.agent?.role || "Premium Property Specialist"}
+                                        </p>
+                                    </div>
+                                    <div style={styles.ratingBadge}>
+                                        <FaStar /> {property.agent?.rating || "4.9"}
+                                    </div>
+                                </div>
+                                <div style={{ display: "flex", gap: "12px" }}>
+                                    <button style={styles.talkAgentBtn} onClick={() => navigate("/agent")}>
+                                        Talk to Agent
+                                    </button>
+                                    <button
+                                        style={styles.waCircleBtn}
+                                        onClick={() => window.open(`https://wa.me/${property.agent?.phone || "919876543210"}`, "_blank")}
+                                    >
+                                        <FaWhatsapp />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* SIMILAR SECTION */}
+                <div style={styles.similarSection}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }}>
+                        <h2 style={{ fontSize: "28px", fontWeight: 800, color: "#4C3324", margin: 0, letterSpacing: "-0.02em" }}>
+                            Related Spaces
+                        </h2>
+                        <button style={styles.viewAllBtn} onClick={() => navigate("/prerent")}>
+                            View all collections →
+                        </button>
+                    </div>
+                    <div style={styles.similarGrid}>
+                        {similarProperties.map((p) => (
+                            <div
+                                key={p._id}
+                                className="similar-card"
+                                style={styles.smallCard}
+                                onClick={() => navigate(`/perrent/${p._id}`)}
+                            >
+                                <div style={styles.smallImgWrap}>
+                                    <img
+                                        src={getImageUrl(p.image || (p.images && p.images[0]))}
+                                        alt="Similar"
+                                        style={styles.smallImg}
+                                    />
+                                    <div style={styles.priceOverlay}>₹{p.price?.toLocaleString()}</div>
+                                </div>
+                                <div style={{ padding: "20px" }}>
+                                    <h4 style={{ fontSize: "16px", fontWeight: 700, color: "#4C3324", margin: "0 0 8px 0" }}>
+                                        {p.title}
+                                    </h4>
+                                    <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#819B8B", fontSize: "13px" }}>
+                                        <FaMapMarkerAlt size={12} /> {p.city}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
     );
-  }
-
-  /* ===============================
-     STYLES (TAMARI SAME CSS)
-  =============================== */
-  const styles = {
-    page: {
-      background: "#f8fafc",
-      minHeight: "100vh",
-      fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
-      color: "#1e293b",
-      paddingBottom: 80,
-      opacity: mounted ? 1 : 0,
-      transform: mounted ? "translateY(0)" : "translateY(10px)",
-      transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
-    },
-    navBar: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      right: 0,
-      background: "rgba(255, 255, 255, 0.85)",
-      backdropFilter: "blur(12px)",
-      borderBottom: "1px solid #e2e8f0",
-      padding: "16px 0",
-      zIndex: 1000,
-    },
-    container: {
-      maxWidth: 1100,
-      margin: "0 auto",
-      padding: "0 24px",
-    },
-    backButton: {
-      border: "none",
-      background: "transparent",
-      color: "#64748b",
-      cursor: "pointer",
-      fontSize: 15,
-      fontWeight: 600,
-      padding: "8px 0",
-    },
-    headerSection: {
-      marginTop: 100,
-      marginBottom: 32,
-    },
-    title: {
-      fontSize: 34,
-      fontWeight: 800,
-      color: "#0f172a",
-      margin: "0 0 8px 0",
-    },
-    location: {
-      fontSize: 16,
-      color: "#64748b",
-    },
-    galleryGrid: {
-      display: "grid",
-      gridTemplateColumns: "2fr 1fr",
-      gap: 12,
-      height: 420,
-      borderRadius: 20,
-      overflow: "hidden",
-      marginBottom: 48,
-    },
-    mainImg: {
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-    },
-    sideImgCol: {
-      display: "flex",
-      flexDirection: "column",
-      gap: 12,
-    },
-    sideImg: {
-      width: "100%",
-      height: "calc(50% - 6px)",
-      objectFit: "cover",
-    },
-    layout: {
-      display: "grid",
-      gridTemplateColumns: "1.8fr 1fr",
-      gap: 48,
-    },
-    section: {
-      marginBottom: 40,
-      borderBottom: "1px solid #e2e8f0",
-      paddingBottom: 40,
-    },
-    sectionTitle: {
-      fontSize: 22,
-      fontWeight: 700,
-      marginBottom: 20,
-    },
-    text: {
-      lineHeight: 1.7,
-      color: "#475569",
-      fontSize: 16,
-    },
-    amenitiesGrid: {
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(130px, 1fr))",
-      gap: 16,
-    },
-    amenityCard: {
-      background: "#ffffff",
-      border: "1px solid #f1f5f9",
-      padding: "16px",
-      borderRadius: 16,
-      textAlign: "center",
-    },
-    sidebar: {
-      position: "sticky",
-      top: 100,
-      height: "fit-content",
-    },
-    card: {
-      background: "#fff",
-      border: "1px solid #e2e8f0",
-      borderRadius: 24,
-      padding: 24,
-    },
-    price: {
-      fontSize: 28,
-      fontWeight: 800,
-    },
-    btn: {
-      width: "100%",
-      padding: "16px",
-      background: "#2563eb",
-      color: "#fff",
-      border: "none",
-      borderRadius: 12,
-      fontSize: 16,
-      fontWeight: 600,
-      cursor: "pointer",
-      marginTop: 8,
-    },
-  };
-
-  return (
-    <div style={styles.page}>
-      <nav style={styles.navBar}>
-        <div style={styles.container}>
-          <button style={styles.backButton} onClick={() => navigate(-1)}>
-            ← Back
-          </button>
-        </div>
-      </nav>
-
-      <div style={styles.container}>
-        <div style={styles.headerSection}>
-          <h1 style={styles.title}>{property.title}</h1>
-          <div style={styles.location}>📍 {property.location}</div>
-        </div>
-
-        <div style={styles.galleryGrid}>
-          <img
-            src={getImageUrl(property.image || (property.images && property.images[0]))}
-            alt="Main"
-            style={styles.mainImg}
-          />
-          <div style={styles.sideImgCol}>
-            {/* Show up to 2 side images if available, otherwise hide the column or show placeholders */}
-            {property.images && property.images.length > 1 ? (
-              property.images.slice(1, 3).map((img, i) => (
-                <img
-                  key={i}
-                  src={getImageUrl(img)}
-                  alt="Side"
-                  style={styles.sideImg}
-                  onError={(e) => {
-                    e.target.src = "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1073";
-                  }}
-                />
-              ))
-            ) : (
-              // Fallback: show the main image again or a premium placeholder to keep layout balanced
-              <>
-                <img
-                  src={getImageUrl(property.image)}
-                  alt="Side 1"
-                  style={styles.sideImg}
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1073"
-                  alt="Side 2"
-                  style={styles.sideImg}
-                />
-              </>
-            )}
-          </div>
-        </div>
-
-        <div style={styles.layout}>
-          <div>
-            <div style={styles.section}>
-              <h3 style={styles.sectionTitle}>About this space</h3>
-              <p style={styles.text}>{property.description}</p>
-            </div>
-
-            <div>
-              <h3 style={styles.sectionTitle}>Amenities</h3>
-              <div style={styles.amenitiesGrid}>
-                {property.amenities?.map((item, index) => (
-                  <div key={index} style={styles.amenityCard}>
-                    {getAmenityEmoji(item)} {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div style={styles.sidebar}>
-            <div style={styles.card}>
-              <div style={styles.price}>
-                ₹{property.price} / {property.type}
-              </div>
-
-              <button
-                style={styles.btn}
-                onClick={() => {
-                  if (property && property._id) {
-                    navigate(`/book-rental-appointment/${property._id}`);
-                  } else {
-                    alert("Property ID missing! Cannot proceed to reservation.");
-                  }
-                }}
-              >
-                📅 Book Appointment
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
 }
+
+const styles = {
+    dashboardContainer: { backgroundColor: "#F5EDE6", minHeight: "100vh", padding: "0 0 100px 0" },
+    mainWrapper: { maxWidth: "1300px", margin: "0 auto", padding: "0 40px" },
+    titleH1: { fontSize: "42px", fontWeight: "800", color: "#4C3324", margin: "0 0 12px 0", letterSpacing: "-0.03em", lineHeight: 1.1 },
+    locationText: { display: "flex", alignItems: "center", gap: "8px", color: "#819B8B", fontSize: "16px", margin: 0, fontWeight: 500 },
+    priceTag: { fontSize: "38px", fontWeight: "800", color: "#4C3324", marginBottom: "20px", letterSpacing: "-0.02em" },
+    investBtn: {
+        background: "linear-gradient(135deg, #B2846B 0%, #627B68 100%)",
+        color: "white",
+        border: "none",
+        padding: "16px 40px",
+        borderRadius: "18px",
+        fontSize: "16px",
+        fontWeight: "700",
+        cursor: "pointer",
+        transition: "all 0.3s",
+        boxShadow: "0 10px 24px rgba(98,123,104,0.35)",
+    },
+
+    contentGrid: { display: "grid", gridTemplateColumns: "1fr 380px", gap: "60px", marginTop: "60px" },
+    leftCol: {},
+    sectionTitle: { fontSize: "24px", fontWeight: "800", color: "#4C3324", marginBottom: "24px", letterSpacing: "-0.01em" },
+    description: { color: "#819B8B", lineHeight: "1.8", fontSize: "16px", marginBottom: "40px", fontWeight: 400 },
+    amenitiesGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "16px" },
+
+    rightCol: { position: "sticky", top: "40px" },
+    agentCard: { background: "#FDFAF8", padding: "28px", borderRadius: "32px", border: "1px solid #E4CBB6", boxShadow: "0 20px 50px rgba(76,51,36,0.05)" },
+    agentAvatarWrapper: { width: "56px", height: "56px", borderRadius: "16px", overflow: "hidden", border: "3px solid #E4CBB6" },
+    agentAvatar: { width: "100%", height: "100%", objectFit: "cover" },
+    ratingBadge: { background: "#F5EDE6", color: "#B2846B", padding: "6px 12px", borderRadius: "10px", fontSize: "13px", fontWeight: "700", display: "flex", alignItems: "center", gap: "4px", border: "1px solid #E4CBB6" },
+    talkAgentBtn: {
+        flex: 1,
+        background: "linear-gradient(135deg, #B2846B 0%, #627B68 100%)",
+        color: "white",
+        border: "none",
+        padding: "14px",
+        borderRadius: "14px",
+        fontSize: "14px",
+        fontWeight: "700",
+        cursor: "pointer",
+        transition: "all 0.3s",
+    },
+    waCircleBtn: { width: "48px", height: "48px", borderRadius: "14px", background: "#F5EDE6", color: "#627B68", border: "1px solid #E4CBB6", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", cursor: "pointer", transition: "all 0.3s" },
+
+    similarSection: { marginTop: "120px" },
+    viewAllBtn: { background: "none", border: "none", color: "#B2846B", fontWeight: "700", fontSize: "16px", cursor: "pointer" },
+    similarGrid: { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "30px" },
+    smallCard: { background: "#FDFAF8", borderRadius: "32px", overflow: "hidden", border: "1px solid #E4CBB6", boxShadow: "0 10px 40px rgba(76,51,36,0.04)" },
+    smallImgWrap: { height: "220px", width: "100%", position: "relative" },
+    smallImg: { width: "100%", height: "100%", objectFit: "cover", filter: "sepia(0.08)" },
+    priceOverlay: { position: "absolute", bottom: "15px", left: "15px", background: "rgba(253,250,248,0.95)", padding: "6px 14px", borderRadius: "12px", fontSize: "14px", fontWeight: "800", color: "#4C3324", backdropFilter: "blur(10px)", border: "1px solid #E4CBB6" },
+
+    loader: { height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#F5EDE6", color: "#819B8B" },
+};

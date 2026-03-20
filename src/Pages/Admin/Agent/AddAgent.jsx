@@ -279,7 +279,7 @@
 
 const containerStyle = {
   padding: "40px",
-  background: "#f8fafc",
+  background: "#f9f6f1", // Brand Cream
   minHeight: "100vh",
 };
 
@@ -287,7 +287,7 @@ const btnBack = {
   marginBottom: "20px",
   background: "none",
   border: "none",
-  color: "#2563eb",
+  color: "#b2846b", // Brand Tan
   cursor: "pointer",
   fontWeight: "600",
 };
@@ -298,7 +298,7 @@ const formCard = {
   background: "#ffffff",
   padding: "40px",
   borderRadius: "20px",
-  boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+  boxShadow: "0 10px 30px rgba(76, 51, 36, 0.08)",
 };
 
 const formHeader = {
@@ -312,14 +312,14 @@ const iconCircle = {
   width: "60px",
   height: "60px",
   borderRadius: "50%",
-  background: "#e0f2fe",
+  background: "rgba(129, 155, 139, 0.15)", // Brand Sage Light
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   fontSize: "24px",
 };
 
-const titleStyle = { margin: 0 };
+const titleStyle = { margin: 0, color: "#4c3324" };
 const subtitleStyle = { margin: 0, color: "#64748b" };
 
 const formLayout = { display: "flex", flexDirection: "column", gap: "20px" };
@@ -329,7 +329,8 @@ const labelStyle = { marginBottom: "6px", fontWeight: "600" };
 const inputStyle = {
   padding: "10px",
   borderRadius: "8px",
-  border: "1px solid #cbd5e1",
+  border: "1px solid rgba(228, 203, 182, 0.4)",
+  outline: "none",
 };
 
 const selectStyle = inputStyle;
@@ -359,7 +360,7 @@ const btnSubmit = {
   padding: "10px 20px",
   borderRadius: "8px",
   border: "none",
-  background: "#2563eb",
+  background: "#627b68", // Brand Sage Dark
   color: "#ffffff",
   cursor: "pointer",
 };

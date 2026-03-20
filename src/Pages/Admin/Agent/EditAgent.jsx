@@ -284,9 +284,9 @@ export default function EditAgent() {
 
 const containerStyle = {
   padding: "60px 20px",
-  backgroundColor: "#f8fafc",
+  backgroundColor: "#f9f6f1", // Brand Cream
   minHeight: "100vh",
-  fontFamily: "'Inter', sans-serif",
+  fontFamily: "'DM Sans', sans-serif",
 };
 
 const btnBack = {
@@ -295,7 +295,7 @@ const btnBack = {
   maxWidth: "650px",
   background: "none",
   border: "none",
-  color: "#64748b",
+  color: "#b2846b", // Brand Tan
   fontWeight: "600",
   cursor: "pointer",
   textAlign: "left",
@@ -308,8 +308,8 @@ const formCard = {
   backgroundColor: "#ffffff",
   padding: "40px",
   borderRadius: "24px",
-  border: "1px solid #e2e8f0",
-  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.05)",
+  border: "1px solid rgba(228, 203, 182, 0.3)",
+  boxShadow: "0 10px 25px -5px rgba(76, 51, 36, 0.05)",
 };
 
 const formHeader = {
@@ -325,8 +325,8 @@ const iconCircle = {
   width: "60px",
   height: "60px",
   borderRadius: "16px",
-  backgroundColor: "#F5F3FF",
-  color: "#7C3AED",
+  backgroundColor: "rgba(129, 155, 139, 0.15)", // Brand Sage Light
+  color: "#627b68",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -337,7 +337,7 @@ const titleStyle = {
   margin: 0,
   fontSize: "24px",
   fontWeight: "800",
-  color: "#1e293b",
+  color: "#4c3324", // Brand Brown
 };
 
 const subtitleStyle = {
@@ -367,7 +367,7 @@ const inputGroup = {
 const labelStyle = {
   fontSize: "13px",
   fontWeight: "700",
-  color: "#475569",
+  color: "#627b68", // Brand Sage Dark
   textTransform: "uppercase",
   letterSpacing: "0.5px",
 };
@@ -375,10 +375,10 @@ const labelStyle = {
 const inputStyle = {
   padding: "14px 16px",
   borderRadius: "12px",
-  border: "1px solid #e2e8f0",
+  border: "1px solid rgba(228, 203, 182, 0.3)",
   fontSize: "15px",
   outline: "none",
-  backgroundColor: "#f9fafb",
+  backgroundColor: "#f9f6f1",
 };
 
 const selectStyle = {
@@ -396,13 +396,13 @@ const actionArea = {
 
 const btnSubmit = {
   padding: "14px 28px",
-  backgroundColor: "#4F46E5",
+  backgroundColor: "#627b68", // Brand Sage Dark
   color: "#fff",
   border: "none",
   borderRadius: "12px",
   fontWeight: "700",
   cursor: "pointer",
-  boxShadow: "0 4px 6px -1px rgba(79, 70, 229, 0.2)",
+  boxShadow: "0 4px 6px -1px rgba(98, 123, 104, 0.2)",
 };
 
 const btnCancel = {

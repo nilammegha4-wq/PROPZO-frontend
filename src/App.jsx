@@ -1,9 +1,12 @@
 import { Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 
 /* ================= USER SIDE ================= */
 
 import Navbar from "./components/LandingPage/Navbar";
 import Hero from "./components/LandingPage/Hero";
+import Experience from "./components/LandingPage/Experience";
+import ExpertTeam from "./components/LandingPage/ExpertTeam";
 import PropertyPage from "./components/LandingPage/PropertyPage";
 import WhyChoose from "./components/LandingPage/Whychoose";
 import Footer from "./components/LandingPage/Footer";
@@ -110,6 +113,7 @@ import AgentLogin from "./Page/Agent/Dashboard/AgentLogin";
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
 
       <Routes>
@@ -121,6 +125,8 @@ function App() {
           element={
             <>
               <Hero />
+              <Experience />
+              <ExpertTeam />
               <PropertyPage />
               <WhyChoose />
               <Feedback />
@@ -155,11 +161,11 @@ function App() {
 
         {/* Rent */}
         <Route path="/rentpage" element={<RentPage />} />
-        <Route path="/rent/:id" element={<PropertyDetails />} />
+        <Route path="/rent/:id" element={<RentDetails />} />
         <Route path="/bookvisit/:id" element={<BookVisit />} />
         {/* Pre Rent */}
         <Route path="/prerent" element={<Prerent />} />
-        <Route path="/prerentdetails/:id" element={<PropertyDetails />} />
+        <Route path="/prerentdetails/:id" element={<Prerentdetails />} />
 
         {/* Premium */}
         <Route path="/premiumservices" element={<PremiumServices />} />

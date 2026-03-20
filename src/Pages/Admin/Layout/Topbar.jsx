@@ -28,8 +28,8 @@ const topNavStyle = {
   justifyContent: "space-between",
   alignItems: "center",
   padding: "18px 6%",
-  backgroundColor: "#fff",
-  borderBottom: "1px solid #e2e8f0",
+  backgroundColor: "#627B68", // Dark Sage
+  borderBottom: "1px solid rgba(228, 203, 182, 0.2)", // Muted cream border
   position: "sticky",
   top: 0,
   zIndex: 100,
@@ -38,7 +38,7 @@ const topNavStyle = {
 const logoStyle = {
   fontSize: "26px",
   fontWeight: "900",
-  color: "#1e293b",
+  color: "#E4CBB6", // Cream
   letterSpacing: "-1px",
 };
 
@@ -46,8 +46,8 @@ const avatarCircle = {
   width: "40px",
   height: "40px",
   borderRadius: "12px",
-  backgroundColor: "#4F46E5",
-  color: "#fff",
+  backgroundColor: "#4C3324", // Deep Brown
+  color: "#E4CBB6", // Cream
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

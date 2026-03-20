@@ -146,7 +146,19 @@ export default function UserProfile2() {
 
   return (
     <div style={styles.pageWrapper}>
-      <div style={styles.container}>
+      <style>{`
+        @media (max-width: 960px) {
+          .up-main { grid-template-columns: 1fr !important; }
+          .up-container { padding: 0 !important; }
+        }
+        @media (max-width: 600px) {
+          .up-details { grid-template-columns: 1fr !important; gap: 16px !important; }
+          .up-header h1 { font-size: 24px !important; }
+          .up-stats { grid-template-columns: 1fr !important; }
+          .up-activity-meta { flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; }
+        }
+      `}</style>
+      <div style={styles.container} className="up-container">
         {/* Header Section */}
         <header style={styles.header}>
           <button onClick={() => navigate(-1)} style={styles.backBtn}>
@@ -158,7 +170,7 @@ export default function UserProfile2() {
           </div>
         </header>
 
-        <div style={styles.mainGrid}>
+        <div style={styles.mainGrid} className="up-main">
           {/* Left Sidebar: Profile Card */}
           <aside style={styles.sidebar}>
             <div style={styles.profileCard}>
@@ -229,23 +241,23 @@ export default function UserProfile2() {
           {/* Right Content: Details & Activity */}
           <main style={styles.content}>
             {/* Stats Dashboard */}
-            <section style={styles.statsGrid}>
-              <div style={{ ...styles.statCard, borderLeft: "4px solid #4f46e5" }}>
+            <section style={styles.statsGrid} className="up-stats">
+              <div style={{ ...styles.statCard, borderLeft: "4px solid #627b68" }}>
                 <div style={styles.statIcon}><FaHouse /></div>
                 <div style={styles.statInfo}>
                   <h4>Buy</h4>
                   <p>{stats?.buyCount || 0}</p>
                 </div>
               </div>
-              <div style={{ ...styles.statCard, borderLeft: "4px solid #ec4899" }}>
-                <div style={{ ...styles.statIcon, color: "#ec4899" }}><FaTag /></div>
+              <div style={{ ...styles.statCard, borderLeft: "4px solid #b2846b" }}>
+                <div style={{ ...styles.statIcon, color: "#b2846b" }}><FaTag /></div>
                 <div style={styles.statInfo}>
                   <h4>Sell</h4>
                   <p>{stats?.sellCount || 0}</p>
                 </div>
               </div>
-              <div style={{ ...styles.statCard, borderLeft: "4px solid #10b981" }}>
-                <div style={styles.statIcon}><FaKey /></div>
+              <div style={{ ...styles.statCard, borderLeft: "4px solid #819b8b" }}>
+                <div style={{ ...styles.statIcon, color: "#819b8b" }}><FaKey /></div>
                 <div style={styles.statInfo}>
                   <h4>Rentals</h4>
                   <p>{stats?.rentCount || 0}</p>
@@ -257,7 +269,7 @@ export default function UserProfile2() {
             {/* Information Grid */}
             <section style={styles.detailsCard}>
               <h3 style={styles.sectionTitle}>Profile Details</h3>
-              <div style={styles.detailsGrid}>
+              <div style={styles.detailsGrid} className="up-details">
                 <div style={styles.detailItem}>
                   <label><FaEnvelope /> Email Address</label>
                   {isEditing ? (
@@ -318,12 +330,13 @@ export default function UserProfile2() {
                         <h5>{activity.property?.title || "Property Booking"}</h5>
                         <p>{activity.property?.location || "Unknown Location"}</p>
                       </div>
-                      <div style={styles.activityMeta}>
+                      <div style={styles.activityMeta} className="up-activity-meta">
                         <span style={styles.activityPrice}>₹{activity.amount || activity.property?.price}</span>
                         <span style={{
                           ...styles.statusBadge,
-                          backgroundColor: activity.status === "Confirmed" ? "#d1fae5" : "#fee2e2",
-                          color: activity.status === "Confirmed" ? "#065f46" : "#991b1b"
+                          backgroundColor: activity.status === "Confirmed" ? "rgba(129, 155, 139, 0.15)" : "rgba(178, 132, 107, 0.15)",
+                          color: activity.status === "Confirmed" ? "#627b68" : "#b2846b",
+                          border: `1px solid ${activity.status === "Confirmed" ? "rgba(129, 155, 139, 0.2)" : "rgba(178, 132, 107, 0.2)"}`
                         }}>
                           {activity.status}
                         </span>
@@ -388,11 +401,11 @@ export default function UserProfile2() {
 
 const styles = {
   pageWrapper: {
-    backgroundColor: "#f8fafc",
+    backgroundColor: "#f9f6f1",
     minHeight: "100vh",
     padding: "80px 20px 40px",
-    fontFamily: "'Inter', sans-serif",
-    color: "#1e293b",
+    fontFamily: "'DM Sans', sans-serif",
+    color: "#3a2e28",
   },
   container: {
     maxWidth: "1100px",
@@ -410,16 +423,17 @@ const styles = {
     gap: "8px",
     background: "none",
     border: "none",
-    color: "#6366f1",
+    color: "#819b8b",
     fontWeight: "600",
     fontSize: "15px",
     cursor: "pointer",
     width: "fit-content",
     padding: "0",
+    transition: "all 0.2s",
   },
   headerTitle: {
-    h1: { fontSize: "32px", fontWeight: "800", margin: "0", color: "#0f172a" },
-    p: { fontSize: "16px", color: "#64748b", margin: "4px 0 0 0" },
+    h1: { fontSize: "32px", fontWeight: "800", margin: "0", color: "#4c3324", letterSpacing: "-1px" },
+    p: { fontSize: "16px", color: "#6b5e58", margin: "4px 0 0 0" },
   },
   mainGrid: {
     display: "grid",
@@ -435,9 +449,9 @@ const styles = {
     backgroundColor: "#ffffff",
     borderRadius: "20px",
     padding: "32px",
-    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)",
+    boxShadow: "0 10px 15px -3px rgba(76, 51, 36, 0.05)",
     textAlign: "center",
-    border: "1px solid #e2e8f0",
+    border: "1px solid rgba(228, 203, 182, 0.2)",
   },
   avatarContainer: {
     display: "flex",
@@ -462,21 +476,21 @@ const styles = {
   avatarPlaceholder: {
     width: "100%",
     height: "100%",
-    borderRadius: "50%",
-    backgroundColor: "#f1f5f9",
+    borderRadius: "32px",
+    backgroundColor: "#e4cbb6",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: "48px",
-    fontWeight: "700",
-    color: "#6366f1",
+    fontWeight: "800",
+    color: "#4c3324",
     border: "4px solid #ffffff",
   },
   avatarUploadLabel: {
     position: "absolute",
     bottom: "5px",
     right: "5px",
-    backgroundColor: "#6366f1",
+    backgroundColor: "#627b68",
     color: "white",
     width: "32px",
     height: "32px",
@@ -487,21 +501,24 @@ const styles = {
     cursor: "pointer",
     fontSize: "14px",
     border: "2px solid #ffffff",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
   },
   userInfo: {
     marginBottom: "24px",
   },
-  userName: { fontSize: "24px", fontWeight: "700", color: "#0f172a", margin: "0 0 8px 0" },
-  userRole: { fontSize: "14px", color: "#64748b", margin: "0" },
+  userName: { fontSize: "24px", fontWeight: "700", color: "#4c3324", margin: "0 0 8px 0" },
+  userRole: { fontSize: "14px", color: "#6b5e58", margin: "0" },
   editInputName: {
     width: "100%",
     padding: "10px",
     fontSize: "20px",
     fontWeight: "700",
     textAlign: "center",
-    border: "1px solid #e2e8f0",
+    border: "1px solid rgba(228, 203, 182, 0.4)",
+    background: "#faf7f5",
     borderRadius: "8px",
     outline: "none",
+    color: "#4c3324",
   },
   userActions: {
     display: "flex",
@@ -514,9 +531,9 @@ const styles = {
     justifyContent: "center",
     gap: "10px",
     padding: "12px",
-    backgroundColor: "#f1f5f9",
-    color: "#475569",
-    border: "none",
+    backgroundColor: "#faf7f5",
+    color: "#6b5e58",
+    border: "1px solid rgba(228, 203, 182, 0.4)",
     borderRadius: "10px",
     fontWeight: "600",
     cursor: "pointer",
@@ -524,12 +541,13 @@ const styles = {
   },
   saveBtn: {
     padding: "12px",
-    backgroundColor: "#6366f1",
+    backgroundColor: "#627b68",
     color: "white",
     border: "none",
     borderRadius: "10px",
     fontWeight: "600",
     cursor: "pointer",
+    transition: "all 0.2s",
   },
   cancelBtn: {
     padding: "12px",
@@ -544,9 +562,9 @@ const styles = {
     backgroundColor: "#ffffff",
     borderRadius: "20px",
     padding: "24px",
-    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)",
-    border: "1px solid #e2e8f0",
-    h3: { fontSize: "16px", fontWeight: "700", marginBottom: "16px" },
+    boxShadow: "0 4px 6px -1px rgba(76, 51, 36, 0.05)",
+    border: "1px solid rgba(228, 203, 182, 0.2)",
+    h3: { fontSize: "16px", fontWeight: "700", color: "#4c3324", marginBottom: "16px" },
   },
   statList: { display: "flex", flexDirection: "column", gap: "12px" },
   statItem: {
@@ -554,7 +572,7 @@ const styles = {
     alignItems: "center",
     gap: "12px",
     fontSize: "14px",
-    color: "#475569",
+    color: "#6b5e58",
   },
   content: {
     display: "flex",
@@ -579,42 +597,45 @@ const styles = {
     width: "48px",
     height: "48px",
     borderRadius: "12px",
-    backgroundColor: "#f1f5f9",
+    backgroundColor: "#faf7f5",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: "18px",
-    color: "#6366f1",
+    color: "#627b68",
+    border: "1px solid rgba(228, 203, 182, 0.2)",
   },
   statInfo: {
     flex: "1",
-    h4: { fontSize: "14px", fontWeight: "600", color: "#64748b", margin: "0" },
-    p: { fontSize: "22px", fontWeight: "800", color: "#0f172a", margin: "0" },
+    h4: { fontSize: "14px", fontWeight: "600", color: "#6b5e58", margin: "0" },
+    p: { fontSize: "22px", fontWeight: "800", color: "#4c3324", margin: "0" },
   },
   detailsCard: {
     backgroundColor: "#ffffff",
     borderRadius: "20px",
     padding: "32px",
-    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)",
-    border: "1px solid #e2e8f0",
+    boxShadow: "0 4px 6px -1px rgba(76, 51, 36, 0.05)",
+    border: "1px solid rgba(228, 203, 182, 0.2)",
   },
-  sectionTitle: { fontSize: "20px", fontWeight: "700", color: "#0f172a", marginBottom: "24px" },
+  sectionTitle: { fontSize: "20px", fontWeight: "700", color: "#4c3324", marginBottom: "24px" },
   detailsGrid: {
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
     gap: "24px",
   },
   detailItem: {
-    label: { display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", fontWeight: "600", color: "#64748b", textTransform: "uppercase", marginBottom: "8px" },
-    p: { fontSize: "16px", fontWeight: "500", color: "#1e293b", margin: "0" },
+    label: { display: "flex", alignItems: "center", gap: "8px", fontSize: "11px", fontWeight: "700", color: "#819b8b", textTransform: "uppercase", marginBottom: "8px" },
+    p: { fontSize: "16px", fontWeight: "600", color: "#3a2e28", margin: "0" },
   },
   detailInput: {
     width: "100%",
     padding: "12px",
     borderRadius: "10px",
-    border: "1px solid #e2e8f0",
+    border: "1px solid rgba(129, 155, 139, 0.4)",
+    backgroundColor: "#faf7f5",
     fontSize: "15px",
     outline: "none",
+    color: "#3a2e28",
   },
   passwordSection: {
     marginTop: "32px",
@@ -626,8 +647,8 @@ const styles = {
     backgroundColor: "#ffffff",
     borderRadius: "20px",
     padding: "32px",
-    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)",
-    border: "1px solid #e2e8f0",
+    boxShadow: "0 4px 6px -1px rgba(76, 51, 36, 0.05)",
+    border: "1px solid rgba(228, 203, 182, 0.2)",
   },
   activityHeader: {
     display: "flex",
@@ -638,9 +659,10 @@ const styles = {
   viewAllBtn: {
     background: "none",
     border: "none",
-    color: "#6366f1",
-    fontWeight: "600",
+    color: "#819b8b",
+    fontWeight: "700",
     cursor: "pointer",
+    transition: "all 0.2s",
   },
   activityList: { display: "flex", flexDirection: "column", gap: "16px" },
   activityItem: {
@@ -649,8 +671,9 @@ const styles = {
     gap: "20px",
     padding: "16px",
     borderRadius: "12px",
-    backgroundColor: "#f8fafc",
+    backgroundColor: "#faf7f5",
     transition: "transform 0.2s",
+    border: "1px solid rgba(228, 203, 182, 0.1)",
   },
   activityIcon: {
     width: "40px",
@@ -660,8 +683,9 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    color: "#6366f1",
-    boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+    color: "#819b8b",
+    boxShadow: "0 2px 4px rgba(76, 51, 36, 0.05)",
+    border: "1px solid rgba(228, 203, 182, 0.2)",
   },
   activityImageWrapper: {
     width: "60px",
@@ -689,7 +713,7 @@ const styles = {
     alignItems: "center",
     gap: "16px",
   },
-  activityPrice: { fontSize: "16px", fontWeight: "700", color: "#0f172a" },
+  activityPrice: { fontSize: "16px", fontWeight: "800", color: "#4c3324" },
   statusBadge: {
     padding: "4px 10px",
     borderRadius: "99px",
@@ -699,16 +723,17 @@ const styles = {
   emptyActivity: {
     textAlign: "center",
     padding: "40px 0",
-    p: { color: "#64748b", marginBottom: "20px" },
+    p: { color: "#6b5e58", marginBottom: "20px" },
   },
   exploreBtn: {
     padding: "10px 24px",
-    backgroundColor: "#6366f1",
+    backgroundColor: "#627b68",
     color: "white",
     border: "none",
     borderRadius: "10px",
-    fontWeight: "600",
+    fontWeight: "700",
     cursor: "pointer",
+    transition: "all 0.2s",
   },
   loadingWrapper: {
     display: "flex",

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { FaHome } from "react-icons/fa";
+import { getImageUrl } from "../../../config";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function RentalBookingsList() {
     const [bookings, setBookings] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedBooking, setSelectedBooking] = useState(null);
 
     useEffect(() => {
         fetchBookings();
@@ -27,14 +30,32 @@ export default function RentalBookingsList() {
     };
 
     const getStatusBadge = (type) => {
+        const isRent = type === "Rent";
+        const isPerRent = type === "PerRent";
+        const isBuy = type === "Buy";
+
+        let bgColor = "#f3f4f6";
+        let textColor = "#374151";
+
+        if (isRent) {
+            bgColor = "#e0e7ff";
+            textColor = "#4338ca";
+        } else if (isPerRent) {
+            bgColor = "#fef3c7";
+            textColor = "#b45309";
+        } else if (isBuy) {
+            bgColor = "#dcfce7";
+            textColor = "#15803d";
+        }
+
         return (
             <span style={{
                 padding: "4px 10px",
                 borderRadius: "12px",
                 fontSize: "12px",
                 fontWeight: "bold",
-                backgroundColor: type === "PerRent" ? "#fef3c7" : "#e0e7ff",
-                color: type === "PerRent" ? "#b45309" : "#4338ca",
+                backgroundColor: bgColor,
+                color: textColor,
             }}>
                 {type}
             </span>
@@ -44,13 +65,102 @@ export default function RentalBookingsList() {
     if (loading) return <div style={{ padding: "40px", textAlign: "center", color: "#64748b" }}>Loading rental bookings...</div>;
 
     return (
-        <div style={styles.container}>
-            <ToastContainer position="top-right" autoClose={3000} />
+        <>
+            <style>{`
+                @media (max-width: 991px) {
+                    .rb-container { padding: 30px 20px !important; }
+                }
+                @media (max-width: 768px) {
+                    .rb-header { margin-bottom: 20px !important; }
+                    .rb-title { font-size: 22px !important; }
+                }
+                .view-details-btn:hover {
+                    background-color: #3b82f6 !important;
+                    color: white !important;
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+                }
+                .modal-overlay {
+                    animation: fadeIn 0.2s ease-out;
+                }
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+                .modal-content {
+                    animation: slideUp 0.3s ease-out;
+                }
+                @keyframes slideUp {
+                    from { transform: translateY(20px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+                @page {
+                    size: A4;
+                    margin: 20px;
+                }
+                @media print {
+                    body * { visibility: hidden !important; }
+                    .appointment-print-area, .appointment-print-area * { visibility: visible !important; }
+                    .appointment-print-area {
+                        position: absolute !important;
+                        left: 0 !important;
+                        top: 0 !important;
+                        width: 100% !important;
+                        padding: 0 !important;
+                        margin: 0 !important;
+                        box-shadow: none !important;
+                        background: white !important;
+                        color: black !important;
+                        max-height: none !important;
+                        overflow: visible !important;
+                    }
+                    .no-print { display: none !important; }
+                    .print-section {
+                        page-break-inside: avoid;
+                        margin-bottom: 30px !important;
+                        border-bottom: 1px solid #eee !important;
+                        padding-bottom: 15px !important;
+                    }
+                    .print-header {
+                        text-align: center;
+                        border-bottom: 2px solid #333 !important;
+                        margin-bottom: 40px !important;
+                        padding-bottom: 20px !important;
+                    }
+                    .modal-overlay { 
+                        position: absolute !important;
+                        background: white !important;
+                        backdrop-filter: none !important;
+                        padding: 0 !important;
+                    }
+                    .modal-content {
+                        border: none !important;
+                        border-radius: 0 !important;
+                        box-shadow: none !important;
+                        width: 100% !important;
+                        max-width: none !important;
+                    }
+                    .icon-print { display: none !important; }
+                    .print-header-only {
+                        display: block !important;
+                        font-size: 16px !important;
+                        font-weight: 800 !important;
+                        color: #1e293b !important;
+                        margin-bottom: 15px !important;
+                        border-bottom: 2px solid #eee !important;
+                        padding-bottom: 5px !important;
+                        text-transform: uppercase !important;
+                    }
+                }
+                .print-header-only { display: none; }
+            `}</style>
+            <div style={styles.container} className="rb-container">
+                <ToastContainer position="top-right" autoClose={3000} />
 
-            <div style={styles.header}>
-                <h1 style={styles.title}>Rental Appointment Requests</h1>
-                <p style={styles.subtitle}>Manage all appointments booked for rent and per-rent properties.</p>
-            </div>
+                <div style={styles.header} className="rb-header">
+                    <h1 style={styles.title} className="rb-title">Rental Appointment Requests</h1>
+                    <p style={styles.subtitle}>Manage all appointments booked for rent and per-rent properties.</p>
+                </div>
 
             <div style={styles.tableCard}>
                 {bookings && bookings.length > 0 ? (
@@ -79,8 +189,24 @@ export default function RentalBookingsList() {
                                             <div style={styles.contactInfo}>✉️ {booking.email}</div>
                                         </td>
                                         <td style={styles.td}>
-                                            <div style={styles.propTitle}>{booking.propertyId?.title || "Unknown Property"}</div>
-                                            <div style={styles.propLoc}>📍 {booking.propertyId?.location || "N/A"}</div>
+                                            <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
+                                                <div style={styles.propImageWrap}>
+                                                    {booking.propertyId?.images && booking.propertyId.images.length > 0 ? (
+                                                        <img 
+                                                            src={getImageUrl(booking.propertyId.images[0])} 
+                                                            alt="" 
+                                                            style={styles.propImage}
+                                                            onError={(e) => { e.target.src = 'https://via.placeholder.com/70?text=No+Img'; }}
+                                                        />
+                                                    ) : (
+                                                        <FaHome style={{ color: "#94a3b8", fontSize: "20px" }} />
+                                                    )}
+                                                </div>
+                                                <div>
+                                                    <div style={styles.propTitle}>{booking.propertyId?.title || "Unknown Property"}</div>
+                                                    <div style={styles.propLoc}>📍 {booking.propertyId?.location || "N/A"}</div>
+                                                </div>
+                                            </div>
                                         </td>
                                         <td style={styles.td}>
                                             {getStatusBadge(booking.propertyType)}
@@ -91,15 +217,23 @@ export default function RentalBookingsList() {
                                             {booking.stayDuration && <div><strong>Duration:</strong> {booking.stayDuration}</div>}
                                         </td>
                                         <td style={styles.td}>
-                                            <div style={styles.messageBox}>
-                                                <strong>People:</strong> {booking.people}<br />
-                                                <strong>Message:</strong> {booking.message || "None"}<br />
-                                                {booking.budget && <><strong style={{ color: "#10b981" }}>Budget:</strong> {booking.budget}<br /></>}
-                                                <div style={{ marginTop: "5px", display: "flex", gap: "5px", flexWrap: "wrap" }}>
-                                                    {booking.virtualTour && <span style={styles.optionTag}>🎥 Virtual Tour</span>}
-                                                    {booking.agentCall && <span style={styles.optionTag}>📞 Needs Call</span>}
-                                                </div>
-                                            </div>
+                                            <button 
+                                                className="view-details-btn"
+                                                onClick={() => setSelectedBooking(booking)}
+                                                style={{
+                                                    padding: "8px 16px",
+                                                    backgroundColor: "#eff6ff",
+                                                    color: "#3b82f6",
+                                                    border: "1px solid #dbeafe",
+                                                    borderRadius: "8px",
+                                                    fontSize: "13px",
+                                                    fontWeight: "600",
+                                                    cursor: "pointer",
+                                                    transition: "all 0.2s"
+                                                }}
+                                            >
+                                                View Details
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}
@@ -112,7 +246,261 @@ export default function RentalBookingsList() {
                     </div>
                 )}
             </div>
+
+            {/* Modal Implementation */}
+            {selectedBooking && (
+                <div 
+                    className="modal-overlay"
+                    onClick={() => setSelectedBooking(null)}
+                    style={{
+                        position: "fixed",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: "rgba(15, 23, 42, 0.6)",
+                        backdropFilter: "blur(4px)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        zIndex: 1000,
+                        padding: "20px"
+                    }}
+                >
+                    <div 
+                        className="modal-content appointment-print-area"
+                        onClick={(e) => e.stopPropagation()}
+                        style={{
+                            backgroundColor: "white",
+                            borderRadius: "20px",
+                            width: "100%",
+                            maxWidth: "650px",
+                            maxHeight: "90vh",
+                            overflowY: "auto",
+                            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                            position: "relative",
+                            padding: "0"
+                        }}
+                    >
+                        {/* Header */}
+                        <div className="print-header" style={{
+                            padding: "24px",
+                            borderBottom: "1px solid #f1f5f9",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            position: "sticky",
+                            top: 0,
+                            backgroundColor: "white",
+                            zIndex: 10
+                        }}>
+                            <div>
+                                <h2 style={{ margin: 0, fontSize: "20px", color: "#0f172a", fontWeight: "800" }}>Appointment Details</h2>
+                                <p style={{ margin: "4px 0 0 0", fontSize: "13px", color: "#64748b" }}>Reference ID: {selectedBooking._id.slice(-8).toUpperCase()}</p>
+                            </div>
+                            <button 
+                                className="no-print"
+                                onClick={() => setSelectedBooking(null)}
+                                style={{
+                                    border: "none",
+                                    backgroundColor: "#f1f5f9",
+                                    color: "#64748b",
+                                    padding: "8px",
+                                    borderRadius: "10px",
+                                    cursor: "pointer",
+                                    fontWeight: "bold",
+                                    fontSize: "18px",
+                                    width: "40px",
+                                    height: "40px",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    transition: "all 0.2s"
+                                }}
+                            >✕</button>
+                        </div>
+
+                        <div style={{ padding: "24px" }}>
+                            {/* Property Section */}
+                            <div className="print-section" style={{ marginBottom: "30px" }}>
+                                <h3 className="print-header-only">PROPERTY INFORMATION</h3>
+                                <div style={{ display: "flex", gap: "20px", backgroundColor: "#f8fafc", padding: "20px", borderRadius: "16px", border: "1px solid #f1f5f9" }}>
+                                    <div style={{ width: "100px", height: "100px", borderRadius: "12px", overflow: "hidden", flexShrink: 0, border: "2px solid white", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)" }}>
+                                        {selectedBooking.propertyId?.images?.[0] ? (
+                                            <img src={getImageUrl(selectedBooking.propertyId.images[0])} style={{ width: "100%", height: "100%", objectFit: "cover" }} alt="" />
+                                        ) : (
+                                            <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "#e2e8f0" }}>
+                                                <FaHome className="icon-print" style={{ fontSize: "24px", color: "#94a3b8" }} />
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div style={{ flex: 1 }}>
+                                        <div style={{ marginBottom: "8px" }}>{getStatusBadge(selectedBooking.propertyType)}</div>
+                                        <h3 style={{ margin: "0 0 4px 0", fontSize: "18px", color: "#0f172a", fontWeight: "700" }}>{selectedBooking.propertyId?.title || "Unknown Property"}</h3>
+                                        <p style={{ margin: 0, fontSize: "14px", color: "#64748b" }}>📍 {selectedBooking.propertyId?.location || "N/A"}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+                                {/* Customer Info */}
+                                <div className="print-section">
+                                    <h3 className="print-header-only">CUSTOMER INFORMATION</h3>
+                                    <p className="no-print" style={{ fontSize: "12px", color: "#94a3b8", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 12px 0" }}>Customer Information</p>
+                                    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                                        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                            <span className="icon-print" style={{ fontSize: "16px" }}>👤</span>
+                                            <div>
+                                                <div style={{ fontSize: "14px", fontWeight: "700", color: "#1e293b" }}>{selectedBooking.name}</div>
+                                                <div style={{ fontSize: "12px", color: "#64748b" }}>Full Name</div>
+                                            </div>
+                                        </div>
+                                        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                            <span className="icon-print" style={{ fontSize: "16px" }}>📞</span>
+                                            <div>
+                                                <div style={{ fontSize: "14px", fontWeight: "700", color: "#1e293b" }}>{selectedBooking.phone}</div>
+                                                <div style={{ fontSize: "12px", color: "#64748b" }}>Phone Number</div>
+                                            </div>
+                                        </div>
+                                        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                            <span className="icon-print" style={{ fontSize: "16px" }}>✉️</span>
+                                            <div>
+                                                <div style={{ fontSize: "14px", fontWeight: "700", color: "#1e293b" }}>{selectedBooking.email}</div>
+                                                <div style={{ fontSize: "12px", color: "#64748b" }}>Email Address</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Visit / Stay Details (Dynamic) */}
+                                <div className="print-section">
+                                    <h3 className="print-header-only">{selectedBooking.propertyType === "PerRent" ? "STAY DETAILS" : "VISIT DETAILS"}</h3>
+                                    <p className="no-print" style={{ fontSize: "12px", color: "#94a3b8", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 12px 0" }}>
+                                        {selectedBooking.propertyType === "PerRent" ? "Stay Details" : "Visit Details"}
+                                    </p>
+                                    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                                        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                            <span className="icon-print" style={{ fontSize: "16px" }}>📅</span>
+                                            <div>
+                                                <div style={{ fontSize: "14px", fontWeight: "700", color: "#1e293b" }}>{selectedBooking.visitDate}</div>
+                                                <div style={{ fontSize: "12px", color: "#64748b" }}>Requested Date</div>
+                                            </div>
+                                        </div>
+                                        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                            <span className="icon-print" style={{ fontSize: "16px" }}>🕒</span>
+                                            <div>
+                                                <div style={{ fontSize: "14px", fontWeight: "700", color: "#1e293b" }}>{selectedBooking.visitTime}</div>
+                                                <div style={{ fontSize: "12px", color: "#64748b" }}>Requested Time</div>
+                                            </div>
+                                        </div>
+
+                                        {selectedBooking.propertyType === "PerRent" && selectedBooking.stayDuration && (
+                                            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                                <span className="icon-print" style={{ fontSize: "16px" }}>⏳</span>
+                                                <div>
+                                                    <div style={{ fontSize: "14px", fontWeight: "700", color: "#1e293b" }}>{selectedBooking.stayDuration}</div>
+                                                    <div style={{ fontSize: "12px", color: "#64748b" }}>Duration of Stay</div>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                            <span className="icon-print" style={{ fontSize: "16px" }}>👥</span>
+                                            <div>
+                                                <div style={{ fontSize: "14px", fontWeight: "700", color: "#1e293b" }}>
+                                                    {selectedBooking.people || selectedBooking.visitors || 0} People
+                                                </div>
+                                                <div style={{ fontSize: "12px", color: "#64748b" }}>Number of {selectedBooking.propertyType === "PerRent" ? "People" : "Visitors"}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr style={{ margin: "24px 0", border: "none", borderTop: "1px solid #f1f5f9" }} />
+
+                            {/* Additional Info / Preferences */}
+                            <div className="print-section" style={{ marginBottom: "24px" }}>
+                                <h3 className="print-header-only">PREFERENCES</h3>
+                                <p className="no-print" style={{ fontSize: "12px", color: "#94a3b8", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 12px 0" }}>
+                                    {selectedBooking.propertyType === "Rent" ? "Rental Preferences & Request" : "Preferences & Request"}
+                                </p>
+                                
+                                {(selectedBooking.propertyType === "Buy" || selectedBooking.propertyType === "PerRent") && (
+                                    <div style={{ display: "flex", gap: "12px", marginBottom: "16px" }}>
+                                        <div style={{ padding: "10px 16px", borderRadius: "12px", backgroundColor: selectedBooking.virtualTour ? "#f0fdf4" : "#fef2f2", color: selectedBooking.virtualTour ? "#16a34a" : "#dc2626", fontSize: "13px", fontWeight: "600", display: "flex", alignItems: "center", gap: "8px", border: `1px solid ${selectedBooking.virtualTour ? '#bbf7d0' : '#fecaca'}` }}>
+                                            {selectedBooking.virtualTour ? "✅" : "❌"} Virtual Tour Requested
+                                        </div>
+                                        <div style={{ padding: "10px 16px", borderRadius: "12px", backgroundColor: selectedBooking.agentCall ? "#f0fdf4" : "#fef2f2", color: selectedBooking.agentCall ? "#16a34a" : "#dc2626", fontSize: "13px", fontWeight: "600", display: "flex", alignItems: "center", gap: "8px", border: `1px solid ${selectedBooking.agentCall ? '#bbf7d0' : '#fecaca'}` }}>
+                                            {selectedBooking.agentCall ? "✅" : "❌"} Agent Call Requested
+                                        </div>
+                                    </div>
+                                )}
+
+                                {selectedBooking.propertyType === "Rent" && selectedBooking.budget && (
+                                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px", backgroundColor: "#f0fdf4", borderRadius: "12px", border: "1px solid #bbf7d0", marginBottom: "16px" }}>
+                                        <span style={{ fontSize: "14px", color: "#166534", fontWeight: "700" }}>Monthly Budget:</span>
+                                        <span style={{ fontSize: "18px", color: "#15803d", fontWeight: "800" }}>₹{selectedBooking.budget}</span>
+                                    </div>
+                                )}
+
+                                <div style={{ backgroundColor: "#fafafb", padding: "16px", borderRadius: "12px", border: "1px solid #f1f5f9" }}>
+                                    <h3 className="print-header-only">SPECIAL REQUEST</h3>
+                                    <div style={{ fontSize: "12px", color: "#64748b", marginBottom: "8px", fontWeight: "600" }}>
+                                        {selectedBooking.propertyType === "PerRent" ? "Special Request:" : "Customer Message:"}
+                                    </div>
+                                    <div style={{ fontSize: "14px", color: "#334155", lineHeight: "1.6" }}>{selectedBooking.message || "No message provided."}</div>
+                                </div>
+                            </div>
+
+                            {selectedBooking.propertyType === "PerRent" && selectedBooking.budget && (
+                                <div className="print-section" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px", backgroundColor: "#f0fdf4", borderRadius: "12px", border: "1px solid #bbf7d0" }}>
+                                    <span style={{ fontSize: "14px", color: "#166534", fontWeight: "700" }}>Expected Budget:</span>
+                                    <span style={{ fontSize: "18px", color: "#15803d", fontWeight: "800" }}>₹{selectedBooking.budget}</span>
+                                </div>
+                            )}
+                        </div>
+
+                        <div className="no-print" style={{ padding: "20px 24px", borderTop: "1px solid #f1f5f9", textAlign: "right", backgroundColor: "#f8fafc", borderBottomLeftRadius: "20px", borderBottomRightRadius: "20px", display: "flex", justifyContent: "flex-end", gap: "12px" }}>
+                            <button 
+                                onClick={() => window.print()}
+                                style={{
+                                    padding: "10px 24px",
+                                    backgroundColor: "#eff6ff",
+                                    color: "#3b82f6",
+                                    border: "1px solid #dbeafe",
+                                    borderRadius: "10px",
+                                    fontSize: "14px",
+                                    fontWeight: "600",
+                                    cursor: "pointer",
+                                    transition: "all 0.2s",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "8px"
+                                }}
+                            >
+                                <span>🖨️</span> Print Appointment
+                            </button>
+                            <button 
+                                onClick={() => setSelectedBooking(null)}
+                                style={{
+                                    padding: "10px 24px",
+                                    backgroundColor: "#1e293b",
+                                    color: "white",
+                                    border: "none",
+                                    borderRadius: "10px",
+                                    fontSize: "14px",
+                                    fontWeight: "600",
+                                    cursor: "pointer",
+                                    transition: "all 0.2s"
+                                }}
+                            >Close Details</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
+        </>
     );
 }
 
@@ -193,6 +581,23 @@ const styles = {
     propLoc: {
         fontSize: "12px",
         color: "#64748b"
+    },
+    propImageWrap: {
+        width: "70px",
+        height: "70px",
+        borderRadius: "8px",
+        backgroundColor: "#f1f5f9",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+        flexShrink: 0,
+        border: "1px solid #e2e8f0"
+    },
+    propImage: {
+        width: "100%",
+        height: "100%",
+        objectFit: "cover"
     },
     messageBox: {
         backgroundColor: "#f8fafc",

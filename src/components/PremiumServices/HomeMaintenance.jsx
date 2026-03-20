@@ -64,7 +64,6 @@ export default function HomeMaintenance() {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
-  // --- SCROLL FUNCTIONALITY ---
   const scrollToBooking = () => {
     const element = document.getElementById("book");
     if (element) {
@@ -83,18 +82,18 @@ export default function HomeMaintenance() {
 
   return (
     <div className="maintenance-wrapper">
-      {/* ================= INTERNAL CSS ================= */}
       <style>{`
         :root {
-          --dark: #0f172a;        /* Deep Navy */
-          --primary: #3b82f6;     /* Royal Blue */
-          --primary-dark: #1d4ed8;
-          --accent: #f59e0b;      /* Amber */
-          --success: #10b981;     /* Emerald */
-          --light: #f1f5f9;       /* Slate 100 */
+          --dark: #4c3324;
+          --primary: #627b68;
+          --primary-dark: #4c3324;
+          --accent: #819b8b;
+          --success: #3a2e28;
+          --light: #f9f6f1;
           --white: #ffffff;
+          --gray: #6b5e58;
           --glass: rgba(255, 255, 255, 0.95);
-          --shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+          --shadow: 0 20px 40px -10px rgba(76, 51, 36, 0.1);
           --radius: 20px;
         }
 
@@ -110,24 +109,24 @@ export default function HomeMaintenance() {
           transition: all 0.3s ease; cursor: pointer; border: none; font-size: 1rem;
         }
         .btn-primary { 
-          background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
-          color: white; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+          background: linear-gradient(135deg, #627b68 0%, #4c3324 100%); 
+          color: white; box-shadow: 0 10px 20px rgba(98, 123, 104, 0.2);
         }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(98, 123, 104, 0.3); }
         
         .btn-outline { background: transparent; border: 2px solid white; color: white; }
         .btn-outline:hover { background: white; color: var(--dark); }
 
         .btn-emergency {
-          background: #ef4444; color: white; animation: pulse 2s infinite;
+          background: #819b8b; color: white; animation: pulse 2s infinite;
         }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(129, 155, 139, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(129, 155, 139, 0); } 100% { box-shadow: 0 0 0 0 rgba(129, 155, 139, 0); } }
 
         /* --- HERO SECTION --- */
         .hero {
           position: relative;
           min-height: 700px;
-          background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.7)), 
+          background: linear-gradient(rgba(76, 51, 36, 0.85), rgba(76, 51, 36, 0.7)), 
                       url("https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&w=1920&q=80");
           background-size: cover;
           background-position: center;
@@ -138,16 +137,16 @@ export default function HomeMaintenance() {
         
         .hero h1 { 
           font-size: 4rem; font-weight: 800; margin-bottom: 24px; line-height: 1.1;
-          background: linear-gradient(to right, #fff, #94a3b8);
+          background: linear-gradient(to right, #ffffff, #f9f6f1);
           -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .hero p { font-size: 1.25rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 40px; }
+        .hero p { font-size: 1.25rem; color: #f9f6f1; max-width: 700px; margin: 0 auto 40px; }
 
         /* --- EMERGENCY BANNER --- */
         .emergency-banner {
-          background: #fee2e2; color: #b91c1c; padding: 15px; text-align: center;
+          background: #f9f6f1; color: #4c3324; padding: 15px; text-align: center;
           display: flex; justify-content: center; align-items: center; gap: 15px;
-          font-weight: 600; border-bottom: 1px solid #fecaca;
+          font-weight: 600; border-bottom: 1px solid rgba(76, 51, 36, 0.1);
         }
 
         /* --- STATS OVERLAP --- */
@@ -158,7 +157,7 @@ export default function HomeMaintenance() {
           display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
           text-align: center;
         }
-        .stat-num { font-size: 2.5rem; font-weight: 800; color: var(--primary); display: block; margin-bottom: 5px; }
+        .stat-num { font-size: 2.5rem; font-weight: 800; color: #627b68; display: block; margin-bottom: 5px; }
         .stat-label { color: var(--gray); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
 
         /* --- SERVICES SECTION --- */
@@ -171,44 +170,44 @@ export default function HomeMaintenance() {
         
         .service-card {
           background: white; padding: 40px; border-radius: var(--radius);
-          border: 1px solid #e2e8f0; transition: all 0.3s ease; position: relative; overflow: hidden;
+          border: 1px solid rgba(228, 203, 182, 0.3); transition: all 0.3s ease; position: relative; overflow: hidden;
         }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: var(--shadow); }
-        .service-card:hover .icon-bg { background: var(--primary); color: white; transform: rotate(-5deg); }
+        .service-card:hover { transform: translateY(-10px); border-color: #627b68; box-shadow: var(--shadow); }
+        .service-card:hover .icon-bg { background: #627b68; color: white; transform: rotate(-5deg); }
         
         .icon-bg {
-          width: 60px; height: 60px; background: #eff6ff; color: var(--primary);
+          width: 60px; height: 60px; background: rgba(129, 155, 139, 0.1); color: #627b68;
           border-radius: 12px; display: flex; align-items: center; justify-content: center;
           margin-bottom: 25px; transition: 0.3s;
         }
         .service-price { 
-          display: inline-block; background: #ecfdf5; color: var(--success); 
+          display: inline-block; background: rgba(129, 155, 139, 0.1); color: #627b68; 
           padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 15px;
         }
         
-        .service-card h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 700; }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 700; color: #4C3324; }
         .service-card p { font-size: 1rem; color: var(--gray); line-height: 1.6; margin-bottom: 20px; }
-        .sub-services { list-style: none; border-top: 1px solid #f1f5f9; padding-top: 15px; }
+        .sub-services { list-style: none; border-top: 1px solid rgba(76, 51, 36, 0.05); padding-top: 15px; }
         .sub-services li { font-size: 0.9rem; color: var(--gray); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-        .sub-services li svg { width: 16px; color: var(--success); }
+        .sub-services li svg { width: 16px; color: #627b68; }
 
         /* --- PRICING PLANS --- */
-        .pricing-section { background: #f8fafc; padding: 100px 0; }
+        .pricing-section { background: #f9f6f1; padding: 100px 0; }
         .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto; }
         
         .plan-card {
-          background: white; padding: 50px; border-radius: var(--radius); border: 1px solid #e2e8f0; text-align: center;
+          background: white; padding: 50px; border-radius: var(--radius); border: 1px solid rgba(228, 203, 182, 0.3); text-align: center;
           transition: 0.3s; position: relative;
         }
-        .plan-card.popular { border: 2px solid var(--primary); transform: scale(1.05); box-shadow: var(--shadow); z-index: 2; }
+        .plan-card.popular { border: 2px solid #627b68; transform: scale(1.05); box-shadow: var(--shadow); z-index: 2; }
         .badge-popular {
           position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-          background: var(--primary); color: white; padding: 5px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 700;
+          background: #4c3324; color: white; padding: 5px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 700;
         }
-        .plan-price { font-size: 3rem; font-weight: 800; color: var(--dark); margin: 20px 0; }
+        .plan-price { font-size: 3rem; font-weight: 800; color: #4c3324; margin: 20px 0; }
         .plan-price span { font-size: 1rem; color: var(--gray); font-weight: 500; }
         .plan-features { list-style: none; margin: 30px 0; text-align: left; }
-        .plan-features li { padding: 10px 0; border-bottom: 1px solid #f1f5f9; display: flex; gap: 10px; align-items: center; }
+        .plan-features li { padding: 10px 0; border-bottom: 1px solid rgba(76, 51, 36, 0.05); display: flex; gap: 10px; align-items: center; color: #4c3324; }
 
         /* --- BOOKING FORM (Modern Glass) --- */
         .booking-section { 
@@ -216,41 +215,43 @@ export default function HomeMaintenance() {
           background: url("https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1920&q=80") center/cover fixed;
           position: relative;
         }
-        .overlay { position: absolute; inset: 0; background: rgba(15, 23, 42, 0.85); }
+        .overlay { position: absolute; inset: 0; background: rgba(76, 51, 36, 0.88); }
         .booking-container { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: center; }
         
         .booking-text { color: white; }
-        .booking-text h2 { font-size: 3rem; margin-bottom: 20px; color: white; }
+        .booking-text h2 { font-size: 3rem; margin-bottom: 20px; color: #ffffff; }
+        .booking-text p { color: #f9f6f1; }
         .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
-        .benefit-box { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px; backdrop-filter: blur(5px); }
-        .benefit-box h4 { font-size: 1.1rem; margin-bottom: 5px; color: white; display: flex; align-items: center; gap: 8px; }
+        .benefit-box { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 12px; backdrop-filter: blur(5px); }
+        .benefit-box h4 { font-size: 1.1rem; margin-bottom: 5px; color: #ffffff; display: flex; align-items: center; gap: 8px; }
         
         .form-glass {
-          background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: var(--radius);
-          box-shadow: 0 25px 50px rgba(0,0,0,0.3); backdrop-filter: blur(10px);
+          background: rgba(255, 255, 255, 0.97); padding: 40px; border-radius: var(--radius);
+          box-shadow: 0 25px 50px rgba(76, 51, 36, 0.3); backdrop-filter: blur(10px);
         }
+        .form-glass h3 { color: #4c3324; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: var(--dark); }
+        .input-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 8px; color: #4C3324; }
         .input-field {
-          width: 100%; padding: 14px; border: 1px solid #cbd5e1; border-radius: 8px;
-          background: white; font-size: 1rem; transition: 0.3s;
+          width: 100%; padding: 14px; border: 1px solid #d5c4bb; border-radius: 8px;
+          background: white; font-size: 1rem; transition: 0.3s; color: #4C3324;
         }
-        .input-field:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+        .input-field:focus { border-color: #627b68; outline: none; box-shadow: 0 0 0 3px rgba(98, 123, 104, 0.2); }
 
         /* --- FAQ SECTION --- */
         .faq-section { background: white; padding: 100px 0; }
         .faq-max { max-width: 800px; margin: 0 auto; }
-        .faq-item { border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 15px; overflow: hidden; }
+        .faq-item { border: 1px solid #e8d5c8; border-radius: 12px; margin-bottom: 15px; overflow: hidden; }
         .faq-btn {
           width: 100%; padding: 20px; text-align: left; background: white; border: none;
           display: flex; justify-content: space-between; align-items: center; cursor: pointer;
-          font-weight: 700; color: var(--dark); font-size: 1.1rem;
+          font-weight: 700; color: #4C3324; font-size: 1.1rem;
         }
-        .faq-btn:hover { background: #f8fafc; }
-        .faq-answer { padding: 0 20px 20px; color: var(--gray); display: none; line-height: 1.6; }
+        .faq-btn:hover { background: #f5f0ec; }
+        .faq-answer { padding: 0 20px 20px; color: #6b5e58; display: none; line-height: 1.6; }
         .faq-item.active .faq-answer { display: block; }
-        .faq-item.active .faq-btn { color: var(--primary); }
+        .faq-item.active .faq-btn { color: #627b68; }
         .faq-item.active .faq-btn svg { transform: rotate(180deg); }
 
         /* --- RESPONSIVE --- */
@@ -266,15 +267,6 @@ export default function HomeMaintenance() {
           .form-row { grid-template-columns: 1fr; }
         }
       `}</style>
-
-      {/* ================= EMERGENCY HEADER ================= */}
-      {/* <div className="emergency-banner">
-        <IconZap /> 
-        <span>Need urgent repairs? Leaks or Power outages?</span>
-        <button className="btn btn-emergency" style={{padding: '8px 20px', fontSize: '0.9rem', borderRadius: '5px'}}>
-          Call Emergency: +91 98765 43210
-        </button>
-      </div> */}
 
       {/* ================= HERO SECTION ================= */}
       <section className="hero">
@@ -351,17 +343,17 @@ export default function HomeMaintenance() {
             <div className="plan-card">
               <h3>Pay Per Visit</h3>
               <div className="plan-price">₹299 <span>/ visit</span></div>
-              <p style={{ color: '#64748b' }}>Inspection charge waived if service booked.</p>
+              <p style={{ color: '#627B68' }}>Inspection charge waived if service booked.</p>
               <ul className="plan-features">
                 <li><IconCheck /> Verified Professional</li>
                 <li><IconCheck /> 30-Day Service Warranty</li>
                 <li><IconCheck /> Pay only for what you need</li>
-                <li style={{ opacity: 0.5, textDecoration: 'line-through' }}>Priority Booking</li>
+                <li style={{ opacity: 0.4, textDecoration: 'line-through' }}>Priority Booking</li>
               </ul>
               <button
                 onClick={scrollToBooking}
                 className="btn btn-outline"
-                style={{ borderColor: '#cbd5e1', color: '#0f172a', width: '100%' }}
+                style={{ borderColor: '#d5c4bb', color: '#4C3324', width: '100%' }}
               >
                 Book Now
               </button>
@@ -372,7 +364,7 @@ export default function HomeMaintenance() {
               <span className="badge-popular">Best Value</span>
               <h3>Annual Gold Plan</h3>
               <div className="plan-price">₹2,499 <span>/ year</span></div>
-              <p style={{ color: '#64748b' }}>Unlimited scheduled maintenance for your home.</p>
+              <p style={{ color: '#627B68' }}>Unlimited scheduled maintenance for your home.</p>
               <ul className="plan-features">
                 <li><IconCheck /> <strong>Unlimited</strong> Free Inspections</li>
                 <li><IconCheck /> 2 Free AC Servicings</li>
@@ -404,18 +396,18 @@ export default function HomeMaintenance() {
             <div className="benefits-grid">
               <div className="benefit-box">
                 <h4><IconShield /> Fully Insured</h4>
-                <p style={{ fontSize: '0.9rem', color: '#cbd5e1' }}>Covered up to ₹5 Lakhs against damages.</p>
+                <p style={{ fontSize: '0.9rem', color: '#E4CBB6' }}>Covered up to ₹5 Lakhs against damages.</p>
               </div>
               <div className="benefit-box">
                 <h4><IconZap /> Fast Service</h4>
-                <p style={{ fontSize: '0.9rem', color: '#cbd5e1' }}>Same-day arrival for bookings before 12 PM.</p>
+                <p style={{ fontSize: '0.9rem', color: '#E4CBB6' }}>Same-day arrival for bookings before 12 PM.</p>
               </div>
             </div>
           </div>
 
           {/* Right Form */}
           <div className="form-glass">
-            <h3 style={{ marginBottom: '20px', color: '#0f172a' }}>Book a Professional</h3>
+            <h3 style={{ marginBottom: '20px' }}>Book a Professional</h3>
             <form onSubmit={handleSubmit}>
               <div className="input-group">
                 <label>Your Name</label>
@@ -455,7 +447,7 @@ export default function HomeMaintenance() {
               </div>
 
               {submitted ? (
-                <div style={{ textAlign: 'center', padding: '20px', color: 'var(--success)', fontWeight: 'bold' }}>
+                <div style={{ textAlign: 'center', padding: '20px', color: '#819B8B', fontWeight: 'bold' }}>
                   ✓ Request submitted! We'll call you shortly.
                 </div>
               ) : (

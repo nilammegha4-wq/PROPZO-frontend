@@ -77,7 +77,7 @@ const styles = {
   sidebar: {
     width: "280px",
     height: "100vh",
-    backgroundColor: "#111827", // Darker Obsidian
+    backgroundColor: "#627B68", // Dark Sage Theme
     display: "flex",
     flexDirection: "column",
     padding: "30px 20px",
@@ -85,7 +85,7 @@ const styles = {
     left: 0,
     top: 0,
     boxSizing: "border-box",
-    borderRight: "1px solid #1f2937",
+    borderRight: "1px solid #5a705e",
     fontFamily: "'Inter', system-ui, sans-serif",
   },
   brandSection: {
@@ -98,16 +98,16 @@ const styles = {
   logoSquare: {
     width: "32px",
     height: "32px",
-    background: "linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)",
+    backgroundColor: "#4C3324", // Deep Brown Logo Square
     borderRadius: "8px",
-    color: "white",
+    color: "#E4CBB6",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontWeight: "800",
   },
   brandTitle: {
-    color: "#fff",
+    color: "#E4CBB6",
     fontSize: "18px",
     fontWeight: "700",
     margin: 0,
@@ -123,26 +123,28 @@ const styles = {
     alignItems: "center",
     padding: "12px 16px",
     borderRadius: "12px",
-    color: "#9ca3af", // Muted gray
+    color: "rgba(228, 203, 182, 0.6)", // Muted Beige
     textDecoration: "none",
     fontSize: "14px",
     fontWeight: "500",
     transition: "all 0.2s ease-in-out",
   },
   activeLink: {
-    backgroundColor: "rgba(99, 102, 241, 0.1)", // Subtle Indigo tint
-    color: "#818cf8", // Bright Indigo
+    backgroundColor: "rgba(228, 203, 182, 0.12)", // Active Link Background
+    color: "#E4CBB6", // Active Link Text
   },
   icon: {
     width: "20px",
     height: "20px",
     marginRight: "12px",
+    color: "#819B8B", // Lighter Sage
   },
   userProfile: {
     marginTop: "auto",
     padding: "16px",
-    backgroundColor: "#1f2937",
-    borderRadius: "16px",
+    backgroundColor: "#566d5b", // User Profile Background
+    borderRadius: "12px",
+    border: "none",
     display: "flex",
     alignItems: "center",
     gap: "12px",
@@ -151,25 +153,25 @@ const styles = {
     width: "36px",
     height: "36px",
     borderRadius: "50%",
-    backgroundColor: "#374151",
+    backgroundColor: "#4C3324",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     fontSize: "12px",
-    color: "#fff",
+    color: "#E4CBB6",
     fontWeight: "600",
   },
   userInfo: {
     overflow: "hidden",
   },
   userName: {
-    color: "#fff",
+    color: "#E4CBB6",
     fontSize: "14px",
     fontWeight: "600",
     margin: 0,
   },
   userRole: {
-    color: "#6b7280",
+    color: "#819B8B",
     fontSize: "12px",
     margin: 0,
   },

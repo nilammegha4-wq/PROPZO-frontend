@@ -52,14 +52,14 @@ const EditClient = () => {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
         
-        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background-color: #faf7f5; }
 
         .form-card {
           background: #ffffff;
           border-radius: 32px;
           padding: 40px;
-          border: 1px solid #f1f5f9;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+          border: 1px solid rgba(228, 203, 182, 0.2);
+          box-shadow: 0 20px 40px rgba(76, 51, 36, 0.04);
           width: 100%;
           max-width: 600px;
         }
@@ -68,20 +68,21 @@ const EditClient = () => {
           width: 100%;
           padding: 16px;
           border-radius: 14px;
-          border: 1px solid #e2e8f0;
+          border: 1px solid rgba(228, 203, 182, 0.4);
           font-size: 14px;
           font-weight: 500;
           outline: none;
-          background: #fcfdfe;
+          background: #faf7f5;
+          color: #3a2e28;
           transition: border-color 0.2s;
         }
 
         .input-field:focus {
-          border-color: #3b82f6;
+          border-color: #627b68;
         }
 
         .btn-update {
-          background: #2563eb;
+          background: #627b68;
           color: white;
           border: none;
           padding: 16px;
@@ -93,9 +94,9 @@ const EditClient = () => {
         }
 
         .btn-update:hover {
-          background: #1e40af;
+          background: #4c3324;
           transform: translateY(-2px);
-          box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+          box-shadow: 0 10px 15px -3px rgba(76, 51, 36, 0.2);
         }
       `}</style>
 
@@ -190,13 +191,13 @@ const EditClient = () => {
 const styles = {
   pageWrapper: { minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "40px 20px" },
   header: { marginBottom: "32px", textAlign: "center" },
-  title: { fontSize: "28px", fontWeight: "800", color: "#0f172a", margin: 0, letterSpacing: "-1px" },
-  subtitle: { fontSize: "14px", color: "#64748b", marginTop: "8px" },
+  title: { fontSize: "28px", fontWeight: "800", color: "#4c3324", margin: 0, letterSpacing: "-1px" },
+  subtitle: { fontSize: "14px", color: "#6b5e58", marginTop: "8px" },
   form: { display: "flex", flexDirection: "column", gap: "20px" },
   inputGroup: { display: "flex", flexDirection: "column", gap: "8px" },
-  label: { fontSize: "12px", fontWeight: "700", color: "#94a3b8", textTransform: "uppercase", letterSpacing: "1px" },
+  label: { fontSize: "11px", fontWeight: "700", color: "#819b8b", textTransform: "uppercase", letterSpacing: "1px" },
   buttonGroup: { display: "flex", gap: "16px", marginTop: "12px" },
-  cancelBtn: { flex: 1, padding: "16px", borderRadius: "16px", border: "1px solid #e2e8f0", background: "#fff", color: "#64748b", fontWeight: "700", cursor: "pointer" },
+  cancelBtn: { flex: 1, padding: "16px", borderRadius: "16px", border: "1px solid rgba(178, 132, 107, 0.4)", background: "#fff", color: "#b2846b", fontWeight: "700", cursor: "pointer", transition: "all 0.2s" },
 };
 
 export default EditClient;
