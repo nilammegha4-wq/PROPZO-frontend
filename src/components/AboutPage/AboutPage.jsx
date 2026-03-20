@@ -1,176 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const css = `
-  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+const About = () => {
+  return (
+    <>
+      <style>{`
+        /* =====================
+           RESET
+        ===================== */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Segoe UI", sans-serif;
+        }
 
-  .about-page {
-    font-family: 'Outfit', sans-serif;
-    color: #4C3324;
-    overflow-x: hidden;
-    background: #f5f0e8;
-  }
+        body {
+          overflow-x: hidden;
+        }
 
-  /* =========== Hero Section =========== */
-  .about-hero {
-    height: 70vh;
-    min-height: 500px;
-    background: linear-gradient(rgba(76,51,36,0.25), rgba(76,51,36,0.55)), url('/about_bg.png') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 10%;
-    color: #F5EDE3;
-    position: relative;
-    border-bottom: 1px solid rgba(228, 203, 182, 0.3);
-  }
+        .container {
+          width: 90%;
+          max-width: 1200px;
+          margin: auto;
+        }
 
-  .about-breadcrumb {
-    font-size: 14px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #F5EDE3;
-    margin-bottom: 24px;
-    font-weight: 500;
-    opacity: 0.9;
-  }
-
-  .about-breadcrumb span { color: #E4CBB6; cursor: pointer; transition: color 0.3s; }
-  .about-breadcrumb span:hover { color: #fff; }
-
-  .about-hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 6rem;
-    font-weight: 700;
-    margin: 0;
-    color: #F5EDE3;
-    line-height: 1;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  }
-
-  /* =========== Section 1: Intro =========== */
-  .about-intro-sec {
-    padding: 100px 5%;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .intro-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 80px;
-    gap: 40px;
-  }
-
-  .intro-top-title {
-    flex: 1;
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: #4C3324;
-    line-height: 1.2;
-    max-width: 600px;
-  }
-
-  .intro-top-icons {
-    display: flex;
-    gap: 40px;
-  }
-
-  .icon-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #9a7060;
-    font-size: 14px;
-  }
-
-  .icon-box svg { color: #B2846B; }
-
-  .intro-bottom {
-    display: flex;
-    gap: 60px;
-    align-items: center;
-  }
-
-  .intro-img-container {
-    flex: 1;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-  }
-
-  .intro-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-  }
-
-  .intro-img-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(circle, rgba(245,237,227,0.50) 0%, rgba(245,237,227,0) 60%);
-    pointer-events: none;
-  }
-
-  .intro-text-content { flex: 1; }
-
-  .section-label {
-    color: #B2846B;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    display: block;
-    font-weight: 600;
-  }
-
-  .intro-main-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    color: #4C3324;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-
-  .intro-desc {
-    color: #7a5c4a;
-    line-height: 1.7;
-    margin-bottom: 40px;
-  }
-
-  .vision-mission-box { margin-bottom: 30px; }
-
-  .vm-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #4C3324;
-  }
-
-  .vm-desc {
-    color: #7a5c4a;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 992px) {
-    .intro-top, .intro-bottom { flex-direction: column; }
-  }
-
-  /* =========== Section 2: Video Banner =========== */
-  .video-banner {
-    position: relative;
-    height: 500px;
-    background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop') center/cover fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+        /* =====================
+           HERO
+        ===================== */
+        .about-hero {
+          position: relative;
+          height: 70vh;
+          background: url("https://images.unsplash.com/photo-1560185127-6ed189bf02f4")
+            center/cover no-repeat;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
 
   .video-banner::before {
     content: '';
@@ -186,41 +52,28 @@ const css = `
     z-index: 1;
   }
 
-  .video-banner-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    max-width: 800px;
-    line-height: 1.2;
-    margin-bottom: -30px;
-    color: #F5EDE3;
-  }
+        .about-hero-content h1 {
+          font-size: 3.5rem;
+        }
 
-  /* =========== Section 3: Why Choose Us =========== */
-  .why-choose-sec {
-    padding: 150px 5% 100px;
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-  }
+        .about-hero-content p {
+          font-size: 1.2rem;
+          margin-top: 10px;
+          opacity: 0.9;
+        }
 
-  .wcs-img-tall {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
+        /* =====================
+           INTRO
+        ===================== */
+        .about-intro {
+          padding: 80px 0;
+          text-align: center;
+        }
 
-  .wcs-content-top { padding-top: 50px; }
-
-  .wcs-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: #4C3324;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
+        .about-intro h2 {
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+        }
 
   .wcs-desc {
     color: #7a5c4a;
@@ -484,23 +337,15 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="why-choose-sec">
+      {/* ===================== WHY PROPOZO ===================== */}
+      <section className="why-propozo">
+        <div className="container">
+          <h2>Why Choose Propzo</h2>
 
-        {/* Left Col */}
-        <div>
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" alt="Building Entrance" className="wcs-img-tall" />
-
-          <div className="wcs-content-bottom">
-            <span className="section-label">Choose That's Greate?</span>
-            <h2 className="wcs-title">PropZo offers exclusive property videos to help you make the best choice.</h2>
-            <p className="wcs-desc">With trusted listings and modern features, finding your dream home is now easier than ever.</p>
-
-            <div className="stats-matrix">
-              <div className="stat-block"><h3><span>+</span>12K</h3><p>Happy customers</p></div>
-              <div className="stat-block"><h3><span>+</span>2.5K</h3><p>Complete Projects</p></div>
-              <div className="stat-block"><h3><span>+</span>32K</h3><p>Awards Winning</p></div>
-              <div className="stat-block"><h3><span>+</span>2.5K</h3><p>Complete Projects</p></div>
+          <div className="features">
+            <div className="feature">
+              <h4>✔ Verified Listings</h4>
+              <p>Every property is checked for authenticity and trust.</p>
             </div>
           </div>
         </div>
@@ -530,18 +375,6 @@ const AboutPage = () => {
                 <div className="feat-text"><h5>Friendly Services</h5><p>Diam semper nihil id aenean iaculis donec tortor semper.</p></div>
               </div>
             </div>
-          </div>
-
-          <div style={{ position: 'relative' }}>
-            <video 
-              src="/111.mp4" 
-              autoPlay 
-              loop 
-              muted 
-              playsInline
-              className="wcs-img-short"
-              title="Skyscraper Video"
-            />
           </div>
         </div>
 

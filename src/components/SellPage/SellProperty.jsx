@@ -799,6 +799,7 @@ const css = `
     position: absolute;
     top: -5px;
     right: -5px;
+<<<<<<< HEAD
     background: var(--ink);
     color: #fff;
     border: none;
@@ -806,10 +807,20 @@ const css = `
     width: 18px;
     height: 18px;
     font-size: 10px;
+=======
+    background: var(--gold-hover);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+<<<<<<< HEAD
     transition: background 0.2s;
   }
 
@@ -846,6 +857,9 @@ const css = `
     .sell-property-container {
       padding: 100px 5% 60px;
     }
+=======
+    z-index: 5;
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   }
 `;
 
@@ -858,6 +872,7 @@ export default function SellProperty() {
 
   const [formData, setFormData] = useState({
     title: "", type: "Apartment", category: "Buy", price: "", description: "",
+<<<<<<< HEAD
     beds: "", baths: "", area: "", furnishingStatus: "Unfurnished",
     floorNumber: "", totalFloors: "", propertyAge: "", balconies: "",
     parking: "N/A", facing: "East", availableFrom: "", rentDuration: "month",
@@ -869,12 +884,16 @@ export default function SellProperty() {
       email: auth?.email || "",
       whatsapp: "",
     }
+=======
+    beds: "", baths: "", area: "", furnishingStatus: "Unfurnished", floorNumber: "",
+    totalFloors: "", propertyAge: "", balconies: "", parking: "N/A", facing: "East",
+    availableFrom: "", rentDuration: "month", address: "", city: "", state: "",
+    pincode: "", map: "", mapEmbed: "", amenities: [],
+    owner: { name: auth?.name || "", phone: auth?.phone || "", email: auth?.email || "", whatsapp: "" }
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   });
 
-  const amenitiesList = [
-    "Parking", "Lift", "Security", "Garden", "Gym",
-    "Swimming Pool", "Power Backup", "Balcony"
-  ];
+  const amenitiesList = ["Parking", "Lift", "Security", "Garden", "Gym", "Swimming Pool", "Power Backup", "Balcony"];
 
   const parseIndianPrice = (priceStr) => {
     if (!priceStr) return 0;
@@ -907,9 +926,7 @@ export default function SellProperty() {
   const handleAmenityChange = (amenity) => {
     setFormData(prev => ({
       ...prev,
-      amenities: prev.amenities.includes(amenity)
-        ? prev.amenities.filter(a => a !== amenity)
-        : [...prev.amenities, amenity]
+      amenities: prev.amenities.includes(amenity) ? prev.amenities.filter(a => a !== amenity) : [...prev.amenities, amenity]
     }));
   };
 
@@ -928,9 +945,10 @@ export default function SellProperty() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!auth) {
-      alert("Please login to list a property");
+      toast.info("Please login to list a property");
       return navigate("/login");
     }
+<<<<<<< HEAD
 
     // Frontend file size validation (20MB per file)
     const oversizedFiles = imageFiles.filter(f => f.size > 20 * 1024 * 1024);
@@ -939,10 +957,13 @@ export default function SellProperty() {
       return;
     }
 
+=======
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     setLoading(true);
     try {
       const token = auth.token || localStorage.getItem("token");
       const formDataToSend = new FormData();
+<<<<<<< HEAD
       formDataToSend.append("title", formData.title);
       formDataToSend.append("description", formData.description);
       const parsedPrice = parseIndianPrice(formData.price);
@@ -977,20 +998,44 @@ export default function SellProperty() {
 
       await axios.post("/api/sales/create", formDataToSend, {
         headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" }
+=======
+      Object.keys(formData).forEach(key => {
+        if (key === 'owner') {
+          formDataToSend.append("sellerName", formData.owner.name);
+          formDataToSend.append("phone", formData.owner.phone);
+          formDataToSend.append("email", formData.owner.email);
+        } else if (key === 'amenities') {
+          formData.amenities.forEach(a => formDataToSend.append("amenities", a));
+        } else {
+          formDataToSend.append(key, formData[key]);
+        }
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       });
+      imageFiles.forEach(file => formDataToSend.append("images", file));
 
+<<<<<<< HEAD
       toast.success("🎉 Property listed successfully!");
       navigate("/properties");
     } catch (error) {
       console.error("Submission error:", error);
       const errorMsg = error.response?.data?.message || "Failed to list property. Please try again.";
       toast.error(errorMsg);
+=======
+      await axios.post("/api/sales/create", formDataToSend, {
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "multipart/form-data" }
+      });
+      toast.success("🎉 Property listed successfully!");
+      navigate("/properties");
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Failed to list property.");
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     } finally {
       setLoading(false);
     }
   };
 
   return (
+<<<<<<< HEAD
     <>
       <style>{css}</style>
       <div className="sell-property-container">
@@ -1249,5 +1294,83 @@ export default function SellProperty() {
         </div>
       </div>
     </>
+=======
+    <div className="sell-property-container">
+      <style>{css}</style>
+      <div className="breadcrumbs">
+        <Link to="/" style={{color: 'inherit', textDecoration: 'none'}}>Home</Link>
+        <span>/</span>
+        <Link to="/menu" style={{color: 'inherit', textDecoration: 'none'}}>Menu</Link>
+        <span>/</span>
+        <span className="active">List Property</span>
+      </div>
+
+      <div className="sell-property-layout">
+        <form className="form-left" onSubmit={handleSubmit}>
+          <section className="section-group">
+            <h2 className="section-group-title">Contact Information</h2>
+            <div className="form-grid">
+              <div className="form-group"><label>Seller Name</label><input type="text" name="owner.name" className="form-control" value={formData.owner.name} onChange={handleChange} required /></div>
+              <div className="form-group"><label>Email Address</label><input type="email" name="owner.email" className="form-control" value={formData.owner.email} onChange={handleChange} required /></div>
+              <div className="form-group"><label>Phone Number</label><input type="text" name="owner.phone" className="form-control" value={formData.owner.phone} onChange={handleChange} required /></div>
+              <div className="form-group"><label>WhatsApp (Optional)</label><input type="text" name="owner.whatsapp" className="form-control" value={formData.owner.whatsapp} onChange={handleChange} /></div>
+            </div>
+          </section>
+
+          <section className="section-group">
+            <h2 className="section-group-title">Property Details</h2>
+            <div className="form-grid">
+              <div className="form-group full-width"><label>Listing Title</label><input type="text" name="title" className="form-control" value={formData.title} onChange={handleChange} required /></div>
+              <div className="form-group"><label>Property Type</label><select name="type" className="form-control" value={formData.type} onChange={handleChange}><option value="Apartment">Apartment</option><option value="House">House</option><option value="Villa">Villa</option><option value="Plot">Plot</option></select></div>
+              <div className="form-group"><label>Category</label><select name="category" className="form-control" value={formData.category} onChange={handleChange}><option value="Buy">Sell</option><option value="Rent">Rent</option><option value="PerRent">Flexible</option></select></div>
+              <div className="form-group"><label>Price (₹)</label><input type="number" name="price" className="form-control" value={formData.price} onChange={handleChange} required /></div>
+              <div className="form-group"><label>Area (sqft)</label><input type="number" name="area" className="form-control" value={formData.area} onChange={handleChange} required /></div>
+            </div>
+          </section>
+
+          <section className="section-group">
+            <h2 className="section-group-title">Amenities</h2>
+            <div className="amenities-grid">
+              {amenitiesList.map(a => (
+                <label key={a} className={`amenity-item ${formData.amenities.includes(a) ? 'active' : ''}`}>
+                  <input type="checkbox" checked={formData.amenities.includes(a)} onChange={() => handleAmenityChange(a)} style={{display: 'none'}} />
+                  <span>{a}</span>
+                </label>
+              ))}
+            </div>
+          </section>
+
+          <section className="section-group">
+            <h2 className="section-group-title">Media</h2>
+            <div className="upload-box" onClick={() => document.getElementById('imageUpload').click()}>
+              <input type="file" id="imageUpload" multiple accept="image/*" style={{ display: 'none' }} onChange={handleImageChange} />
+              <FaRegImage size={24} />
+              <p>Click to upload photos</p>
+            </div>
+            <div className="previews">
+              {previews.map((src, idx) => (
+                <div key={idx} className="preview-chip">
+                  <img src={src} alt="Preview" />
+                  <button type="button" className="remove-btn" onClick={() => removeImage(idx)}>&times;</button>
+                </div>
+              ))}
+            </div>
+          </section>
+        </form>
+
+        <div className="summary-right">
+          <div className="summary-card">
+            <h3 className="summary-title">Listing Summary</h3>
+            <div className="summary-item">
+              <img src={previews[0] || "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=400"} alt="Property" className="summary-img" />
+              <div className="summary-info"><h4>{formData.title || "Untitled"}</h4><p>{formData.type} • {formData.city || "Mumbai"}</p></div>
+            </div>
+            <div className="summary-row total"><span>Price</span><span>₹{Number(formData.price).toLocaleString()}</span></div>
+            <button className="pay-btn" onClick={handleSubmit} disabled={loading}>{loading ? <ImSpinner2 className="animate-spin" /> : "List Property Now"}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
   );
 }

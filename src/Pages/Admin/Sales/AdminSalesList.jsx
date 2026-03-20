@@ -2,23 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../../../context/AuthContext";
 import {
-    FaHome,
-    FaMoneyBillWave,
-    FaMapMarkerAlt,
-    FaUser,
-    FaCalendarAlt,
-    FaPhoneAlt,
-    FaBed,
-    FaBath,
-    FaRegEye,
-    FaTrashAlt,
-    FaArrowRight,
-    FaCheckCircle,
-    FaInfoCircle,
-    FaTimes,
-    FaCheck,
-    FaList,
-    FaRegImage
+    FaHome, FaMoneyBillWave, FaMapMarkerAlt, FaUser, FaCalendarAlt,
+    FaPhoneAlt, FaBed, FaBath, FaRegEye, FaTrashAlt, FaArrowRight,
+    FaCheckCircle, FaInfoCircle, FaTimes, FaCheck, FaList, FaRegImage
 } from "react-icons/fa";
 
 const BASE_URL = "http://localhost:5000";
@@ -30,9 +16,7 @@ const AdminSalesList = () => {
     const [selectedSale, setSelectedSale] = useState(null);
     const [showModal, setShowModal] = useState(false);
 
-    useEffect(() => {
-        fetchSales();
-    }, []);
+    useEffect(() => { fetchSales(); }, []);
 
     const fetchSales = async () => {
         try {
@@ -58,20 +42,22 @@ const AdminSalesList = () => {
     };
 
     const openDetails = (sale) => {
-        console.log("🧐 Opening details for sale:", sale);
         setSelectedSale(sale);
         setShowModal(true);
     };
 
-    if (loading) return <div style={styles.loader}>Loading sales data...</div>;
+    if (loading) return (
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100vh", background: "#f5ede6", fontFamily: "'DM Sans', sans-serif", color: "#B2846B", fontSize: 18, fontWeight: 600 }}>
+            Loading sales data...
+        </div>
+    );
 
     const stats = {
         total: sales.length,
-        apartments: sales.filter(s => s.propertyType === "Apartment").length,
-        villas: sales.filter(s => s.propertyType === "Villa").length,
         totalValue: sales.reduce((acc, curr) => acc + (Number(curr.price) || 0), 0)
     };
 
+<<<<<<< HEAD
     const formatPrice = (value) => {
         if (value >= 10000000) {
             return (value / 10000000).toFixed(2) + " CR";
@@ -84,6 +70,17 @@ const AdminSalesList = () => {
     return (
         <>
             <style>{`
+=======
+    return (
+        <>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Sora:wght@600;700&display=swap');
+                * { box-sizing: border-box; }
+                .asl-row:hover { background: #faf6f3 !important; }
+                .asl-view-btn:hover { background: #627B68 !important; color: #fff !important; }
+                .asl-del-btn:hover { background: #b85c3a !important; color: #fff !important; }
+
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 @media (max-width: 991px) {
                     .asl-container { padding: 20px !important; }
                     .asl-header { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
@@ -93,6 +90,7 @@ const AdminSalesList = () => {
                     .asl-title { font-size: 24px !important; }
                 }
             `}</style>
+<<<<<<< HEAD
             <div style={styles.container} className="asl-container">
                 <header style={styles.header} className="asl-header">
                     <div>
@@ -195,99 +193,202 @@ const AdminSalesList = () => {
                     <div style={styles.emptyState}>
                         <FaInfoCircle size={40} color="#94a3b8" />
                         <p>No sales requests found yet.</p>
+=======
+
+            <div style={s.page}>
+                <div style={s.accentBar} />
+
+                <div style={s.container} className="asl-container">
+                    {/* Header */}
+                    <div style={s.header} className="asl-header">
+                        <div>
+                            <p style={s.breadcrumb}>Admin / Sales</p>
+                            <h1 style={s.title} className="asl-title">Property Sale Requests</h1>
+                            <p style={s.subtitle}>Manage and monitor all incoming seller submissions</p>
+                        </div>
+                        <div style={s.statsRow} className="asl-stats-row">
+                            <div style={s.statCard}>
+                                <div style={{ ...s.statIcon, background: 'rgba(178, 132, 107, 0.1)', color: '#b2846b' }}><FaList /></div>
+                                <div>
+                                    <p style={s.statLabel}>Total Requests</p>
+                                    <h3 style={s.statValue}>{stats.total}</h3>
+                                </div>
+                            </div>
+                            <div style={s.statCard}>
+                                <div style={{ ...s.statIcon, background: 'rgba(98, 123, 104, 0.1)', color: '#627b68' }}><FaMoneyBillWave /></div>
+                                <div>
+                                    <p style={s.statLabel}>Total Value</p>
+                                    <h3 style={s.statValue}>₹{(stats.totalValue / 1000000).toFixed(1)}M</h3>
+                                </div>
+                            </div>
+                        </div>
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                     </div>
-                )}
+
+                    {/* Table */}
+                    <div style={{ ...s.tableCard, overflowX: "auto" }} className="asl-table-card">
+                        <div style={{ minWidth: "900px" }}>
+                            <table style={s.table}>
+                                <thead>
+                                    <tr>
+                                        {["Property", "Price", "Location", "Seller Details", "Type / BHK", "Date", "Actions"].map(h => (
+                                            <th key={h} style={s.th}>{h}</th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {sales.map((sale) => (
+                                        <tr key={sale._id} style={s.tr} className="asl-row">
+                                            <td style={s.td}>
+                                                <div style={s.propInfo}>
+                                                    <div style={s.propPreview}>
+                                                        {sale.image ? (
+                                                            <img
+                                                                src={sale.image.startsWith('http') ? sale.image : `${BASE_URL}${sale.image.startsWith('/') ? '' : '/'}${sale.image}`}
+                                                                alt=""
+                                                                style={s.tinyImg}
+                                                                onError={(e) => { e.target.src = 'https://via.placeholder.com/50?text=No+Img'; }}
+                                                            />
+                                                        ) : <FaHome />}
+                                                    </div>
+                                                    <div>
+                                                        <p style={s.propTitle}>{sale.title}</p>
+                                                        <span style={s.statusBadge}>New Listing</span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td style={s.td}>
+                                                <p style={s.priceText}>₹{sale.price?.toLocaleString()}</p>
+                                            </td>
+                                            <td style={s.td}>
+                                                <div style={s.locationInfo}>
+                                                    <FaMapMarkerAlt style={{ color: "#B2846B" }} />
+                                                    <span>{sale.city}</span>
+                                                </div>
+                                            </td>
+                                            <td style={s.td}>
+                                                <div style={s.sellerInfo}>
+                                                    <p style={s.sellerName}><FaUser size={12} /> {sale.sellerName || "N/A"}</p>
+                                                    <p style={s.sellerPhone}><FaPhoneAlt size={12} /> {sale.phone || "N/A"}</p>
+                                                </div>
+                                            </td>
+                                            <td style={s.td}>
+                                                <div style={s.typeInfo}>
+                                                    <span style={s.tag}>{sale.propertyType}</span>
+                                                    <span style={s.tag}>{sale.bhk || "-"} BHK</span>
+                                                </div>
+                                            </td>
+                                            <td style={s.td}>
+                                                <p style={s.dateText}><FaCalendarAlt size={12} /> {new Date(sale.createdAt).toLocaleDateString()}</p>
+                                            </td>
+                                            <td style={s.td}>
+                                                <div style={s.actionButtons}>
+                                                    <button className="asl-view-btn" onClick={() => openDetails(sale)} style={s.viewBtn} title="View Details">
+                                                        <FaRegEye />
+                                                    </button>
+                                                    <button className="asl-del-btn" onClick={() => handleDelete(sale._id)} style={s.delBtn} title="Delete Request">
+                                                        <FaTrashAlt />
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                        {sales.length === 0 && (
+                            <div style={s.emptyState}>
+                                <FaInfoCircle size={40} color="#a89385" />
+                                <p style={{ color: "#7a5c4a" }}>No sales requests found yet.</p>
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
 
             {/* DETAILS MODAL */}
             {showModal && selectedSale && (
-                <div style={styles.modalOverlay} onClick={() => setShowModal(false)}>
-                    <div style={styles.modalContent} onClick={e => e.stopPropagation()}>
-                        <button style={styles.closeBtn} onClick={() => setShowModal(false)}><FaTimes /></button>
+                <div style={s.modalOverlay} onClick={() => setShowModal(false)}>
+                    <div style={s.modalContent} onClick={e => e.stopPropagation()}>
+                        <button style={s.closeBtn} onClick={() => setShowModal(false)}><FaTimes /></button>
 
-                        <div style={styles.modalBody}>
-                            <div style={styles.modalHeader}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                                    <h2 style={styles.modalTitle}>{selectedSale.title}</h2>
-                                    <div style={styles.modalBadge}>₹{selectedSale.price?.toLocaleString()}</div>
+                        <div style={s.modalBody}>
+                            <div style={s.modalHeader}>
+                                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+                                    <h2 style={s.modalTitle}>{selectedSale.title}</h2>
+                                    <div style={s.modalBadge}>₹{selectedSale.price?.toLocaleString()}</div>
                                 </div>
-                                <p style={{ color: '#64748b', fontSize: '14px', margin: 0 }}><FaMapMarkerAlt /> {selectedSale.address}, {selectedSale.city}</p>
+                                <p style={{ color: "#7a5c4a", fontSize: 14, margin: 0 }}><FaMapMarkerAlt /> {selectedSale.address}, {selectedSale.city}</p>
                             </div>
 
-                            <div style={styles.modalGrid}>
-                                <div style={styles.modalCol}>
-                                    <h4 style={styles.sectionHeading}>Basic Info</h4>
-                                    <div style={styles.detailRow}><strong>Type:</strong> <span>{selectedSale.propertyType}</span></div>
-                                    <div style={styles.detailRow}><strong>Category:</strong> <span>{selectedSale.category}</span></div>
-                                    <div style={styles.detailRow}><strong>BHK:</strong> <span>{selectedSale.bhk}</span></div>
-                                    <div style={styles.detailRow}><strong>Bathrooms:</strong> <span>{selectedSale.bathrooms}</span></div>
-                                    <div style={styles.detailRow}><strong>Area:</strong> <span>{selectedSale.area} sqft</span></div>
+                            <div style={s.modalGrid}>
+                                <div style={s.modalCol}>
+                                    <h4 style={s.sectionHeading}>Basic Info</h4>
+                                    {[["Type", selectedSale.propertyType], ["Category", selectedSale.category], ["BHK", selectedSale.bhk], ["Bathrooms", selectedSale.bathrooms], ["Area", `${selectedSale.area} sqft`]].map(([k, v]) => (
+                                        <div key={k} style={s.detailRow}><strong>{k}:</strong> <span>{v}</span></div>
+                                    ))}
                                 </div>
-                                <div style={styles.modalCol}>
-                                    <h4 style={styles.sectionHeading}>Location & Age</h4>
-                                    <div style={styles.detailRow}><strong>Address:</strong> <span>{selectedSale.address}</span></div>
-                                    <div style={styles.detailRow}><strong>City:</strong> <span>{selectedSale.city}</span></div>
-                                    <div style={styles.detailRow}><strong>State:</strong> <span>{selectedSale.state}</span></div>
-                                    <div style={styles.detailRow}><strong>Pincode:</strong> <span>{selectedSale.pincode}</span></div>
-                                    <div style={styles.detailRow}><strong>Age:</strong> <span>{selectedSale.propertyAge} years</span></div>
+                                <div style={s.modalCol}>
+                                    <h4 style={s.sectionHeading}>Location & Age</h4>
+                                    {[["Address", selectedSale.address], ["City", selectedSale.city], ["State", selectedSale.state], ["Pincode", selectedSale.pincode], ["Age", `${selectedSale.propertyAge} years`]].map(([k, v]) => (
+                                        <div key={k} style={s.detailRow}><strong>{k}:</strong> <span>{v}</span></div>
+                                    ))}
                                 </div>
-                                <div style={styles.modalCol}>
-                                    <h4 style={styles.sectionHeading}>Seller Details</h4>
-                                    <div style={styles.detailRow}><strong>Name:</strong> <span>{selectedSale.sellerName}</span></div>
-                                    <div style={styles.detailRow}><strong>Phone:</strong> <span>{selectedSale.phone}</span></div>
-                                    <div style={styles.detailRow}><strong>Email:</strong> <span>{selectedSale.email}</span></div>
+                                <div style={s.modalCol}>
+                                    <h4 style={s.sectionHeading}>Seller Details</h4>
+                                    {[["Name", selectedSale.sellerName], ["Phone", selectedSale.phone], ["Email", selectedSale.email]].map(([k, v]) => (
+                                        <div key={k} style={s.detailRow}><strong>{k}:</strong> <span>{v}</span></div>
+                                    ))}
                                 </div>
                             </div>
 
-                            <div style={{ marginTop: '20px' }}>
-                                <h4 style={styles.sectionHeading}>Description</h4>
-                                <p style={styles.descriptionText}>{selectedSale.description || "No description provided."}</p>
+                            <div style={{ marginTop: 20 }}>
+                                <h4 style={s.sectionHeading}>Description</h4>
+                                <p style={s.descriptionText}>{selectedSale.description || "No description provided."}</p>
                             </div>
 
-                            <div style={{ marginTop: '20px' }}>
-                                <h4 style={styles.sectionHeading}>Amenities</h4>
-                                <div style={styles.amenitiesGrid}>
+                            <div style={{ marginTop: 20 }}>
+                                <h4 style={s.sectionHeading}>Amenities</h4>
+                                <div style={s.amenitiesGrid}>
                                     {selectedSale.amenities?.map((a, i) => (
-                                        <div key={i} style={styles.amenityItem}><FaCheck size={10} /> {a}</div>
+                                        <div key={i} style={s.amenityItem}><FaCheck size={10} /> {a}</div>
                                     ))}
                                 </div>
                             </div>
 
                             {selectedSale.images?.filter(img => img).length > 0 ? (
-                                <div style={{ marginTop: '20px' }}>
-                                    <h4 style={styles.sectionHeading}>Gallery</h4>
-                                    <div style={styles.gallery}>
+                                <div style={{ marginTop: 20 }}>
+                                    <h4 style={s.sectionHeading}>Gallery</h4>
+                                    <div style={s.gallery}>
                                         {selectedSale.images.filter(img => img).map((img, i) => (
                                             <img
                                                 key={i}
                                                 src={img.startsWith('http') ? img : `${BASE_URL}${img.startsWith('/') ? '' : '/'}${img}`}
                                                 alt=""
-                                                style={styles.galleryImg}
-                                                onError={(e) => {
-                                                    console.error("Gallery img failed:", img);
-                                                    e.target.src = 'https://via.placeholder.com/200x150?text=Error+Loading';
-                                                }}
+                                                style={s.galleryImg}
+                                                onError={(e) => { e.target.src = 'https://via.placeholder.com/200x150?text=Error+Loading'; }}
                                             />
                                         ))}
                                     </div>
                                 </div>
                             ) : (
-                                <div style={{ marginTop: '20px', padding: '20px', background: '#f8fafc', borderRadius: '16px', textAlign: 'center' }}>
-                                    <FaRegImage size={30} color="#94a3b8" />
-                                    <p style={{ color: '#64748b', fontSize: '14px', marginTop: '10px' }}>No images uploaded for this property.</p>
+                                <div style={{ marginTop: 20, padding: 20, background: "#faf6f3", borderRadius: 16, textAlign: "center" }}>
+                                    <FaRegImage size={30} color="#a89385" />
+                                    <p style={{ color: "#7a5c4a", fontSize: 14, marginTop: 10 }}>No images uploaded for this property.</p>
                                 </div>
                             )}
                         </div>
 
-                        <div style={styles.modalFooter}>
-                            <a href={`https://wa.me/${selectedSale.phone}`} target="_blank" rel="noreferrer" style={styles.whatsappBtn}>
+                        <div style={s.modalFooter}>
+                            <a href={`https://wa.me/${selectedSale.phone}`} target="_blank" rel="noreferrer" style={s.whatsappBtn}>
                                 Contact via WhatsApp <FaArrowRight />
                             </a>
-                            <button style={styles.primaryBtn} onClick={() => setShowModal(false)}>Close View</button>
+                            <button style={s.primaryBtn} onClick={() => setShowModal(false)}>Close View</button>
                         </div>
                     </div>
                 </div>
             )}
+<<<<<<< HEAD
         </div>
     </>
   );
@@ -299,69 +400,122 @@ const styles = {
         padding: "30px",
         minHeight: "100vh",
         color: "#4c3324", // Brand Brown
+=======
+        </>
+    );
+};
+
+const s = {
+    page: {
+        display: "flex",
+        minHeight: "100vh",
+        background: "linear-gradient(135deg, #f9f6f1 0%, #ffffff 60%, #f4f1eb 100%)",
+        fontFamily: "'DM Sans', sans-serif",
+    },
+    accentBar: {
+        width: 5,
+        background: "linear-gradient(180deg, #627b68 0%, #819b8b 100%)",
+        flexShrink: 0,
+    },
+    container: {
+        flex: 1,
+        padding: "48px 52px",
+        maxWidth: 1400,
+        color: "#4c3324",
+
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     header: {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "flex-end",
-        marginBottom: "32px",
+        marginBottom: 32,
+        flexWrap: "wrap",
+        gap: 16,
+    },
+    breadcrumb: {
+        fontSize: 12,
+        color: "#B2846B",
+        letterSpacing: "0.08em",
+        textTransform: "uppercase",
+        fontWeight: 600,
+        margin: 0,
     },
     title: {
+<<<<<<< HEAD
         fontSize: "28px",
         fontWeight: "800",
         margin: 0,
         color: "#4c3324",
+=======
+        fontSize: 34,
+        fontWeight: 700,
+        margin: "6px 0 0",
+        color: "#4c3324",
+        fontFamily: "'Sora', sans-serif",
+
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         letterSpacing: "-0.5px",
     },
     subtitle: {
-        fontSize: "14px",
-        color: "#64748b",
-        marginTop: "6px",
+        fontSize: 14,
+        color: "#7a5c4a",
+        marginTop: 6,
     },
     statsRow: {
         display: "flex",
-        gap: "16px",
+        gap: 16,
     },
     statCard: {
         background: "#fff",
         padding: "16px 20px",
-        borderRadius: "16px",
-        boxShadow: "0 4px 6px -1px rgba(0,0,0,0.05)",
+        borderRadius: 16,
+        border: "1px solid #e8ddd5",
+        boxShadow: "0 4px 10px rgba(76,51,36,0.06)",
         display: "flex",
         alignItems: "center",
-        gap: "15px",
-        minWidth: "200px",
+        gap: 15,
+        minWidth: 200,
     },
     statIcon: {
-        width: "48px",
-        height: "48px",
-        borderRadius: "12px",
+        width: 48,
+        height: 48,
+        borderRadius: 12,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: "20px",
+        fontSize: 20,
     },
     statLabel: {
-        fontSize: "12px",
-        color: "#64748b",
+        fontSize: 12,
+        color: "#7a5c4a",
         margin: 0,
-        fontWeight: "600",
+        fontWeight: 600,
         textTransform: "uppercase",
         letterSpacing: "0.5px",
     },
     statValue: {
+<<<<<<< HEAD
         fontSize: "24px",
         fontWeight: "800",
         margin: 0,
         color: "#4c3324",
         letterSpacing: "-0.5px",
+=======
+        fontSize: 18,
+        fontWeight: 700,
+        margin: 0,
+        color: "#4c3324",
+        fontFamily: "'Sora', sans-serif",
+
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     tableCard: {
         background: "#fff",
-        borderRadius: "24px",
-        boxShadow: "0 10px 15px -3px rgba(0,0,0,0.1)",
+        borderRadius: 20,
+        border: "1px solid #e8ddd5",
+        boxShadow: "0 4px 16px rgba(76,51,36,0.06)",
         overflow: "hidden",
-        border: "1px solid #f1f5f9",
     },
     table: {
         width: "100%",
@@ -369,6 +523,7 @@ const styles = {
         textAlign: "left",
     },
     th: {
+<<<<<<< HEAD
         padding: "20px",
         background: "rgba(178, 132, 107, 0.05)",
         fontSize: "13px",
@@ -377,35 +532,46 @@ const styles = {
         textTransform: "uppercase",
         letterSpacing: "1px",
         borderBottom: "1px solid rgba(228, 203, 182, 0.3)",
+=======
+        padding: "18px 20px",
+        background: "rgba(178, 132, 107, 0.05)",
+        fontSize: 12,
+        fontWeight: 700,
+        color: "#4c3324",
+        textTransform: "uppercase",
+        letterSpacing: "0.05em",
+        borderBottom: "1px solid rgba(228, 203, 182, 0.3)",
+        fontFamily: "'DM Sans', sans-serif",
+
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     tr: {
-        borderBottom: "1px solid #f1f5f9",
-        transition: "all 0.2s ease",
+        borderBottom: "1px solid #f0e8e0",
+        transition: "background 0.18s",
         cursor: "default",
-        '&:hover': {
-            background: '#f8fafc'
-        }
     },
     td: {
-        padding: "18px 20px",
+        padding: "16px 20px",
         verticalAlign: "middle",
+        fontFamily: "'DM Sans', sans-serif",
     },
     propInfo: {
         display: "flex",
         alignItems: "center",
-        gap: "15px",
+        gap: 14,
     },
     propPreview: {
-        width: "50px",
-        height: "50px",
-        borderRadius: "14px",
-        background: "#f1f5f9",
+        width: 50,
+        height: 50,
+        borderRadius: 12,
+        background: "#f0e8e0",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        color: "#94a3b8",
-        fontSize: "20px",
+        color: "#B2846B",
+        fontSize: 20,
         overflow: "hidden",
+        flexShrink: 0,
     },
     tinyImg: {
         width: "100%",
@@ -413,136 +579,145 @@ const styles = {
         objectFit: "cover",
     },
     propTitle: {
-        fontSize: "15px",
-        fontWeight: "700",
+        fontSize: 15,
+        fontWeight: 700,
         margin: 0,
-        color: "#0f172a",
+        color: "#4C3324",
+        fontFamily: "'Sora', sans-serif",
     },
     statusBadge: {
-        fontSize: "10px",
-        fontWeight: "800",
-        background: "#dcfce7",
-        color: "#166534",
+        fontSize: 10,
+        fontWeight: 800,
+        background: "#dde8e0",
+        color: "#3a5c42",
         padding: "2px 8px",
-        borderRadius: "99px",
+        borderRadius: 99,
         textTransform: "uppercase",
-        marginTop: "4px",
+        marginTop: 4,
         display: "inline-block",
+        letterSpacing: "0.04em",
     },
     priceText: {
+<<<<<<< HEAD
         fontSize: "16px",
         fontWeight: "800",
         color: "#b2846b", // Brand Tan
+=======
+        fontSize: 16,
+        fontWeight: 800,
+        color: "#b2846b", // Brand Tan
+
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         margin: 0,
+        fontFamily: "'Sora', sans-serif",
     },
     locationInfo: {
         display: "flex",
         alignItems: "center",
-        gap: "8px",
-        fontSize: "14px",
-        color: "#475569",
+        gap: 8,
+        fontSize: 14,
+        color: "#5a3e30",
     },
     sellerInfo: {
         display: "flex",
         flexDirection: "column",
-        gap: "4px",
+        gap: 4,
     },
     sellerName: {
-        fontSize: "14px",
-        fontWeight: "600",
-        color: "#1e293b",
+        fontSize: 14,
+        fontWeight: 600,
+        color: "#4C3324",
         margin: 0,
     },
     sellerPhone: {
-        fontSize: "12px",
-        color: "#64748b",
+        fontSize: 12,
+        color: "#7a5c4a",
         margin: 0,
     },
     typeInfo: {
         display: "flex",
-        gap: "6px",
+        gap: 6,
+        flexWrap: "wrap",
     },
     tag: {
-        fontSize: "11px",
-        fontWeight: "600",
-        background: "#f1f5f9",
-        color: "#475569",
+        fontSize: 11,
+        fontWeight: 600,
+        background: "#e8ddd5",
+        color: "#5a3e30",
         padding: "4px 10px",
-        borderRadius: "8px",
+        borderRadius: 8,
     },
     dateText: {
-        fontSize: "13px",
-        color: "#64748b",
+        fontSize: 13,
+        color: "#7a5c4a",
         margin: 0,
         display: "flex",
         alignItems: "center",
-        gap: "6px",
+        gap: 6,
     },
     actionButtons: {
         display: "flex",
-        gap: "10px",
+        gap: 10,
     },
     viewBtn: {
-        width: "36px",
-        height: "36px",
-        borderRadius: "10px",
+        width: 36,
+        height: 36,
+        borderRadius: 10,
         border: "none",
         background: "rgba(98, 123, 104, 0.1)",
         color: "#627b68",
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         cursor: "pointer",
-        transition: "all 0.2s",
+        transition: "all 0.18s",
     },
     delBtn: {
-        width: "36px",
-        height: "36px",
-        borderRadius: "10px",
-        border: "none",
-        background: "#fff1f2",
-        color: "#e11d48",
+        width: 36,
+        height: 36,
+        borderRadius: 10,
+        border: "1.5px solid #b85c3a",
+        background: "#f9ede8",
+        color: "#b85c3a",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         cursor: "pointer",
-        transition: "all 0.2s",
+        transition: "all 0.18s",
     },
     emptyState: {
-        padding: "100px 30px",
+        padding: "80px 30px",
         textAlign: "center",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "15px",
-    },
-    loader: {
-        padding: "100px",
-        textAlign: "center",
-        color: "#64748b",
-        fontSize: "18px",
-        fontWeight: "600",
+        gap: 15,
     },
 
-    // Modal Styles
+    // Modal
     modalOverlay: {
         position: "fixed",
         top: 0, left: 0, right: 0, bottom: 0,
-        background: "rgba(15, 23, 42, 0.6)",
+        background: "rgba(76, 51, 36, 0.5)",
         backdropFilter: "blur(8px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         zIndex: 1000,
-        padding: "20px",
+        padding: 20,
     },
     modalContent: {
         background: "#fff",
         width: "100%",
-        maxWidth: "900px",
+        maxWidth: 900,
         maxHeight: "90vh",
-        borderRadius: "32px",
-        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        borderRadius: 28,
+        border: "1px solid #e8ddd5",
+        boxShadow: "0 25px 50px rgba(76,51,36,0.18)",
         position: "relative",
         display: "flex",
         flexDirection: "column",
@@ -550,132 +725,160 @@ const styles = {
     },
     closeBtn: {
         position: "absolute",
-        top: "30px",
-        right: "30px",
-        width: "40px",
-        height: "40px",
+        top: 24,
+        right: 24,
+        width: 40,
+        height: 40,
         borderRadius: "50%",
-        border: "none",
-        background: "#f1f5f9",
-        color: "#64748b",
+        border: "1.5px solid #e8ddd5",
+        background: "#faf6f3",
+        color: "#7a5c4a",
         cursor: "pointer",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: "18px",
+        fontSize: 18,
+        zIndex: 10,
     },
     modalHeader: {
-        marginBottom: "30px",
-        borderBottom: "1px solid #f1f5f9",
-        paddingBottom: "25px",
+        marginBottom: 28,
+        borderBottom: "1px solid #e8ddd5",
+        paddingBottom: 24,
     },
     modalTitle: {
+<<<<<<< HEAD
         fontSize: "28px",
         fontWeight: "800",
         margin: "0 0 10px 0",
         color: "#4c3324",
+=======
+        fontSize: 26,
+        fontWeight: 700,
+        margin: "0 0 8px 0",
+        color: "#4c3324",
+        fontFamily: "'Sora', sans-serif",
+
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
     },
     modalBadge: {
         display: "inline-block",
         padding: "8px 20px",
         background: "#b2846b",
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         color: "#fff",
-        borderRadius: "14px",
-        fontSize: "20px",
-        fontWeight: "800",
+        borderRadius: 14,
+        fontSize: 18,
+        fontWeight: 800,
+        fontFamily: "'Sora', sans-serif",
     },
     modalGrid: {
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-        gap: "30px",
+        gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+        gap: 24,
     },
+    modalCol: {},
     sectionHeading: {
-        fontSize: "14px",
-        fontWeight: "800",
+        fontSize: 12,
+        fontWeight: 800,
         textTransform: "uppercase",
-        letterSpacing: "1px",
-        color: "#94a3b8",
-        marginBottom: "15px",
+        letterSpacing: "0.08em",
+        color: "#B2846B",
+        marginBottom: 14,
+        margin: "0 0 14px",
     },
     detailRow: {
         display: "flex",
         justifyContent: "space-between",
-        padding: "10px 0",
-        fontSize: "14px",
-        borderBottom: "1px solid #f8fafc",
+        padding: "9px 0",
+        fontSize: 14,
+        borderBottom: "1px solid #f0e8e0",
+        color: "#4C3324",
     },
     descriptionText: {
-        fontSize: "15px",
-        lineHeight: "1.6",
-        color: "#475569",
-        background: "#f8fafc",
-        padding: "20px",
-        borderRadius: "16px",
+        fontSize: 15,
+        lineHeight: 1.6,
+        color: "#5a3e30",
+        background: "#faf6f3",
+        padding: 20,
+        borderRadius: 14,
+        margin: 0,
     },
     amenitiesGrid: {
         display: "flex",
         flexWrap: "wrap",
-        gap: "10px",
+        gap: 10,
     },
     amenityItem: {
-        background: "#f1f5f9",
-        padding: "8px 16px",
-        borderRadius: "10px",
-        fontSize: "13px",
-        fontWeight: "600",
-        color: "#475569",
+        background: "#e8ddd5",
+        padding: "7px 14px",
+        borderRadius: 10,
+        fontSize: 13,
+        fontWeight: 600,
+        color: "#4C3324",
         display: "flex",
         alignItems: "center",
-        gap: "8px",
+        gap: 8,
     },
     gallery: {
         display: "flex",
-        gap: "10px",
+        gap: 10,
         overflowX: "auto",
-        paddingBottom: "10px",
+        paddingBottom: 10,
     },
     galleryImg: {
-        width: "200px",
-        height: "150px",
+        width: 200,
+        height: 150,
         objectFit: "cover",
-        borderRadius: "16px",
+        borderRadius: 14,
+        flexShrink: 0,
     },
     modalBody: {
-        padding: "0 40px 40px 40px",
+        padding: "32px 40px 40px",
         overflowY: "auto",
         flex: 1,
     },
     modalFooter: {
-        background: "#fff",
-        padding: "20px 40px",
+        background: "#faf6f3",
+        padding: "18px 40px",
         display: "flex",
-        gap: "15px",
-        borderTop: "1px solid #f1f5f9",
+        gap: 14,
+        borderTop: "1px solid #e8ddd5",
     },
     primaryBtn: {
-        padding: "14px 28px",
-        borderRadius: "16px",
-        border: "1px solid #e2e8f0",
+        padding: "12px 24px",
+        borderRadius: 12,
+        border: "1.5px solid #d9c8bb",
         background: "#fff",
-        color: "#475569",
-        fontWeight: "700",
+        color: "#7a5c4a",
+        fontWeight: 600,
         cursor: "pointer",
+        fontFamily: "'DM Sans', sans-serif",
+        fontSize: 14,
     },
     whatsappBtn: {
         flex: 1,
-        padding: "14px 28px",
-        borderRadius: "16px",
+        padding: "12px 24px",
+        borderRadius: 12,
         border: "none",
         background: "#627b68",
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         color: "#fff",
-        fontWeight: "700",
+        fontWeight: 700,
         cursor: "pointer",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: "10px",
+        gap: 10,
         textDecoration: "none",
-    }
+        fontFamily: "'DM Sans', sans-serif",
+        fontSize: 14,
+    },
 };
 
 export default AdminSalesList;

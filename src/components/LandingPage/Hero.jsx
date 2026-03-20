@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 // // // import React, { useEffect, useState, useRef } from "react";
 // // // import { Link } from "react-router-dom";
@@ -1708,6 +1709,8 @@
 //     </>
 //   );
 // }
+=======
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -2112,7 +2115,7 @@ export default function Hero() {
   const slide = SLIDES[index];
 
   return (
-    <>
+    <div className="lh-hero-wrapper">
       <style>{css}</style>
       <section className="lh-hero">
 
@@ -2198,6 +2201,6 @@ export default function Hero() {
         <div className="lh-br-tag">Welcome To The Future Property</div>
 
       </section>
-    </>
+    </div>
   );
 }

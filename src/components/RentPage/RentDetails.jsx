@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useState, useEffect } from "react";
 // import { useParams, useNavigate } from "react-router-dom";
 // import axios from "axios";
@@ -479,6 +480,8 @@
 // };
 
 
+=======
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -498,7 +501,10 @@ export default function RentDetails() {
   const [currentImage, setCurrentImage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [showGallery, setShowGallery] = useState(false);
+<<<<<<< HEAD
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+=======
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -559,6 +565,7 @@ export default function RentDetails() {
           height: 480px;
           margin-bottom: 32px;
         }
+<<<<<<< HEAD
 
         .main-img {
           width: 100%;
@@ -704,6 +711,196 @@ export default function RentDetails() {
         <div style={styles.mainCol}>
 
           {/* BENTO GALLERY */}
+=======
+
+        .main-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 24px;
+          filter: sepia(0.08);
+        }
+
+        .side-imgs {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .side-img-wrap {
+          position: relative;
+          height: calc(240px - 8px);
+          border-radius: 20px;
+          overflow: hidden;
+        }
+
+        .side-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: sepia(0.08);
+        }
+
+        .similar-card-hover {
+          transition: transform 0.2s, box-shadow 0.2s;
+          cursor: pointer;
+        }
+        .similar-card-hover:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(76,51,36,0.1) !important;
+        }
+
+        .img-overlay {
+          position: absolute;
+          inset: 0;
+          background: rgba(76,51,36,0.55);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #F5EDE6;
+          font-weight: 600;
+          backdrop-filter: blur(4px);
+          cursor: pointer;
+        }
+
+        .facility-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+          margin-top: 24px;
+        }
+
+        .sidebar-facility-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+        }
+
+        .facility-item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: #627B68;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .facility-icon { color: #B2846B; font-size: 18px; }
+
+        .details-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+          margin-top: 24px;
+        }
+
+        .detail-item { display: flex; align-items: center; gap: 16px; }
+
+        .detail-icon-wrap {
+          width: 44px;
+          height: 44px;
+          border-radius: 12px;
+          background-color: #F5EDE6;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #B2846B;
+          font-size: 18px;
+          flex-shrink: 0;
+        }
+
+        .detail-info { display: flex; flex-direction: column; }
+
+        .detail-label {
+          font-size: 11px;
+          font-weight: 700;
+          color: #819B8B;
+          text-transform: uppercase;
+          letter-spacing: 0.02em;
+        }
+
+        .detail-value { font-size: 15px; font-weight: 700; color: #4C3324; }
+
+        .icon-btn {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 1.5px solid #E4CBB6;
+          background: #FDFAF8;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #B2846B;
+          cursor: pointer;
+          transition: border-color 0.2s;
+        }
+        .icon-btn:hover { border-color: #B2846B; }
+
+        @media (max-width: 1100px) {
+          .dash-grid { grid-template-columns: 1fr !important; }
+          .bento-gallery { height: 350px; }
+          .facility-grid { grid-template-columns: repeat(2, 1fr); }
+          .details-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Gallery Modal Styles */
+        .gallery-modal {
+          position: fixed;
+          inset: 0;
+          background: rgba(76,51,36,0.98);
+          z-index: 9999;
+          display: flex;
+          flex-direction: column;
+          padding: 40px;
+        }
+        .gallery-close {
+          position: absolute;
+          top: 30px;
+          right: 30px;
+          background: none;
+          border: none;
+          color: #F5EDE6;
+          font-size: 32px;
+          cursor: pointer;
+          zIndex: 10;
+        }
+        .gallery-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 20px;
+          overflow-y: auto;
+          padding-top: 60px;
+        }
+        .gallery-item {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          border-radius: 12px;
+          border: 1px solid rgba(228,203,182,0.1);
+        }
+      `}</style>
+
+      {showGallery && (
+        <div className="gallery-modal">
+          <button className="gallery-close" onClick={() => setShowGallery(false)}><FaTimes /></button>
+          <div className="gallery-grid">
+            {images.map((img, i) => (
+              <img key={i} src={getImageUrl(img)} alt={`Gallery ${i}`} className="gallery-item" />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* HEADER NAV */}
+      <div style={styles.navRow}>
+        <button style={styles.backBtn} onClick={() => navigate("/rentpage")}>
+          <FaArrowLeft /> Back to Rentals
+        </button>
+      </div>
+
+      <div style={styles.contentGrid} className="dash-grid">
+        <div style={styles.mainCol}>
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           <div className="bento-gallery" onClick={() => setShowGallery(true)} style={{ cursor: "pointer" }}>
             <img src={getImageUrl(images[currentImage] || images[0])} alt="Main" className="main-img" />
             <div className="side-imgs">
@@ -722,13 +919,21 @@ export default function RentDetails() {
             </div>
           </div>
 
+<<<<<<< HEAD
           {/* TITLE & DESC CARD */}
+=======
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           <div style={{ ...styles.whiteCard, marginBottom: "24px" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
               <h1 style={styles.titleH1}>{property.title}</h1>
               <div style={{ display: "flex", gap: "8px" }}>
+<<<<<<< HEAD
                 <button className="icon-btn"><FaRulerCombined /></button>
                 <button className="icon-btn"><FaStar /></button>
+=======
+                <button className="icon-btn" title="Area"><FaRulerCombined /></button>
+                <button className="icon-btn" title="Add to Favorites"><FaStar /></button>
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 <button className="icon-btn">···</button>
               </div>
             </div>
@@ -736,7 +941,10 @@ export default function RentDetails() {
             <p style={styles.descText}>{property.description}</p>
           </div>
 
+<<<<<<< HEAD
           {/* PROPERTY DETAILS CARD */}
+=======
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           <div style={{ ...styles.whiteCard, marginBottom: "24px" }}>
             <h3 style={styles.sectionH3}>Property Details</h3>
             <div className="details-grid">
@@ -746,7 +954,11 @@ export default function RentDetails() {
                 { icon: <FaRegCompass />, label: "FACING", val: property.facing || "West" },
                 { icon: <FaParking />, label: "PARKING", val: property.parking || "1 covered" },
                 { icon: <FaCalendarAlt />, label: "DURATION", val: property.rentDuration || "month" },
+<<<<<<< HEAD
                 { icon: <FaCalendarCheck />, label: "AVAILABLE FROM", val: "15 Feb 2026" },
+=======
+                { icon: <FaCalendarCheck />, label: "AVAILABLE FROM", val: property.availableFrom || "Immediately" },
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 { icon: <FaLayerGroup />, label: "FLOOR", val: property.floor || "Ground" },
                 { icon: <FaLayerGroup />, label: "BALCONIES", val: property.balconies || "1" },
               ].map((d, i) => (
@@ -762,6 +974,7 @@ export default function RentDetails() {
           </div>
         </div>
 
+<<<<<<< HEAD
         {/* SIDEBAR */}
         <div style={styles.sideCol}>
 
@@ -790,11 +1003,35 @@ export default function RentDetails() {
               style={styles.enquireBtn}
               onClick={() => navigate(`/book-rental-appointment/${property._id}`)}
             >
+=======
+        <div style={styles.sideCol}>
+          <div style={styles.whiteCardSidebar}>
+            <h4 style={styles.widgetH4}>Property Facilities</h4>
+            <div className="sidebar-facility-grid">
+              <div className="facility-item"><FaBed className="facility-icon" /> {property.beds || 4} Beds</div>
+              <div className="facility-item"><FaBath className="facility-icon" /> {property.bathrooms || 3} Baths</div>
+              <div className="facility-item"><FaCheckCircle className="facility-icon" /> Smart Home</div>
+              <div className="facility-item"><FaHistory className="facility-icon" /> Gym</div>
+              <div className="facility-item"><FaCheckCircle className="facility-icon" /> Parking</div>
+              <div className="facility-item"><FaRulerCombined className="facility-icon" /> {property.area || 1400} sqft</div>
+              <div className="facility-item"><FaHistory className="facility-icon" /> Pool</div>
+              <div className="facility-item"><FaTree className="facility-icon" /> Garden</div>
+            </div>
+          </div>
+
+          <div style={styles.whiteCardSidebar}>
+            <span style={styles.widgetSubLabel}>MONTHLY RENT</span>
+            <div style={styles.priceValue}>{property.displayPrice || `₹${property.price?.toLocaleString()}`}</div>
+            <p style={styles.perMonthText}>Per month</p>
+            <div style={{ height: "1px", background: "#E4CBB6", margin: "20px 0" }} />
+            <button style={styles.enquireBtn} onClick={() => navigate(`/book-rental-appointment/${property._id}`)}>
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
               Enquire / Rent Now
             </button>
           </div>
 
           <div style={styles.whiteCardSidebar}>
+<<<<<<< HEAD
             <h4 style={styles.widgetH4}>Owner Details</h4>
             <div style={styles.agentRow}>
               <div style={styles.avatarCircle}>
@@ -837,6 +1074,52 @@ export default function RentDetails() {
             >
               View Agent Profile
             </button>
+=======
+            <h4 style={styles.widgetH4}>Agent Details</h4>
+            <div style={styles.agentRow}>
+              <div style={styles.avatarCircle}>
+                <img src={property.agentPhoto || "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200"} alt="Agent" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} />
+              </div>
+              <div style={styles.agentMeta}>
+                <strong style={styles.agentName}>{property.agentName || "Rohit Sharma"}</strong>
+                <span style={styles.agentRole}>Senior Specialist</span>
+                <div style={styles.ratingBox}><FaStar color="#B2846B" size={12} /> 4.9 (24 reviews)</div>
+                <div style={styles.contactItem}><FaPhoneAlt size={12} /> {property.agentPhone || "+91 98765 43210"}</div>
+                <div style={styles.contactItem}><FaEnvelope size={12} /> {property.agentEmail || "agent@propzo.com"}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style={styles.similarSection}>
+        <div style={styles.sectionHeaderLine}>
+          <h2 style={styles.sectionH2}>Similar Properties</h2>
+          <button style={styles.viewAllText} onClick={() => navigate("/rentpage")}>View all →</button>
+        </div>
+        <div style={styles.similarGrid}>
+          {similarProperties.map((p) => (
+            <div key={p._id} style={styles.smallCard} onClick={() => navigate(`/rent/${p._id}`)} className="similar-card-hover">
+              <div style={styles.smallImgWrap}>
+                <img src={getImageUrl(p.image || (p.images && p.images[0])) || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=400"} alt={p.title} style={styles.smallImg} />
+              </div>
+              <div style={styles.smallContent}>
+                <h4 style={styles.smallTitle}>{p.title}</h4>
+                <div style={styles.smallPrice}>{p.displayPrice || `₹${p.price?.toLocaleString()}`}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={styles.darkCtaSection}>
+        <div style={styles.ctaContent}>
+          <h2 style={styles.ctaTitle}>Start Your Next Chapter</h2>
+          <p style={styles.ctaSub}>Curated luxury rentals for those who appreciate the finer things.</p>
+          <div style={styles.ctaBtns}>
+            <button style={styles.ctaPrimary} onClick={() => navigate("/contact")}>Speak with Specialist</button>
+            <button style={styles.ctaSecondary} onClick={() => navigate("/agent")}>Browse Agents</button>
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
           </div>
         </div>
       </div>
@@ -948,6 +1231,7 @@ export default function RentDetails() {
 }
 
 const styles = {
+<<<<<<< HEAD
   dashboardContainer: { backgroundColor: "#F5EDE6", minHeight: "100vh", padding: "120px 60px 40px" },
 
   loader: { height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "16px", background: "#F5EDE6" },
@@ -1035,4 +1319,49 @@ const styles = {
   ctaBtns: { display: "flex", gap: "16px", justifyContent: "center" },
   ctaPrimary: { backgroundColor: "#FDFAF8", color: "#4C3324", border: "none", padding: "16px 32px", borderRadius: "16px", fontWeight: "700", fontSize: "16px", cursor: "pointer", fontFamily: "'Plus Jakarta Sans', sans-serif" },
   ctaSecondary: { backgroundColor: "transparent", color: "#E4CBB6", border: "1px solid rgba(228,203,182,0.4)", padding: "16px 32px", borderRadius: "16px", fontWeight: "700", fontSize: "16px", cursor: "pointer", fontFamily: "'Plus Jakarta Sans', sans-serif" },
+=======
+  dashboardContainer: { backgroundColor: "#F5EDE6", minHeight: "100vh", padding: "40px 6% 80px" },
+  navRow: { marginBottom: "24px" },
+  backBtn: { background: "none", border: "none", color: "#B2846B", fontWeight: "700", cursor: "pointer", display: "flex", alignItems: "center", gap: "8px", fontSize: "15px" },
+  contentGrid: { display: "grid", gridTemplateColumns: "1fr 320px", gap: "32px" },
+  mainCol: {},
+  whiteCard: { backgroundColor: "#FDFAF8", padding: "32px", borderRadius: "32px", border: "1px solid #E4CBB6", boxShadow: "0 4px 20px rgba(76,51,36,0.02)" },
+  titleH1: { fontSize: "28px", fontWeight: "800", color: "#4C3324", margin: 0 },
+  sectionH3: { fontSize: "18px", fontWeight: "700", color: "#4C3324", marginBottom: "16px" },
+  descText: { color: "#627B68", lineHeight: "1.7", fontSize: "15px" },
+  sideCol: { display: "flex", flexDirection: "column", gap: "20px" },
+  whiteCardSidebar: { backgroundColor: "#FDFAF8", padding: "24px", borderRadius: "24px", border: "1px solid #E4CBB6", boxShadow: "0 8px 30px rgba(76,51,36,0.04)" },
+  widgetSubLabel: { fontSize: "11px", fontWeight: "800", color: "#819B8B", letterSpacing: "0.08em" },
+  priceValue: { fontSize: "32px", fontWeight: "900", color: "#B2846B", margin: "8px 0 2px" },
+  perMonthText: { fontSize: "14px", color: "#819B8B", margin: 0 },
+  enquireBtn: { width: "100%", backgroundColor: "#4C3324", color: "#F5EDE6", border: "none", padding: "18px", borderRadius: "16px", fontSize: "16px", fontWeight: "700", cursor: "pointer", transition: "transform 0.2s" },
+  widgetH4: { fontSize: "16px", fontWeight: "800", color: "#4C3324", marginBottom: "16px" },
+  agentRow: { display: "flex", gap: "16px" },
+  avatarCircle: { width: "56px", height: "56px", borderRadius: "50%", backgroundColor: "#F5EDE6", overflow: "hidden" },
+  agentMeta: { flex: 1, display: "flex", flexDirection: "column", gap: "3px" },
+  agentName: { fontSize: "15px", color: "#4C3324", fontWeight: "700" },
+  agentRole: { fontSize: "12px", color: "#819B8B", fontWeight: "500" },
+  ratingBox: { display: "flex", alignItems: "center", gap: "4px", fontSize: "12px", fontWeight: "700", color: "#B2846B", margin: "2px 0" },
+  contactItem: { fontSize: "12px", color: "#627B68", display: "flex", alignItems: "center", gap: "8px", marginTop: "2px" },
+  loader: { height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px" },
+  spinner: { width: "40px", height: "40px", border: "4px solid #E4CBB6", borderTop: "4px solid #B2846B", borderRadius: "50%", animation: "spin 1s linear infinite" },
+  similarSection: { marginTop: "80px" },
+  sectionHeaderLine: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "28px" },
+  sectionH2: { fontSize: "24px", fontWeight: "800", color: "#4C3324", margin: 0 },
+  viewAllText: { background: "none", border: "none", color: "#B2846B", fontWeight: "700", cursor: "pointer", fontSize: "15px" },
+  similarGrid: { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px" },
+  smallCard: { backgroundColor: "#FDFAF8", borderRadius: "24px", overflow: "hidden", border: "1px solid #E4CBB6" },
+  smallImgWrap: { height: "160px" },
+  smallImg: { width: "100%", height: "100%", objectFit: "cover", filter: "sepia(0.1)" },
+  smallContent: { padding: "16px" },
+  smallTitle: { fontSize: "15px", fontWeight: "700", color: "#4C3324", margin: "0 0 4px 0" },
+  smallPrice: { fontSize: "16px", fontWeight: "800", color: "#B2846B" },
+  darkCtaSection: { marginTop: "100px", background: "linear-gradient(135deg, #4C3324 0%, #352419 100%)", padding: "80px 40px", borderRadius: "48px", color: "#F5EDE6", textAlign: "center" },
+  ctaContent: { maxWidth: "600px", margin: "0 auto" },
+  ctaTitle: { fontSize: "36px", fontWeight: "800", marginBottom: "16px", letterSpacing: "-0.02em" },
+  ctaSub: { fontSize: "18px", opacity: 0.8, marginBottom: "32px", color: "#E4CBB6" },
+  ctaBtns: { display: "flex", gap: "16px", justifyContent: "center" },
+  ctaPrimary: { backgroundColor: "#F5EDE6", color: "#4C3324", border: "none", padding: "16px 32px", borderRadius: "16px", fontWeight: "700", fontSize: "16px", cursor: "pointer" },
+  ctaSecondary: { backgroundColor: "transparent", color: "#F5EDE6", border: "1px solid rgba(245,237,230,0.3)", padding: "16px 32px", borderRadius: "16px", fontWeight: "700", fontSize: "16px", cursor: "pointer" }
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 };

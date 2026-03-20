@@ -74,6 +74,7 @@ export default function RentalBookingsList() {
                     .rb-header { margin-bottom: 20px !important; }
                     .rb-title { font-size: 22px !important; }
                 }
+<<<<<<< HEAD
                 .view-details-btn:hover {
                     background-color: #3b82f6 !important;
                     color: white !important;
@@ -153,6 +154,8 @@ export default function RentalBookingsList() {
                     }
                 }
                 .print-header-only { display: none; }
+=======
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
             `}</style>
             <div style={styles.container} className="rb-container">
                 <ToastContainer position="top-right" autoClose={3000} />

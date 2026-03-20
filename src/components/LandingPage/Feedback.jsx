@@ -792,9 +792,15 @@ export default function FeedbackSection() {
           <div style={{ display: "flex", gap: "15px", flexWrap: "wrap" }}>
             <button className="view-more-btn" onClick={() => setShowForm(true)}>Add your feedback</button>
             {allReviews.length > 3 && (
+<<<<<<< HEAD
               <button
                 className="view-more-btn"
                 style={{ background: "transparent", color: "#4C3324", border: "1px solid #B2846B" }}
+=======
+              <button 
+                className="view-more-btn" 
+                style={{ background: "transparent", color: "#4C3324", border: "1px solid #B2846B" }} 
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 onClick={handleViewMore}
               >
                 View More
@@ -808,13 +814,24 @@ export default function FeedbackSection() {
             const isMiddle = index === 1;
             return (
               <div key={index} className={`review-card ${isMiddle ? 'offset' : ''}`}>
+<<<<<<< HEAD
                 <div className="avatar-container" style={{ backgroundColor: getAvatarColor(index) }}>
+=======
+                <div
+                  className="avatar-container"
+                  style={{ backgroundColor: getAvatarColor(index) }}
+                >
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                   {rev.name ? rev.name.charAt(0).toUpperCase() : "U"}
                 </div>
                 <div className="review-content">
                   <div className="review-name">{rev.name}</div>
                   <div className="review-text">"{rev.feedback}"</div>
+<<<<<<< HEAD
                   <div className={`quote-icon ${isMiddle ? 'purple' : ''}`}>"</div>
+=======
+                  <div className={`quote-icon ${isMiddle ? 'purple' : ''}`}>”</div>
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 </div>
               </div>
             );
@@ -830,7 +847,11 @@ export default function FeedbackSection() {
             <button className="close-modal" onClick={() => setShowForm(false)}>✕</button>
             {submitted ? (
               <div style={{ textAlign: "center", padding: "40px 0" }}>
+<<<<<<< HEAD
                 <div style={{ fontSize: '40px', margin: '0 auto 10px' }}>🌿</div>
+=======
+                <div style={{ fontSize: '40px', margin: '0 auto 10px' }}>💙</div>
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                 <h3 style={{ color: '#627B68', fontFamily: 'Outfit' }}>Feedback Received!</h3>
                 <p style={{ color: '#7a5c4a' }}>Thank you for helping us grow.</p>
               </div>
@@ -854,7 +875,11 @@ export default function FeedbackSection() {
                       <span
                         key={n}
                         className="star-pick"
+<<<<<<< HEAD
                         style={{ color: (hoverRating || formData.rating) >= n ? "#B2846B" : "rgba(178,132,107,0.25)" }}
+=======
+                        style={{ color: (hoverRating || formData.rating) >= n ? "#B2846B" : "#e2e8f0" }}
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
                         onMouseEnter={() => setHoverRating(n)}
                         onMouseLeave={() => setHoverRating(0)}
                         onClick={() => setFormData({ ...formData, rating: n })}

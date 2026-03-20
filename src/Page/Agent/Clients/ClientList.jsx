@@ -112,6 +112,18 @@ const ClientList = () => {
         }
         @media (max-width: 768px) {
           .cl-title { font-size: 24px !important; }
+<<<<<<< HEAD
+=======
+        }
+      `}</style>
+
+      <style>{`
+        @media (max-width: 991px) {
+          .cl-container { padding: 30px 20px !important; margin: 20px auto !important; }
+        }
+        @media (max-width: 768px) {
+          .cl-title { font-size: 24px !important; }
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
         }
       `}</style>
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import { useState } from "react";
 // import { Link } from "react-router-dom";
 // import axios from "axios";
@@ -66,13 +67,12 @@
 //           --text-gray: #6b7280;
 //           --text-dark: #1f2937;
 //         }
+=======
 
-//         .container {
-//           width: 90%;
-//           max-width: 1200px;
-//           margin: auto;
-//         }
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 
+
+<<<<<<< HEAD
 //         /* =====================
 //            HERO SECTION
 //         ===================== */
@@ -584,6 +584,8 @@
 
 
 
+=======
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -620,6 +622,12 @@ const Contact = () => {
       setSuccess("Message sent successfully ✅");
       setFormData({ name: "", email: "", message: "" });
       setLoading(false);
+<<<<<<< HEAD
+=======
+      setSuccess("Message sent successfully ✅");
+      setFormData({ name: "", email: "", message: "" });
+      setLoading(false);
+>>>>>>> f4bf0bf0dc89ea6ef78b3b4a28f2cf67f261a610
       
       setTimeout(() => {
         setSuccess("");
